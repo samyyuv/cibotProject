@@ -10,7 +10,9 @@ class Photo extends Model
 {
     use HasFactory;
 
-    public function photo()
+    protected $guarded = [];
+
+    public function artwork()
     {
         return $this->belongsTo(Artwork::class);
     }

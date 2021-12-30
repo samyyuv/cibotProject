@@ -11,10 +11,7 @@ class Type extends Model
 {
     use HasFactory;
 
-    public function type()
-    {
-        return $this->belongsTo(Collection::class);
-    }
+    protected $guarded = [];
 
     public function artworks()
     {

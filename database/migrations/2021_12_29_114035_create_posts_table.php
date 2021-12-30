@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArtworksTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateArtworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('artworks', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('size');
-            $table->date('date');
             $table->longText('description');
-            $table->timestamps();            
-            $table->foreignId('photos_id')->constrained();
+            $table->boolean('active')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -31,6 +29,6 @@ class CreateArtworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artworks');
+        Schema::dropIfExists('posts');
     }
 }

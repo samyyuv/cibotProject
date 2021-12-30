@@ -13,19 +13,21 @@ class Artwork extends Model
 {
     use HasFactory;
 
-    public function artworkPost()
+    protected $guarded = [];
+
+    public function post()
     {
         return $this->belongsTo(Post::class);
     }
 
-    public function artworkCollection()
-    {
-        return $this->belongsTo(Collection::class);
-    }
-
-    public function artworkType()
+    public function type()
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function collections()
+    {
+        return $this->hasMany(Collection::class);
     }
 
     public function photos()
