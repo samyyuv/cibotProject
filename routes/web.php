@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/actualites', [PostController::class, 'index'])
+    ->name('posts.index');
 
-require __DIR__.'/auth.php';
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('actualites', PostController::class)
+        ->except('index');
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+});
+
+Route::middleware(['admin'])->name('admin.')->prefix('admin')->group(function () {
+    Route::resource('actualites', AdminPostController::class);
+});
+
+require __DIR__ . '/auth.php';
