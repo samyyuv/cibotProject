@@ -1,10 +1,10 @@
 <?php
 
-use App\Models\Post;
 use App\Models\Type;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Collection;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateArtworksTable extends Migration
 {
@@ -22,7 +22,7 @@ class CreateArtworksTable extends Migration
             $table->dateTime('date');
             $table->longText('description');
             $table->timestamps();
-            $table->foreignIdFor(Post::class)->constrained();
+            $table->foreignIdFor(Collection::class)->constrained();
             $table->foreignIdFor(Type::class)->constrained();
         });
     }

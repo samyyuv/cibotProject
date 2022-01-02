@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Post;
-use App\Models\Type;
 use App\Models\Artwork;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,11 +15,11 @@ class Collection extends Model
 
     public function artwork()
     {
-        return $this->belongsTo(Artwork::class);
+        return $this->hasMany(Artwork::class);
     }
 
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
     }
 }

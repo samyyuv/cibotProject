@@ -14,6 +14,7 @@ class PhotoFactory extends Factory
     public function definition()
     {
         return [
+            'photo' => $this->faker->imageUrl($width = 640, $height = 480),
             'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
         ];
     }

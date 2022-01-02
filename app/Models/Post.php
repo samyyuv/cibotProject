@@ -13,13 +13,13 @@ class Post extends Model
 
     protected $guarded = [];
 
-    public function artworks()
+    public function artwork()
     {
-        return $this->hasMany(Artwork::class);
+        return $this->belongsTo(Artwork::class);
     }
 
-    public function collections()
+    public function collection()
     {
-        return $this->hasMany(Collection::class);
+        return $this->belongsTo(Collection::class);
     }
 }

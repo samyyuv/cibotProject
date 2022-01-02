@@ -14,7 +14,7 @@ class CollectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->words(3, true),
             'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
         ];
     }

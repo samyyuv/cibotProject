@@ -17,7 +17,7 @@ class Artwork extends Model
 
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
     }
 
     public function type()
@@ -27,7 +27,7 @@ class Artwork extends Model
 
     public function collections()
     {
-        return $this->hasMany(Collection::class);
+        return $this->belongsTo(Collection::class);
     }
 
     public function photos()

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Artwork;
-use App\Models\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

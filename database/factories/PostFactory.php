@@ -15,7 +15,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'description' => $this->faker->paragraphs(2, true),
+            'description' => $this->faker->paragraphs(5, true),
             'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
         ];
     }

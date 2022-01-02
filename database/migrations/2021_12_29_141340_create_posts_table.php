@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\Artwork;
+use App\Models\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhotosTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +15,13 @@ class CreatePhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('photos', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('photo');
+            $table->string('title');
+            $table->longText('description');
+            $table->boolean('active')->default(0);
             $table->foreignIdFor(Artwork::class)->constrained();
+            $table->foreignIdFor(Collection::class)->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ class CreatePhotosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photos');
+        Schema::dropIfExists('posts');
     }
 }
