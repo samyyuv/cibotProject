@@ -22,7 +22,7 @@ class CreateOeuvresTable extends Migration
             $table->string('sous_titre');
             $table->dateTime('date');
             $table->boolean('active')->default(0);
-            $table->foreignIdFor(Collection::class)->constrained();
+            $table->foreignIdFor(Collection::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(Categorie::class)->constrained();
             $table->timestamps();
         });

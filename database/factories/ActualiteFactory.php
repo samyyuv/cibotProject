@@ -16,6 +16,7 @@ class ActualiteFactory extends Factory
         return [
             'titre' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs(5, true),
+            'photo' => $this->faker->imageUrl($width = 640, $height = 480),
             'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
         ];
     }

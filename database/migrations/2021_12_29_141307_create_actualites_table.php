@@ -20,6 +20,7 @@ class CreateActualitesTable extends Migration
             $table->boolean('active')->default(0);
             $table->string('titl_seo')->nullable();
             $table->mediumText('description_seo')->nullable();
+            $table->string('photo');
             $table->timestamps();
         });
     }
