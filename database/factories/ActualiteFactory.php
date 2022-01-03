@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CollectionFactory extends Factory
+class ActualiteFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,7 @@ class CollectionFactory extends Factory
     public function definition()
     {
         return [
-            'titre' => $this->faker->words(3, true),
-            'sous_titre' => $this->faker->sentence(),
+            'titre' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs(5, true),
             'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
         ];

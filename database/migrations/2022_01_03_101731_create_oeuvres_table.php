@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Categorie;
+use App\Models\Collection;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateOeuvresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +15,15 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('oeuvres', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->longText('description');
+            $table->string('titre');
+            $table->string('sous_titre');
+            $table->dateTime('date');
             $table->boolean('active')->default(0);
+            $table->foreignIdFor(Collection::class)->constrained();
+            $table->foreignIdFor(Categorie::class)->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +35,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('oeuvres');
     }
 }

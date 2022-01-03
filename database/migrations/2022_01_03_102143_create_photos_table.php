@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Artwork;
+use App\Models\Oeuvre;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -17,7 +18,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('photo');
-            $table->foreignIdFor(Artwork::class)->constrained();
+            $table->foreignIdFor(Oeuvre::class)->constrained();
             $table->timestamps();
         });
     }
