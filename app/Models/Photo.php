@@ -12,6 +12,16 @@ class Photo extends Model
 
     protected $guarded = [];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($photo) {
+            if (request()->oeuvre && !request()->routeIs('oeuvres.*'))
+                $photo->oeuvre()->associate(Oeuvre::find(request()->oeuvre));
+        });
+    }
+
     public function oeuvre()
     {
         return $this->belongsTo(Oeuvre::class);

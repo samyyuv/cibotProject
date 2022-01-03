@@ -13,6 +13,17 @@ class Oeuvre extends Model
 
     protected $guarded = [];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($oeuvre) {
+            if (request()->categorie && !request()->routeIs('categories.*'))
+                $oeuvre->categorie()->associate(Categorie::find(request()->categorie));
+            if (request()->collection && !request()->routeIs('collection.*'))
+                $oeuvre->collection()->associate(Collection::find(request()->collection));
+        });
+    }
 
     public function collection()
     {
