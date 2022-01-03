@@ -1,0 +1,88 @@
+<x-app-layout>
+  <x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+      {{ __('Les Collections') }}
+    </h2>
+  </x-slot>
+
+
+  <!-- component -->
+  <div class="overflow-x-hidden bg-gray-100">
+    <div class="px-6 py-8">
+      <div class="container flex justify-between mx-auto">
+        <div class="w-full lg:w-8/12">
+          <div class="flex items-center justify-between">
+            <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Administration des collections</h1>
+            <div>
+              <select class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <option>Latest</option>
+                <option>Last Week</option>
+              </select>
+            </div>
+          </div>
+          @foreach ($collections as $collection)
+          <div class="mt-6">
+            <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+              <div class="flex items-center justify-between">
+                <span class="font-light text-gray-600">
+                  {{ $collection->created_at->format('d M Y')}}
+                </span>
+                <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">nombre de la collection?</a>
+              </div>
+              <div class="mt-2"><a href="#" class="text-2xl font-bold text-gray-700 hover:underline">
+                  {{ $collection->titre }}
+                </a>
+                <p class="mt-2 text-gray-600">
+                  {{ Str::limit($collection->description, 200) }}
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-4">
+                <a href="{{ route('admin.collections.show', $collection) }}" class="text-blue-500 hover:underline">Voir plus</a>
+                <a href="#" class="flex items-center">
+
+
+                </a>
+                <div class="flex items-center">
+                  <a href="{{ route('admin.collections.edit', $collection) }}" class='bg-yellow-500 px-2 py-3 rounded'>Editer</a>
+                  <a href="#" class="bg-red-500 px-2 py-3 mx-2 rounded" onclick="event.preventDefault(); document.getElementById('form-{{$collection->id}}').submit();">
+                    Supprimer
+                    <form action="{{ route('admin.collections.destroy', ['collection'=>$collection->id]) }}" method="post" id='form-{{$collection->id}}'>
+                      @csrf
+                      @method('delete')
+                    </form>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          @endforeach
+          <div class="mt-8">
+            <div class="flex">
+              <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-500 bg-white rounded-md cursor-not-allowed">
+                previous
+              </a>
+
+              <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                1
+              </a>
+
+              <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                2
+              </a>
+
+              <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                3
+              </a>
+
+              <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                Next
+              </a>
+            </div>
+          </div>
+        </div>
+        @include('partials.sidebar')
+      </div>
+    </div>
+  </div>
+</x-app-layout>
