@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Post;
-use App\Models\Artwork;
+use App\Models\Oeuvre;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,13 +12,8 @@ class Collection extends Model
 
     protected $guarded = [];
 
-    public function artwork()
+    public function oeuvres()
     {
-        return $this->hasMany(Artwork::class);
-    }
-
-    public function post()
-    {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Oeuvre::class);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Artwork;
+use App\Models\Oeuvre;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,8 +12,8 @@ class Photo extends Model
 
     protected $guarded = [];
 
-    public function artwork()
+    public function oeuvre()
     {
-        return $this->belongsTo(Artwork::class);
+        return $this->belongsTo(Oeuvre::class);
     }
 }

@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
-use App\Models\Artwork;
+use App\Models\Oeuvre;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Type extends Model
+class Categorie extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function artworks()
+
+    public function oeuvres()
     {
-        return $this->hasMany(Artwork::class);
+        return $this->hasMany(Oeuvre::class);
     }
 }
