@@ -64,7 +64,6 @@
             </div>
           </div>
         </div>
-        @include('partials.sidebar')
       </div>
     </div>
   </div>

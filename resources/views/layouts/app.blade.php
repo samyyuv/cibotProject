@@ -16,24 +16,40 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <script src="https://kit.fontawesome.com/5fc9c8ed9e.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+    <div class="flex flex-col flex-1 h-full overflow-hidden">
+        @include('partials.sidebar')
 
         <!-- Page Heading -->
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header ?? '' }}
-            </div>
-        </header>
+        @include('partials.header')
+
 
         <!-- Page Content -->
+        @include('partials.settings')
+
         <main>
             {{ $slot }}
         </main>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+<script>
+    const setup = () => {
+        return {
+            loading: true,
+            isSidebarOpen: false,
+            toggleSidbarMenu() {
+                this.isSidebarOpen = !this.isSidebarOpen
+            },
+            isSettingsPanelOpen: false,
+            isSearchBoxOpen: false,
+        }
+    }
+</script>
 
 </html>

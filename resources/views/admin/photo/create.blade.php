@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Créer une actualité') }}
+      {{ __('Créer une photo') }}
     </h2>
   </x-slot>
 
@@ -13,29 +13,26 @@
       @endforeach
     </div>
 
-    <form action="{{ route('admin.actualites.store') }}" method="post">
+    <form action="{{ route('admin.photos.store') }}" method="post">
 
       @csrf
 
-      <x-label for="titre" value="Titre de l'actualite" />
+      <x-label for="titre" value="Titre de la photo" />
       <x-input id="titre" name="titre" />
 
-      <x-label for="description" value="Description du actualite" />
-      <textarea name="description" id="description" cols="30" rows="10"></textarea>
+      <x-label for="oeuvre" value="Titre de la oeuvre" />
+      <select name="oeuvre" id="oeuvre">
+        @foreach ($oeuvres as $oeuvre)
+        <option value="{{ $oeuvre->id }}">{{ $oeuvre->titre }}</option>
+        @endforeach
+      </select>
 
-      <x-label for="titl_seo" value="Titre du SEO" />
-      <x-input id="titl_seo" name="titl_seo" />
-
-      <x-label for="description_seo" value="Description du SEO" />
-      <textarea name="description_seo" id="description_seo" cols="30" rows="10"></textarea>
-
-      <x-label for="activation" value="actualite active" />
-      <x-input type="checkbox" id="activation" name="active" />
-
+      <x-label for="active" value="Active" />
+      <x-input type="checkbox" id="active" name="active" />
       <br>
       <br>
 
-      <x-button> Créer une actualité </x-button>
+      <x-button> Créer une photo </x-button>
     </form>
   </div>
 
