@@ -39,25 +39,25 @@
 
           </div>
           <!-- component -->
-          <main class="relative container mx-auto bg-white px-4">
-            <div class="relative -mx-4 top-0 pt-[17%] overflow-hidden">
-              <img class="absolute inset-0 object-cover object-top w-full h-full filter blur" src="" alt="" />
-            </div>
-
-            <div class="mt-[-10%] w-1/2 mx-auto">
-              <div class="relative pt-[56.25%] overflow-hidden rounded-2xl">
-                <img class="w-full h-full absolute inset-0 object-cover" src="" alt="" />
-              </div>
-            </div>
+          <main class="container mx-auto bg-white px-4">
 
             <article class="max-w-prose mx-auto py-8">
-              <div class="flex justify-between mt-4">
+              <div class="my-3">
+                <div class="flex justify-between mt-4">
 
-                <h1 class="text-xl font-bold mb-3">{{ $oeuvre->titre }}</h1>
-                <p>{{ $oeuvre->categorie->titre}} </p>
+                  <h1 class="text-xl font-bold mb-3">{{ $oeuvre->titre }}</h1>
+                  <p>{{ $oeuvre->categorie->titre}} </p>
+                </div>
+
+                <p class="mt-6 text-justify text-base">{{ $oeuvre->description }}</p>
               </div>
-
-              <p class="mt-6 text-justify text-base">{{ $oeuvre->description }}</p>
+              <div class="container grid grid-cols-3 gap-2 mx-auto">
+                @foreach ($oeuvre->photos as $photo)
+                <div class="w-full rounded">
+                  <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                </div>
+                @endforeach
+              </div>
             </article>
           </main>
       </div>

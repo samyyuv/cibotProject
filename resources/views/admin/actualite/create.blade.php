@@ -45,10 +45,17 @@
                         Description
                       </label>
                       <div class="mt-1">
-                        <textarea id="description" name="description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="Description de l'actualite"></textarea>
+                        <textarea id="description" name="description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="Descritpion de l'actualite"></textarea>
                       </div>
                     </div>
 
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="position" class="block text-lg font-medium text-gray-700">Position</label>
+                      <select id="position" name="position" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg">
+                        @for ($i = 1; $i <= $totalActualites; $i++) <option>{{ $i }}</option>
+                          @endfor
+                      </select>
+                    </div>
 
                     <div>
                       <label class="block text-lg font-medium text-gray-700">
@@ -66,6 +73,7 @@
                             </label>
                             <p class="pl-1">ou glisser-déposer</p>
                           </div>
+                          <img id="blah" src="#" alt="" />
                         </div>
                       </div>
                     </div>
@@ -113,5 +121,12 @@
       </div>
     </div>
   </div>
-
+  <script type="text/javascript">
+    photo.onchange = evt => {
+      const [file] = photo.files
+      if (file) {
+        blah.src = URL.createObjectURL(file)
+      }
+    }
+  </script>
 </x-app-layout>

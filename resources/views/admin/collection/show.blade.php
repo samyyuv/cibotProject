@@ -36,17 +36,19 @@
                 </form>
               </a>
             </div>
-
           </div>
           <!-- component -->
-          <main class="relative container mx-auto bg-white px-4">
+
+          <div class="relative container mx-auto bg-white px-4">
             <div class="relative -mx-4 top-0 pt-[17%] overflow-hidden">
-              <img class="absolute inset-0 object-cover object-top w-full h-full filter blur" src="" alt="" />
+              @foreach ($collection->photos as $photo)
+              <img class="absolute inset-0 object-cover object-top w-full h-full filter blur" src="{{ asset('/storage/' . $photo->photo) }}" alt="" />
             </div>
 
             <div class="mt-[-10%] w-1/2 mx-auto">
               <div class="relative pt-[56.25%] overflow-hidden rounded-2xl">
-                <img class="w-full h-full absolute inset-0 object-cover" src="" alt="" />
+                <img class="w-full h-full absolute inset-0 object-cover" src="{{ asset('/storage/' . $photo->photo) }}" alt="" />
+                @endforeach
               </div>
             </div>
 
@@ -55,7 +57,26 @@
 
               <p class="mt-6 text-justify text-base">{{ $collection->description }}</p>
             </article>
-          </main>
+          </div>
+        </main>
+      </div>
+      <div class="hidden w-3/12 -mx-8 lg:block">
+        <div class="px-8 mt-10">
+          <h1 class="mb-4 text-xl font-bold text-gray-700">Oeuvres</h1>
+          <div class="flex flex-col max-w-sm px-4 py-6 bg-white rounded-lg shadow-md">
+            <ul>
+              @if ($collection->oeuvres->count() > 0)
+              @foreach ($collection->oeuvres as $oeuvre)
+              <li><a href="{{ route('admin.oeuvres.show', $oeuvre) }}" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">
+                  - {{ $oeuvre->titre }}
+                </a></li>
+              @endforeach
+              @else
+              <span>Il y n'a pas des oeuvres dans cette collection</span>
+              @endif
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -18,12 +18,13 @@
 
           <div class="flex justify-between mt-4">
             <h3 class="mt-6 text-xl">Oeuvres</h3>
-            <a href="{{ route('admin.oeuvres.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">Créer une nouvelle oeuvre</a>
+            <a href="{{ route('admin.oeuvres.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">
+              Créer une nouvelle oeuvre</a>
           </div>
           <div class="flex flex-col mt-6">
 
             @if(session('success'))
-            {{ session('success') }}
+            <span class="block text-red-500 text-4xl">{{ session('success') }}</span>
             @endif
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -31,30 +32,34 @@
                   <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                       <tr>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          ID
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('titre', 'Titre')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Status
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('active', 'Status')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Titre
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('date', 'Date de creation')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Collection
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('collection.titre', 'Collection')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Categorie
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('categorie.titre', 'Categorie')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
                           Modif
                         </th>
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                       @foreach ($oeuvres as $oeuvre)
-                      <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $oeuvre->id }}
+                      <tr class="transition-all hover:bg-gray-100 hover:shadow-lg pb-2">
+                        <td class="px-6 py-4">
+                          <div class="flex items-center">
+                            {{--<img class="w-10 h-10 rounded-full mr-2" src="{{ asset('/storage/' . $oeuvre->photo->photo) }}" alt="" />--}}
+                            <div class="font-medium text-gray-900"><a href="{{ route('admin.oeuvres.show', $oeuvre) }}">{{ $oeuvre->titre }}</a></div>
+                          </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                           @if ( $oeuvre->active == 1)
@@ -67,25 +72,16 @@
                           </span>
                         </td>
                         @endif
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img class="w-10 h-10 rounded-full" src="{{ asset('/storage/' . $oeuvre->photo) }}" alt="" />
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.oeuvres.show', $oeuvre) }}">{{ $oeuvre->titre }}</a></div>
-                              <div class="text-lg text-gray-500">{{ $oeuvre->created_at->format('d M Y')}}</div>
-                            </div>
-                          </div>
+                        <td class="px-6 py-4">
+                          <div class="font-medium text-gray-900">{{ $oeuvre->date->format('d M Y') }}</div>
                         </td>
                         <td class="px-6 py-4">
-                          <div class="w-full flex-shrink-0  h-10"> {{ $oeuvre->collection->titre }}
-                          </div>
+                          <div class="font-medium text-gray-900">{{ $oeuvre->collection->titre }} </div>
                         </td>
                         <td class="px-6 py-4">
-                          <div class="flex-shrink-0 w-full h-10"> {{ $oeuvre->categorie->titre }}
-                          </div>
+                          <div class="font-medium text-gray-900">{{ $oeuvre->categorie->titre }} </div>
                         </td>
+
                         <td class="px-6 py-4 flex justify-start">
                           <a href="{{ route('admin.oeuvres.edit', $oeuvre) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$oeuvre->id}}').submit();">
@@ -101,6 +97,7 @@
                     </tbody>
                   </table>
                 </div>
+                {!! $oeuvres->appends(Request::except('page'))->render() !!}
               </div>
             </div>
           </div>

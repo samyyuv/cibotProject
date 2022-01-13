@@ -9,7 +9,7 @@
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
         <!-- Main content -->
-        <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
+        <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll mb-10">
           <!-- Main content header -->
           <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
             <h1 class="text-2xl font-semibold whitespace-nowrap">Administration des collections</h1>
@@ -17,15 +17,16 @@
           </div>
 
 
-          <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
+          <!-- Table -->
           <div class="flex justify-between mt-4">
             <h3 class="mt-6 text-xl">Collections</h3>
-            <a href="{{ route('admin.collections.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">Créer une nouveau collection</a>
+            <a href="{{ route('admin.collections.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">
+              Créer une nouvelle collection</a>
           </div>
           <div class="flex flex-col mt-6">
 
             @if(session('success'))
-            <span class="block text-red-500">{{ session('success') }}</span>
+            <span class="block text-red-500 text-4xl">{{ session('success') }}</span>
             @endif
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -34,13 +35,10 @@
                     <thead class="bg-gray-50">
                       <tr>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          ID
+                          @sortablelink('titre', 'Titre')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Titre
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Photos
+                          @sortablelink('created_at', 'Date de creation')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
                           Modif
@@ -50,20 +48,17 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                       @foreach ($collections as $collection)
                       <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $collection->id }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                           <div class="flex items-center">
-                            <div class="ml-4">
-                              <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.collections.show', $collection) }}">{{ $collection->titre }}</a></div>
-                              <div class="text-lg text-gray-500">{{ $collection->created_at->format('d M Y')}}</div>
-                            </div>
+                            @foreach ($collection->photos as $photo)
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{ asset('/storage/' . $photo->photo) }}" alt="" />
+                            @endforeach
+                            <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.collections.show', $collection) }}">{{ $collection->titre }}</a></div>
                           </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <img class="w-10 h-10 rounded-full" src="{{ asset('/storage/' . $collection->photo) }}" alt="" />
+                        <td class="px-6 py-4 text-gray-900 whitespace-nowrap"> {{ $collection->created_at->format('d M Y') }}
+                        </td>
                         <td class="px-6 py-4 flex justify-start">
-
                           <a href="{{ route('admin.collections.edit', $collection) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$collection->id}}').submit();">
                             <i class="fas fa-trash-alt"></i>
@@ -78,6 +73,7 @@
                     </tbody>
                   </table>
                 </div>
+                {!! $collections->appends(Request::except('page'))->render() !!}
               </div>
             </div>
           </div>
