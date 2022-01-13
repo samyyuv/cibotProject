@@ -7,6 +7,12 @@ Document
 ========
 */
 
+.preview-image img
+{
+  padding: 10px !important;
+  max-width: 100%;
+}
+
 /**
 Use a better box model (opinionated).
 */

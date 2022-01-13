@@ -4,7 +4,8 @@
     <div class="flex items-center justify-between p-2">
       <!-- Navbar left -->
       <div class="flex items-center space-x-3">
-        <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">MENU</span>
+        <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">
+          <a href="{{ route('admin.dashboard') }}">MENU</a></span>
         <!-- Toggle sidebar button -->
         <button @click="toggleSidbarMenu()" class="p-2 rounded-md focus:outline-none focus:ring">
           <svg class="w-4 h-4 text-gray-600" :class="{'transform transition-transform -rotate-180': isSidebarOpen}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,7 +43,10 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </span>
-        <input type="text" placeholder="Search" class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+        <form action="{{ route('admin.dashboard.rechercher') }}" method="GET">
+          <input type="text" name="search" placeholder="Rechercher" class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+        </form>
+
       </div>
 
       <!-- Navbar right -->
@@ -54,7 +58,7 @@
           </svg>
         </button>
 
-        <div class="items-center hidden space-x-3 md:flex">
+        {{-- <div class="items-center hidden space-x-3 md:flex">
           <!-- Notification Button -->
           <div class="relative" x-data="{ isOpen: false }">
             <!-- red dot -->
@@ -158,7 +162,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>--}}
 
         <!-- avatar button -->
         <div class="relative" x-data="{ isOpen: false }">

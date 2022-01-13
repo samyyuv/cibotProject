@@ -40,7 +40,7 @@
           <!-- Confirmer mot de passe -->
           <div class="mt-4">
             <label class="block text-gray-700">Mot de passe</label>
-            <input type="password_confirmation" name="password_confirmation" id="password_confirmation" placeholder="Rentrer mot de passe" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Rentrer mot de passe" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                 focus:bg-white focus:outline-none" required>
           </div>
 

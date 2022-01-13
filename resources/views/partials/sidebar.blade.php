@@ -10,11 +10,11 @@
     <div x-show.in.out.opacity="isSidebarOpen" class="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"></div>
 
     <!-- Sidebar -->
-    <aside x-transition:enter="transition transform duration-300" x-transition:enter-start="-translate-x-full opacity-30  ease-in" x-transition:enter-end="translate-x-0 opacity-100 ease-out" x-transition:leave="transition transform duration-300" x-transition:leave-start="translate-x-0 opacity-100 ease-out" x-transition:leave-end="-translate-x-full opacity-0 ease-in" class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none" :class="{'-translate-x-full lg:translate-x-0 lg:w-32': !isSidebarOpen}">
+    <aside x-transition:enter="transition transform duration-300" x-transition:enter-start="-translate-x-full opacity-30  ease-in" x-transition:enter-end="translate-x-0 opacity-100 ease-out" x-transition:leave="transition transform duration-300" x-transition:leave-start="translate-x-0 opacity-100 ease-out" x-transition:leave-end="-translate-x-full opacity-0 ease-in" class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none" :class="{'-translate-x-full lg:translate-x-0 lg:w-14': !isSidebarOpen}">
       <!-- sidebar header -->
       <div class="flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
-        <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-          Menu<span :class="{'lg:hidden': !isSidebarOpen}"></span>
+        <span class="p-2 text-l font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+          <a href="{{ route('admin.dashboard') }}">Menu</a> <span :class="{'lg:hidden': !isSidebarOpen}"></span>
         </span>
         <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
           <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,48 +27,39 @@
         <ul class="p-2 overflow-hidden">
           <li>
             <a href="{{ route('admin.actualites.index') }}" class="flex items-center p-5 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': !isSidebarOpen}">
-              <span>
-                <i class="far fa-newspaper" style="font-size:1.5rem;"></i>
-              </span>
+              <span><i class="far fa-newspaper" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Actualités</span>
             </a>
           </li>
+
           <li>
             <a href="{{ route('admin.collections.index') }}" class="flex items-center p-5 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': !isSidebarOpen}">
-              <span>
-                <i class="fas fa-cubes" style="font-size:1.5rem;"></i>
-
-              </span>
+              <span><i class="fas fa-cubes" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Collections</span>
             </a>
           </li>
+
           <li>
             <a href="{{ route('admin.oeuvres.index') }}" class="flex items-center p-5 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': !isSidebarOpen}">
-              <span>
-                <i class="far fa-gem" style="font-size:1.5rem;"></i>
-
-              </span>
+              <span><i class="far fa-gem" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Oeuvres</span>
             </a>
           </li>
+
           <li>
             <a href="{{ route('admin.categories.index') }}" class="flex items-center p-5 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': !isSidebarOpen}">
-              <span>
-                <i class="fas fa-sitemap" style="font-size:1.5rem;"></i>
-
-              </span>
+              <span><i class="fas fa-sitemap" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Catégories</span>
             </a>
           </li>
-          <li>
-            <a href="route('admin.users.index')" class="flex items-center p-5 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': !isSidebarOpen}">
-              <span>
-                <i class="fas fa-users" style="font-size:1.5rem;"></i>
 
-              </span>
-              <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Users</span>
+          <li>
+            <a href="{{ route('admin.users.index') }}" class="flex items-center p-5 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': !isSidebarOpen}">
+              <span><i class="fas fa-user" style="font-size:1.5rem;"></i></span>
+              <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">User</span>
             </a>
           </li>
+
           <!-- Sidebar Links... -->
         </ul>
       </nav>
