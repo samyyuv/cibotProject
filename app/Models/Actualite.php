@@ -2,26 +2,20 @@
 
 namespace App\Models;
 
-use App\Models\Collection;
+use Illuminate\Support\Str;
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Actualite extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
-    protected $guarded = [];
+    protected $fillable = ['titre', 'description', 'active', 'titl_seo', 'description_seo', 'photo', 'position'];
+    public $sortable = ['created_at', 'titre', 'active', 'position'];
 
-    // public static function boot()
-    // {
-    //     parent::boot();
-    //     self::creating(function ($actualite) {
-    //         $actualite->collection()->associate(request()->collection);
-    //     });
-    // }
-
-    // public function collection()
-    // {
-    //     return $this->belongsTo(Collection::class);
-    // }
+    public function getTitreAttribute($attribute)
+    {
+        return Str::ucfirst($attribute);
+    }
 }

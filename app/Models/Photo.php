@@ -26,4 +26,14 @@ class Photo extends Model
     {
         return $this->belongsTo(Oeuvre::class);
     }
+
+    public function collections()
+    {
+        return $this->belongsTo(Oeuvre::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
 }
