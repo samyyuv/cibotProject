@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Artwork;
+use App\Models\Categorie;
+use App\Models\Collection;
 use App\Models\Oeuvre;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +19,9 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('photo');
-            $table->foreignIdFor(Oeuvre::class)->constrained()->onDelete('cascade');;
+            $table->foreignIdFor(Oeuvre::class)->nullable()->constrained();
+            $table->foreignIdFor(Collection::class)->nullable()->constrained();
+            $table->foreignIdFor(Categorie::class)->nullable()->constrained();
             $table->timestamps();
         });
     }

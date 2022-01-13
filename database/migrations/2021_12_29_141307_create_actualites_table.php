@@ -17,10 +17,11 @@ class CreateActualitesTable extends Migration
             $table->id();
             $table->string('titre');
             $table->longText('description');
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->default(0)->nullable();
             $table->string('titl_seo')->nullable();
             $table->mediumText('description_seo')->nullable();
             $table->string('photo');
+            $table->integer('position');
             $table->timestamps();
         });
     }
