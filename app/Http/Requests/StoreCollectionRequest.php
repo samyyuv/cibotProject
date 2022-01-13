@@ -23,10 +23,17 @@ class StoreCollectionRequest extends FormRequest
      */
     public function rules()
     {
+        if (request()->routeIs('admin.collections.store')) {
+            $imageRule = 'mimes:jpeg,jpg,png,gif|required|max:10000';
+        } elseif (request()->routeIs('admin.collections.update')) {
+            $imageRule = 'mimes:jpeg,jpg,png,gif|sometimes|max:10000';
+        }
+
         return [
             'titre' => 'required',
             'description' => 'required',
             'sous_titre' => 'required',
+            'photo' => $imageRule,
         ];
     }
 }

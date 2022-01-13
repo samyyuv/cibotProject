@@ -23,6 +23,11 @@ class StoreActualiteRequest extends FormRequest
      */
     public function rules()
     {
+        if (request()->routeIs('admin.actualites.store')) {
+            $imageRule = 'mimes:jpeg,jpg,png,gif|required|max:10000';
+        } elseif (request()->routeIs('admin.actualites.update')) {
+            $imageRule = 'mimes:jpeg,jpg,png,gif|sometimes|max:10000';
+        }
 
         return [
             'titre' => 'required',
@@ -30,7 +35,7 @@ class StoreActualiteRequest extends FormRequest
             'titre_seo' => 'nullable',
             'description_seo' => 'nullable',
             'active' => 'nullable',
-            'photo' => 'required|max:10000',
+            'photo' => $imageRule,
         ];
     }
 }

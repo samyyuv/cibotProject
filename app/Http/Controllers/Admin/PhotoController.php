@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePhotoRequest;
 
-class photoController extends Controller
+class PhotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,13 +44,14 @@ class photoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
+        dd($request->photo);
         $clientFile = $request->photo;
         $ouvreTitle = Str::slug($request->titre);
         $fileName = $ouvreTitle . '.' . $clientFile->getClientOriginalExtension();
-        $clientFile->storeAs('oeuvres', $fileName);
+        $clientFile->storeAs('admin', $fileName);
 
-        photo::create([
-            'photo' => "oeuvres/" . $fileName,
+        Photo::create([
+            'photo' => "admin/" . $fileName,
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Votre photo a été créé');

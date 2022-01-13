@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Actualite;
-use App\Models\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,10 +18,9 @@ class ActualiteController extends Controller
      */
     public function index()
     {
-        $actualites = Actualite::all();
-        $collections = Collection::all();
+        $actualites = Actualite::sortable()->paginate(15);
 
-        return view('admin.actualite.index', compact('actualites', 'collections'));
+        return view('admin.actualite.index')->with('actualites', $actualites);
     }
 
     /**
@@ -32,13 +30,15 @@ class ActualiteController extends Controller
      */
     public function create()
     {
-        return view('admin.actualite.create');
+        $totalActualites = Actualite::count();
+
+        return view('admin.actualite.create', compact('totalActualites'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreActualiteRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreActualiteRequest $request)
@@ -48,22 +48,25 @@ class ActualiteController extends Controller
         $fileName = $postTitle . '.' . $clientFile->getClientOriginalExtension();
         $clientFile->storeAs('actualites', $fileName);
 
+        $active = $request->active ? 1 : 0;
+
         Actualite::create([
             'titre' => $request->titre,
             'description' => $request->description,
             'titl_seo' => $request->titl_seo,
             'description_seo' => $request->description_seo,
-            'active' => $request->active,
+            'position' => $request->position,
+            'active' => $active,
             'photo' => "actualites/" . $fileName,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre actualité a été créé');
+        return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été créé');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Actualite $actualite
      * @return \Illuminate\Http\Response
      */
     public function show(Actualite $actualite)
@@ -74,19 +77,22 @@ class ActualiteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Actualite $actualite
      * @return \Illuminate\Http\Response
      */
     public function edit(Actualite $actualite)
     {
-        return view('admin.actualite.edit', compact('actualite'));
+        $totalActualites = Actualite::count();
+        $actualites = Actualite::all();
+
+        return view('admin.actualite.edit', compact('actualite', 'actualites', 'totalActualites'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\StoreActualiteRequest  $request
+     * @param  \App\Models\Actualite $actualite
      * @return \Illuminate\Http\Response
      */
     public function update(StoreActualiteRequest $request, Actualite $actualite)
@@ -101,16 +107,31 @@ class ActualiteController extends Controller
                 'photo' => "actualites/" . $fileName,
             ]);
         };
+        $active = $request->active ? 1 : 0;
+
+        if ($request->position != $actualite->position) {
+            $previousPos = $actualite->position;
+            $newPos = $request->position;
+
+            $toDownPos = Actualite::where('position', '>', $previousPos)
+                ->where('position', '<=', $newPos)->get();
+            foreach ($toDownPos as $element) {
+                $element->update([
+                    'position' => $element->position - 1,
+                ]);
+            }
+        };
 
         $actualite->update([
             'titre' => $request->titre,
             'description' => $request->description,
             'titl_seo' => $request->titl_seo,
             'description_seo' => $request->description_seo,
-            'active' => $request->active,
+            'position' => $request->position,
+            'active' => $active,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre actualité a été updaté');
+        return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été updaté');
     }
 
     /**
@@ -124,6 +145,6 @@ class ActualiteController extends Controller
         $actualite = Actualite::find($id);
         $actualite->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Votre actualité a été supprimé');
+        return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été supprimé');
     }
 }

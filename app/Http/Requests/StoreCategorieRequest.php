@@ -23,10 +23,17 @@ class StoreCategorieRequest extends FormRequest
      */
     public function rules()
     {
+        if (request()->routeIs('admin.categories.store')) {
+            $imageRule = 'mimes:jpeg,jpg,png,gif|required|max:10000';
+        } elseif (request()->routeIs('admin.categories.update')) {
+            $imageRule = 'mimes:jpeg,jpg,png,gif|sometimes|max:10000';
+        }
+
         return [
             'titre' => 'required',
             'description' => 'required',
             'sous_titre' => 'required',
+            'photo' => $imageRule,
         ];
     }
 }

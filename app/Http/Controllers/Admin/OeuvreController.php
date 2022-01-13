@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\OeuvreUpdateAction;
+use App\Models\Photo;
 use App\Models\Oeuvre;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreOeuvreRequest;
 use App\Models\Categorie;
 use App\Models\Collection;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreOeuvreRequest;
 
 class OeuvreController extends Controller
 {
@@ -18,9 +22,8 @@ class OeuvreController extends Controller
      */
     public function index()
     {
-        $oeuvres = Oeuvre::all();
-
-        return view('admin.oeuvre.index', compact('oeuvres'));
+        $oeuvres = Oeuvre::sortable()->paginate(15);
+        return view('admin.oeuvre.index')->with('oeuvres', $oeuvres);
     }
 
     /**
@@ -39,37 +42,54 @@ class OeuvreController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreOeuvreRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreOeuvreRequest $request)
     {
-        Oeuvre::create([
+        $active = $request->active ? 1 : 0;
+
+        $oeuvre = Oeuvre::create([
             'titre' => $request->titre,
             'sous_titre' => $request->sous_titre,
             'description' => $request->description,
             'date' => $request->date,
-            'active' => $request->active
+            'active' => $active,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre oeuvre a été créé');
+        $i = 1;
+        foreach ($request->photos as $photo) {
+            $ouvreTitle = Str::slug($request->titre);
+            $fileName = $ouvreTitle . $i . '.' . $photo->getClientOriginalExtension();
+            $photo->storeAs('oeuvres', $fileName);
+            Photo::create([
+                'photo' => "oeuvres/" . $fileName,
+                'oeuvre_id' => $oeuvre->id,
+            ]);
+            $i++;
+        }
+
+
+        return redirect()->route('admin.oeuvres.index')->with('success', 'Votre oeuvre a été créé');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Oeuvre $oeuvre
      * @return \Illuminate\Http\Response
      */
     public function show(Oeuvre $oeuvre)
     {
-        return view('admin.oeuvre.show', compact('oeuvre'));
+        $collection = Collection::all();
+
+        return view('admin.oeuvre.show', compact('oeuvre', 'collection'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Oeuvre $oeuvre
      * @return \Illuminate\Http\Response
      */
     public function edit(Oeuvre $oeuvre)
@@ -83,21 +103,14 @@ class OeuvreController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\StoreOeuvreRequest  $request
+     * @param  \App\Models\Oeuvre $oeuvre
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreOeuvreRequest $request, Oeuvre $oeuvre)
+    public function update(StoreOeuvreRequest $request, Oeuvre $oeuvre, OeuvreUpdateAction $oeuvreUpdateAction)
     {
-        $oeuvre->update([
-            'titre' => $request->titre,
-            'description' => $request->description,
-            'sous_titre' => $request->sous_titre,
-            'date' => $request->date,
-            'active' => $request->active
-        ]);
-
-        return redirect()->route('dashboard')->with('success', 'Votre oeuvre a été updaté');
+        $oeuvreUpdateAction->handle($request, $oeuvre);
+        return redirect()->route('admin.oeuvres.index')->with('success', 'Votre oeuvre a été updaté');
     }
 
     /**
@@ -111,6 +124,6 @@ class OeuvreController extends Controller
         $oeuvre = Oeuvre::find($id);
         $oeuvre->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Votre oeuvre a été supprimé');
+        return redirect()->route('admin.oeuvres.index')->with('success', 'Votre oeuvre a été supprimé');
     }
 }

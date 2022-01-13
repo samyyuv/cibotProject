@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Photo;
+use App\Models\Oeuvre;
 use App\Models\Collection;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreCollectionRequest;
 
 class CollectionController extends Controller
@@ -16,9 +20,9 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections = Collection::all();
+        $collections = Collection::sortable()->paginate(15);
 
-        return view('admin.collection.index', compact('collections'));
+        return view('admin.collection.index')->with('collections', $collections);
     }
 
     /**
@@ -34,35 +38,46 @@ class CollectionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreCollectionRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCollectionRequest $request)
     {
-        Collection::create([
+        $collection = Collection::create([
             'titre' => $request->titre,
             'sous_titre' => $request->sous_titre,
             'description' => $request->description,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre collection a été créé');
+        $photo = $request->photo;
+        $collectionTitle = Str::slug($request->titre);
+        $fileName = $collectionTitle . '.' . $photo->getClientOriginalExtension();
+        $photo->storeAs('collections', $fileName);
+        Photo::create([
+            'photo' => "collections/" . $fileName,
+            'collection_id' => $collection->id,
+        ]);
+
+        return redirect()->route('admin.collections.index')->with('success', 'Votre collection a été créé');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
     public function show(Collection $collection)
     {
-        return view('admin.collection.show', compact('collection'));
+        $oeuvres = Oeuvre::all();
+        $photos = Photo::all();
+        return view('admin.collection.show', compact('collection', 'oeuvres', 'photos'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
     public function edit(Collection $collection)
@@ -73,8 +88,8 @@ class CollectionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\StoreCollectionRequest  $request
+     * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
     public function update(StoreCollectionRequest $request, Collection $collection)
@@ -85,7 +100,22 @@ class CollectionController extends Controller
             'sous_titre' => $request->sous_titre,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre collection a été updaté');
+        if ($request->hasFile('photo')) {
+            $id = $collection->id;
+            $fileExName = Photo::where('collection_id', $id)->value('photo');
+            $cuttedName = substr(strstr($fileExName, '/'), 1);
+            Storage::delete($cuttedName);
+            $clientFile = $request->photo;
+            $collectionTitle = Str::slug($request->titre);
+            $fileName = $collectionTitle . '.' . $clientFile->getClientOriginalExtension();
+            $clientFile->storeAs('collections', $fileName);
+            Photo::where('photo', $cuttedName)
+                ->update([
+                    'photo' => "collections/" . $fileName,
+                ]);
+        };
+
+        return redirect()->route('admin.collections.index')->with('success', 'Votre collection a été updaté');
     }
 
     /**
@@ -99,11 +129,6 @@ class CollectionController extends Controller
         $collection = Collection::find($id);
         $collection->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Votre collection a été supprimé');
+        return redirect()->route('admin.collections.index')->with('success', 'Votre collection a été supprimé');
     }
 }
-
-
-// <x-dropdown-link :href="route('admin.photos.create')">
-//     {{ __('Photo') }}
-// </x-dropdown-link>
