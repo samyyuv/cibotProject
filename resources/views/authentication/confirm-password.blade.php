@@ -1,7 +1,7 @@
 <x-guest-layout>
 
   <!-- component -->
-  <section class="flex flex-col md:flex-row h-screen items-center">
+  <section class="flex flex-col md:flex-row h-screen items-center  justify-center">
 
     <div class="mb-4 text-sm text-gray-600">
       {{ __('Ceci est une espace securisé de l'application. S'il vous plaît confirmer votre mot de passe avant de continuer.') }}
