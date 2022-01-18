@@ -22,5 +22,12 @@ services:
       - ./:/var/www/html
     user: ${CURRENT_UID}
 
+  composer:
+    restart: 'no'
+    image: library/composer
+    command: install
+    volumes:
+      - .:/app
+
 volumes:
   mysql-data: null
