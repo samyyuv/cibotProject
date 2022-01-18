@@ -10,9 +10,12 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PhotoController as AdminPhotoController;
 use App\Http\Controllers\Admin\OeuvreController as AdminOeuvreController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\ActualiteController as AdminActualiteController;
 use App\Http\Controllers\Admin\CategorieController as AdminCategorieController;
 use App\Http\Controllers\Admin\CollectionController as AdminCollectionController;
+use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +31,9 @@ use App\Http\Controllers\Admin\CollectionController as AdminCollectionController
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/contactez-nous', function () {
-    return view('contactMe');
-});
+Route::get('/contactez-nous', [MessageController::class, 'create'])
+    ->name('message.create');
+
 Route::resource('/actualites', ActualiteController::class);
 Route::resource('/categories', CategorieController::class);
 Route::resource('/collections', CollectionController::class);
@@ -40,6 +43,10 @@ Route::resource('/photos', PhotoController::class);
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::view('monProfile', 'authentication.profile')
+        ->name('profile');
+    Route::put('monProfile', [ProfileController::class, 'update'])
+        ->name('profile.update');
     Route::middleware(['admin'])->name('admin.')->prefix('admin')->group(function () {
         Route::resource('actualites', AdminActualiteController::class);
         Route::resource('/categories', AdminCategorieController::class)
@@ -50,6 +57,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/oeuvres', AdminOeuvreController::class);
         Route::resource('/photos', AdminPhotoController::class);
         Route::resource('/users', UserController::class);
+        Route::resource('contacts', AdminContactController::class);
+        Route::resource('messages', MessageController::class)
+            ->except('messages.create');
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard');
         Route::get('/rechercher', [DashboardController::class, 'search'])

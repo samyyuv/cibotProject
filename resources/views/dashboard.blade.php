@@ -86,20 +86,39 @@
                             </div>
                         </a>
 
-                        <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-                            <div class="flex items-start justify-between">
-                                <div class="flex flex-col space-y-2">
-                                    <span class="text-gray-400">Total de Users</span>
-                                    <span class="text-lg font-semibold">{{ $users->count() }}
-                                    </span>
+                        <a href="{{ route('admin.users.index') }}">
+                            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex flex-col space-y-2">
+                                        <span class="text-gray-400">Total de Users</span>
+                                        <span class="text-lg font-semibold">{{ $users->count() }}
+                                        </span>
+                                    </div>
+                                    <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
-                                <div class="p-10 bg-gray-200 rounded-md"></div>
+                                <div>
+                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $usersDernierMois->count() }}</span>
+                                    <span>le dernier mois</span>
+                                </div>
                             </div>
-                            <div>
-                                <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $usersDernierMois->count() }}</span>
-                                <span>le dernier mois</span>
+                        </a>
+
+                        <a href="{{ route('admin.contacts.index') }}">
+                            <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex flex-col space-y-2">
+                                        <span class="text-gray-400">Contact Me Data</span>
+                                        <span class="text-lg font-semibold">{{ $users->count() }}
+                                        </span>
+                                    </div>
+                                    <div class="p-10 bg-gray-200 rounded-md"></div>
+                                </div>
+                                <div>
+                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $usersDernierMois->count() }}</span>
+                                    <span>le dernier mois</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 

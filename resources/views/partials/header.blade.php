@@ -181,10 +181,7 @@
             </div>
             <ul class="flex flex-col p-2 my-2 space-y-1">
               <li>
-                <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
-              </li>
-              <li>
-                <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another Link</a>
+                <a href="{{ route('profile') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Mon Profile</a>
               </li>
             </ul>
             <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
