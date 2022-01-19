@@ -17,8 +17,8 @@ class ActualiteFactory extends Factory
             'titre' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs(5, true),
             'photo' => $this->faker->imageUrl($width = 640, $height = 480),
-            'position' => $this->faker->randomDigit(),
-            'created_at' => $this->faker->dateTimeBetween('-3 months', '+1 week'),
+            'position' => $this->fakerr->unique()->numberBetween(1, 10),
+            'created_at' => $this->faker->dateTimeBetween('-3 months', 'yesterday'),
         ];
     }
 }

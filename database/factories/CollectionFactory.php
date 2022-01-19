@@ -17,7 +17,7 @@ class CollectionFactory extends Factory
             'titre' => $this->faker->words(3, true),
             'sous_titre' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs(5, true),
-            'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
+            'created_at' => $this->faker->dateTimeBetween('-2 week', 'yesterday'),
         ];
     }
 }
