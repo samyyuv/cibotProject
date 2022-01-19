@@ -17,7 +17,7 @@
           </div>
 
 
-          <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
+          <!-- Table see -->
           <div class="flex justify-between mt-4">
             <h3 class="mt-6 text-xl">Actualités</h3>
             <a href="{{ route('admin.actualites.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">Créer une nouveau actualité</a>
@@ -28,7 +28,7 @@
             <span class="block text-red-500 text-4xl">{{ session('success') }}</span>
             @endif
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 mb-2">
                 <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
                   <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
                     <thead class="bg-gray-50">
