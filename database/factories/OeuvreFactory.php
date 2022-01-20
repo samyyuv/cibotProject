@@ -23,6 +23,7 @@ class OeuvreFactory extends Factory
             'date' => $this->faker->dateTimeBetween('-10 years', 'yesterday'),
             'collection_id' => Collection::inRandomOrder()->first()->id,
             'categorie_id' => Categorie::inRandomOrder()->first()->id,
+            'active' => $this->faker->numberBetween($min = 0, $max = 1),
         ];
     }
 }
