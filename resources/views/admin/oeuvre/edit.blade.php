@@ -58,7 +58,7 @@
                         Description
                       </label>
                       <div class="mt-1">
-                        <textarea id="description" name="description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="Description de l'oeuvre">{{ $oeuvre->description }}</textarea>
+                        <textarea id="description" name="description" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="Description de l'oeuvre">{{ $oeuvre->description }}</textarea>
                       </div>
                     </div>
 

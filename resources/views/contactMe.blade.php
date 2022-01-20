@@ -79,7 +79,7 @@
                       <label for="telephone" class="block text-sm font-semibold text-gray-700">Telephone</label>
                       <span class="text-xs text-gray-500">*Optional</span>
                     </div>
-                    <input type="text" name="telephone" id="telephone" autocomplete="telephone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <input type="text" name="telephone" id="telephone" autocomplete="tel" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
 
                   <div class="col-span-6 ">
@@ -92,7 +92,7 @@
                       Message
                     </label>
                     <div class="mt-1">
-                      <textarea id="message" name="message" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="  Votre message ici"></textarea>
+                      <textarea id="message" name="message" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="  Votre message ici"></textarea>
                     </div>
                   </div>
                 </div>

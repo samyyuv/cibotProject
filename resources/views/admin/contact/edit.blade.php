@@ -59,7 +59,7 @@
                           Telephone
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="number" name="telephone" id="telephone" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" placeholder="Telephone de contact" value="{{ $contact->telephone }}">
+                          <input type="text" name="telephone" id="telephone" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" placeholder="Telephone de contact" value="{{ $contact->telephone }}">
                         </div>
                       </div>
                     </div>
