@@ -27,49 +27,49 @@
       <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
         <ul class="p-2 overflow-hidden">
           <li>
-            <a href="{{ route('admin.actualites.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.actualites.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="far fa-newspaper" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Actualités</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ route('admin.collections.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.collections.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="fas fa-cubes" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Collections</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ route('admin.oeuvres.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.oeuvres.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="far fa-gem" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Oeuvres</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ route('admin.categories.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.categories.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="fas fa-sitemap" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Catégories</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ route('admin.contacts.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.contacts.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="fas fa-phone-alt" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Contactez-nous</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ route('admin.users.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.users.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="fas fa-user" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Utilisateurs</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ route('admin.messages.index') }}" class="flex items-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'justify-center': isSidebarOpen}">
+            <a href="{{ route('admin.messages.index') }}" class="flex justify-center py-4 space-x-2 rounded-md hover:bg-gray-100" :class="{'items-center': isSidebarOpen}">
               <span><i class="far fa-envelope" style="font-size:1.5rem;"></i></span>
               <span class="text-2xl" :class="{ 'lg:hidden': !isSidebarOpen }">Messages</span>
             </a>
@@ -90,9 +90,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
               </svg>
             </span>
-            <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
-
-            </div>
             <span :class="{'lg:hidden': !isSidebarOpen}">
               {{ __('Se deconnecter') }}
             </span>
