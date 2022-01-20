@@ -46,8 +46,8 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                                    <span>from 2019</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $categoriesDernierMois->count() }}</span>
+                                    <span>le dernier mois</span>
                                 </div>
                             </div>
                         </a>
@@ -63,8 +63,8 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-                                    <span>from 2019</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $collectionsDernierMois->count() }}</span>
+                                    <span>le dernier mois</span>
                                 </div>
                             </div>
                         </a>
@@ -114,7 +114,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $usersDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $contactsMeDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>

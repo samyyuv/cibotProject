@@ -9,6 +9,7 @@ use App\Models\Categorie;
 use App\Models\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -39,7 +40,37 @@ class DashboardController extends Controller
             Carbon::now()->subMonth()->month
         );
 
-        return view('dashboard', compact('categories', 'collections', 'actualites', 'oeuvres', 'users', "actualitesDernierMois", 'oeuvresDernierMois', 'usersDernierMois'));
+        $collectionsDernierMois = Collection::whereMonth(
+            'created_at',
+            '=',
+            Carbon::now()->subMonth()->month
+        );
+
+        $categoriesDernierMois = Categorie::whereMonth(
+            'created_at',
+            '=',
+            Carbon::now()->subMonth()->month
+        );
+
+        $contactsMeDernierMois = Contact::whereMonth(
+            'created_at',
+            '=',
+            Carbon::now()->subMonth()->month
+        );
+
+        return view('dashboard', compact(
+            'categories',
+            'collections',
+            'actualites',
+            'oeuvres',
+            'users',
+            "contactsMeDernierMois",
+            "categoriesDernierMois",
+            "collectionsDernierMois",
+            "actualitesDernierMois",
+            'oeuvresDernierMois',
+            'usersDernierMois'
+        ));
     }
 
     public function search(Request $request)
