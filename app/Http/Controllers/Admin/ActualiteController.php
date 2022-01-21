@@ -50,12 +50,21 @@ class ActualiteController extends Controller
 
         $active = $request->active ? 1 : 0;
 
+        //Repositioning others after create
+        $newPos = $request->position;
+        $postUp = Actualite::where('position', '>=', $newPos)->orderByDesc('position')->get();
+        foreach ($postUp as $post) {
+            $post->update([
+                'position' => $post->position + 1,
+            ]);
+        };
+
         Actualite::create([
             'titre' => $request->titre,
             'description' => $request->description,
             'titl_seo' => $request->titl_seo,
             'description_seo' => $request->description_seo,
-            'position' => $request->position,
+            'position' => $newPos,
             'active' => $active,
             'photo' => "actualites/" . $fileName,
         ]);
@@ -107,27 +116,42 @@ class ActualiteController extends Controller
                 'photo' => "actualites/" . $fileName,
             ]);
         };
+
         $active = $request->active ? 1 : 0;
 
-        if ($request->position != $actualite->position) {
-            $previousPos = $actualite->position;
-            $newPos = $request->position;
+        //Repositioning others after update
+        $previousPos = $actualite->position;
+        $newPos = $request->position;
 
-            $toDownPos = Actualite::where('position', '>', $previousPos)
-                ->where('position', '<=', $newPos)->get();
-            foreach ($toDownPos as $element) {
-                $element->update([
-                    'position' => $element->position - 1,
-                ]);
+        if ($newPos != $previousPos) {
+            $actualite->update([
+                'position' => Actualite::count() + 1,
+            ]);
+            if ($newPos > $previousPos) {
+                $posDown = Actualite::where('position', '>', $previousPos)
+                    ->where('position', '<=', $newPos)->orderBy('position', 'asc')->get();
+                foreach ($posDown as $post) {
+                    $post->update([
+                        'position' => $post->position - 1,
+                    ]);
+                }
+            } else {
+                $posUp = Actualite::where('position', '<', $previousPos)
+                    ->where('position', '>=', $newPos)->orderByDesc('position')->get();
+                foreach ($posUp as $post) {
+                    $post->update([
+                        'position' => $post->position + 1,
+                    ]);
+                }
             }
-        };
+        }
 
         $actualite->update([
             'titre' => $request->titre,
             'description' => $request->description,
             'titl_seo' => $request->titl_seo,
             'description_seo' => $request->description_seo,
-            'position' => $request->position,
+            'position' => $newPos,
             'active' => $active,
         ]);
 
@@ -143,7 +167,16 @@ class ActualiteController extends Controller
     public function destroy($id)
     {
         $actualite = Actualite::find($id);
+
+        //Repositioning others after delete
+        $toDelete = Actualite::select('position')->where('id', $id)->first();
+        $postUp = Actualite::where('position', '>', $toDelete->position)->orderBy('position', 'asc')->get();
         $actualite->delete();
+        foreach ($postUp as $post) {
+            $post->update([
+                'position' => $post->position - 1,
+            ]);
+        };
 
         return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été supprimé');
     }
