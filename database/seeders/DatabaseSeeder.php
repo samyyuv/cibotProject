@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         Actualite::factory(10)->create();
         Collection::factory(10)->create();
         Categorie::factory(10)->create();
-        Oeuvre::factory(10)->create();
+        Oeuvre::factory(30)->create();
         Photo::factory(10)->create();
         Contact::factory(2)->create();
         User::factory(1)->create();

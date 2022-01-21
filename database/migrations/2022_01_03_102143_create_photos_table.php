@@ -19,9 +19,9 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('photo');
-            $table->foreignIdFor(Oeuvre::class)->nullable()->constrained();
-            $table->foreignIdFor(Collection::class)->nullable()->constrained();
-            $table->foreignIdFor(Categorie::class)->nullable()->constrained();
+            $table->foreignIdFor(Oeuvre::class)->nullable()->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Collection::class)->nullable()->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Categorie::class)->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

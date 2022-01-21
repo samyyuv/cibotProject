@@ -21,7 +21,7 @@ class CreateActualitesTable extends Migration
             $table->string('titl_seo')->nullable();
             $table->mediumText('description_seo')->nullable();
             $table->string('photo');
-            $table->integer('position');
+            $table->integer('position')->unique();
             $table->timestamps();
         });
     }
