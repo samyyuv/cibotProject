@@ -28,8 +28,8 @@ class OeuvreUpdateAction
     $oeuvre->collection()->associate(Collection::find($request->collection));
 
 
-    $fileExName = $oeuvre->photo->photo;
     if ($request->hasFile('photo')) {
+      $fileExName = $oeuvre->photo->photo;
       Storage::delete($fileExName);
       $clientFile = $request->photo;
       $oeuvreTitle = Str::slug($request->titre);
