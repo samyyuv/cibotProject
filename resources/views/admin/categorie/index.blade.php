@@ -25,9 +25,8 @@
           </div>
           <div class="flex flex-col mt-6">
 
-            @if(session('success'))
-            <span class="block text-red-500 text-4xl">{{ session('success') }}</span>
-            @endif
+            <x-success class="mb-6" />
+
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 mb-2">
                 <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
