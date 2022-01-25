@@ -59,7 +59,7 @@
                       <!-- Old Mot de passe -->
                       <div class="col-span-6">
                         <div class="col-span-3 sm:col-span-2">
-                          <label for="current_password" class="block text-lg font-medium text-gray-700">Mot de passe actuelle</label>
+                          <label for="current_password" class="block text-lg font-medium text-gray-700">Mot de passe actuel</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="password" name="current_password" id="current_password" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required placeholder="Entrer mot de passe">
                           </div>
@@ -69,7 +69,7 @@
                       <!-- New Mot de passe -->
                       <div class="col-span-6 sm:col-span-3">
                         <div class="col-span-3 sm:col-span-2">
-                          <label for="password" class="block text-lg font-medium text-gray-700">Nouvelle mot de passe</label>
+                          <label for="password" class="block text-lg font-medium text-gray-700">Nouveau mot de passe</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="password" name="password" id="password" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="Entrer mot de passe">
                           </div>
@@ -79,7 +79,7 @@
                       <!-- Confirmer mot de passe -->
                       <div class="col-span-6 sm:col-span-3">
                         <div class="col-span-3 sm:col-span-2">
-                          <label for="password_confirmation" class="block text-lg font-medium text-gray-700">Confirmez le nouvelle mot de passe</label>
+                          <label for="password_confirmation" class="block text-lg font-medium text-gray-700">Confirmez le nouveau mot de passe</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required placeholder="Rentrer mot de passe">
                           </div>

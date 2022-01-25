@@ -48,7 +48,7 @@
 
         <hr class="my-6 border-gray-300 w-full">
 
-        <p class="mt-8"><a href="{{ route('register') }}" class="text-blue-500 hover:text-blue-700 font-semibold">Créer nouveau compte </a></p>
+        <p class="mt-8"><a href="{{ route('register') }}" class="text-blue-500 hover:text-blue-700 font-semibold">Créer un nouveau compte </a></p>
 
 
       </div>

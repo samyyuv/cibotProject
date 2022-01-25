@@ -79,7 +79,6 @@
                         <td class="px-4 py-2.5">
                           <div class="font-medium text-gray-900">{{ $oeuvre->categorie->titre }} </div>
                         </td>
-
                         <td class="px-4 py-2.5 flex justify-start">
                           <a href="{{ route('admin.oeuvres.edit', $oeuvre) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$oeuvre->id}}').submit();">

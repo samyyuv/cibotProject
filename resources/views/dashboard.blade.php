@@ -149,14 +149,9 @@
                                             @foreach ($users as $user)
                                             <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 w-10 h-10">
-                                                            <img class="w-10 h-10 rounded-full" src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4" alt="" />
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">{{ $user->name }}</div>
-                                                            <div class="text-sm text-gray-500">{{ $user->email }}</div>
-                                                        </div>
+                                                    <div>
+                                                        <div class="text-sm font-medium text-gray-900">{{ $user->name }}</div>
+                                                        <div class="text-sm text-gray-500">{{ $user->email }}</div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -173,7 +168,7 @@
                                                     </span>
                                                     @endif
                                                 <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                    <a href="{{ route('admin.users.edit', $user) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                 </td>
                                             </tr>
                                             @endforeach

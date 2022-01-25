@@ -94,7 +94,7 @@
                         Description du SEO
                       </label>
                       <div class="mt-1">
-                        <textarea id="description_seo" name="description_seo" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="Description du SEO"></textarea>
+                        <textarea id="description_seo" name="description_seo" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="Description du SEO"></textarea>
                       </div>
                     </div>
 
