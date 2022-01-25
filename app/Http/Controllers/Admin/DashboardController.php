@@ -84,24 +84,29 @@ class DashboardController extends Controller
             ->orWhere('description', 'LIKE', "%{$search}%")
             ->orWhere('titl_seo', 'LIKE', "%{$search}%")
             ->orWhere('description_seo', 'LIKE', "%{$search}%")
+            ->orWhere('created_at', 'LIKE', "%{$search}%")
             ->get();
 
         $oeuvres = Oeuvre::query()
             ->where('titre', 'LIKE', "%{$search}%")
             ->orWhere('description', 'LIKE', "%{$search}%")
             ->orwhere('sous_titre', 'LIKE', "%{$search}%")
+            ->orWhere('created_at', 'LIKE', "%{$search}%")
+            ->orWhere('date', 'LIKE', "%{$search}%")
             ->get();
 
         $categories = Categorie::query()
             ->where('titre', 'LIKE', "%{$search}%")
             ->orwhere('sous_titre', 'LIKE', "%{$search}%")
             ->orWhere('description', 'LIKE', "%{$search}%")
+            ->orWhere('created_at', 'LIKE', "%{$search}%")
             ->get();
 
         $collections = Collection::query()
             ->where('titre', 'LIKE', "%{$search}%")
             ->orwhere('sous_titre', 'LIKE', "%{$search}%")
             ->orWhere('description', 'LIKE', "%{$search}%")
+            ->orWhere('created_at', 'LIKE', "%{$search}%")
             ->get();
 
         // Return the search view with the results compacted

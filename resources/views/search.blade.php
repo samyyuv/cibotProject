@@ -7,15 +7,15 @@
         Loading.....
       </div>
 
-      <div class="flex flex-col flex-1 h-full overflow-hidden">
+      <div class="flex flex-col flex-1 h-full overflow-hidden overflow-x-scroll">
         <!-- Main content -->
-        <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
+        <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll mb-10">
           <!-- Main content header -->
           <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-            <h1 class="text-2xl font-semibold whitespace-nowrap">Résultats de recherche: </h1>
+            <h1 class="text-2xl font-semibold whitespace-nowrap">Administration des oeuvres</h1>
           </div>
 
-          @if($actualites->isNotEmpty() && $oeuvres->isNotEmpty() && $categories->isNotEmpty() && $collections->isNotEmpty())
+          @if($actualites->isNotEmpty() || $oeuvres->isNotEmpty() || $categories->isNotEmpty() || $collections->isNotEmpty())
 
           @if($actualites->isNotEmpty())
           <h3 class="mt-6 text-xl">Actualites</h3>
@@ -26,19 +26,19 @@
                   <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                       <tr>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          ID
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('active', 'Status')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Status
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('titre', 'Titre')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Titre
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('created_at', 'Date de creation')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Position
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('position', 'Position')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
+                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
                           Modif
                         </th>
                       </tr>
@@ -46,9 +46,6 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                       @foreach ($actualites as $actualite)
                       <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $actualite->id }}
-                        </td>
-
                         <td class="px-6 py-4 whitespace-nowrap">
                           @if ( $actualite->active == 1)
                           <span class="inline-flex px-2 text-lg font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
@@ -60,21 +57,17 @@
                           </span>
                           @endif
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                           <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img class="w-10 h-10 rounded-full" src="{{ asset('/storage/' . $actualite->photo) }}" alt="" />
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.actualites.show', $actualite) }}">{{ $actualite->titre }}</a></div>
-                              <div class="text-lg text-gray-500">{{ $actualite->created_at->format('d M Y')}}</div>
-                            </div>
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{ asset('/storage/' . $actualite->photo) }}" alt="" />
+                            <div class="font-medium text-gray-900 text-ellipsis overflow-hidden ..."><a href="{{ route('admin.actualites.show', $actualite) }}">{{ $actualite->titre }}</a></div>
                           </div>
+                        </td>
+                        <td class="px-6 py-4 text-gray-900 whitespace-nowrap"> {{ $actualite->created_at->format('d M Y') }}
                         </td>
                         <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $actualite->position }}
                         </td>
                         <td class="px-6 py-4 flex justify-start">
-
                           <a href="{{ route('admin.actualites.edit', $actualite) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$actualite->id}}').submit();">
                             <i class="fas fa-trash-alt"></i>
@@ -103,32 +96,35 @@
                   <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                       <tr>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          ID
+                        <th scope="col" class="px-4 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('titre', 'Titre')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Status
+                        <th scope="col" class="px-4 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('active', 'Status')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Titre
+                        <th scope="col" class="px-4 py-3 text-center text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('date', 'Date de creation')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Collection
+                        <th scope="col" class="px-4 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('collection.titre', 'Collection')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Categorie
+                        <th scope="col" class="px-4 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
+                          @sortablelink('categorie.titre', 'Categorie')
                         </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
+                        <th scope="col" class="px-4 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap">
                           Modif
                         </th>
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                       @foreach ($oeuvres as $oeuvre)
-                      <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $oeuvre->id }}
+                      <tr class="transition-all hover:bg-gray-100 hover:shadow-lg pb-2">
+                        <td class="px-4 py-2.5">
+                          <div class="flex items-center">
+                            <div class="font-medium text-gray-900"><a href="{{ route('admin.oeuvres.show', $oeuvre) }}">{{ $oeuvre->titre }}</a></div>
+                          </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-4 py-2.5 whitespace-nowrap  text-center">
                           @if ( $oeuvre->active == 1)
                           <span class="inline-flex px-2 text-lg font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                             Active
@@ -139,26 +135,16 @@
                           </span>
                         </td>
                         @endif
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <div class="flex-shrink-0 w-10 h-10">
-                              <img class="w-10 h-10 rounded-full" src="{{ asset('/storage/' . $oeuvre->photo->photo) }}" alt="" />
-                            </div>
-                            <div class="ml-4">
-                              <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.oeuvres.show', $oeuvre) }}">{{ $oeuvre->titre }}</a></div>
-                              <div class="text-lg text-gray-500">Date de creation: {{ $oeuvre->date->format('Y-m-d') }}</div>
-                            </div>
-                          </div>
+                        <td class="px-4 py-2.5">
+                          <div class="font-medium text-gray-900 text-center">{{ $oeuvre->date->format('d M Y') }}</div>
                         </td>
-                        <td class="px-6 py-4">
-                          <div class="w-full flex-shrink-0  h-10"> {{ $oeuvre->collection->titre }}
-                          </div>
+                        <td class="px-4 py-2.5">
+                          <div class="font-medium text-gray-900">{{ $oeuvre->collection->titre }} </div>
                         </td>
-                        <td class="px-6 py-4">
-                          <div class="flex-shrink-0 w-full h-10"> {{ $oeuvre->categorie->titre }}
-                          </div>
+                        <td class="px-4 py-2.5">
+                          <div class="font-medium text-gray-900">{{ $oeuvre->categorie->titre }} </div>
                         </td>
-                        <td class="px-6 py-4 flex justify-start">
+                        <td class="px-4 py-2.5 flex justify-start">
                           <a href="{{ route('admin.oeuvres.edit', $oeuvre) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$oeuvre->id}}').submit();">
                             <i class="fas fa-trash-alt"></i>
@@ -188,13 +174,10 @@
                     <thead class="bg-gray-50">
                       <tr>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          ID
+                          @sortablelink('titre', 'Titre')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Titre
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Photos
+                          @sortablelink('created_at', 'Date de creation')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
                           Modif
@@ -204,20 +187,17 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                       @foreach ($categories as $categorie)
                       <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $categorie->id }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                           <div class="flex items-center">
-                            <div class="ml-4">
-                              <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.categories.show', $categorie) }}">{{ $categorie->titre }}</a></div>
-                              <div class="text-lg text-gray-500">{{ $categorie->created_at->format('d M Y')}}</div>
-                            </div>
+                            @foreach ($categorie->photos as $photo)
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{ asset('/storage/' . $photo->photo) }}" alt="" />
+                            @endforeach
+                            <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.categories.show', $categorie) }}">{{ $categorie->titre }}</a></div>
                           </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <img class="w-10 h-10 rounded-full" src="{{ asset('/storage/' . $categorie->photo->photo) }}" alt="" />
+                        <td class="px-6 py-4 text-gray-900 whitespace-nowrap"> {{ $categorie->created_at->format('d M Y') }}
+                        </td>
                         <td class="px-6 py-4 flex justify-start">
-
                           <a href="{{ route('admin.categories.edit', $categorie) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$categorie->id}}').submit();">
                             <i class="fas fa-trash-alt"></i>
@@ -247,13 +227,10 @@
                     <thead class="bg-gray-50">
                       <tr>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          ID
+                          @sortablelink('titre', 'Titre')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Titre
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Photos
+                          @sortablelink('created_at', 'Date de creation')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
                           Modif
@@ -263,21 +240,17 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                       @foreach ($collections as $collection)
                       <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td class="px-6 py-4 text-lg text-gray-500 whitespace-nowrap"> {{ $collection->id }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
+                        <td class="px-6 py-4">
                           <div class="flex items-center">
-                            <div class="ml-4">
-                              <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.collections.show', $collection) }}">{{ $collection->titre }}</a></div>
-                              <div class="text-lg text-gray-500">{{ $collection->created_at->format('d M Y')}}</div>
-                            </div>
+                            @foreach ($collection->photos as $photo)
+                            <img class="w-10 h-10 rounded-full mr-2" src="{{ asset('/storage/' . $photo->photo) }}" alt="" />
+                            @endforeach
+                            <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.collections.show', $collection) }}">{{ $collection->titre }}</a></div>
                           </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                          <img class="w-10 h-10 rounded-full" src="{{ asset('/storage/' . $collection->photo->photo) }}" alt="" />
-
+                        <td class="px-6 py-4 text-gray-900 whitespace-nowrap"> {{ $collection->created_at->format('d M Y') }}
+                        </td>
                         <td class="px-6 py-4 flex justify-start">
-
                           <a href="{{ route('admin.collections.edit', $collection) }}" class='bg-yellow-300 hover:bg-yellow-500 px-2 py-2 rounded'><i class="fas fa-edit"></i></a>
                           <a href="#" class="bg-red-500 ml-5 px-2 py-2 rounded hover:bg-red-800" onclick="event.preventDefault(); document.getElementById('form-{{$collection->id}}').submit();">
                             <i class="fas fa-trash-alt"></i>
