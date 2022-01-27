@@ -24,14 +24,14 @@
 
 <body class="font-sans antialiased">
     <div class="flex flex-col flex-1 h-full overflow-hidden">
-        @include('partials.sidebar')
+        @include('partialsBack.sidebar')
 
         <!-- Page Heading -->
-        @include('partials.header')
+        @include('partialsBack.header')
 
 
         <!-- Page Content -->
-        {{-- @include('partials.settings') --}}
+        {{-- @include('partialsBack.settings') --}}
 
         <main class="my-15">
             {{ $slot }}
