@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./dropdown');
 
 import Alpine from 'alpinejs';
 

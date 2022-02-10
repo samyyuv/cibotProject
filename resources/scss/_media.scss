@@ -1,0 +1,311 @@
+@media only screen and (min-width: 420px) {
+  .menu-footer{
+    display: none;
+  }
+  
+  footer {
+    padding: 2.6rem 4rem;
+  }
+  
+  .container-footer{
+    @include grid-column(2fr 4fr);  
+    gap: 1.5rem;
+  }
+  
+  .container-pags{
+    @include grid-column(repeat(4, 1fr));  
+    gap: 1.5rem;
+  }
+  
+  .footer-logo {
+    @include flex-box(space-between, flex-start, nowrap);
+    flex-direction: column;  
+    div {
+      p {
+        font-size: $font-xs;
+        padding-right: .5rem;
+      }
+      span i {
+        font-size: 1.75rem;
+      }
+    }
+  }
+  .menu-icon{
+    display: none;
+  }
+
+  .header{
+    &-menu {
+      position: fixed;
+      width: 100%;
+      background-color: $white;
+      i:not(:last-child) {
+        display: none;
+      }
+    }
+    &-container {
+      height:5.25rem;
+      @include flex-box(space-around, center, nowrap);   
+    }
+    &-language{
+      @include flex-box(space-around, center, nowrap);    
+
+      color: $gray1;
+      > div {
+        @include flex-box(space-around, center, nowrap);    
+      } 
+    }
+  }
+  
+  .nav {
+    &-top {
+      width: 253.5px;
+    }
+    
+    &-drill {
+      width: 100%;
+
+      > ul {      
+        @include flex-box(space-around, center, nowrap);
+        
+      }
+      .menu-language {
+        color: $gray1;
+        i{
+          font-size: $font-m;  
+          padding-right: 1.5rem;
+        }
+        div {
+          font-size: $font-xs;  
+          font-weight: $weight-400;
+        }
+        a:hover {
+          color: $antracite;
+        }
+      }
+      .img-menu{
+        width: 18.75rem;
+      }
+    }
+    
+    &-link {
+      display: block;
+      font-size: 1rem;
+      font-weight: 500;     
+    }
+
+    &-container {  
+      @include flex-box(space-around, flex-start, nowrap); 
+      position: fixed;
+      top: 84px;
+      left: 0;
+      width: 100%;         
+      background-color: $white;  
+      opacity: 0; 
+      transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;    
+      li {
+        flex: 1 1 0px;
+      }      
+    }
+    &-expand.active .nav-container{
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &-expand {  
+      &-content {
+        .nav-back {
+          display: none;
+        }
+      }
+              
+      .nav-expand-content {
+        .nav-link {
+          font-weight: 500;
+          line-height: 1rem;
+          
+        }
+        .nav-expand-content {
+          .nav-link {
+            font-weight: 400;
+            line-height: 1.7rem;
+            &:hover{
+              color: $teal;
+              font-weight: $weight-500;
+            }
+          }				
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:420px){
+  .logo{
+    width: 172px;
+    height: 30px;
+  }
+  footer {
+    padding: 2rem 1rem;
+  }
+  .container-footer{
+    @include flex-box(space-between, center, nowrap);
+    flex-direction: row;
+  }
+  .container-pags, .d-none, .copyright{
+    display: none;
+  }
+
+  // Menu mobile
+  .nav-top {
+    @include flex-box(space-between, center, nowrap);
+    position: fixed;
+    z-index: 101;
+    padding: 1.3rem 1.12rem;
+    width: 100%;
+    height: 4.56rem;
+    background-color: $white;
+    > img {
+      width: 195px;
+      height: 36px;
+    }
+    
+    .hamburger {
+      cursor: pointer;
+    }
+  }
+
+  .nav-is-toggled {
+    .nav-drill {
+      transform: translateX(0);
+      padding-bottom: 4.56rem;
+    }
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .nav {
+    &-drill {
+      transform: translateX(100%);
+      display: flex;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: $white;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      transition: 0.45s;
+      margin-top: 4.56rem;
+    }
+
+    &-items {
+      flex: 0 0 100%;
+      @include flex-box(space-around, flex-start, nowrap);
+      margin-bottom: 6.56rem;
+      flex-direction: column;
+      padding-left: 1rem;
+      .menu-language {
+        display: none;
+      }
+    }
+
+    &-link {
+      display: block;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    &-expand {
+      @include flex-box(flex-start, center, nowrap);
+      i {
+        color: $teal;
+      }
+
+      &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(100%);
+        transition: 0.3s;
+        visibility: hidden;
+        padding-bottom: 6.56rem;
+
+        .nav-item > .nav-back-link {
+          color: $teal;
+          font-weight: 600 !important;
+          line-height: 1.25rem;
+          padding-left: .5rem;
+        }
+      }
+      
+      &-link {
+        padding-right: 1.5rem;
+      }
+      
+      &.active {
+        > .nav-expand-content {
+          transform: translateX(0);
+          visibility: visible;
+        }
+      }
+      
+      .nav-expand-content {
+        background-color: $white;
+        padding-bottom: 11.10rem;
+        .nav-link {
+          font-weight: 500;
+        }
+        .nav-expand-content {
+          padding-bottom: 11.10rem;
+          .nav-link {
+            font-weight: 400;
+          }				
+        }
+      }
+    }
+  }
+
+  .menu {
+    &-footer{
+      background-color: $antracite;
+      color: $white;
+      padding: 1rem;
+      width: 100%;
+      bottom: 0;
+      position: fixed;
+      margin-bottom: 4.56rem;
+    }
+    &-language{
+      @include flex-box(flex-start, center, nowrap); 
+      a span > i {
+        font-size: 1.75rem;
+        padding-right: 0.75rem;
+      }
+      div {
+        @include flex-box(flex-start, center, nowrap);
+        p {
+          padding-right: 0.5rem;
+          font-size: 0.75rem;
+        }
+      }
+    }
+    &-CR{
+      font-size: .625rem;
+      padding-top: 1rem;
+      line-height: 0.75rem;
+    }
+  }
+
+  .img-menu {
+    display: none;
+  }
+
+}
