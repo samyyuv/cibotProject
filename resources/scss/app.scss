@@ -56,3 +56,50 @@ footer {
   font-size: $font-xs;
 }
 
+//Contact-me
+.contactMe {
+  background-color: $gray2;
+  input, textarea {
+    border: 1px solid $border;
+  }
+}
+
+.contactTitle {
+  @extend .h2;
+  color: $teal;
+}
+
+.contactButton {
+  @include button($white, $teal, $teal-hover);
+}
+
+//last art
+.slider {
+  .title {
+    @extend .h2-other;
+  }
+  .body-text{
+    @extend .font-body;
+  }
+  &-art {
+    .date {
+      @extend .font-mentions;
+      padding: 1.2rem 0 .5rem;
+    }
+    .titleArt {
+      @extend .h3;
+      padding: .25rem 0 .62rem
+    }
+    .details {
+      @extend .font-mentions;
+      color: $gray1;
+    }
+  }
+}
+
+
+
+
+
+
+

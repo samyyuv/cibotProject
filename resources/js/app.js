@@ -1,5 +1,6 @@
 require('./bootstrap');
 require('./dropdown');
+require('./slider');
 
 import Alpine from 'alpinejs';
 

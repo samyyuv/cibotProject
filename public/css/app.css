@@ -4,31 +4,31 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 
-.font-body {
+.font-body, .slider .body-text {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.6rem;
 }
 
-.font-mentions {
+.font-mentions, .slider-art .details, .slider-art .date {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1rem;
 }
 
-.h2-other {
-  font-family: "Sorts Mill Goudy", serif !important;
+.h2-other, .slider .title {
+  font-family: "Sorts Mill Goudy", serif;
   font-size: 2.75rem;
   line-height: 2.5rem;
 }
 
-.h3 {
+.h3, .slider-art .titleArt {
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.56rem;
 }
 
-.h2 {
+.h2, .contactTitle {
   font-weight: 500;
   font-size: 12rem;
   line-height: 2.75rem;
@@ -249,6 +249,31 @@ body {
     color: #006f7e;
     font-weight: 500;
   }
+
+  .slider {
+    position: static;
+    left: 10%;
+    top: 30%;
+    margin: 5rem 0;
+  }
+  .slider-content {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    gap: 2.6rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 180%;
+    pointer-events: none;
+    transition: 0s ease-in;
+    overflow: visible;
+  }
+  .slider-arts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3.8rem;
+  }
 }
 @media only screen and (max-width: 420px) {
   .logo {
@@ -419,6 +444,44 @@ body {
   .img-menu {
     display: none;
   }
+
+  .slider {
+    position: static;
+    margin: 2.6rem 0;
+  }
+  .slider-title {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  .slider .intro {
+    display: none;
+  }
+  .slider-content {
+    flex-direction: column;
+    overflow: hidden;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .slider-arts {
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .slider-art {
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .slider-art .body-text {
+    white-space: normal;
+    text-align: center;
+    padding: 0 2rem;
+  }
 }
 .menu-footer {
   background-color: #232C2E;
@@ -472,6 +535,41 @@ footer {
 
 .copyright {
   font-size: 0.75rem;
+}
+
+.contactMe {
+  background-color: #F1F1F1;
+}
+.contactMe input, .contactMe textarea {
+  border: 1px solid #9292925e;
+}
+
+.contactTitle {
+  color: #006f7e;
+}
+
+.contactButton {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 9999px;
+  color: #fff;
+  background-color: #006f7e !important;
+}
+.contactButton:hover {
+  background-color: #005d69 !important;
+}
+
+.slider-art .date {
+  padding: 1.2rem 0 0.5rem;
+}
+.slider-art .titleArt {
+  padding: 0.25rem 0 0.62rem;
+}
+.slider-art .details {
+  color: #929292;
 }
 /*
 ! tailwindcss v3.0.13 | MIT License | https://tailwindcss.com
