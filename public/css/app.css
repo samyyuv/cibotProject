@@ -4,13 +4,13 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 
-.font-body, .slider .body-text {
+.font-body, .news p:nth-child(3), .slider .body-text {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.6rem;
 }
 
-.font-mentions, .slider-art .details, .slider-art .date {
+.font-mentions, .news p:nth-child(2), .slider-art .details, .slider-art .date {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1rem;
@@ -28,9 +28,9 @@ body {
   line-height: 1.56rem;
 }
 
-.h2, .contactTitle {
+.h2, .news h2 {
   font-weight: 500;
-  font-size: 12rem;
+  font-size: 2.125rem;
   line-height: 2.75rem;
 }
 
@@ -151,6 +151,7 @@ body {
   }
 
   .header-menu {
+    z-index: 999;
     position: fixed;
     width: 100%;
     background-color: #fff;
@@ -212,6 +213,8 @@ body {
     display: block;
     font-size: 1rem;
     font-weight: 500;
+    line-height: 1rem;
+    color: #232C2E;
   }
   .nav-container {
     display: flex;
@@ -273,6 +276,137 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 3.8rem;
+  }
+
+  .home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    gap: 4.5rem;
+  }
+  .home-message {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .home-message h1 {
+    font-family: "Sorts Mill Goudy", serif;
+    font-size: 6.25rem;
+    line-height: 0.7;
+    padding-bottom: 2rem;
+  }
+  .home-message p {
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.6rem;
+  }
+  .home-slider {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+  }
+  .home-slider-details {
+    color: #fff;
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    width: 100%;
+  }
+  .home-slides {
+    width: 400%;
+    display: flex;
+  }
+  .home-slides input {
+    display: none;
+  }
+  .home-slide {
+    display: none;
+  }
+  .home-slide img {
+    width: 100%;
+  }
+
+  .slide {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2.5s;
+    animation-name: fade;
+    animation-duration: 2.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .navigation-manual {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 1.5rem;
+    top: 45%;
+  }
+  .navigation-manual-btn {
+    transition: background-color 0.6s ease;
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .navigation-manual-btn {
+    cursor: pointer;
+  }
+  .navigation-manual-btn:hover {
+    background: #fff;
+  }
+  .navigation-manual-btn:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .active {
+    background-color: #fff;
+  }
+
+  .news {
+    margin: 8.3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    -moz-column-gap: 5.6rem;
+         column-gap: 5.6rem;
+  }
+  .news-title a {
+    display: none;
+  }
+  .news-img {
+    grid-column: 2;
+    grid-row: 1/4;
+  }
+  .news-presentation h4, .news-presentation a {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    color: #006f7e;
+  }
+  .news-presentation h2 {
+    padding-top: 1.68rem;
+  }
+  .news-presentation p:nth-child(2) {
+    padding: 0.625rem 0;
+  }
+  .news-presentation p:nth-child(3) {
+    padding-bottom: 2.68rem;
   }
 }
 @media only screen and (max-width: 420px) {
@@ -447,7 +581,7 @@ body {
 
   .slider {
     position: static;
-    margin: 2.6rem 0;
+    margin: 4.75rem 0;
   }
   .slider-title {
     width: 50%;
@@ -481,6 +615,60 @@ body {
     white-space: normal;
     text-align: center;
     padding: 0 2rem;
+  }
+
+  .home {
+    margin: 3.12rem 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .home-slider-details {
+    display: none;
+  }
+  .home-message h1 {
+    font-family: "Sorts Mill Goudy", serif;
+    font-size: 3.125rem;
+    line-height: 4.8rem;
+    padding-bottom: 0.5rem;
+  }
+  .home-message p {
+    font-weight: 400;
+    font-size: 0.93rem;
+    line-height: 1.4rem;
+  }
+
+  .news {
+    display: flex;
+    flex-direction: column;
+    margin: 3.2rem 0;
+  }
+  .news-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .news-title a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 9999px;
+    color: #006f7e;
+    background-color: #F1F1F1 !important;
+  }
+  .news-title a:hover {
+    background-color: #929292 !important;
+  }
+  .news img {
+    padding: 1rem 0 1.56rem;
+  }
+  .news p:nth-child(2) {
+    padding: 0.875rem 0 0.68rem;
+  }
+  .news-presentation > a {
+    display: none;
   }
 }
 .menu-footer {
@@ -569,6 +757,16 @@ footer {
   padding: 0.25rem 0 0.62rem;
 }
 .slider-art .details {
+  color: #929292;
+}
+
+.news h4, .news a {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+  color: #006f7e;
+}
+.news p:nth-child(2) {
   color: #929292;
 }
 /*

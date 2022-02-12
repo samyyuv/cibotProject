@@ -13,7 +13,7 @@ $border: #9292925e;
 $montserrat-font: 'Montserrat', sans-serif;
 $sortsmill-font: 'Sorts Mill Goudy', serif;
 $h2-other: 2.75rem;
-$h2: 12rem;
+$h2: 2.125rem;
 $h3: 1.25rem;
 $font-m: 1rem;
 $font-s: 0.875rem;
@@ -51,6 +51,13 @@ body {
 @mixin grid-column($columns) {
   display: grid;
   grid-template-columns: $columns;
+}
+
+@mixin navBtn($color){
+  font-size: 1rem;
+  font-weight: 500;    
+  line-height: 1rem;
+  color: $color;
 }
 
 .font-body {

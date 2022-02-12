@@ -36,6 +36,7 @@
 
   .header{
     &-menu {
+      z-index: 999;
       position: fixed;
       width: 100%;
       background-color: $white;
@@ -90,8 +91,7 @@
     
     &-link {
       display: block;
-      font-size: 1rem;
-      font-weight: 500;     
+      @include navBtn($antracite);
     }
 
     &-container {  
@@ -139,6 +139,7 @@
       }
     }
   }
+
   //last-art {
   .slider {
     position: static;
@@ -161,7 +162,132 @@
         @include grid-column(repeat(5, 1fr));
         gap: 3.8rem;
       }    
+    }
+
+    //homeBlock
+  .home{
+    @include grid-column(1fr 1fr); 
+    justify-items: end;
+    gap: 4.5rem;
+    &-message{
+      @include flex-box(center, flex-start, nowrap);
+      flex-direction: column;
+      h1{
+        font-family: $sortsmill-font;
+        font-size: 6.25rem;
+        line-height: .7;
+        padding-bottom: 2rem;
+      }
+      p {
+        font-weight: 300;
+        font-size: $h3;
+        line-height: 1.6rem;      }
+    }
+    &-slider {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      position: relative;
+      
+    &-details {
+      color: $white;
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      width: 100%;
+      }
+    }
+    &-slides {
+      width: 400%;
+      display: flex;
+      input {
+        display: none;
+      }
     } 
+    &-slide {
+      display: none;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .slide {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2.5s;
+    animation-name: fade;
+    animation-duration: 2.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  //img-header-navigation
+  .navigation {
+    &-manual{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      right: 1.5rem;
+      top: 45%;
+    }
+    &-manual-btn {
+      transition: background-color 0.6s ease;
+      border: 2px solid $white;
+      padding: 5px;
+      border-radius: 10px;
+    }
+    &-manual-btn{
+      cursor: pointer;
+      &:hover{
+        background: $white;
+      }
+      &:not(:last-child){
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .active {
+    background-color: $white;
+  }
+
+  //actualites
+  .news {
+    margin: 8.3rem 0;
+    @include grid-column(1fr 2fr);
+    column-gap: 5.6rem;
+    &-title {
+      a{
+        display: none;
+      }
+    }
+    &-img {
+      grid-column: 2;
+      grid-row: 1/4;
+    }
+    &-presentation {
+      h4, a {
+        @include navBtn($teal);
+      }
+      h2 {
+        padding-top: 1.68rem;
+      }
+      p:nth-child(2) {
+        padding: .625rem 0;
+      }
+      p:nth-child(3) {
+        padding-bottom: 2.68rem;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width:420px){
@@ -336,7 +462,7 @@
   //last art
   .slider {
     position: static;
-    margin: 2.6rem 0;
+    margin: 4.75rem 0;
     &-title {
       width: 50%;
       margin: 0 auto;
@@ -370,5 +496,51 @@
         padding: 0 2rem;
       }
     }
+  }
+
+  //homeBlock
+  .home{
+    margin: 3.12rem 0;
+    display: flex;
+    flex-direction: column-reverse;
+    &-slider-details {
+      display: none;
+    }
+    &-message{
+      h1{
+        font-family: $sortsmill-font;
+        font-size: 3.125rem;
+        line-height: 4.8rem;
+        padding-bottom: .5rem;
+      }
+      p {
+        font-weight: 400;
+        font-size: .93rem;
+        line-height: 1.4rem;      
+      }
+    }    
+  }
+
+  .news {
+    display: flex;
+    flex-direction: column;
+    margin: 3.2rem 0;
+    &-title {
+      @include flex-box(space-between, center, nowrap); 
+      a{
+        @include button($teal, $gray2, $gray1);
+      }
+    }
+    img {
+      padding: 1rem 0 1.56rem;
+    }
+
+    p:nth-child(2) {
+      padding: .875rem 0 .68rem;
+    }
+    &-presentation > a {
+      display: none;
+    };
+    
   }
 }
