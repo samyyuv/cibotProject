@@ -112,3 +112,34 @@ footer {
   }  
 }
 
+//latest art
+.art {
+  h1, h5 {
+    text-align: center;
+  }
+  h5{
+    @include navBtn($antracite);
+    padding-bottom: 1rem;
+  }
+  h1 {
+    @extend .h1;
+    color: $teal;
+  }
+  &-container {
+    display: grid;
+    gap: 1px;
+    > div .cross {
+      display: none;
+    }
+    > div:hover, div:active {        
+      position: relative;
+        img {
+          filter: brightness(30%)
+        }
+        div {
+          display: block;  
+          @extend .cross;
+        }
+    }
+  }
+}

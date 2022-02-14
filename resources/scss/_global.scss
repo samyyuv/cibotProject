@@ -90,10 +90,17 @@ body {
   line-height: 2.75rem;
 }
 
+.h1 {
+  font-family: $sortsmill-font;
+  font-size: 4.6rem;
+  line-height: 3.8rem;
+}
+
 .invisible {
   display: none;
 }
 
+// hamburguer menu
 .menu-icon{
   width: 25px;
   height: 30px;
@@ -163,5 +170,41 @@ body {
   &.open span:nth-child(3){
     transform: rotate(-45deg);
     top: 13px;
+  }
+}
+
+//cross icon
+.cross {
+  width: 20%;
+  height: 20%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  a span {
+    background-color: $white;
+    position: absolute;
+    border-radius: 20px;
+    &:nth-child(1){
+      width: 100%;
+      height: 8%;
+      display: block;
+      top: 50%;
+      -moz-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    &:nth-child(2){
+      width: 8%;
+      height: 100%;
+      display: block;
+      left: 50%;
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
   }
 }

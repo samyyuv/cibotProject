@@ -288,6 +288,17 @@
       }
     }
   }
+
+  //latest art
+  .art {
+    &-container {
+      padding: 5.2rem 0 13.7rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      &-big{
+        grid-area: 1 / 3 / 3 / 5;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width:420px){
@@ -541,6 +552,22 @@
     &-presentation > a {
       display: none;
     };
-    
+  }
+
+  //latest art
+  .art {
+    h1 {
+      font-size: 3.125rem;
+      width: 50%;
+      margin: 0 auto;
+      line-height: 2.1rem;
+    }
+    &-container {
+      padding: 1.8rem 0 0;
+      grid-template-columns: 1fr 1fr;
+      &-big{
+        grid-area: 5 / 1 / 7 / 3;
+      }
+    }
   }
 }
