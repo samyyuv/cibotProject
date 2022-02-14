@@ -34,17 +34,20 @@ body {
   flex-wrap: $wrap;
 }
 
-@mixin button($font-color, $bg-color, $hover) {
+@mixin button($light-theme: true) {
   display: inline-block;
   text-decoration: none;
   padding: .5rem 1.5rem;
   font-weight: 500;
-  font-size: $font-m;
   border-radius: 9999px;
-  color: $font-color;
-  background-color: $bg-color !important;
-  &:hover{
-    background-color: $hover !important;
+  font-size: $font-m;
+  @if $light-theme{
+    color: $teal !important;
+    background-color: $gray2 !important;    
+  }
+  @else {
+    color: $white !important;
+    background-color: $teal !important;
   }
 }
 
@@ -94,6 +97,7 @@ body {
   font-family: $sortsmill-font;
   font-size: 4.6rem;
   line-height: 3.8rem;
+  color: $teal;
 }
 
 .invisible {
@@ -205,6 +209,21 @@ body {
       -moz-transform: translateX(-50%);
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
+    }
+  }
+  &-hover{
+    > div .cross {
+      display: none;
+    }
+    > div:hover, div:active {    
+      position: relative;
+      img {
+        filter: brightness(30%)
+      }
+      div {
+        display: block;  
+        @extend .cross;
+      }
     }
   }
 }

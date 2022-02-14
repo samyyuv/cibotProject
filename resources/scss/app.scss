@@ -57,19 +57,22 @@ footer {
 }
 
 //Contact-me
-.contactMe {
-  background-color: $gray2;
-  input, textarea {
+.contact{
+  &Me {
+    background-color: $gray2;
+    input, textarea {
     border: 1px solid $border;
+    }
   }
-}
-
-.contactTitle {
-  color: $teal;
-}
-
-.contactButton {
-  @include button($white, $teal, $teal-hover);
+  &Title {
+    color: $teal;
+  }
+  &Button {
+    @include button($light-theme: false);
+    &:hover{
+      background-color: $teal-hover !important;
+    }
+  }   
 }
 
 //last art
@@ -123,23 +126,45 @@ footer {
   }
   h1 {
     @extend .h1;
-    color: $teal;
   }
   &-container {
     display: grid;
     gap: 1px;
-    > div .cross {
-      display: none;
+    @extend .cross-hover;
+  }
+}
+
+// Actualités/news
+.actualites {
+  h1{
+    @extend .h1;
+    text-align: center;
+  }
+  &-btn {
+    justify-content: center;
+    a {
+      white-space: normal;
+      @include button($light-theme: true);
+      &:hover, &:active &:focus{
+        @include button($light-theme: false)
+      }
     }
-    > div:hover, div:active {        
-      position: relative;
-        img {
-          filter: brightness(30%)
-        }
-        div {
-          display: block;  
-          @extend .cross;
-        }
+  }
+  &-container {
+    &-topic{
+      div img{
+        margin: 0 auto;
+      }
+      @extend .cross-hover;
+      p:nth-child(2){
+        @extend .font-mentions;
+      }
+      h3 {
+        @extend .h3;
+      }
+      p:nth-child(4){
+        @extend .font-body;
+      }
     }
   }
 }
