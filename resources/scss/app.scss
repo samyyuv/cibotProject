@@ -63,17 +63,20 @@ footer {
     input, textarea {
     border: 1px solid $border;
     }
+    &:last-child{
+      
+    }
   }
   &Title {
     color: $teal;
   }
-  &Button {
-    @include button($light-theme: false);
-    &:hover{
-      background-color: $teal-hover !important;
-    }
-  }   
 }
+#contactButton{
+  @include button($light-theme: false);
+  &:hover{
+    background-color: $teal-hover;
+  }
+}   
 
 //last art
 .slider {
@@ -165,6 +168,22 @@ footer {
       p:nth-child(4){
         @extend .font-body;
       }
+    }
+  }
+}
+
+//biographie
+.biographie{
+  h1 {
+    @extend .h1;
+    text-align: center;
+  }
+  &-presentation div{
+    h2 {
+      @extend .h2;
+    }
+    p:last-child {
+      @extend .font-body;
     }
   }
 }

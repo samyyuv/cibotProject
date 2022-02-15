@@ -307,7 +307,7 @@
     &-btn {
       padding: 3.56rem 0 7rem;
       @include flex-box(center, center, wrap);
-      column-gap: 3.125rem;
+      gap: 1rem 3.125rem;
       button {
         column-gap: 2.65rem;
         @include button($light-theme: true);
@@ -328,6 +328,41 @@
         h3 {
           padding-bottom: .68rem;
         }
+      }
+    }
+  }
+
+  //biographie
+  .biographie{
+    margin: 2rem 0 12.8rem;
+    &-dropdown{
+      @include flex-box(space-evenly, center, wrap);
+      padding: 3.5rem 0 6.5rem;
+      gap: 2rem 1.2rem;
+      align-items: stretch;
+    }
+    div{
+      a {
+        @include button($light-theme: true);
+        &:hover, &:active{
+          @include button($light-theme: false);
+        }
+      }
+    }
+    &-title {
+      display: none;    
+    }
+    &-presentation div {
+      @include grid-column(2fr 4fr);
+      column-gap: 5rem;
+      img{
+        grid-row: 1/8;
+      }
+      h2 {
+        padding-bottom: 1rem;
+      }    
+      p:not(:first-child){
+        padding-top: 1rem;
       }
     }
   }
@@ -572,6 +607,9 @@
       @include flex-box(space-between, center, nowrap); 
       a{
         @include button($light-theme: true);
+        &:active{
+          @include button($light-theme: false);
+        }
       }
     }
     img {
@@ -633,4 +671,71 @@
       }
     }
   }
+
+    //biographie
+  .biographie{
+    &-btn{
+        position: relative;
+        cursor: pointer;
+        padding: 2.2rem 0 3.5rem;
+        display: inline-block;
+        &:hover .biographie-dropdown{
+          display: block;
+        }
+    }
+    &-dropdown, &-btn{
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    div &-title {
+      @include button($light-theme: false);
+      &:hover, &:active{
+        background-color: $teal-hover;
+      }
+      i {
+        padding-left: 1rem;
+      }
+    }
+    &-dropdown{
+      border-radius: 1rem;
+      display: none;
+      position: absolute;
+      background-color: $gray2;
+      min-width: 17.5rem;
+      z-index: 1;
+      top: 60%;
+      li:first-child {
+        display: none;
+      }
+
+      a {
+        color: $teal;
+        padding: .8rem 1.5rem;
+        display: block;
+        &:hover {
+          background-color: $teal;
+          color: $white;
+        }
+      }
+    }
+    &-presentation {
+      div {
+        display: flex;
+        flex-direction: column;
+        img{
+          margin: 0 auto;
+          order: 2;
+          padding: .5rem 0;
+        }
+        h2 {
+          display: none;
+        }
+        p:last-child {
+    
+          order: 99;
+        }
+      }
+    }
+  }
+
 }

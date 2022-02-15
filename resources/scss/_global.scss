@@ -35,19 +35,18 @@ body {
 }
 
 @mixin button($light-theme: true) {
-  display: inline-block;
   text-decoration: none;
-  padding: .5rem 1.5rem;
+  padding: .8rem 1.5rem;
   font-weight: 500;
   border-radius: 9999px;
   font-size: $font-m;
   @if $light-theme{
-    color: $teal !important;
-    background-color: $gray2 !important;    
+    color: $teal;
+    background-color: $gray2;    
   }
   @else {
-    color: $white !important;
-    background-color: $teal !important;
+    color: $white;
+    background-color: $teal;
   }
 }
 
