@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
   <div class="container-footer">
     <div class="footer-logo">
       <div class="logo">
@@ -20,7 +20,7 @@
     </div>
     <div class="container-pags">
       <div>
-        <div>{{ __('Œuvres') }}</div>
+        <div>{{ __('Art objects') }}</div>
         <ul>
           <li><a href="">Nulla porttitor</a></li>
           <li><a href="">Accumsan tincidunt</a></li>
@@ -31,7 +31,7 @@
         </ul>
       </div>
       <div>
-        <div>{{ __('Actualités') }}</div>
+        <div>{{ __('Current events') }}</div>
         <ul>
           <li><a href="">Nulla porttitor</a></li>
           <li><a href="">Accumsan tincidunt</a></li>
@@ -40,7 +40,7 @@
         </ul>
       </div>
       <div>
-        <div>{{ __('Biographie') }}</div>
+        <div>{{ __('Biography') }}</div>
         <ul>
           <li><a href="">Nulla porttitor</a></li>
           <li><a href="">Accumsan tincidunt</a></li>

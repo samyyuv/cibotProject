@@ -1,9 +1,7 @@
-<script src="script.js" defer></script>
-
 <header class="header-menu">
   <div class="header-container">
     <div class="nav-top">
-      <img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" />
+      <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" /></a>
       <div class="menu-icon" id="ham">
         <span></span>
         <span></span>
@@ -14,7 +12,7 @@
       <ul class="nav-items">
         <li class="nav-expand" data-dropdown>
           <a class="nav-link nav-expand-link" href="#">
-            Menu
+            {{ __('art objects') }}
           </a>
           <i class="fas fa-chevron-right"></i>
           <ul class="nav-items nav-expand-content left nav-container" data-dropdown-button>
@@ -172,7 +170,7 @@
             </li>
             <div class="img-menu">
               <div>
-                <img src="{{ asset('/storage/admin/logo.png') }}" alt="" />
+                <img src="https://picsum.photos/600" alt="" />
               </div>
               <div>
                 <div>
@@ -183,13 +181,10 @@
 
           </ul>
         </li>
-        <li><a class="nav-link" href="#"> Directory </a></li>
-        <li><a class="nav-link" href="#"> Contact </a></li>
+        <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('current events') }}</a></li>
+        <li><a class="nav-link" href="/biographie">{{ __('biography') }}</a></li>
         <li>
-          <a class="nav-link" href="#">Quick links </a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">Launchpad </a>
+          <a class="nav-link" href="#contactMe">{{ __('contact') }}</a>
         </li>
         <li>
           <div class="menu-language">
