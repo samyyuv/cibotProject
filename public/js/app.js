@@ -5437,6 +5437,68 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/actualites-btn.js":
+/*!****************************************!*\
+  !*** ./resources/js/actualites-btn.js ***!
+  \****************************************/
+/***/ (() => {
+
+window.selectBtnAct = function (c) {
+  var container, i;
+  container = document.getElementsByClassName("actualites-container");
+
+  if (container) {
+    for (i = 0; i < container.length; i++) {
+      remove(container[i], "show");
+      if (container[i].className.indexOf(c) > 1) add(container[i], "show");
+    }
+  }
+}; // Show filtered pags
+
+
+function add(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+} // Hide elements that are not selected
+
+
+function remove(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+
+  element.className = arr1.join(" ");
+} // Add active class to the current control button
+
+
+var btnNews = document.getElementById("btn-news");
+var btns = btnNews && btnNews.getElementsByClassName("btn-act");
+
+if (btns) {
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5448,15 +5510,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./dropdown */ "./resources/js/dropdown.js");
-
-__webpack_require__(/*! ./slider */ "./resources/js/slider.js");
-
-__webpack_require__(/*! ./sliderHome */ "./resources/js/sliderHome.js");
-
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+
+/***/ }),
+
+/***/ "./resources/js/biographie.js":
+/*!************************************!*\
+  !*** ./resources/js/biographie.js ***!
+  \************************************/
+/***/ (() => {
+
+window.selectBtnBio = function (c) {
+  var bioPresentation, i;
+  bioPresentation = document.getElementsByClassName("biographie-presentation");
+
+  if (bioPresentation) {
+    for (i = 0; i < bioPresentation.length; i++) {
+      remove(bioPresentation[i], "show");
+      if (bioPresentation[i].className.indexOf(c) > 1) add(bioPresentation[i], "show");
+    }
+  }
+}; // Show filtered pags
+
+
+function add(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+} // Hide elements that are not selected
+
+
+function remove(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+
+  element.className = arr1.join(" ");
+} // Add active class to the current control button
+
+
+var btnBio = document.getElementById("bio-drop");
+var buttons = btnBio && btnBio.getElementsByClassName("btn");
+
+if (buttons) {
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+}
 
 /***/ }),
 
@@ -5488,6 +5606,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+__webpack_require__(/*! ./dropdown */ "./resources/js/dropdown.js");
+
+__webpack_require__(/*! ./sliderHome */ "./resources/js/sliderHome.js");
+
+__webpack_require__(/*! ./actualites-btn */ "./resources/js/actualites-btn.js");
+
+__webpack_require__(/*! ./biographie */ "./resources/js/biographie.js");
+
+__webpack_require__(/*! ./slider */ "./resources/js/slider.js");
+
+__webpack_require__(/*! ./sliderArt */ "./resources/js/sliderArt.js");
 
 /***/ }),
 
@@ -5549,27 +5679,30 @@ var sliderContent = document.querySelector('.slider-content');
 var pressed = false;
 var startx;
 var x;
-slider.addEventListener('mousedown', function (e) {
-  pressed = true;
-  startx = e.offsetX - sliderContent.offsetLeft;
-  slider.style.cursor = 'grabbing';
-});
-slider.addEventListener('mouseenter', function () {
-  slider.style.cursor = 'grab';
-});
-slider.addEventListener('mouseup', function () {
-  slider.style.cursor = 'grab';
-});
-window.addEventListener('mouseup', function () {
-  pressed = false;
-});
-slider.addEventListener('mousemove', function (e) {
-  if (!pressed) return;
-  e.preventDefault();
-  x = e.offsetX;
-  sliderContent.style.left = "".concat(x - startx, "px");
-  checkBoundary();
-});
+
+if (slider) {
+  slider.addEventListener('mousedown', function (e) {
+    pressed = true;
+    startx = e.offsetX - sliderContent.offsetLeft;
+    slider.style.cursor = 'grabbing';
+  }); // slider.addEventListener('mouseenter', () => {
+  //   slider.style.cursor = 'grab';
+  // });
+
+  slider.addEventListener('mouseup', function () {
+    slider.style.cursor = 'grab';
+  });
+  window.addEventListener('mouseup', function () {
+    pressed = false;
+  });
+  slider.addEventListener('mousemove', function (e) {
+    if (!pressed) return;
+    e.preventDefault();
+    x = e.offsetX;
+    sliderContent.style.left = "".concat(x - startx, "px");
+    checkBoundary();
+  });
+}
 
 function checkBoundary() {
   var outer = slider.getBoundingClientRect();
@@ -5579,6 +5712,65 @@ function checkBoundary() {
     sliderContent.style.left = '0px';
   } else if (inner.right < outer.right) {
     sliderContent.style.left = "-".concat(inner.width - outer.width, "px");
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/js/sliderArt.js":
+/*!***********************************!*\
+  !*** ./resources/js/sliderArt.js ***!
+  \***********************************/
+/***/ (() => {
+
+var show = document.querySelectorAll(".slideshow, #overlay");
+
+if (show) {
+  window.openShow = function () {
+    show.forEach(function (i) {
+      i.style.display = "block";
+    });
+  };
+
+  window.closeShow = function () {
+    show.forEach(function (i) {
+      i.style.display = "none";
+    });
+  };
+}
+
+var slideIndex = 1;
+slideArt(slideIndex);
+
+window.plusSlides = function (n) {
+  slideArt(slideIndex += n);
+};
+
+window.currentSlide = function (n) {
+  slideArt(slideIndex = n);
+};
+
+function slideArt(n) {
+  var slides = document.getElementsByClassName("slide-1");
+
+  if (slides && slides.length > 0) {
+    var i;
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      slides[i].style.opacity = "0";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].style.opacity = "1";
   }
 }
 
@@ -5601,26 +5793,30 @@ function actualSlide(n) {
 function showSlides(n) {
   var dots = document.getElementsByClassName("navigation-manual-btn");
   var slides = document.getElementsByClassName("slide");
-  var i;
 
-  if (n > slides.length) {
-    slideIndex = 1;
+  if (slides && slides.length > 0) {
+    var i;
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    console.log(slides);
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
   }
-
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
 }
 
 /***/ }),
