@@ -1,6 +1,18 @@
 @import 'global';
 @import 'media';
 
+.nav {
+  &-expand {  
+    &-content {
+      .img-menu p {
+        @extend .font-mentions;
+        color: $gray1;
+      }
+    }         
+  }
+}
+
+
 //mobile footer in menu
 .menu {
 	&-footer{
@@ -43,16 +55,16 @@ footer {
   div div{
     font-size: $font-s;
     font-weight: $weight-500;
-    padding-bottom: .6rem;
+    //padding-bottom: .6rem;
   }
 
   li a {
-    line-height: 2.3rem;
     font-size: $font-xs;
   }
 }
 
 .copyright {
+  padding-top: 1rem;
   font-size: $font-xs;
 }
 
@@ -62,9 +74,6 @@ footer {
     background-color: $gray2;
     input, textarea {
     border: 1px solid $border;
-    }
-    &:last-child{
-      
     }
   }
   &Title {
@@ -78,7 +87,7 @@ footer {
   }
 }   
 
-//last art
+//latestWorksSlide
 .slider {
   .title {
     @extend .h2-other;
@@ -86,17 +95,14 @@ footer {
   .body-text{
     @extend .font-body;
   }
-  &-art {
-    .date {
-      @extend .font-mentions;
+  .slide-2 {
+    p:nth-child(2) {
       padding: 1.2rem 0 .5rem;
     }
-    .titleArt {
-      @extend .h3;
+    h3:nth-child(4) {
       padding: .25rem 0 .62rem
     }
-    .details {
-      @extend .font-mentions;
+    p:nth-child(3) {
       color: $gray1;
     }
   }
@@ -106,19 +112,12 @@ footer {
   h4, a {
     @include navBtn($teal);
   }
-  h2 {
-    @extend .h2;
-  }
   p:nth-child(2) {
-    @extend .font-mentions;
     color: $gray1;
   }
-  p:nth-child(3) {
-    @extend .font-body;
-  }  
 }
 
-//latest art
+//worksList
 .art {
   h1, h5 {
     text-align: center;
@@ -137,7 +136,72 @@ footer {
   }
 }
 
-// Actualités/news
+//art individuel
+.slideshow {
+  display: none;
+  z-index: 999;
+  left: 50%;
+  width: 80%;
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  // width: 100vw;
+  // height: 100%;
+  //overflow: auto;
+  background-color: white;
+  
+  //close button
+  > div:first-child{
+    position: absolute;
+    @include close(30px, 30px);
+    &:hover, &:focus {
+      cursor: pointer;
+      width: 3%;
+    }
+  }  
+  &-container {
+    li > div {
+      h5 {
+        @include navBtn($antracite);
+      }
+      h2 {
+        font-family: $sortsmill-font;
+        font-size: 2.8rem;
+      }
+    }
+    position: relative;
+    &-button {
+      cursor: pointer;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      font-size: $font-m;
+      background-color: $antracite;
+      color: $white;
+      position: absolute;
+      z-index: 2;
+      &:hover, &:focus, &:active{
+        background-color: black;
+      }
+      i  {
+        font-size: 2rem;
+        vertical-align: middle;
+      }
+    }
+  }
+  .slide-1{
+    display: none;
+    > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+// Actualités/news list
 .actualites {
   h1{
     @extend .h1;
@@ -145,45 +209,70 @@ footer {
   }
   &-btn {
     justify-content: center;
+    .active, .btn-act:hover{
+      @include button($light-theme: false)
+    }
     a {
       text-align: center;
       @include button($light-theme: true);
-      &:hover, &:active &:focus{
-        @include button($light-theme: false)
-      }
     }
   }
   &-container {
+    display: none;
     &-topic{
       div img{
         margin: 0 auto;
       }
       @extend .cross-hover;
-      p:nth-child(2){
-        @extend .font-mentions;
+    }
+  }
+}
+
+// Actualités/news article
+.news{
+  &-article{
+    a {
+      @include navBtn($teal);
+      i {
+        padding-right: 1rem;
+        color: $antracite;
       }
-      h3 {
-        @extend .h3;
-      }
-      p:nth-child(4){
-        @extend .font-body;
-      }
+    }
+  }
+  &-container{
+    
+    h2 {
+      @extend .h2-other;
+    }
+  }
+  &-other{
+    h2{
+      @extend .h2;
+    }
+    div {
+      justify-content: space-between;
     }
   }
 }
 
 //biographie
 .biographie{
+  div.show{
+    display: block;
+  }
   h1 {
     @extend .h1;
     text-align: center;
   }
-  &-presentation div{
-    h2 {
-      @extend .h2;
-    }
-    p:last-child {
-      @extend .font-body;
-    }
+  &-presentation{
+    display: none;
+    div{
+      h2 {
+        @extend .h2;
+      }
+      p:last-child {
+        @extend .font-body;
+      }
+    } 
   }
 }
