@@ -51,7 +51,11 @@ class MessageController extends Controller
             'sujet' => $request->sujet,
         ]);
 
+<<<<<<< HEAD
         return redirect()->route('/')->with('success', 'Votre message a été envoyé');
+=======
+        return redirect()->route('message.create')->with('success', 'Votre message a été envoyé');
+>>>>>>> js
     }
 
     /**

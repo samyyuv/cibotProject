@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        Actualite::factory(10)->create();
-        Collection::factory(10)->create();
-        Categorie::factory(5)->create();
-        Oeuvre::factory(30)->create();
-        Photo::factory(200)->create();
-        Contact::factory(2)->create();
-        User::factory(1)->create();
-    }
+        /**
+         * Seed the application's database.
+         *
+         * @return void
+         */
+        public function run()
+        {
+                Actualite::factory(10)->create();
+                Collection::factory(10)->create();
+                Categorie::factory(5)->create();
+                Oeuvre::factory(30)->create();
+                Photo::factory(200)->create();
+                Contact::factory(2)->create();
+                User::factory(1)->create();
+        }
 }

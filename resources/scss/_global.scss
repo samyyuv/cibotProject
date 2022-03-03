@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Sorts+Mill+Goudy&display=swap");
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+//Colors
+$white: #fff;
+$teal: #006f7e;
+$teal-hover: #005d69;
+$antracite: #232C2E;
+$gray1: #929292;
+$gray2: #F1F1F1;
+$border: #9292925e;
+
+//Typography
+$montserrat-font: 'Montserrat', sans-serif;
+$sortsmill-font: 'Sorts Mill Goudy', serif;
+$icon-font: 'Material Icons';
+$icon-arrow-right: 'chevron_right';
+$icon-arrow-left: 'chevron_left';
+$h2-other: 2.75rem;
+$h2: 2.125rem;
+$h3: 1.25rem;
+$font-m: 1rem;
+$font-s: 0.875rem;
+$font-xs: 0.75rem;
+$weight-600: 600;
+$weight-500: 500;
+$weight-400: 400;
+
+.bg-teal{
+  background-color: $teal;
+}
+
+.border-teal {
+  border: $teal ;
+}
+
+body {
+  color: $antracite;
+  font-family: $montserrat-font !important;
+}
+
+@mixin flex-box($main, $crossed, $wrap){
+  display: flex;
+  justify-content: $main;
+  align-items: $crossed;
+  flex-wrap: $wrap;
+}
+
+@mixin button($light-theme: true) {
+  cursor: pointer;
+  padding: .5rem 1.2rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  font-size: $font-m;
+  @if $light-theme{
+    color: $teal;
+    background-color: $gray2;    
+  }
+  @else {
+    color: $white;
+    background-color: $teal;
+  }
+}
+
+@mixin grid-column($columns) {
+  display: grid;
+  grid-template-columns: $columns;
+}
+
+@mixin navBtn($color){
+  font-size: 1rem;
+  font-weight: 500;    
+  line-height: 1rem;
+  color: $color;
+}
+
+.font-body {
+  font-weight: $weight-400;
+  font-size: $font-m;
+  line-height: 1.6rem;
+}
+
+.font-mentions {
+  font-size: $font-s;
+  font-weight: $weight-500;
+  line-height: 1rem;
+}
+
+.h2-other {
+  font-family: $sortsmill-font;
+  font-size: $h2-other;
+  line-height: 2.5rem;
+}
+
+.h3 {
+  font-weight: $weight-600;
+  font-size: $h3;
+  line-height: 1.56rem;
+}
+
+.h2 {
+  font-weight: $weight-500;
+  font-size: $h2;
+  line-height: 2.75rem;
+}
+
+.h1 {
+  font-family: $sortsmill-font;
+  font-size: 4.6rem;
+  line-height: 3.8rem;
+  color: $teal;
+}
+
+.invisible {
+  display: none;
+}
+
+// hamburguer menu
+.menu-icon{
+  width: 25px;
+  height: 30px;
+  margin: 10px 10px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  span{
+    background-color: $gray1;
+    position: absolute;
+    border-radius: 2px;
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+    transition-duration: 500ms;
+    &:nth-child(1){
+      width: 100%;
+      height: 4px;
+      display: block;
+      top: 0px;
+      left: 0px;
+    }
+    &:nth-child(2){
+      width: 100%;
+      height: 4px;
+      display: block;
+      top: 10px;
+      left: 0px;
+    }
+    &:nth-child(3){
+      width: 100%;
+      height: 4px;
+      display: block;
+      bottom: 6px;
+      left: 0px;
+    }
+  }
+  &:not(.open):hover span:nth-child(1){
+    width: 100%;
+    height:  4px;
+    display: block;
+    top: 0px;
+    left: 0px;
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+  }
+  &:not(.open):hover span:nth-child(2){
+    width: 100%;
+    height:  4px;
+    display: block;
+    top: 10px;
+    left: 0px;
+    transition: .4s cubic-bezier(.8, .5, .2, 1.4);
+  }
+  &:not(.open):hover span:nth-child(3){
+    width: 100%;
+    height:  4px;
+    display: block;
+    bottom: 6px;
+    left: 0px;
+    transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+  }
+  &.open span:nth-child(1){
+    transform: rotate(45deg);
+    top: 13px;
+  }
+  &.open span:nth-child(2){
+    opacity:0;
+  }
+  &.open span:nth-child(3){
+    transform: rotate(-45deg);
+    top: 13px;
+  }
+}
+
+//cross icon
+.cross {
+  width: 20%;
+  height: 20%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  a span {
+    background-color: $white;
+    position: absolute;
+    border-radius: 20px;
+    display: block;
+    &:nth-child(1){
+      width: 100%;
+      height: 8%;
+      top: 50%;
+      -moz-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    &:nth-child(2){
+      width: 8%;
+      height: 100%;
+      left: 50%;
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+  }
+  &-hover{
+    > div .cross {
+      display: none;
+    }
+    > div:hover, div:active {    
+      position: relative;
+      img {
+        filter: brightness(30%)
+      }
+      div {
+        display: block;  
+        @extend .cross;
+      }
+    }
+  }
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2.5s;
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@mixin close($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+  cursor: pointer;
+  a span {
+    background-color: black;
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    display: block;
+    left: 0px;
+    &:nth-child(1){
+      transform: rotate(45deg);
+    }
+    &:nth-child(2){
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.card {
+  h3 {
+    @extend .h3;
+  }
+  h2 {
+    @extend .h2;
+  }
+  .body-text {
+    @extend .font-body;
+  }
+  p {
+    @extend .font-mentions;
+  }
+}
+
+//dark pag
+#overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 50;
+}
