@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\ActualiteController as AdminActualiteController;
 use App\Http\Controllers\Admin\CategorieController as AdminCategorieController;
 use App\Http\Controllers\Admin\CollectionController as AdminCollectionController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\BiographieController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -28,19 +30,23 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/contactez-nous', [MessageController::class, 'create'])
-    ->name('message.create');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/', [MessageController::class, 'create'])
+//     ->name('message.create');
 
+
+Route::resource('/biographie', BiographieController::class);
 Route::resource('/actualites', ActualiteController::class);
 Route::resource('/categories', CategorieController::class);
 Route::resource('/collections', CollectionController::class);
 Route::resource('/oeuvres', OeuvreController::class);
 Route::resource('/photos', PhotoController::class);
+Route::resource('/', HomeController::class);
 
 
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguageController@switchLang']);
 
 Route::middleware(['auth'])->group(function () {
     Route::view('monProfile', 'authentication.profile')

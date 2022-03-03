@@ -4,7 +4,7 @@
         <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
             <!-- Loading screen -->
             <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
-                Loading.....
+                {{ __('Loading') }}.....
             </div>
 
             <div class="flex flex-col flex-1 h-full overflow-hidden">
@@ -29,7 +29,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $actualitesDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-[#006f7e] rounded">{{ $actualitesDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $categoriesDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-[#006f7e] rounded">{{ $categoriesDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $collectionsDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-[#006f7e] rounded">{{ $collectionsDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $oeuvresDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-[#006f7e] rounded">{{ $oeuvresDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $usersDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-[#006f7e] rounded">{{ $usersDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                     <div class="p-10 bg-gray-200 rounded-md"></div>
                                 </div>
                                 <div>
-                                    <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">{{ $contactsMeDernierMois->count() }}</span>
+                                    <span class="inline-block px-2 text-sm text-white bg-[#006f7e] rounded">{{ $contactsMeDernierMois->count() }}</span>
                                     <span>le dernier mois</span>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                                                     </span>
                                                     @endif
                                                 <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                                    <a href="{{ route('admin.users.edit', $user) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                    <a href="{{ route('admin.users.edit', $user) }}" class="text-[#006f7e] hover:text-[#005d69]">Edit</a>
                                                 </td>
                                             </tr>
                                             @endforeach

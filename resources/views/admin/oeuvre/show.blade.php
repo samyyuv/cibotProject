@@ -17,7 +17,7 @@
     <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
       <!-- Loading screen -->
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
-        Loading.....
+        {{ __('Loading') }}.....
       </div>
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">

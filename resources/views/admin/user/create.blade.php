@@ -4,7 +4,7 @@
     <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
       <!-- Loading screen -->
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
-        Loading.....
+        {{ __('Loading') }}.....
       </div>
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
@@ -32,10 +32,10 @@
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
                         <label for="name" class="block text-lg font-medium text-gray-700">
-                          Nom
+                          {{__('Name')}}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" placeholder="Titre de l'actualité">
+                          <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Name')}}">
                         </div>
                       </div>
                     </div>
@@ -43,9 +43,9 @@
                     <!-- Email Address -->
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
-                        <label for="email" class="block text-lg font-medium text-gray-700">Adresse email</label>
+                        <label for="email" class="block text-lg font-medium text-gray-700">{{__('Email Address')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="email" name="email" id="email" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" placeholder="Titre de l'actualité">
+                          <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Email Address')}}">
                         </div>
                       </div>
                     </div>
@@ -53,9 +53,9 @@
                     <!-- Mot de passe -->
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
-                        <label for="password" class="block text-lg font-medium text-gray-700">Mot de passe</label>
+                        <label for="password" class="block text-lg font-medium text-gray-700">{{__('Password')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="password" name="password" id="password" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="Entrer mot de passe">
+                          <input type="password" name="password" id="password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="Entrer mot de passe">
                         </div>
                       </div>
                     </div>
@@ -63,9 +63,9 @@
                     <!-- Confirmer mot de passe -->
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
-                        <label for="password_confirmation" class="block text-lg font-medium text-gray-700">Mot de passe</label>
+                        <label for="password_confirmation" class="block text-lg font-medium text-gray-700">{{__('Confirm Password')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required placeholder="Rentrer mot de passe">
+                          <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="Rentrer mot de passe">
                         </div>
                       </div>
                     </div>
@@ -73,16 +73,16 @@
                     <!-- Role -->
                     <div class="flex items-start">
                       <div class="flex items-center h-5">
-                        <input id="admin" name="admin" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        <input id="admin" name="admin" type="checkbox" class="focus:ring-[#006f7e] h-4 w-4 text-[#006f7e] border-gray-300 rounded">
                       </div>
                       <div class="ml-3 text-lg">
-                        <label for="admin" class="font-medium text-gray-700">Si coché, l'utilisateur deviendra admin.</label>
+                        <label for="admin" class="font-medium text-gray-700">{{__('If checked, the user will become admin')}}.</label>
                       </div>
                     </div>
 
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        CRÉER UN UTILISATEUR
+                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006f7e]">
+                        {{__('CREATE AN USER')}}
                       </button>
                     </div>
                   </div>

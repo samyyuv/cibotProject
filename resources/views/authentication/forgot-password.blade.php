@@ -8,10 +8,10 @@
       <div class="w-full h-100">
 
 
-        <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Mot de passe oublié ?</h1>
+        <h1 class="text-xl md:text-2xl text-[#006f7e] font-bold leading-tight mt-12">{{ __('Forgot your password?') }}</h1>
 
         <div class="mb-4 text-sm text-gray-600">
-          {{ __('Laissez-nous votre email et nous vous enverrons un lien pour modifier votre mot de passe.') }}
+          {{ __('No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 
         <!-- Session Status -->
@@ -23,12 +23,12 @@
           @csrf
 
           <div>
-            <label class="block text-gray-700" for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Votre adresse e-mail" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus required>
+            <label class="block text-gray-700" for="email">{{ __('Email') }}</label>
+            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#005d69] focus:bg-white focus:outline-none" autofocus required>
           </div>
 
-          <button type="submit" class="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
-              px-4 py-3 mt-6">Modifier le mot de passe</button>
+          <button type="submit" class="w-full block bg-[#006f7e] hover:bg-[#005d69] focus:bg-[#005d69] text-white font-semibold rounded-lg
+              px-4 py-3 mt-6"> {{ __('Email Password Reset Link') }}</button>
         </form>
 
       </div>

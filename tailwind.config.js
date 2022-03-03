@@ -37,10 +37,11 @@ module.exports = {
             violet: colors.violet,
             yellow: colors.amber,
             white: colors.white,
+
         },
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
         },
     },

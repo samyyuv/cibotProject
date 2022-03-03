@@ -1,9 +1,7 @@
-<script src="script.js" defer></script>
-
 <header class="header-menu">
   <div class="header-container">
     <div class="nav-top">
-      <img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" />
+      <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" /></a>
       <div class="menu-icon" id="ham">
         <span></span>
         <span></span>
@@ -14,49 +12,28 @@
       <ul class="nav-items">
         <li class="nav-expand" data-dropdown>
           <a class="nav-link nav-expand-link" href="#">
-            Menu
+            {{ __('art objects') }}
           </a>
           <i class="fas fa-chevron-right"></i>
           <ul class="nav-items nav-expand-content left nav-container" data-dropdown-button>
+            @foreach ($categoriesMenu as $categorie)
             <li class="nav-expand">
-              <a class="nav-link nav-expand-link" href="#">
-                Menu UNO
+              <a class="nav-link nav-expand-link" href="{{ route('categories.show', $categorie) }}">
+                {{ $categorie->titre }}
               </a>
               <i class="fas fa-chevron-right"></i>
               <ul class="nav-items nav-expand-content">
+                @foreach ($categorie->oeuvres as $oeuvre)
                 <li>
                   <a class="nav-link" href="#">
-                    Level 3
+                    {{ $oeuvre->titre }}
                   </a>
                 </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 donde están los
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 donde están los
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 donde están los donde están los
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 donde están los
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    donde están los
-                  </a>
-                </li>
+                @endforeach
               </ul>
             </li>
-            <li class="nav-expand">
+            @endforeach
+            {{--<li class="nav-expand">
               <a class="nav-link nav-expand-link" href="#">
                 Menu DOS
               </a>
@@ -169,27 +146,24 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li>--}}
             <div class="img-menu">
               <div>
-                <img src="{{ asset('/storage/admin/logo.png') }}" alt="" />
+                <img src="https://picsum.photos/600" alt="" />
               </div>
               <div>
                 <div>
-                  <p>Nombre de la obra</p>
+                  <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
                 </div>
               </div>
             </div>
 
           </ul>
         </li>
-        <li><a class="nav-link" href="#"> Directory </a></li>
-        <li><a class="nav-link" href="#"> Contact </a></li>
+        <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('current events') }}</a></li>
+        <li><a class="nav-link" href="/biographie">{{ __('biography') }}</a></li>
         <li>
-          <a class="nav-link" href="#">Quick links </a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">Launchpad </a>
+          <a class="nav-link" href="#contactMe">{{ __('contact') }}</a>
         </li>
         <li>
           <div class="menu-language">
@@ -197,10 +171,15 @@
               <span><i class="fab fa-facebook-square"></i></span>
             </a>
             <div>
-              <p><a href="#">FR</a></p>
+              <p class="chosen-lang">{{ Config::get('languages')[App::getLocale()] }}</p>
               <p>|</p>
-              <p><a href="#">ENG</a></p>
+              @foreach (Config::get('languages') as $lang => $language)
+              @if ($lang != App::getLocale())
+              <p><a href="{{ route('lang.switch', $lang) }}">{{$language}}</a></p>
+              @endif
+              @endforeach
             </div>
+          </div>
         </li>
       </ul>
 
@@ -210,12 +189,19 @@
             <span><i class="fab fa-facebook-square"></i></span>
           </a>
           <div>
-            <p><a href="#">FR</a></p>
+            <p class="chosen-lang">{{ Config::get('languages')[App::getLocale()] }}</p>
             <p>|</p>
-            <p><a href="#">ENG</a></p>
+            @foreach (Config::get('languages') as $lang => $language)
+            @if ($lang != App::getLocale())
+            <p><a href="{{ route('lang.switch', $lang) }}">{{$language}}</a></p>
+            @endif
+            @endforeach
           </div>
         </div>
-        <div class="menu-CR">© Elisabeth Cibot - 2022 - © ADAGP Reproductions et représentations</div>
+        <div class="menu-CR">&copy; Elisabeth Cibot - <?php if (date('Y') != '2022') {
+                                                        echo '2022 - ';
+                                                      }
+                                                      echo date('Y'); ?> - &copy; {{ __('ADAGP Reproductions and representations') }}</div>
       </div>
     </nav>
   </div>
