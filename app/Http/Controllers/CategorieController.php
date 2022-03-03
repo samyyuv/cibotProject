@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Oeuvre;
 use App\Models\Categorie;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -14,7 +16,6 @@ class CategorieController extends Controller
      */
     public function index()
     {
-
         $categories = Categorie::all();
 
         return view('public.categorie.index', compact('categories'));
@@ -28,8 +29,10 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        $categorie = Categorie::find($id)->where('id', $id)->first();
+        $categorie = Categorie::find($id);
+        $oeuvres = Oeuvre::all();
+        $photos = Photo::all();
 
-        return view('public.categorie.show', compact('categorie'));
+        return view('partialsFront.worksCategories', compact('categorie', 'oeuvres', 'photos'));
     }
 }
