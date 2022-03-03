@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Oeuvre;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class OeuvreController extends Controller
@@ -14,9 +15,9 @@ class OeuvreController extends Controller
      */
     public function index()
     {
-        $collections = Oeuvre::all();
+        $oeuvres = Oeuvre::all();
 
-        return view('public.oeuvre.index', compact('oeuvre'));
+        return view('partialsFront.worksList', compact('oeuvres'));
     }
 
     /**
@@ -27,6 +28,6 @@ class OeuvreController extends Controller
      */
     public function show(Oeuvre $oeuvre)
     {
-        return view('public.oeuvre.show', compact('oeuvre'));
+        return view('partialsFront.workIndividual', compact('oeuvre'));
     }
 }

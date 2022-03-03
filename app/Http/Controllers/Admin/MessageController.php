@@ -31,7 +31,7 @@ class MessageController extends Controller
     {
         $contacts = Contact::all();
 
-        return view('contactMe', compact('contacts'));
+        return view('partialsFront.home', compact('contacts'));
     }
 
     /**
@@ -51,7 +51,7 @@ class MessageController extends Controller
             'sujet' => $request->sujet,
         ]);
 
-        return redirect()->route('message.create')->with('success', 'Votre message a été envoyé');
+        return redirect()->route('/')->with('success', 'Votre message a été envoyé');
     }
 
     /**

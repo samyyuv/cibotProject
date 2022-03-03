@@ -19,8 +19,8 @@ class PhotoFactory extends Factory
         return [
             'photo' => $this->faker->imageUrl($width = 640, $height = 480),
             'created_at' => $this->faker->dateTimeBetween('-1 week', 'yesterday'),
-            'collection_id' => Collection::inRandomOrder()->first()->id,
-            'categorie_id' => Categorie::inRandomOrder()->first()->id,
+            // 'collection_id' => Collection::inRandomOrder()->first()->id,
+            // 'categorie_id' => Categorie::inRandomOrder()->first()->id,
             'oeuvre_id' => Oeuvre::inRandomOrder()->first()->id,
         ];
     }

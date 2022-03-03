@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
+use App\Models\Oeuvre;
 use App\Models\Actualite;
 use App\Models\Collection;
 use Illuminate\Http\Request;
@@ -16,10 +17,9 @@ class ActualiteController extends Controller
      */
     public function index()
     {
-        $actualites = Actualite::all();
-        $collections = Collection::all();
-
-        return view('public.post.index', compact('actualites', 'collections'));
+        $actualites = Actualite::orderBy('position', 'asc')->get();
+        $lastestActualites = Actualite::latest()->take(5)->get();
+        return view('partialsFront.newsList', compact('actualites', 'lastestActualites'));
     }
 
     /**
@@ -30,12 +30,9 @@ class ActualiteController extends Controller
      */
     public function show(Actualite $actualite)
     {
-        return view('public.post.show', compact('actualite'));
+        $oeuvres = Oeuvre::where('active', 1)->latest()->take(5)->get();
+        $actualites = Actualite::where('active', 1)->latest()->take(3)->get();
+
+        return view('partialsFront.newsArticle', compact('actualite', 'oeuvres', 'actualites'));
     }
 }
-// <!-- @foreach ($photos as $photo)
-// @if ($photo->artwork == $actualite->artwork)
-// <img src="{{ $photo->photo }}" alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-// @endif
-// @endforeach
-// -->

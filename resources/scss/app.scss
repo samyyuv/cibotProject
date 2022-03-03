@@ -109,7 +109,7 @@ footer {
 }
 
 .news {
-  h4, a {
+  a {
     @include navBtn($teal);
   }
   p:nth-child(2) {
@@ -145,19 +145,13 @@ footer {
   -moz-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  // width: 100vw;
-  // height: 100%;
-  //overflow: auto;
   background-color: white;
   
   //close button
-  > div:first-child{
+  .close{
+    z-index: 99;
     position: absolute;
     @include close(30px, 30px);
-    &:hover, &:focus {
-      cursor: pointer;
-      width: 3%;
-    }
   }  
   &-container {
     li > div {
@@ -180,8 +174,8 @@ footer {
       color: $white;
       position: absolute;
       z-index: 2;
-      &:hover, &:focus, &:active{
-        background-color: black;
+      &:hover, &:focus{
+        background-color: $teal;
       }
       i  {
         font-size: 2rem;

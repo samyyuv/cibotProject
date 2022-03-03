@@ -1,10 +1,13 @@
-@media only screen and (min-width: 420px) {
+
+@media only screen and (min-width: 576px) {
   body {
     .body-container {
      overflow-x: hidden;
-     margin: 5.25rem 0 8rem 100px;
+     padding: 6rem 0 8rem 100px;
+     max-width: 1800px;
       }
   }
+
   .menu-footer{
     display: none;
   }
@@ -97,6 +100,9 @@
       }
       .img-menu{
         width: 18.75rem;
+        div p {
+          padding-top: .5rem;
+        }
       }
     }
     
@@ -131,9 +137,6 @@
         }
         .nav-expand > a {
           padding-bottom: 1rem;
-        }
-        .img-menu p {
-
         }
       }          
       .nav-expand-content {
@@ -191,7 +194,7 @@
     @include grid-column(1fr 1fr); 
     justify-items: end;
     gap: 4.5rem;
-    //margin-right: -100px;
+    margin-top: 2rem;
     &-message{
       @include flex-box(center, flex-start, nowrap);
       flex-direction: column;
@@ -272,6 +275,9 @@
     @include grid-column(1fr 2fr);
     column-gap: 5.6rem;
     &-title {
+      h4 {
+        @include navBtn($teal);
+      }
       a{
         display: none;
       }
@@ -320,13 +326,12 @@
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-
+    padding: 7rem 0;
     //close button
-    > div:first-child{
-      top:2rem;
+    .close{
+      top: 3rem;
       right: 1.5rem;
     }
-    padding: 7rem 0;
     &-container {
       margin: -5rem 0;
       padding-top: 2rem;
@@ -378,7 +383,7 @@
       padding: 3.56rem 0 7rem;
       @include flex-box(center, center, wrap);
       gap: 1rem 3.125rem;
-      button {
+      a {
         column-gap: 2.65rem;
         @include button($light-theme: true);
         &:hover, &:active &:focus{
@@ -482,20 +487,22 @@
   }
 }
 
-@media only screen and (max-width:420px){
+@media only screen and (max-width:576px){
 //@media only screen and (max-width:785px){
   .logo{
     width: 172px;
     height: 30px;
   }
+
   body {
     .body-container {
-      margin: 0 1rem;
+      padding: 0 1rem 1rem;
       section:first-child{
         padding-top: 5rem;
       }
     }
   }
+  
   //footer
   footer {
     padding: 2rem 1rem;
@@ -733,6 +740,10 @@
     margin: 3.2rem 0;
     &-title {
       @include flex-box(space-between, center, nowrap); 
+      h4 {
+        font-weight: 600;
+        color: $teal;
+      }
       a{
         @include button($light-theme: true);
         &:active{
@@ -778,11 +789,10 @@
     //close button
     > div:first-child{
       right: 1rem;
-      top: 1.8rem;
+      top: 1rem;
     }
     &-container {
       padding: 0 1rem;
-      //padding: 2.6rem 0 3.6rem;
       text-align: center;
       li > div {
         h5 {
@@ -800,11 +810,11 @@
         border: solid 3px $white;
         &:nth-child(1) {
           left: 33%;
-          bottom: -6.5%;
+          bottom: -72px;
         }
         &:nth-child(2) {
           right: 33%;
-          bottom: -6.5%;
+          bottom: -72px;
         }
       }
     }
@@ -821,7 +831,10 @@
       margin: 0 auto;
       gap: .5rem;
       font-size: .75rem;
-      width: 30%;
+      width: 80%;
+      a.btn-act {
+        @include flex-box(center, center, wrap);
+      }
     }
     div.show{
       display: block;
@@ -945,7 +958,6 @@
         display: none;
         color: $teal;
         padding: .8rem 1.5rem;
-        //display: block;
       }
     }
     &-presentation {
@@ -967,5 +979,4 @@
       }
     }
   }
-
 }
