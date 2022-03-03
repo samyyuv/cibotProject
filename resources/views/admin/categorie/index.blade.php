@@ -4,7 +4,7 @@
     <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
       <!-- Loading screen -->
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
-        Loading.....
+        {{ __('Loading') }}.....
       </div>
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
@@ -12,16 +12,16 @@
         <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll mb-10">
           <!-- Main content header -->
           <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-            <h1 class="text-2xl font-semibold whitespace-nowrap">Administration des categories</h1>
+            <h1 class="text-2xl font-semibold whitespace-nowrap">{{__('Category administration')}}</h1>
 
           </div>
 
 
           <!-- Table see -->
           <div class="flex justify-between mt-4">
-            <h3 class="mt-6 text-xl">Categories</h3>
-            <a href="{{ route('admin.categories.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">
-              Créer une nouvelle categorie</a>
+            <h3 class="mt-6 text-xl">{{__('Categories')}}</h3>
+            <a href="{{ route('admin.categories.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-[#006f7e] text-[#006f7e] text-lg rounded-lg hover:bg-[#006f7e] hover:text-gray-100 focus:border-4 focus:border-green-300">
+              {{__('Create a new category')}} </a>
           </div>
           <div class="flex flex-col mt-6">
 
@@ -41,7 +41,7 @@
                           @sortablelink('created_at', 'Date de creation')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Modif
+                          {{__('Edit')}}
                         </th>
                       </tr>
                     </thead>
@@ -50,9 +50,6 @@
                       <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                         <td class="px-6 py-4">
                           <div class="flex items-center">
-                            @foreach ($categorie->photos as $photo)
-                            <img class="w-10 h-10 rounded-full mr-2" src="{{ asset('/storage/' . $photo->photo) }}" alt="" />
-                            @endforeach
                             <div class="text-lg font-medium text-gray-900"><a href="{{ route('admin.categories.show', $categorie) }}">{{ $categorie->titre }}</a></div>
                           </div>
                         </td>

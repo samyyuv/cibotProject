@@ -4,7 +4,7 @@
     <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
       <!-- Loading screen -->
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
-        Loading.....
+        {{ __('Loading') }}.....
       </div>
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
@@ -12,16 +12,16 @@
         <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll mb-10">
           <!-- Main content header -->
           <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-            <h1 class="text-2xl font-semibold whitespace-nowrap">Administration des utilisateurs</h1>
+            <h1 class="text-2xl font-semibold whitespace-nowrap">{{__('User Administration')}}</h1>
 
           </div>
 
 
           <!-- Table -->
           <div class="flex justify-between mt-4">
-            <h3 class="mt-6 text-xl">Utilisateurs</h3>
-            <a href="{{ route('admin.users.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-green-500 text-green-500 text-lg rounded-lg hover:bg-green-500 hover:text-gray-100 focus:border-4 focus:border-green-300">
-              Créer un nouveau utilisateur</a>
+            <h3 class="mt-6 text-xl">{{__('Users')}}</h3>
+            <a href="{{ route('admin.users.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-[#006f7e] text-[#006f7e] text-lg rounded-lg hover:bg-[#006f7e] hover:text-gray-100 focus:border-4 focus:border-green-300">
+              {{__('Create a new user')}}</a>
           </div>
           <div class="flex flex-col mt-6">
 
@@ -46,7 +46,7 @@
                           @sortablelink('is_admin', 'Role')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Modif
+                          {{__('Edit')}}
                         </th>
                       </tr>
                     </thead>
@@ -63,11 +63,11 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                           @if ( $user->is_admin == 1)
                           <span class="inline-flex px-2 text-lg font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                            Admin
+                            {{__('Admin')}}
                           </span>
                           @else
                           <span class="inline-flex px-2 text-lg font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
-                            User
+                            {{__('User')}}
                           </span>
                           @endif
                         </td>

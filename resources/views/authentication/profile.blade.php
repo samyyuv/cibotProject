@@ -12,7 +12,7 @@
         <div class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
           <!-- Main content header -->
           <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-            <h1 class="text-2xl font-semibold whitespace-nowrap">{{ __('Modify my profile') }}</h1>
+            <h1 class="text-2xl font-semibold whitespace-nowrap">{{ __('Edit my profile') }}</h1>
           </div>
 
           <div class="mt-6 px-6">
@@ -41,7 +41,7 @@
                             {{ __('Name') }}
                           </label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="text" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" value="{{ Auth::user()->name }}">
+                            <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ Auth::user()->name }}">
                           </div>
                         </div>
                       </div>
@@ -51,7 +51,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="email" class="block text-lg font-medium text-gray-700">{{ __('Email')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="email" name="email" id="email" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" value="{{ Auth::user()->email }}">
+                            <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ Auth::user()->email }}">
                           </div>
                         </div>
                       </div>
@@ -61,7 +61,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="current_password" class="block text-lg font-medium text-gray-700">{{ __('Current Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="current_password" id="current_password" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required placeholder="Entrer mot de passe">
+                            <input type="password" name="current_password" id="current_password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="Entrer mot de passe">
                           </div>
                         </div>
                       </div>
@@ -71,7 +71,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="password" class="block text-lg font-medium text-gray-700">{{ __('New Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="password" id="password" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="Entrer mot de passe">
+                            <input type="password" name="password" id="password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="Entrer mot de passe">
                           </div>
                         </div>
                       </div>
@@ -81,7 +81,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="password_confirmation" class="block text-lg font-medium text-gray-700">{{ __('Confirm Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-lg border-gray-300" required placeholder="Rentrer mot de passe">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="Rentrer mot de passe">
                           </div>
                         </div>
                       </div>

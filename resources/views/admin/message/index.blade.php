@@ -4,7 +4,7 @@
     <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
       <!-- Loading screen -->
       <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50" style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
-        Loading.....
+        {{ __('Loading') }}.....
       </div>
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
@@ -12,14 +12,14 @@
         <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll mb-10">
           <!-- Main content header -->
           <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-            <h1 class="text-2xl font-semibold whitespace-nowrap">Administration des messages</h1>
+            <h1 class="text-2xl font-semibold whitespace-nowrap">{{__('Message Administration')}}</h1>
 
           </div>
 
 
           <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
           <div class="flex justify-between mt-4">
-            <h3 class="mt-6 text-xl">Messages</h3>
+            <h3 class="mt-6 text-xl">{{__('Message')}}</h3>
 
           </div>
           <div class="flex flex-col mt-6">
@@ -46,7 +46,7 @@
                           @sortablelink('created_at', 'Date de creation')
                         </th>
                         <th scope="col" class="px-6 py-3 text-lg font-medium tracking-wider text-left text-gray-500 uppercase">
-                          Modif
+                          {{__('Edit')}}
                         </th>
                       </tr>
                     </thead>

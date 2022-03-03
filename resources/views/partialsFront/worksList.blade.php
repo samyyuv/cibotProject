@@ -10,7 +10,7 @@
       foreach ($oeuvres as $oeuvre) {
         ++$i;
       ?>
-        <div onclick="openShow();currentSlide(<?= $i; ?>)">
+        <div onclick=" openShow();currentSlide(<?= $i; ?>)">
           <img src="https://picsum.photos/600" alt="">
           <div class="cross">
             <a href="#"> <span></span>
@@ -22,12 +22,12 @@
       ?>
     </div>
   </section>
-  <div id="overlay"></div>
 
+  <div id="overlay" onclick="closeShow()"></div>
   {{-- artwork individuel --}}
-  <section class="slideshow" id="slideshow">
+  <section class="slideshow" id="slideshow" data-slideshow>
     <div class="close" onclick="closeShow()">
-      <a href="#"> <span></span> <span></span></a>
+      <span></span> <span></span>
     </div>
     <div class="slideshow-container">
       <button href="" class="slideshow-container-button" onclick="plusSlides(-1)">
@@ -45,7 +45,7 @@
               <h5>{{ $oeuvre->categorie->titre }}</h5>
               <h2>{{ $oeuvre->titre }}</h2>
               <p>{{ $oeuvre->description }}</p>
-              <a href="">Voir la série Autre Monde</a>
+              <a href="">Voir "{{ $oeuvre->collection->titre }}"</a>
             </div>
           </div>
         </li>

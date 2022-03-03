@@ -12,7 +12,7 @@
       @foreach ($actualites as $actualite)
       <div class="actualites-container-topic card">
         <div>
-          <img src="https://picsum.photos/350" alt="">
+          <img src="https://picsum.photos/600" alt="">
           <div class="cross">
             <a href="{{ route('actualites.show', $actualite) }}"> <span></span> <span></span></a>
           </div>
@@ -28,7 +28,7 @@
       @foreach ($lastestActualites as $actualite)
       <div class="actualites-container-topic card">
         <div>
-          <img src="https://picsum.photos/350" alt="">
+          <img src="https://picsum.photos/600" alt="">
           <div class="cross">
             <a href="{{ route('actualites.show', $actualite) }}"> <span></span> <span></span></a>
           </div>

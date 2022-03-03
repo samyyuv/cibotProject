@@ -11,9 +11,13 @@
           <span><i class="fab fa-facebook-square"></i></span>
         </a>
         <div class="flex">
-          <p><a href="#">FR</a></p>
+          <p class="chosen-lang">{{ Config::get('languages')[App::getLocale()] }}</p>
           <p>|</p>
-          <p><a href="#">ENG</a></p>
+          @foreach (Config::get('languages') as $lang => $language)
+          @if ($lang != App::getLocale())
+          <p><a href="{{ route('lang.switch', $lang) }}">{{$language}}</a></p>
+          @endif
+          @endforeach
         </div>
       </div>
       <div></div>
@@ -22,21 +26,17 @@
       <div>
         <div>{{ __('Art objects') }}</div>
         <ul>
-          <li><a href="">Nulla porttitor</a></li>
-          <li><a href="">Accumsan tincidunt</a></li>
-          <li><a href="">Sed porttitor lectus nibh</a></li>
-          <li><a href="">Proin eget tortor risus.</a></li>
-          <li><a href="">Sed porttitor lectus nibh</a></li>
-          <li><a href="">Proin eget tortor risus.</a></li>
+          @foreach ($categoriesMenu as $categorie)
+          <li><a href="">{{ $categorie->titre }}</a></li>
+          @endforeach
         </ul>
       </div>
       <div>
         <div>{{ __('Current events') }}</div>
         <ul>
-          <li><a href="">Nulla porttitor</a></li>
-          <li><a href="">Accumsan tincidunt</a></li>
-          <li><a href="">Sed porttitor lectus nibh</a></li>
-          <li><a href="">Proin eget tortor risus.</a></li>
+          @foreach ($actualiteMenu as $actualite)
+          <li><a href="">{{ $actualite->titre }}</a></li>
+          @endforeach
         </ul>
       </div>
       <div>
@@ -51,10 +51,6 @@
       <div>
         <div>{{ __('Contact') }}</div>
         <ul>
-          <li><a href="">Nulla porttitor</a></li>
-          <li><a href="">Accumsan tincidunt</a></li>
-          <li><a href="">Réalisations monumentales</a></li>
-          <li><a href="">Proin eget tortor risus.</a></li>
         </ul>
       </div>
     </div>
@@ -64,5 +60,8 @@
       <span></span>
     </div>
   </div>
-  <div class="copyright">© Elisabeth Cibot - 2022 - © ADAGP Reproductions et représentations</div>
+  <div class="copyright">&copy; Elisabeth Cibot - <?php if (date('Y') != '2022') {
+                                                    echo '2022 - ';
+                                                  }
+                                                  echo date('Y'); ?> - &copy; {{ __('ADAGP Reproductions and representations') }}</div>
 </footer>

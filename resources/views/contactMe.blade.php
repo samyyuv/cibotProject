@@ -21,7 +21,7 @@
             <div>
               <div class="grid grid-cols-6 gap-6 pb-8">
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="prenom" class="block text-sm font-semibold">{{ __('First last name') }} *</label>
+                  <label for="prenom" class="block text-sm font-semibold">{{ __('Last name') }} *</label>
                   <input type="text" name="prenom" id="prenom" autocomplete="given-name" class="mt-1 focus:ring-gray-500 focus:border-gray-500 block w-full shadow-sm sm:text-sm border-transparent">
                 </div>
 

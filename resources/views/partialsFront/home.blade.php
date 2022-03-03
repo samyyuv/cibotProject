@@ -1,5 +1,4 @@
 <x-public-view>
-
   <section class="home">
     <div class="home-message">
       <h1>{{ __('Welcome') }}</h1>
