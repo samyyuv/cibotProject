@@ -20,14 +20,7 @@ services:
       - "8080:80"
     volumes:
       - ./:/var/www/html
-    user: ${CURRENT_UID}
-
-  composer:
-    restart: 'no'
-    image: composer:2
-    command: install
-    volumes:
-      - .:/app
+    user: '1000:1000'
 
   composer:
     restart: 'no'
