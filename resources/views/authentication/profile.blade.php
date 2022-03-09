@@ -61,7 +61,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="current_password" class="block text-lg font-medium text-gray-700">{{ __('Current Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="current_password" id="current_password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="Entrer mot de passe">
+                            <input type="password" name="current_password" id="current_password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Current Password')}}">
                           </div>
                         </div>
                       </div>
@@ -71,7 +71,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="password" class="block text-lg font-medium text-gray-700">{{ __('New Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="password" id="password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="Entrer mot de passe">
+                            <input type="password" name="password" id="password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="{{ __('New Password')}}">
                           </div>
                         </div>
                       </div>
@@ -81,7 +81,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="password_confirmation" class="block text-lg font-medium text-gray-700">{{ __('Confirm Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="Rentrer mot de passe">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Confirm Password')}}">
                           </div>
                         </div>
                       </div>

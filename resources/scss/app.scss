@@ -12,7 +12,6 @@
   }
 }
 
-
 //mobile footer in menu
 .menu {
 	&-footer{
@@ -89,6 +88,7 @@ footer {
 
 //latestWorksSlide
 .slider {
+  position: static;
   .title {
     @extend .h2-other;
   }
@@ -233,8 +233,7 @@ footer {
       }
     }
   }
-  &-container{
-    
+  &-container{    
     h2 {
       @extend .h2-other;
     }
@@ -260,6 +259,14 @@ footer {
   }
   &-presentation{
     display: none;
+    span.year, h3 {
+      color: $teal;
+      font-weight: 500;
+      font-size: $h3;
+    }
+    .strong {
+      font-weight: 500;
+    }
     div{
       h2 {
         @extend .h2;
@@ -268,5 +275,15 @@ footer {
         @extend .font-body;
       }
     } 
+    li {
+      a {
+        @include navBtn($teal);
+      }
+    }
+  }
+  &-presentation.awards ul{
+   li{
+      align-items: baseline;
+    }
   }
 }

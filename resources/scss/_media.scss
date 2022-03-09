@@ -1,43 +1,50 @@
-
 @media only screen and (min-width: 576px) {
   body {
     .body-container {
-     overflow-x: hidden;
-     padding: 6rem 0 8rem 100px;
      max-width: 1800px;
-      }
+     overflow: hidden;
+     padding: 80px 0 100px 100px;
+    }
   }
 
+  //footer burguer menu non visible for this size
   .menu-footer{
     display: none;
   }
   
+
   footer {
+    //general padding
     padding: 2.6rem 100px;
     .logo {
-      width: 253px;
+      max-width: 253px;
     }
     .container{
+      //footer distribution
       &-footer{
         @include grid-column(2fr 4fr);  
         gap: 1.5rem;
       }
+      //content column distribution
       &-pags{
         @include grid-column(repeat(4, 1fr));  
         gap: 1.5rem;
         li {
-          padding-top: 8px;
+          padding-top: .5rem;
         }
       }
     }
+    //footer logo distribution
     .footer-logo {
       @include flex-box(space-between, flex-start, nowrap);
       flex-direction: column;  
       div {
+        //languague
         p {
           font-size: $font-xs;
           padding-right: .5rem;
         }
+        //facebook icon
         span i {
           font-size: 1.75rem;
         }
@@ -45,11 +52,18 @@
     }
   }
   
+  .contactMe{
+    //margin to be all the way to the left
+    margin: 8rem 0 -8rem -6rem;
+  }
+
+  //header burguer menu non visible for this size
   .menu-icon{
     display: none;
   }
 
   .header{
+    //header menu general
     &-menu {
       top: 0;
       z-index: 10;
@@ -60,15 +74,16 @@
         display: none;
       }
     }
+    //header menu distribution (logo & subjects)
     &-container {
       gap: 3rem;        
       margin: 0 100px;
       height:5.25rem;
       @include flex-box(space-around, center, nowrap);   
     }
+    //languague menu distribution
     &-language{
       @include flex-box(space-around, center, nowrap);    
-      color: $gray1;
       > div {
         @include flex-box(space-around, center, nowrap);    
       } 
@@ -76,11 +91,15 @@
   }
   
   .nav {
+    //logo menu
     &-top {
-      width: 253.5px;
+      max-width: 253.5px;
+      width: 100%;
     }
     &-drill {
+      //header menu content (subjects)
       width: 100%;
+      //menu' subjects in columns
       > ul {      
         @include flex-box(space-between, center, nowrap);
       }
@@ -97,19 +116,15 @@
           font-size: $font-xs;  
           font-weight: $weight-400;
         }
-      }
-      .img-menu{
-        width: 18.75rem;
-        div p {
-          padding-top: .5rem;
-        }
-      }
+      }      
     }
     
     &-link {
       display: block;
       @include navBtn($antracite);
     }
+
+    //dropdown menu
     &-container {  
       padding: 0 100px 3.5rem;
       @include flex-box(space-around, flex-start, nowrap); 
@@ -120,31 +135,51 @@
       background-color: $white;  
       display: none; 
       transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;    
-      li {
+      //same width between each column
+      > li {
         flex: 1 1 0px;
-      }      
+      }
+      //same height start for the lists
+      .column{        
+        display: grid;
+        grid-template-rows: 4rem;
+      }
     }
+    //dropdown menu distribution
     &-expand.active .nav-container{
       display: flex;
       transform: translateY(0);
       pointer-events: auto;
       gap: 1.5rem;
     }
+    //expandable button
     &-expand {  
+      .img-menu{
+        max-width: 18.75rem;
+        div p {
+          padding-top: .5rem;
+        }
+      }
+      //dropdown columns
       &-content {
+        //back click
         .nav-back {
           display: none;
         }
-        .nav-expand > a {
-          padding-bottom: 1rem;
+        //column
+        .nav-expand {
+          > a {
+            padding-bottom: 1rem;
+          }
         }
       }          
       .nav-expand-content {
+        //column title
         .nav-link {
           font-weight: 500;
-          line-height: 1rem;
-          
+          line-height: 1rem;          
         }
+        //column content
         .nav-expand-content {
           .nav-link {
             font-weight: 400;
@@ -160,12 +195,12 @@
     }
   }
 
-  //latestWorksSlide {
+  //latestWorks Slider 
   .slider {
-    position: static;
     left: 10%;
     top: 30%;
     margin-top: 10rem;
+    //slider distribution
       &-content {
         @include grid-column(1fr 6fr);
         gap: 2.6rem;
@@ -178,23 +213,26 @@
         transition: 0s ease-in;
         overflow: visible;
       }
+      //section title
       &-title {
         .title{
           padding-bottom: 1rem;
         }
       }
+      //columns art
       &-arts {
         @include grid-column(repeat(5, 1fr));
         gap: 3.8rem;
       }    
     }
 
-    //home
+  //home page
   .home{
     @include grid-column(1fr 1fr); 
     justify-items: end;
     gap: 4.5rem;
     margin-top: 2rem;
+    //welcome block
     &-message{
       @include flex-box(center, flex-start, nowrap);
       flex-direction: column;
@@ -210,12 +248,13 @@
         line-height: 1.6rem;      
       }
     }
+    //img slider
     &-slider {
       width: 100%;
       height: 100%;
       margin: auto;
       position: relative;
-      
+    //data of the img
     &-details {
       color: $white;
       position: absolute;
@@ -224,13 +263,15 @@
       width: 100%;
       }
     }
+    //slides container
     &-slides {
       //width: 400%;
       display: flex;
       input {
         display: none;
       }
-    } 
+    }
+    //slide
     &-slide {
       display: none;
       img {
@@ -239,7 +280,7 @@
     }
   }
 
-  //img-header-navigation
+  //slider navigation's btns
   .navigation {
     &-manual{
       position: absolute;
@@ -247,14 +288,15 @@
       flex-direction: column;
       right: 1.5rem;
       top: 45%;
-    }
+      .active {
+        background-color: $white;
+      }
+    } 
     &-manual-btn {
       transition: background-color 0.6s ease;
       border: 2px solid $white;
       padding: 5px;
       border-radius: 10px;
-    }
-    &-manual-btn{
       cursor: pointer;
       &:hover{
         background: $white;
@@ -265,9 +307,6 @@
     }
   }
 
-  .active {
-    background-color: $white;
-  }
 
   //actualites home
   .news {
@@ -286,6 +325,7 @@
       grid-column: 2;
       grid-row: 1/4;
     }
+    //section info
     &-presentation {
       h4, a {
         @include navBtn($teal);
@@ -302,22 +342,24 @@
     }
   }
 
-  //worksList
+  //artworks list
   .art {
     margin-right: 100px;
     h5 {
       padding: 2rem 0;
     }
+    //artwork grid
     &-container {
       padding-top: 5.2rem;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+      //bigger photo
       div:nth-child(3){
         grid-area: 1 / 3 / 3 / 5;
       }
     }
   }
 
-  //art individuel
+  //artwork pop-up
   .slideshow {
     position: fixed;
     top: 15%;
@@ -332,6 +374,7 @@
       top: 3rem;
       right: 1.5rem;
     }
+    //artwork info container 
     &-container {
       margin: -5rem 0;
       padding-top: 2rem;
@@ -359,7 +402,7 @@
           color: $teal;
         }
       }
-      //prev and next
+      //btns prev and next
       &-button {
         top: 50%;
         transform: translateY(-50%);
@@ -379,6 +422,7 @@
     h1 {
       padding-top: 3.56rem;
     }
+    //switching buttons
     &-btn {
       padding: 3.56rem 0 7rem;
       @include flex-box(center, center, wrap);
@@ -391,12 +435,15 @@
         }
       }
     }
+    //content to show
     div.show{
       display: flex;
     }
+    //content distribution
     &-container {
       @include flex-box(center, flex-start, wrap);
       gap: 5.18rem 3.5rem;
+      //card info distribution
         &-topic{
         width: calc(33.33% - 3.5rem);
         p:nth-child(2){
@@ -412,16 +459,19 @@
 
   //actualites individuel
   .news{
+    //link to all news
     &-article{
       margin-right: 100px;
       a i {
         padding-top: 2.5rem;
       }
     }
+    //news distribution
     &-container{
       margin: 6.5rem 0;
       @include grid-column(3fr 2fr);
       gap: 2rem;
+      //subtitle
       div p:first-child{
         display: none;
       }
@@ -432,6 +482,7 @@
         padding-bottom: 1.5rem;
       }
     }
+    //another news
     &-other{
       div.show{
         display: flex;
@@ -448,6 +499,7 @@
   //biographie
   .biographie{
     margin: 2rem 100px 0 0;
+    //menu buttons distribution and design
     &-dropdown{
       @include flex-box(space-evenly, center, wrap);
       padding: 3.5rem 0 6.5rem;
@@ -456,10 +508,7 @@
       i {
         display: none;
       }
-    }
-    div{
       .btn {
-        @include flex-box(space-evenly, center, wrap);
         text-align: center;
         line-height: 1;
         @include button($light-theme: true);
@@ -468,10 +517,8 @@
         }
       }
     }
-    &-title {
-      display: none;    
-    }
-    &-presentation div {
+    //container content distribution
+    &-presentation > div {
       @include grid-column(2fr 4fr);
       column-gap: 5rem;
       img{
@@ -480,42 +527,74 @@
       h2 {
         padding-bottom: 1rem;
       }    
+    }
+    //presentation content
+    &-presentation.hello{
       p:not(:first-child){
         padding-top: 1rem;
       }
+    }
+    &-presentation.awards ul{
+     li{
+        @include grid-column(13% auto);  
+      }
+    }
+    //container content
+    &-presentation.awards,
+    &-presentation.permanence,
+    &-presentation.monuments,
+    &-presentation.personal,
+    &-presentation.collectives,
+    &-presentation.evenements{
+      ul li{
+        &:not(:first-child) {
+          padding-top: .5rem;
+        }
+      }      
+      div div ul {
+        h3 {
+          padding-bottom: .5rem;
+        }
+        &:not(:first-child) {
+          padding-bottom: 2rem;
+        }
+      }    
     }
   }
 }
 
 @media only screen and (max-width:576px){
 //@media only screen and (max-width:785px){
-  .logo{
-    width: 172px;
-    height: 30px;
-  }
+  
 
   body {
     .body-container {
       padding: 0 1rem 1rem;
       section:first-child{
-        padding-top: 5rem;
+        padding-top: 1rem;
       }
     }
   }
-  
+
+  .contactMe{
+  margin: 0 -1rem -1rem;
+  }
+
   //footer
   footer {
     padding: 2rem 1rem;
-  }
-  .container-footer{
-    @include flex-box(space-between, center, nowrap);
-    flex-direction: row;
-  }
-  .container-pags, .d-none, .copyright{
-    display: none;
+    .container {
+      &-footer{
+        @include flex-box(space-between, center, nowrap);
+        flex-direction: row;
+      }
+    }
+    .container-pags, .d-none, .copyright{
+      display: none;
+    }
   }
 
-  // header menu
+  // header menu distribution
   .nav-top {
     @include flex-box(space-between, center, nowrap);
     position: fixed;
@@ -525,20 +604,15 @@
     height: 4.56rem;
     background-color: $white;
     top: 0;
-    > img {
-      width: 195px;
-      height: 36px;
-    }
-    
-    .hamburger {
-      cursor: pointer;
-    }
+    .logo{
+      max-width: 195px;
+    }    
   }
-
+  //opening menu
   .nav-is-toggled {
     .nav-drill {
       transform: translateX(0);
-      padding-bottom: 4.56rem;
+      padding-bottom: 4rem;
     }
     &::after {
       opacity: 1;
@@ -547,6 +621,7 @@
   }
 
   .nav {
+    //open menu
     &-drill {
       transform: translateX(100%);
       display: flex;
@@ -562,30 +637,29 @@
       transition: 0.45s;
       margin-top: 4.56rem;
     }
-
+    //menu items
     &-items {
       flex: 0 0 100%;
       @include flex-box(space-around, flex-start, nowrap);
-      margin-bottom: 6.56rem;
+      margin-bottom: 6rem;
       flex-direction: column;
       padding-left: 1rem;
       .menu-language {
         display: none;
       }
     }
-
+    //bold title menu
     &-link {
-      display: block;
-      font-size: 1rem;
       font-weight: 500;
     }
     
     &-expand {
+      //expandable titles
       @include flex-box(flex-start, center, nowrap);
       i {
         color: $teal;
       }
-
+      //open second menu
       &-content {
         position: absolute;
         top: 0;
@@ -596,26 +670,25 @@
         transition: 0.3s;
         visibility: hidden;
         padding-bottom: 6.56rem;
-
+        //title to go back
         .nav-item > .nav-back-link {
           color: $teal;
           font-weight: 600 !important;
           line-height: 1.25rem;
           padding-left: .5rem;
         }
-      }
-      
+      }      
       &-link {
         padding-right: 1.5rem;
-      }
-      
+      }      
       &.active {
+        //to make visible the second menu
         > .nav-expand-content {
           transform: translateX(0);
           visibility: visible;
         }
       }
-      
+      //third menu
       .nav-expand-content {
         background-color: $white;
         padding-bottom: 11.10rem;
@@ -631,7 +704,7 @@
       }
     }
   }
-
+  //footer in menu
   .menu {
     &-footer{
       background-color: $antracite;
@@ -662,30 +735,31 @@
       line-height: 0.75rem;
     }
   }
-
+  //image in the menu non visible for this size
   .img-menu {
     display: none;
   }
 
-  //latestWorksSlide
+  //latestWorks Slider 
   .slider {
-    position: static;
     margin: 4.75rem 0;
+    //section title
     &-title {
       width: 50%;
       margin: 0 auto;
       text-align: center;
       padding: .5rem 0;
     }
+    //intro text in the menu non visible for this size    
     .intro {
       display: none;
     }
+    //slider distribution
     &-content {
       flex-direction: column;
       overflow: hidden;
-      // margin-right: -15px;
-      // margin-left: -15px;
     }
+    //columns art    
     &-arts {
       display: block;
       white-space: nowrap;
@@ -693,15 +767,15 @@
       -webkit-overflow-scrolling: touch;
       -ms-overflow-style: -ms-autohiding-scrollbar;
     }
+    //slider card
     .slide-2{
-      justify-content: center;
       align-items: center;
       display: inline-flex;
       flex-direction: column;
       padding: 0 .3rem;
       img {
          width:100%;
-      }
+        }
       .body-text {
         white-space: normal;
         text-align: center;
@@ -710,14 +784,16 @@
     }
   }
 
-  //home
+  //home page
   .home{
     margin: 3.12rem 0;
     display: flex;
     flex-direction: column-reverse;
+    //image details non show
     &-slider-details {
       display: none;
     }
+    //welcome block
     &-message{
       h1{
         font-family: $sortsmill-font;
@@ -751,19 +827,23 @@
         }
       }
     }
+    //show other news
+    &-other div.show{
+        display: block;
+    }
     img {
       padding: 1rem 0 1.56rem;
     }
-
     p:nth-child(2) {
       padding: .875rem 0 .68rem;
     }
+    //section info
     &-presentation > a {
       display: none;
-    };
+    }
   }
 
-  //worksList
+  //artworks List
   .art {
     h1 {
       font-size: 3.125rem;
@@ -925,10 +1005,15 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    //titles
+    h2 {
+      display: none;
+    }
+
     #bio-drop:hover li {
       @include flex-box(center, center, nowrap); 
     }
-    
+    //menu dropdown
     &-dropdown{
       border-radius: 1rem;
       position: absolute;
@@ -960,7 +1045,8 @@
         padding: .8rem 1.5rem;
       }
     }
-    &-presentation {
+    &-presentation.hello,
+    &-presentation.permanence {
       div {
         display: flex;
         flex-direction: column;
@@ -968,15 +1054,41 @@
           margin: 0 auto;
           order: 2;
           padding: .5rem 0;
-        }
-        h2 {
-          display: none;
-        }
-        p:last-child {
-    
+        }        
+        //always last
+        p:last-child, div:last-child {        
           order: 99;
         }
       }
+    }
+    &-presentation.awards ul{
+      li{
+         @include grid-column(18% auto);  
+       }
+     }
+    &-presentation.awards,
+    &-presentation.permanence,
+    &-presentation.monuments,
+    &-presentation.personal,
+    &-presentation.collectives,
+    &-presentation.evenements{
+      img{
+        padding-bottom: 1rem;
+      }
+      ul li{
+        &:not(:first-child) {
+          padding-top: .5rem;
+        }
+      }      
+      h3 {
+        text-align: center;
+        padding-bottom: .5rem;
+      }
+      div div ul {
+        &:not(:first-child) {
+          padding-bottom: 1rem;
+        }
+      }    
     }
   }
 }

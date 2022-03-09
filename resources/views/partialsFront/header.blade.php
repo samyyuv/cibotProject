@@ -12,15 +12,15 @@
       <ul class="nav-items">
         <li class="nav-expand" data-dropdown>
           <a class="nav-link nav-expand-link" href="#">
-            {{ __('art objects') }}
+            {{ __('Art objects') }}
           </a>
           <i class="fas fa-chevron-right"></i>
           <ul class="nav-items nav-expand-content left nav-container" data-dropdown-button>
             @foreach ($categoriesMenu as $categorie)
-            <li class="nav-expand">
-              <a class="nav-link nav-expand-link" href="{{ route('categories.show', $categorie) }}">
-                {{ $categorie->titre }}
-              </a>
+            <li class="nav-expand column">
+              <div class="name"><a class="nav-link nav-expand-link" href="{{ route('categories.show', $categorie) }}">
+                  {{ $categorie->titre }}
+                </a></div>
               <i class="fas fa-chevron-right"></i>
               <ul class="nav-items nav-expand-content">
                 @foreach ($categorie->oeuvres as $oeuvre)
@@ -160,10 +160,10 @@
 
           </ul>
         </li>
-        <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('current events') }}</a></li>
-        <li><a class="nav-link" href="/biographie">{{ __('biography') }}</a></li>
+        <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('Current events') }}</a></li>
+        <li><a class="nav-link" href="/biographie">{{ __('Biography') }}</a></li>
         <li>
-          <a class="nav-link" href="#contactMe">{{ __('contact') }}</a>
+          <a class="nav-link" href="/#contactMe">{{ __('Contact') }}</a>
         </li>
         <li>
           <div class="menu-language">

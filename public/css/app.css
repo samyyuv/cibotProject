@@ -210,9 +210,9 @@ html body main.body-container {
 
 @media only screen and (min-width: 576px) {
   body .body-container {
-    overflow-x: hidden;
-    padding: 6rem 0 8rem 100px;
     max-width: 1800px;
+    overflow: hidden;
+    padding: 80px 0 100px 100px;
   }
 
   .menu-footer {
@@ -223,7 +223,7 @@ html body main.body-container {
     padding: 2.6rem 100px;
   }
   footer .logo {
-    width: 253px;
+    max-width: 253px;
   }
   footer .container-footer {
     display: grid;
@@ -236,7 +236,7 @@ html body main.body-container {
     gap: 1.5rem;
   }
   footer .container-pags li {
-    padding-top: 8px;
+    padding-top: 0.5rem;
   }
   footer .footer-logo {
     display: flex;
@@ -251,6 +251,10 @@ html body main.body-container {
   }
   footer .footer-logo div span i {
     font-size: 1.75rem;
+  }
+
+  .contactMe {
+    margin: 8rem 0 -8rem -6rem;
   }
 
   .menu-icon {
@@ -281,7 +285,6 @@ html body main.body-container {
     justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
-    color: #929292;
   }
   .header-language > div {
     display: flex;
@@ -291,7 +294,8 @@ html body main.body-container {
   }
 
   .nav-top {
-    width: 253.5px;
+    max-width: 253.5px;
+    width: 100%;
   }
   .nav-drill {
     width: 100%;
@@ -316,12 +320,6 @@ html body main.body-container {
     font-size: 0.75rem;
     font-weight: 400;
   }
-  .nav-drill .img-menu {
-    width: 18.75rem;
-  }
-  .nav-drill .img-menu div p {
-    padding-top: 0.5rem;
-  }
   .nav-link {
     display: block;
     font-size: 1rem;
@@ -343,14 +341,24 @@ html body main.body-container {
     display: none;
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
   }
-  .nav-container li {
+  .nav-container > li {
     flex: 1 1 0px;
+  }
+  .nav-container .column {
+    display: grid;
+    grid-template-rows: 4rem;
   }
   .nav-expand.active .nav-container {
     display: flex;
     transform: translateY(0);
     pointer-events: auto;
     gap: 1.5rem;
+  }
+  .nav-expand .img-menu {
+    max-width: 18.75rem;
+  }
+  .nav-expand .img-menu div p {
+    padding-top: 0.5rem;
   }
   .nav-expand-content .nav-back {
     display: none;
@@ -373,7 +381,6 @@ html body main.body-container {
   }
 
   .slider {
-    position: static;
     left: 10%;
     top: 30%;
     margin-top: 10rem;
@@ -458,13 +465,14 @@ html body main.body-container {
     right: 1.5rem;
     top: 45%;
   }
+  .navigation-manual .active {
+    background-color: #fff;
+  }
   .navigation-manual-btn {
     transition: background-color 0.6s ease;
     border: 2px solid #fff;
     padding: 5px;
     border-radius: 10px;
-  }
-  .navigation-manual-btn {
     cursor: pointer;
   }
   .navigation-manual-btn:hover {
@@ -472,10 +480,6 @@ html body main.body-container {
   }
   .navigation-manual-btn:not(:last-child) {
     margin-bottom: 1rem;
-  }
-
-  .active {
-    background-color: #fff;
   }
 
   .news {
@@ -684,11 +688,7 @@ html body main.body-container {
   .biographie-dropdown i {
     display: none;
   }
-  .biographie div .btn {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
+  .biographie-dropdown .btn {
     text-align: center;
     line-height: 1;
     cursor: pointer;
@@ -699,7 +699,7 @@ html body main.body-container {
     color: #006f7e;
     background-color: #F1F1F1;
   }
-  .biographie div .btn:hover, .biographie div .btn.active {
+  .biographie-dropdown .btn:hover, .biographie-dropdown .btn.active {
     cursor: pointer;
     padding: 0.5rem 1.2rem;
     font-weight: 500;
@@ -708,51 +708,58 @@ html body main.body-container {
     color: #fff;
     background-color: #006f7e;
   }
-  .biographie-title {
-    display: none;
-  }
-  .biographie-presentation div {
+  .biographie-presentation > div {
     display: grid;
     grid-template-columns: 2fr 4fr;
     -moz-column-gap: 5rem;
          column-gap: 5rem;
   }
-  .biographie-presentation div img {
+  .biographie-presentation > div img {
     grid-row: 1/8;
   }
-  .biographie-presentation div h2 {
+  .biographie-presentation > div h2 {
     padding-bottom: 1rem;
   }
-  .biographie-presentation div p:not(:first-child) {
+  .biographie-presentation.hello p:not(:first-child) {
     padding-top: 1rem;
+  }
+  .biographie-presentation.awards ul li {
+    display: grid;
+    grid-template-columns: 13% auto;
+  }
+  .biographie-presentation.awards ul li:not(:first-child), .biographie-presentation.permanence ul li:not(:first-child), .biographie-presentation.monuments ul li:not(:first-child), .biographie-presentation.personal ul li:not(:first-child), .biographie-presentation.collectives ul li:not(:first-child), .biographie-presentation.evenements ul li:not(:first-child) {
+    padding-top: 0.5rem;
+  }
+  .biographie-presentation.awards div div ul h3, .biographie-presentation.permanence div div ul h3, .biographie-presentation.monuments div div ul h3, .biographie-presentation.personal div div ul h3, .biographie-presentation.collectives div div ul h3, .biographie-presentation.evenements div div ul h3 {
+    padding-bottom: 0.5rem;
+  }
+  .biographie-presentation.awards div div ul:not(:first-child), .biographie-presentation.permanence div div ul:not(:first-child), .biographie-presentation.monuments div div ul:not(:first-child), .biographie-presentation.personal div div ul:not(:first-child), .biographie-presentation.collectives div div ul:not(:first-child), .biographie-presentation.evenements div div ul:not(:first-child) {
+    padding-bottom: 2rem;
   }
 }
 @media only screen and (max-width: 576px) {
-  .logo {
-    width: 172px;
-    height: 30px;
-  }
-
   body .body-container {
     padding: 0 1rem 1rem;
   }
   body .body-container section:first-child {
-    padding-top: 5rem;
+    padding-top: 1rem;
+  }
+
+  .contactMe {
+    margin: 0 -1rem -1rem;
   }
 
   footer {
     padding: 2rem 1rem;
   }
-
-  .container-footer {
+  footer .container-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: row;
   }
-
-  .container-pags, .d-none, .copyright {
+  footer .container-pags, footer .d-none, footer .copyright {
     display: none;
   }
 
@@ -769,17 +776,13 @@ html body main.body-container {
     background-color: #fff;
     top: 0;
   }
-  .nav-top > img {
-    width: 195px;
-    height: 36px;
-  }
-  .nav-top .hamburger {
-    cursor: pointer;
+  .nav-top .logo {
+    max-width: 195px;
   }
 
   .nav-is-toggled .nav-drill {
     transform: translateX(0);
-    padding-bottom: 4.56rem;
+    padding-bottom: 4rem;
   }
   .nav-is-toggled::after {
     opacity: 1;
@@ -807,7 +810,7 @@ html body main.body-container {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: nowrap;
-    margin-bottom: 6.56rem;
+    margin-bottom: 6rem;
     flex-direction: column;
     padding-left: 1rem;
   }
@@ -815,8 +818,6 @@ html body main.body-container {
     display: none;
   }
   .nav-link {
-    display: block;
-    font-size: 1rem;
     font-weight: 500;
   }
   .nav-expand {
@@ -906,7 +907,6 @@ html body main.body-container {
   }
 
   .slider {
-    position: static;
     margin: 4.75rem 0;
   }
   .slider-title {
@@ -930,7 +930,6 @@ html body main.body-container {
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
   .slider .slide-2 {
-    justify-content: center;
     align-items: center;
     display: inline-flex;
     flex-direction: column;
@@ -997,6 +996,9 @@ html body main.body-container {
     font-size: 1rem;
     color: #fff;
     background-color: #006f7e;
+  }
+  .news-other div.show {
+    display: block;
   }
   .news img {
     padding: 1rem 0 1.56rem;
@@ -1156,6 +1158,9 @@ html body main.body-container {
     left: 50%;
     transform: translateX(-50%);
   }
+  .biographie h2 {
+    display: none;
+  }
   .biographie #bio-drop:hover li {
     display: flex;
     justify-content: center;
@@ -1201,20 +1206,34 @@ html body main.body-container {
     color: #006f7e;
     padding: 0.8rem 1.5rem;
   }
-  .biographie-presentation div {
+  .biographie-presentation.hello div, .biographie-presentation.permanence div {
     display: flex;
     flex-direction: column;
   }
-  .biographie-presentation div img {
+  .biographie-presentation.hello div img, .biographie-presentation.permanence div img {
     margin: 0 auto;
     order: 2;
     padding: 0.5rem 0;
   }
-  .biographie-presentation div h2 {
-    display: none;
-  }
-  .biographie-presentation div p:last-child {
+  .biographie-presentation.hello div p:last-child, .biographie-presentation.hello div div:last-child, .biographie-presentation.permanence div p:last-child, .biographie-presentation.permanence div div:last-child {
     order: 99;
+  }
+  .biographie-presentation.awards ul li {
+    display: grid;
+    grid-template-columns: 18% auto;
+  }
+  .biographie-presentation.awards img, .biographie-presentation.permanence img, .biographie-presentation.monuments img, .biographie-presentation.personal img, .biographie-presentation.collectives img, .biographie-presentation.evenements img {
+    padding-bottom: 1rem;
+  }
+  .biographie-presentation.awards ul li:not(:first-child), .biographie-presentation.permanence ul li:not(:first-child), .biographie-presentation.monuments ul li:not(:first-child), .biographie-presentation.personal ul li:not(:first-child), .biographie-presentation.collectives ul li:not(:first-child), .biographie-presentation.evenements ul li:not(:first-child) {
+    padding-top: 0.5rem;
+  }
+  .biographie-presentation.awards h3, .biographie-presentation.permanence h3, .biographie-presentation.monuments h3, .biographie-presentation.personal h3, .biographie-presentation.collectives h3, .biographie-presentation.evenements h3 {
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  .biographie-presentation.awards div div ul:not(:first-child), .biographie-presentation.permanence div div ul:not(:first-child), .biographie-presentation.monuments div div ul:not(:first-child), .biographie-presentation.personal div div ul:not(:first-child), .biographie-presentation.collectives div div ul:not(:first-child), .biographie-presentation.evenements div div ul:not(:first-child) {
+    padding-bottom: 1rem;
   }
 }
 .nav-expand-content .img-menu p {
@@ -1297,6 +1316,9 @@ footer {
   background-color: #005d69;
 }
 
+.slider {
+  position: static;
+}
 .slider .slide-2 p:nth-child(2) {
   padding: 1.2rem 0 0.5rem;
 }
@@ -1465,6 +1487,23 @@ footer {
 .biographie-presentation {
   display: none;
 }
+.biographie-presentation span.year, .biographie-presentation h3 {
+  color: #006f7e;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.biographie-presentation .strong {
+  font-weight: 500;
+}
+.biographie-presentation li a {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+  color: #006f7e;
+}
+.biographie-presentation.awards ul li {
+  align-items: baseline;
+}
 /*
 ! tailwindcss v3.0.13 | MIT License | https://tailwindcss.com
 *//*
@@ -1499,7 +1538,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
 }
 
 /*
@@ -2763,6 +2802,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
+.bg-\[\#006f7e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 111 126 / var(--tw-bg-opacity));
+}
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -2770,10 +2813,6 @@ select {
 .bg-green-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(74 222 128 / var(--tw-bg-opacity));
-}
-.bg-\[\#006f7e\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 111 126 / var(--tw-bg-opacity));
 }
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
@@ -2790,14 +2829,6 @@ select {
 .bg-red-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-.bg-green-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
-}
-.bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 .bg-red-400 {
   --tw-bg-opacity: 1;
@@ -2980,7 +3011,7 @@ select {
   vertical-align: middle;
 }
 .font-sans {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .text-sm {
   font-size: 0.875rem;
@@ -3303,13 +3334,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
-.hover\:bg-gray-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
 .hover\:bg-\[\#005d69\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 93 105 / var(--tw-bg-opacity));
+}
+.hover\:bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
@@ -3318,10 +3349,6 @@ select {
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-.hover\:bg-indigo-400:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(129 140 248 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
@@ -3343,6 +3370,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
 }
+.hover\:text-\[\#006f7e\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 111 126 / var(--tw-text-opacity));
+}
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
@@ -3359,21 +3390,9 @@ select {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
-.hover\:text-\[\#006f7e\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(0 111 126 / var(--tw-text-opacity));
-}
 .hover\:text-gray-600:hover {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-.hover\:text-indigo-900:hover {
-  --tw-text-opacity: 1;
-  color: rgb(49 46 129 / var(--tw-text-opacity));
-}
-.hover\:text-blue-700:hover {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
   -webkit-text-decoration-line: underline;
@@ -3406,13 +3425,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(134 239 172 / var(--tw-border-opacity));
 }
-.focus\:border-gray-300:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
 .focus\:border-\[\#006f7e\]:focus {
   --tw-border-opacity: 1;
   border-color: rgb(0 111 126 / var(--tw-border-opacity));
+}
+.focus\:border-gray-300:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 .focus\:border-\[\#005d69\]:focus {
   --tw-border-opacity: 1;
@@ -3422,17 +3441,9 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(67 56 202 / var(--tw-border-opacity));
 }
-.focus\:border-gray-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity));
-}
 .focus\:border-gray-900:focus {
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity));
-}
-.focus\:border-blue-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 .focus\:bg-gray-100:focus {
   --tw-bg-opacity: 1;
@@ -3453,10 +3464,6 @@ select {
 .focus\:bg-gray-50:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-.focus\:bg-indigo-400:focus {
-  --tw-bg-opacity: 1;
-  background-color: rgb(129 140 248 / var(--tw-bg-opacity));
 }
 .focus\:text-gray-700:focus {
   --tw-text-opacity: 1;
@@ -3503,10 +3510,6 @@ select {
 .focus\:ring-\[\#006f7e\]:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(0 111 126 / var(--tw-ring-opacity));
-}
-.focus\:ring-gray-500:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(107 114 128 / var(--tw-ring-opacity));
 }
 .focus\:ring-opacity-50:focus {
   --tw-ring-opacity: 0.5;
@@ -3728,6 +3731,10 @@ select {
 
   .md\:ml-5 {
     margin-left: 1.25rem;
+  }
+
+  .-ml-24 {
+    margin-left: -6rem;
   }
 
   .md\:flex {

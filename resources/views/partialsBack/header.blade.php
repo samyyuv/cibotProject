@@ -44,7 +44,7 @@
           </svg>
         </span>
         <form action="{{ route('admin.dashboard.rechercher') }}" method="GET">
-          <input type="text" name="search" placeholder="Rechercher" class="focus:ring-[#006f7e] focus:border-[#006f7e] px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+          <input type="text" name="search" placeholder="{{__('Search'}}" class="focus:ring-[#006f7e] focus:border-[#006f7e] px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
         </form>
 
       </div>

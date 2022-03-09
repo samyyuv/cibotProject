@@ -8,7 +8,7 @@
       </div>
       <div class="d-none">
         <a href="https://www.facebook.com/elisabethcibotsculpteur">
-          <span><i class="fab fa-facebook-square"></i></span>
+          </span><i class="fab fa-facebook-square"></i></span>
         </a>
         <div class="flex">
           <p class="chosen-lang">{{ Config::get('languages')[App::getLocale()] }}</p>
@@ -49,15 +49,15 @@
         </ul>
       </div>
       <div>
-        <div>{{ __('Contact') }}</div>
+        <div><a href="/#contactMe">{{ __('Contact') }}</a></div>
         <ul>
         </ul>
       </div>
     </div>
     <div class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
+      </span></span>
+      </span></span>
+      </span></span>
     </div>
   </div>
   <div class="copyright">&copy; Elisabeth Cibot - <?php if (date('Y') != '2022') {

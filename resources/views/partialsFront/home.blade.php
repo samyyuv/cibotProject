@@ -2,12 +2,12 @@
   <section class="home">
     <div class="home-message">
       <h1>{{ __('Welcome') }}</h1>
-      <p>Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque,
-        auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus.
-        Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit,
-        eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula
-        elementum sed sit amet dui.</p>
+      <p>"Art sustains the way we question the world and the meaning of life;
+        it unveils the sense of the self, and as such it enables us to open ourselves
+        to the other. On this path, while searching, I keep on building."</p>
+      <p>« L'art est un support à notre questionnement sur le monde et sur le sens
+        de la vie, un chemin de connaissance de soi qui rend capable de s'ouvrir aux
+        autres. Sur cette route, je cherche tout en bâtissant. »</p>
     </div>
     <div class="home-slider">
       <div class="home-slides">
@@ -51,5 +51,7 @@
   </section>
 
   @include('partialsFront.latestWorksSlide')
+  @include('contactMe')
+
 
 </x-public-view>
