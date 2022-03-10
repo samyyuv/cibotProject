@@ -70,7 +70,7 @@ class OeuvreController extends Controller
         }
 
 
-        return redirect()->route('admin.oeuvres.index')->with('success', 'Votre oeuvre a été créé');
+        return redirect()->route('admin.oeuvres.index')->with('success', __('Your artwork has been created'));
     }
 
     /**
@@ -110,7 +110,7 @@ class OeuvreController extends Controller
     public function update(StoreOeuvreRequest $request, Oeuvre $oeuvre, OeuvreUpdateAction $oeuvreUpdateAction)
     {
         $oeuvreUpdateAction->handle($request, $oeuvre);
-        return redirect()->route('admin.oeuvres.index')->with('success', 'Votre oeuvre a été updaté');
+        return redirect()->route('admin.oeuvres.index')->with('success', __('Your artwork has been updated'));
     }
 
     /**
@@ -124,6 +124,6 @@ class OeuvreController extends Controller
         $oeuvre = Oeuvre::find($id);
         $oeuvre->delete();
 
-        return redirect()->route('admin.oeuvres.index')->with('success', 'Votre oeuvre a été supprimé');
+        return redirect()->route('admin.oeuvres.index')->with('success', __('Your artwork has been deleted'));
     }
 }

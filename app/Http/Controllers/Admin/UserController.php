@@ -63,7 +63,7 @@ class UserController extends Controller
 
         event(new Registered($user));
 
-        return redirect()->route('admin.users.index')->with('success', 'Votre utilisateur a été créé');
+        return redirect()->route('admin.users.index')->with('success', __('Your user has been created'));
     }
 
     /**
@@ -105,7 +105,7 @@ class UserController extends Controller
             'is_admin' => $admin,
         ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'Votre utilisateur a été modifié');
+        return redirect()->route('admin.users.index')->with('success', __('Your user has been updated'));
     }
 
     /**
@@ -119,6 +119,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->route('admin.users.index')->with('success', 'Votre utilisateur a été supprimé');
+        return redirect()->route('admin.users.index')->with('success', __('Your user has been deleted'));
     }
 }

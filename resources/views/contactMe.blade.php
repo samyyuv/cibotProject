@@ -10,6 +10,8 @@
           </div>
         </div>
         <div class="md:col-span-2">
+          <x-success class="mb-6" />
+
           <div class="my-5">
             @foreach ($errors->all() as $error)
             <span class="block text-red-500"> {{ $error }} </span>

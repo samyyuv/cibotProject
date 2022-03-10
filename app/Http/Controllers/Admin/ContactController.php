@@ -48,7 +48,7 @@ class ContactController extends Controller
             'active' => $active,
         ]);
 
-        return redirect()->route('admin.contacts.index')->with('success', 'Votre contact info a été créé');
+        return redirect()->route('admin.contacts.index')->with('success', __('Your contact has been created'));
     }
 
     /**
@@ -91,7 +91,7 @@ class ContactController extends Controller
             'active' => $active,
         ]);
 
-        return redirect()->route('admin.contacts.index')->with('success', 'Votre contact info a été updaté');
+        return redirect()->route('admin.contacts.index')->with('success', __('Your contact has been updated'));
     }
 
     /**
@@ -105,6 +105,6 @@ class ContactController extends Controller
         $contact = Contact::find($id);
         $contact->delete();
 
-        return redirect()->route('admin.contacts.index')->with('success', 'Votre contact info a été supprimé');
+        return redirect()->route('admin.contacts.index')->with('success', __('Your contact has been deleted'));
     }
 }

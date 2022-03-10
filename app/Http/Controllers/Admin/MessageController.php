@@ -23,38 +23,6 @@ class MessageController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $contacts = Contact::all();
-
-        return view('partialsFront.home', compact('contacts'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMessageRequest $request)
-    {
-        Message::create([
-            'prenom' => $request->prenom,
-            'nom' => $request->nom,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-            'message' => $request->message,
-            'sujet' => $request->sujet,
-        ]);
-
-        return redirect()->route('/')->with('success', 'Votre message a été envoyé');
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Message  $message
@@ -76,6 +44,6 @@ class MessageController extends Controller
         $message = Message::find($id);
         $message->delete();
 
-        return redirect()->route('admin.messages.index')->with('success', 'Votre message info a été supprimé');
+        return redirect()->route('admin.messages.index')->with('success', __('Your message has been deleted'));
     }
 }

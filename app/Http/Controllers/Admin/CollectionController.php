@@ -58,7 +58,7 @@ class CollectionController extends Controller
             'collection_id' => $collection->id,
         ]);
 
-        return redirect()->route('admin.collections.index')->with('success', 'Votre collection a été créé');
+        return redirect()->route('admin.collections.index')->with('success', __("Your collection has been created"));
     }
 
     /**
@@ -115,7 +115,7 @@ class CollectionController extends Controller
                 ]);
         };
 
-        return redirect()->route('admin.collections.index')->with('success', 'Votre collection a été updaté');
+        return redirect()->route('admin.collections.index')->with('success', __("Your collection has been updated"));
     }
 
     /**
@@ -129,6 +129,6 @@ class CollectionController extends Controller
         $collection = Collection::find($id);
         $collection->delete();
 
-        return redirect()->route('admin.collections.index')->with('success', 'Votre collection a été supprimé');
+        return redirect()->route('admin.collections.index')->with('success', __("Your collection has been deleted"));
     }
 }

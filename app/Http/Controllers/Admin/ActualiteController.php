@@ -69,7 +69,7 @@ class ActualiteController extends Controller
             'photo' => "actualites/" . $fileName,
         ]);
 
-        return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été créé');
+        return redirect()->route('admin.actualites.index')->with('success', __('Your news has been created'));
     }
 
     /**
@@ -155,7 +155,7 @@ class ActualiteController extends Controller
             'active' => $active,
         ]);
 
-        return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été updaté');
+        return redirect()->route('admin.actualites.index')->with('success', __('Your news has been updated'));
     }
 
     /**
@@ -178,6 +178,6 @@ class ActualiteController extends Controller
             ]);
         };
 
-        return redirect()->route('admin.actualites.index')->with('success', 'Votre actualité a été supprimé');
+        return redirect()->route('admin.actualites.index')->with('success', __('Your news has been deleted'));
     }
 }

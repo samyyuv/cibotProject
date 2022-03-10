@@ -44,7 +44,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        return redirect()->route('profile')->with('success', 'Votre profile a été modifié');
+        return redirect()->route('profile')->with('success', __('Your profile has been updated'));
     }
 
     /**

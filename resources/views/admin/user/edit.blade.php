@@ -36,7 +36,7 @@
                           {{__('Name')}}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Name'}}" value="{{ $user->name }}">
+                          <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Name')}}" value="{{ $user->name }}">
                         </div>
                       </div>
                     </div>
@@ -46,7 +46,7 @@
                       <div class="col-span-3 sm:col-span-2">
                         <label for="email" class="block text-lg font-medium text-gray-700">{{__('Email Address')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Email'}}" value="{{ $user->email }}">
+                          <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Email')}}" value="{{ $user->email }}">
                         </div>
                       </div>
                     </div>

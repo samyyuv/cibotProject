@@ -54,7 +54,7 @@ class PhotoController extends Controller
             'photo' => "admin/" . $fileName,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre photo a été créé');
+        return redirect()->route('dashboard')->with('success', __('Your photo has been created'));
     }
 
     /**
@@ -105,7 +105,7 @@ class PhotoController extends Controller
             'photo' => "oeuvres/" . $fileName,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre photo a été updaté');
+        return redirect()->route('dashboard')->with('success', __('Your photo has been updated'));
     }
 
     /**
@@ -119,6 +119,6 @@ class PhotoController extends Controller
         $photo = Photo::find($id);
         $photo->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Votre photo a été supprimé');
+        return redirect()->route('dashboard')->with('success', __('Your photo has been deleted'));
     }
 }

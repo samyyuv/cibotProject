@@ -29,7 +29,7 @@ class StoreMessageRequest extends FormRequest
             'email' => 'required|email',
             'telephone' => 'nullable',
             'message' => 'required',
-            'sujet' => 'required',
+            'sujet' => 'nullable',
         ];
     }
 }

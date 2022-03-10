@@ -58,7 +58,7 @@ class CategorieController extends Controller
             'categorie_id' => $categorie->id,
         ]);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Votre categorie a été créé');
+        return redirect()->route('admin.categories.index')->with('success', __('Your category has been created'));
     }
 
     /**
@@ -122,7 +122,7 @@ class CategorieController extends Controller
                 ]);
         };
 
-        return redirect()->route('admin.categories.index')->with('success', 'Votre categorie a été updaté');
+        return redirect()->route('admin.categories.index')->with('success', __('Your category has been updated'));
     }
 
     /**
@@ -136,6 +136,6 @@ class CategorieController extends Controller
         $categorie = Categorie::find($id);
         $categorie->delete();
 
-        return redirect()->route('admin.categories.index')->with('success', 'Votre categorie a été supprimé');
+        return redirect()->route('admin.categories.index')->with('success', __('Your category has been deleted'));
     }
 }

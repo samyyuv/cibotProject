@@ -16,6 +16,6 @@ class ContactController extends Controller
     {
         $contacts = Contact::all();
 
-        return view('contactMe', compact('contacts'));
+        return view('partialsFront', compact('contacts'));
     }
 }
