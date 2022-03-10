@@ -39,7 +39,7 @@
       @include flex-box(space-between, flex-start, nowrap);
       flex-direction: column;  
       div {
-        //languague
+        //language
         p {
           font-size: $font-xs;
           padding-right: .5rem;
@@ -76,17 +76,10 @@
     }
     //header menu distribution (logo & subjects)
     &-container {
-      gap: 3rem;        
+      //gap: 3rem;        
       margin: 0 100px;
       height:5.25rem;
       @include flex-box(space-around, center, nowrap);   
-    }
-    //languague menu distribution
-    &-language{
-      @include flex-box(space-around, center, nowrap);    
-      > div {
-        @include flex-box(space-around, center, nowrap);    
-      } 
     }
   }
   
@@ -101,12 +94,18 @@
       width: 100%;
       //menu' subjects in columns
       > ul {      
-        @include flex-box(space-between, center, nowrap);
+        @include flex-box(space-around, center, nowrap);
+        text-align: center;
+        > li {
+          flex: 1 1 0px;
+        }
       }
       a:hover {
         color: $teal;
       }
+      //language menu distribution
       .menu-language {
+        @include flex-box(center, center, nowrap);
         color: $gray1;
         i{
           font-size: $font-m;  
@@ -565,13 +564,11 @@
 
 @media only screen and (max-width:576px){
 //@media only screen and (max-width:785px){
-  
-
   body {
     .body-container {
       padding: 0 1rem 1rem;
       section:first-child{
-        padding-top: 1rem;
+        padding-top: 5rem;
       }
     }
   }
@@ -786,7 +783,6 @@
 
   //home page
   .home{
-    margin: 3.12rem 0;
     display: flex;
     flex-direction: column-reverse;
     //image details non show
@@ -851,15 +847,18 @@
       margin: 0 auto;
       line-height: 2.1rem;
     }
+    //artwork grid
     &-container {
       padding-top: 1.8rem;
       grid-template-columns: 1fr 1fr;
+      //bigger photo
       div:nth-child(3){
         grid-area: 5 / 1 / 7 / 3;
       }
     }
   }
-
+  
+  //artwork pop-up
   .slideshow {
     position: absolute;
     top: 70px;
@@ -871,6 +870,7 @@
       right: 1rem;
       top: 1rem;
     }
+    //artwork info container 
     &-container {
       padding: 0 1rem;
       text-align: center;
@@ -885,6 +885,7 @@
           display: none;
         }
       }
+      //buttons prev and next at the bottom
       &-button {
         bottom: 0;
         border: solid 3px $white;
@@ -905,6 +906,7 @@
     h1{
       font-size: 3.125rem;
     }
+    //menu buttons
     &-btn {
       padding: 1rem 0 2.6rem;
       @include grid-column(1fr 1fr);  
@@ -916,14 +918,18 @@
         @include flex-box(center, center, wrap);
       }
     }
+    //show the cards in actualites individuel
     div.show{
       display: block;
     }
+    //actualites container
     &-container {
+      //actualité card
       &-topic{
         &:not(:last-child){
           margin-bottom: 4rem;
         }
+        //img centered
         div img{
           margin: 0 auto;
         }
@@ -939,6 +945,7 @@
 
   // actualités article individual
   .news{
+    //link to all news
     &-article{
       margin-bottom: 4.625rem;
       display: flex;
@@ -955,10 +962,12 @@
         margin: 0 auto;
       }
     }
+    //news distribution
     &-container{
       display: flex;
       flex-direction: column-reverse;
       margin-bottom: 4rem;
+      //subtitle
       div p:first-child{
         font-weight: $weight-600;
         width: 50%;    
@@ -982,6 +991,7 @@
 
       }
     }
+    //another news
     &-other{
       h2{
         width: 50%;
@@ -991,6 +1001,7 @@
   }
     //biographie
   .biographie{
+    //menu buttons dropdown
     &-btn{
       text-align: center;
       position: relative;
@@ -1001,6 +1012,7 @@
         display: block;
       }
     }
+    //dropdown menu centered
     &-dropdown, &-btn{
       left: 50%;
       transform: translateX(-50%);
@@ -1009,7 +1021,6 @@
     h2 {
       display: none;
     }
-
     #bio-drop:hover li {
       @include flex-box(center, center, nowrap); 
     }
@@ -1038,13 +1049,13 @@
           padding-left: 1rem;
         }
       }
-      
       li:not(.active) {
         display: none;
         color: $teal;
         padding: .8rem 1.5rem;
       }
     }
+    //distribution of the content and images
     &-presentation.hello,
     &-presentation.permanence {
       div {
@@ -1065,7 +1076,8 @@
       li{
          @include grid-column(18% auto);  
        }
-     }
+    }
+    //container content
     &-presentation.awards,
     &-presentation.permanence,
     &-presentation.monuments,

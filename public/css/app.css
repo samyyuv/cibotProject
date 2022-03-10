@@ -1,15 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Sorts+Mill+Goudy&display=swap);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 .chosen-lang {
-  font-weight: 600 !important;
-}
-
-.bg-teal {
-  background-color: #006f7e;
-}
-
-.border-teal {
-  border: #006f7e;
+  font-weight: 600;
 }
 
 html body {
@@ -55,10 +47,6 @@ html body main.body-container {
   font-size: 4.6rem;
   line-height: 3.8rem;
   color: #006f7e;
-}
-
-.invisible {
-  display: none;
 }
 
 .menu-icon {
@@ -272,21 +260,8 @@ html body main.body-container {
     display: none;
   }
   .header-container {
-    gap: 3rem;
     margin: 0 100px;
     height: 5.25rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-  .header-language {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-  .header-language > div {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -302,14 +277,22 @@ html body main.body-container {
   }
   .nav-drill > ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
+    text-align: center;
+  }
+  .nav-drill > ul > li {
+    flex: 1 1 0px;
   }
   .nav-drill a:hover {
     color: #006f7e;
   }
   .nav-drill .menu-language {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
     color: #929292;
   }
   .nav-drill .menu-language i {
@@ -742,7 +725,7 @@ html body main.body-container {
     padding: 0 1rem 1rem;
   }
   body .body-container section:first-child {
-    padding-top: 1rem;
+    padding-top: 5rem;
   }
 
   .contactMe {
@@ -945,7 +928,6 @@ html body main.body-container {
   }
 
   .home {
-    margin: 3.12rem 0;
     display: flex;
     flex-direction: column-reverse;
   }
@@ -1241,19 +1223,11 @@ html body main.body-container {
 }
 
 .menu-footer {
-  background-color: #232C2E;
-  color: #fff;
   padding: 1rem;
   width: 100%;
   bottom: 0;
   position: fixed;
   margin-bottom: 4.56rem;
-}
-.menu-language {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
 }
 .menu-language a span > i {
   font-size: 1.75rem;

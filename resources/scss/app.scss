@@ -12,11 +12,9 @@
   }
 }
 
-//mobile footer in menu
+//mobile menu mini footer
 .menu {
 	&-footer{
-		background-color: $antracite;
-		color: $white;
 		padding: 1rem;
 		width: 100%;
 		bottom: 0;
@@ -24,7 +22,6 @@
 		margin-bottom: 4.56rem;
 	}
 	&-language{
-		@include flex-box(flex-start, center, nowrap); 
 		a span > i {
 			font-size: 1.75rem;
 			padding-right: 0.75rem;
