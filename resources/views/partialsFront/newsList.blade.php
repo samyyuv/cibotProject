@@ -6,7 +6,7 @@
       <a id="all" class="btn-act active" onclick="selectBtnAct('all')">{{ __('All the events and exhibitions') }}</a>
       <a id="latest" class="btn-act" onclick="selectBtnAct('latest')">{{ __('Latest news') }}</a>
       <a id="expo" class="btn-act" onclick="selectBtnAct('expo')">{{ __('Expo events') }}</a>
-      <a id="artwork" class="btn-act" onclick="selectBtnAct('inProgress')">{{ __('Artwork in progress') }}</a>
+      <a id="inProgress" class="btn-act" onclick="selectBtnAct('inProgress')">{{ __('Artwork in progress') }}</a>
     </div>
     <div class="actualites-container all show">
       @foreach ($actualites as $actualite)

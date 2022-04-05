@@ -5443,6 +5443,33 @@ module.exports = {
   \****************************************/
 /***/ (() => {
 
+window.addEventListener("load", function () {
+  var container, i;
+  var activeLink = sessionStorage.getItem("actualite-link");
+  sessionStorage.removeItem("actualite-link");
+
+  if (activeLink) {
+    container = document.getElementsByClassName("actualites-container");
+
+    if (container) {
+      for (i = 0; i < container.length; i++) {
+        remove(container[i], "show");
+        if (container[i].className.indexOf(activeLink) > 1) add(container[i], "show");
+      }
+    }
+
+    var btnNews = document.getElementById("btn-news");
+    var btns = btnNews && btnNews.getElementsByClassName("btn-act");
+
+    if (btns) {
+      for (var i = 0; i < btns.length; i++) {
+        remove(btns[i], "active");
+        if (btns[i].id == activeLink) add(btns[i], "active");
+      }
+    }
+  }
+});
+
 window.selectBtnAct = function (c) {
   var container, i;
   container = document.getElementsByClassName("actualites-container");
@@ -5453,6 +5480,10 @@ window.selectBtnAct = function (c) {
       if (container[i].className.indexOf(c) > 1) add(container[i], "show");
     }
   }
+};
+
+window.activeActualiteLink = function (c) {
+  sessionStorage.setItem("actualite-link", c);
 }; // Show filtered pags
 
 
@@ -5522,7 +5553,7 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
   \************************************/
 /***/ (() => {
 
-window.onload = function () {
+window.addEventListener("load", function () {
   var bioPresentation, i;
   var activeLink = sessionStorage.getItem("biographie-link");
   sessionStorage.removeItem("biographie-link");
@@ -5547,7 +5578,7 @@ window.onload = function () {
       }
     }
   }
-};
+});
 
 window.selectBtnBio = function (c) {
   var bioPresentation, i;
@@ -5596,20 +5627,6 @@ function remove(element, name) {
 
 var btnBio = document.getElementById("bio-drop");
 var buttons = btnBio && btnBio.getElementsByClassName("btn");
-
-if (buttons) {
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
-  }
-} // Add active class to the current control button
-
-
-var btnBioFoot = document.getElementById("bio-foot");
-var buttonsFoot = btnBioFoot && btnBioFoot.getElementsByClassName("foot-bio");
 
 if (buttons) {
   for (var i = 0; i < buttons.length; i++) {

@@ -47,10 +47,10 @@
           <a class="foot-expand-link foot-link-title" href="#">{{ __('News') }}</a>
           <i class="fas fa-chevron-right"></i>
           <ul class="footer-content-items foot-expand-content">
-            <li><a class="foot-link" href="/#all">{{ __('All the events and exhibitions') }}</a></li>
-            <li><a class="foot-link" href="/#latest">{{ __('Latest news') }}</a></li>
-            <li><a class="foot-link" href="/#expo">{{ __('Expo events') }}</a></li>
-            <li><a class="foot-link" href="/#artwork">{{ __('Artwork in progress') }}</a></li>
+            <li><a class="foot-link" href="/actualites" onclick="activeActualiteLink('all')">{{ __('All the events and exhibitions') }}</a></li>
+            <li><a class="foot-link" href="/actualites" onclick="activeActualiteLink('latest')">{{ __('Latest news') }}</a></li>
+            <li><a class="foot-link" href="/actualites" onclick="activeActualiteLink('expo')">{{ __('Expo events') }}</a></li>
+            <li><a class="foot-link" href="/actualites" onclick="activeActualiteLink('inProgress')">{{ __('Artwork in progress') }}</a></li>
           </ul>
         </li>
         <li class="foot-expand">

@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("load", () => {
   var bioPresentation, i;
   var activeLink = sessionStorage.getItem("biographie-link");
   sessionStorage.removeItem("biographie-link");
@@ -21,7 +21,7 @@ window.onload = function () {
       }
     }
   }
-}
+})
 
 window.selectBtnBio = function (c) {
   var bioPresentation, i
@@ -66,20 +66,6 @@ function remove(element, name) {
 // Add active class to the current control button
 var btnBio = document.getElementById("bio-drop");
 var buttons = btnBio && btnBio.getElementsByClassName("btn");
-if (buttons) {
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-
-    });
-  }
-}
-
-// Add active class to the current control button
-var btnBioFoot = document.getElementById("bio-foot");
-var buttonsFoot = btnBioFoot && btnBioFoot.getElementsByClassName("foot-bio");
 if (buttons) {
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
