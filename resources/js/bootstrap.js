@@ -28,6 +28,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // });
 
 require('./dropdown');
+require('./footerMenu');
 require('./sliderHome');
 require('./actualites-btn');
 require('./biographie');

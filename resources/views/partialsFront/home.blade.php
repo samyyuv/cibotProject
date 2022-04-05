@@ -42,7 +42,7 @@
 
   <section class="news">
     <div class="news-title">
-      <h4>{{ __('Current events') }}</h4>
+      <h4>{{ __('Events and exhibitions') }}</h4>
       <a class="news-btn" href="{{ route('actualites.index') }}">{{ __('All') }}</a>
     </div>
     <div class="news-img">
@@ -52,7 +52,7 @@
       <h2>{{ $actualite->titre }}</h2>
       <p>{{ $actualite->created_at->format('d M Y') }}</p>
       <p class="body-text">{{ Str::limit($actualite->description, 150) }}</p>
-      <a href="{{ route('actualites.index') }}">{{ __('All the current events') }}</a>
+      <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a>
     </div>
   </section>
 

@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="nav-top">
       <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" /></a>
-      <div class="menu-icon" id="ham">
+      <div class="menu-icon menu-nav" id="ham">
         <span></span>
         <span></span>
         <span></span>
@@ -15,10 +15,10 @@
             {{ __('Art objects') }}
           </a>
           <i class="fas fa-chevron-right"></i>
-          <ul class="nav-items nav-expand-content left nav-container" data-dropdown-button>
+          <ul class="nav-items nav-expand-content nav-container" data-dropdown-button>
             @foreach ($categoriesMenu as $categorie)
             <li class="nav-expand column">
-              <div class="name"><a class="nav-link nav-expand-link" href="{{ route('categories.show', $categorie) }}">
+              <div><a class="nav-link nav-expand-link" href="{{ route('categories.show', $categorie) }}">
                   {{ $categorie->titre }}
                 </a></div>
               <i class="fas fa-chevron-right"></i>
@@ -33,120 +33,7 @@
               </ul>
             </li>
             @endforeach
-            {{--<li class="nav-expand">
-              <a class="nav-link nav-expand-link" href="#">
-                Menu DOS
-              </a>
-              <i class="fas fa-chevron-right"></i>
-              <ul class="nav-items nav-expand-content">
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 Directory
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 Contact
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 Quick links
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 Launchpad
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Launchpad
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-expand">
-              <a class="nav-link nav-expand-link" href="#">
-                Menu TRES
-              </a>
-              <i class="fas fa-chevron-right"></i>
-              <ul class="nav-items nav-expand-content">
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 links
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    64546498
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-expand">
-              <a class="nav-link nav-expand-link" href="#">
-                Menu CUATRO
-              </a>
-              <i class="fas fa-chevron-right"></i>
-              <ul class="nav-items nav-expand-content">
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 PERRO
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 PERRO
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 PERRO PERRO
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Level 3 PERRO
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    PERRO
-                  </a>
-                </li>
-              </ul>
-            </li>--}}
+
             <div class="img-menu">
               <div>
                 <img src="https://picsum.photos/600" alt="" />
@@ -160,7 +47,9 @@
 
           </ul>
         </li>
-        <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('Current events') }}</a></li>
+
+
+        <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('News') }}</a></li>
         <li><a class="nav-link" href="/biographie">{{ __('Biography') }}</a></li>
         <li>
           <a class="nav-link" href="/#contactMe">{{ __('Contact') }}</a>
@@ -183,26 +72,7 @@
         </li>
       </ul>
 
-      <div class="menu-footer">
-        <div class="menu-language">
-          <a href="https://www.facebook.com/elisabethcibotsculpteur">
-            <span><i class="fab fa-facebook-square"></i></span>
-          </a>
-          <div>
-            <p class="chosen-lang">{{ Config::get('languages')[App::getLocale()] }}</p>
-            <p>|</p>
-            @foreach (Config::get('languages') as $lang => $language)
-            @if ($lang != App::getLocale())
-            <p><a href="{{ route('lang.switch', $lang) }}">{{$language}}</a></p>
-            @endif
-            @endforeach
-          </div>
-        </div>
-        <div class="menu-CR">&copy; Elisabeth Cibot - <?php if (date('Y') != '2022') {
-                                                        echo '2022 - ';
-                                                      }
-                                                      echo date('Y'); ?> - &copy; {{ __('ADAGP Reproductions and representations') }}</div>
-      </div>
+      @include('partialsFront.miniFooter')
     </nav>
   </div>
 </header>

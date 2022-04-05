@@ -5522,6 +5522,33 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
   \************************************/
 /***/ (() => {
 
+window.onload = function () {
+  var bioPresentation, i;
+  var activeLink = sessionStorage.getItem("biographie-link");
+  sessionStorage.removeItem("biographie-link");
+
+  if (activeLink) {
+    bioPresentation = document.getElementsByClassName("biographie-presentation");
+
+    if (bioPresentation) {
+      for (i = 0; i < bioPresentation.length; i++) {
+        remove(bioPresentation[i], "show");
+        if (bioPresentation[i].className.indexOf(activeLink) > 1) add(bioPresentation[i], "show");
+      }
+    }
+
+    var btnBio = document.getElementById("bio-drop");
+    var buttons = btnBio && btnBio.getElementsByClassName("btn");
+
+    if (buttons) {
+      for (var i = 0; i < buttons.length; i++) {
+        remove(buttons[i], "active");
+        if (buttons[i].id == activeLink) add(buttons[i], "active");
+      }
+    }
+  }
+};
+
 window.selectBtnBio = function (c) {
   var bioPresentation, i;
   bioPresentation = document.getElementsByClassName("biographie-presentation");
@@ -5532,6 +5559,10 @@ window.selectBtnBio = function (c) {
       if (bioPresentation[i].className.indexOf(c) > 1) add(bioPresentation[i], "show");
     }
   }
+};
+
+window.activeBioLink = function (c) {
+  sessionStorage.setItem("biographie-link", c);
 }; // Show filtered pags
 
 
@@ -5565,6 +5596,20 @@ function remove(element, name) {
 
 var btnBio = document.getElementById("bio-drop");
 var buttons = btnBio && btnBio.getElementsByClassName("btn");
+
+if (buttons) {
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+} // Add active class to the current control button
+
+
+var btnBioFoot = document.getElementById("bio-foot");
+var buttonsFoot = btnBioFoot && btnBioFoot.getElementsByClassName("foot-bio");
 
 if (buttons) {
   for (var i = 0; i < buttons.length; i++) {
@@ -5609,6 +5654,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 __webpack_require__(/*! ./dropdown */ "./resources/js/dropdown.js");
 
+__webpack_require__(/*! ./footerMenu */ "./resources/js/footerMenu.js");
+
 __webpack_require__(/*! ./sliderHome */ "./resources/js/sliderHome.js");
 
 __webpack_require__(/*! ./actualites-btn */ "./resources/js/actualites-btn.js");
@@ -5642,14 +5689,14 @@ document.addEventListener("click", function (e) {
     if (dropdown === currentDropdown) return;
     dropdown.classList.remove("active");
   });
-});
-var icons = document.querySelectorAll('.menu-icon');
-icons.forEach(function (icon) {
+}); //mobile header menu
+
+var iconNav = document.querySelectorAll('.menu-nav');
+iconNav.forEach(function (icon) {
   icon.addEventListener('click', function (event) {
     icon.classList.toggle("open");
   });
-}); //mobile menu
-
+});
 var navExpand = [].slice.call(document.querySelectorAll('.nav-expand'));
 var backLink = "<li class=\"nav-item nav-expand nav-back\">\n<i class=\"fas fa-chevron-left\"></i>\t\n<a class=\"nav-link nav-back-link\" href=\"javascript:;\">\n  Back\n\t</a>\n</li>";
 navExpand.forEach(function (item) {
@@ -5665,6 +5712,61 @@ var ham = document.getElementById('ham');
 ham.addEventListener('click', function () {
   document.body.classList.toggle('nav-is-toggled');
 });
+
+/***/ }),
+
+/***/ "./resources/js/footerMenu.js":
+/*!************************************!*\
+  !*** ./resources/js/footerMenu.js ***!
+  \************************************/
+/***/ (() => {
+
+//mobile footer menu
+var iconFoot = document.querySelectorAll('.menu-foot');
+iconFoot.forEach(function (icon) {
+  icon.addEventListener('click', function (event) {
+    icon.classList.toggle("open");
+  });
+});
+var footExpand = [].slice.call(document.querySelectorAll('.foot-expand'));
+var hamon = document.getElementById('hamon');
+hamon.addEventListener('click', function () {
+  document.body.classList.toggle('footer-is-toggled');
+});
+var backLinkFoot = "<li class=\"foot-item foot-expand foot-back\">\n    <i class=\"fas fa-chevron-left\"></i>\n    <a class=\"foot-link foot-back-link\" href=\"javascript:;\">\n      Back\n    </a>\n  </li>";
+
+if (footExpand) {
+  footExpand.forEach(function (item) {
+    item.querySelector('.foot-expand-content').insertAdjacentHTML('afterbegin', backLinkFoot);
+    item.querySelector('.foot-link-title').addEventListener('click', function () {
+      return item.classList.add('active');
+    });
+    item.querySelector('.foot-back-link').addEventListener('click', function () {
+      return item.classList.remove('active');
+    });
+  });
+} // //mobile footer menu
+// const iconsFoot = document.querySelectorAll('.menu-foot');
+// iconsFoot.forEach(icon => {
+//   icon.addEventListener('click', (event) => {
+//     icon.classList.toggle("open");
+//   });
+// });
+// const hamon = document.getElementById('hamon')
+// hamon.addEventListener('click', function () {
+//   document.body.classList.toggle('footer-is-toggled')
+// })
+// const footExpand = [].slice.call(document.querySelectorAll('.foot-expand'))
+// const backLink = `<li class="foot-item">
+// 	<a class="foot-link foot-back-link" href="javascript:;">
+// 		Back
+// 	</a>
+// </li>`
+// footExpand.forEach(item => {
+//   item.querySelector('.foot-expand-content').insertAdjacentHTML('afterbegin', backLink)
+//   item.querySelector('.foot-link').addEventListener('click', () => item.classList.add('active'))
+//   item.querySelector('.foot-back-link').addEventListener('click', () => item.classList.remove('active'))
+// })
 
 /***/ }),
 

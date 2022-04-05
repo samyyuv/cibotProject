@@ -38,6 +38,8 @@ use App\Http\Controllers\ProfileController;
 
 
 Route::resource('/biographie', BiographieController::class);
+
+
 Route::resource('/actualites', ActualiteController::class);
 Route::resource('/categories', CategorieController::class);
 Route::resource('/collections', CollectionController::class);

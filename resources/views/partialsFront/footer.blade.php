@@ -3,7 +3,7 @@
     <div class="footer-logo">
       <div class="logo">
         <a href="">
-          <img src="{{ asset('/storage/admin/logo.png') }}" alt="" />
+          <img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" />
         </a>
       </div>
       <div class="d-none">
@@ -21,43 +21,57 @@
         </div>
       </div>
       <div></div>
-    </div>
-    <div class="container-pags">
-      <div>
-        <div>{{ __('Art objects') }}</div>
-        <ul>
-          @foreach ($categoriesMenu as $categorie)
-          <li><a href="">{{ $categorie->titre }}</a></li>
-          @endforeach
-        </ul>
-      </div>
-      <div>
-        <div>{{ __('Current events') }}</div>
-        <ul>
-          @foreach ($actualiteMenu as $actualite)
-          <li><a href="">{{ $actualite->titre }}</a></li>
-          @endforeach
-        </ul>
-      </div>
-      <div>
-        <div>{{ __('Biography') }}</div>
-        <ul>
-          <li><a href="">Nulla porttitor</a></li>
-          <li><a href="">Accumsan tincidunt</a></li>
-          <li><a href="">Réalisations monumentales</a></li>
-          <li><a href="">Proin eget tortor risus.</a></li>
-        </ul>
-      </div>
-      <div>
-        <div><a href="/#contactMe">{{ __('Contact') }}</a></div>
-        <ul>
-        </ul>
+      <div class="menu-icon menu-foot" id="hamon">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-    <div class="menu-icon">
-      </span></span>
-      </span></span>
-      </span></span>
+    <div class="footer-content">
+      <ul class="footer-content-items">
+        <li class="foot-expand">
+          <a class="foot-expand-link foot-link-title" href="#">{{ __('Art objects') }}</a>
+          <i class="fas fa-chevron-right"></i>
+          <ul class="footer-content-items foot-expand-content">
+            @foreach ($categoriesMenu as $categorie)
+            <li>
+              <div><a class="foot-link" href="{{ route('categories.show', $categorie) }}">
+                  {{ $categorie->titre }}
+                </a></div>
+            </li>
+            @endforeach
+          </ul>
+        </li>
+
+        <li class="foot-expand">
+          <a class="foot-expand-link foot-link-title" href="#">{{ __('News') }}</a>
+          <i class="fas fa-chevron-right"></i>
+          <ul class="footer-content-items foot-expand-content">
+            <li><a class="foot-link" href="/#all">{{ __('All the events and exhibitions') }}</a></li>
+            <li><a class="foot-link" href="/#latest">{{ __('Latest news') }}</a></li>
+            <li><a class="foot-link" href="/#expo">{{ __('Expo events') }}</a></li>
+            <li><a class="foot-link" href="/#artwork">{{ __('Artwork in progress') }}</a></li>
+          </ul>
+        </li>
+        <li class="foot-expand">
+          <a class="foot-expand-link foot-link-title" href="#">{{ __('Biography') }}</a>
+          <i class="fas fa-chevron-right"></i>
+          <ul id="btn-foot" class="footer-content-items foot-expand-content">
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('hello')">{{ __('Presentation') }}</a></li>
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('awards')">{{ __('Awards') }}</a></li>
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('monuments')">{{ __('Monuments') }}</a></li>
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('personal')">{{ __('Solo exhibitions') }}</a></li>
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('collectives')">{{ __('Collective exhibitions') }}</a></li>
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('evenements')">{{ __('Events') }}</a></li>
+            <li><a class="foot-link foot-bio" href="/biographie" onclick="activeBioLink('permanence')">{{ __('Galleries') }}</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="foot-link-title" href="/#contactMe">{{ __('Contact') }}</a>
+        </li>
+      </ul>
+
+      @include('partialsFront.miniFooter')
     </div>
   </div>
   <div class="copyright">&copy; Elisabeth Cibot - <?php if (date('Y') != '2022') {

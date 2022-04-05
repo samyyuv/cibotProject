@@ -4,13 +4,13 @@
 
     <div class="biographie-btn">
       <ul class="biographie-dropdown" id="bio-drop">
-        <li class="btn active" onclick="selectBtnBio('hello')"><a>{{ __('Presentation') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li class="btn" onclick="selectBtnBio('awards')"><a>{{ __('Awards') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li class="btn" onclick="selectBtnBio('monuments')"><a>{{ __('Monuments') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li class="btn" onclick="selectBtnBio('personal')"><a>{{ __('Solo exhibitions') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li class="btn" onclick="selectBtnBio('collectives')"><a>{{ __('Collective exhibitions') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li class="btn" onclick="selectBtnBio('evenements')"><a>{{ __('Events') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li class="btn" onclick="selectBtnBio('permanence')"><a>{{ __('Galleries') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="hello" class="btn active" onclick="selectBtnBio('hello')"><a>{{ __('Presentation') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="awards" class="btn" onclick="selectBtnBio('awards')"><a>{{ __('Awards') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="monuments" class="btn" onclick="selectBtnBio('monuments')"><a>{{ __('Monuments') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="personal" class="btn" onclick="selectBtnBio('personal')"><a>{{ __('Solo exhibitions') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="collectives" class="btn" onclick="selectBtnBio('collectives')"><a>{{ __('Collective exhibitions') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="evenements" class="btn" onclick="selectBtnBio('evenements')"><a>{{ __('Events') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="permanence" class="btn" onclick="selectBtnBio('permanence')"><a>{{ __('Galleries') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
       </ul>
     </div>
 

@@ -1,6 +1,6 @@
 <x-public-view>
   <section class="news-article">
-    <a href="{{ route('actualites.index') }}"><i class="fa-solid fa-arrow-left"></i>{{ __('All the current events') }}</a>
+    <a href="{{ route('actualites.index') }}"><i class="fa-solid fa-arrow-left"></i>{{ __('All the events and exhibitions') }}</a>
     <div class="news-container">
       <div>
         <p>{{ $actualite->sous_titre }} ??? sous-titre </p>

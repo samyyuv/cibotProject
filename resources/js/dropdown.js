@@ -15,15 +15,14 @@ document.addEventListener("click", e => {
   })
 })
 
-const icons = document.querySelectorAll('.menu-icon');
-icons.forEach(icon => {
+//mobile header menu
+const iconNav = document.querySelectorAll('.menu-nav');
+iconNav.forEach(icon => {
   icon.addEventListener('click', (event) => {
     icon.classList.toggle("open");
   });
 });
 
-
-//mobile menu
 const navExpand = [].slice.call(document.querySelectorAll('.nav-expand'))
 const backLink = `<li class="nav-item nav-expand nav-back">
 <i class="fas fa-chevron-left"></i>	
