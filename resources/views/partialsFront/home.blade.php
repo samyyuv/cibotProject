@@ -17,19 +17,16 @@
     </div>
     <div class="home-slider">
       <div class="home-slides">
-
+        @foreach ($oeuvresWelcome as $oeuvre)
+        @foreach ($oeuvre->photos as $photo)
+        @if ($loop->first)
         <div class="home-slide slide fade">
-          <img src="https://picsum.photos/755" alt="">
-          <a href="#" class="home-slider-details">Nom de l’oeuvre - Année - Technique →</a>
+          <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+          <a href="#" class="home-slider-details">{{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
         </div>
-        <div class="home-slide slide fade">
-          <img src="https://picsum.photos/755" alt="">
-          <a href="#" class="home-slider-details">OTRO de l’oeuvre - Année - Technique →</a>
-        </div>
-        <div class="home-slide slide fade">
-          <img src="https://picsum.photos/755" alt="">
-          <a href="#" class="home-slider-details">autre de l’oeuvre - Année - Technique →</a>
-        </div>
+        @endif
+        @endforeach
+        @endforeach
 
         <div class="navigation-manual">
           <span onclick="actualSlide(1)" class="navigation-manual-btn"></span>
@@ -46,7 +43,7 @@
       <a class="news-btn" href="{{ route('actualites.index') }}">{{ __('All') }}</a>
     </div>
     <div class="news-img">
-      <img src="https://picsum.photos/828/500" alt="">
+      <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
     </div>
     <div class="news-presentation card">
       <h2>{{ $actualite->titre }}</h2>

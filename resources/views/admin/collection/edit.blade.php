@@ -84,7 +84,7 @@
 
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                       <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006f7e]">
-                        {{ __('EDIT CONTACT INFO') }}
+                        {{ __('EDIT COLLECTION') }}
                       </button>
                     </div>
                   </div>

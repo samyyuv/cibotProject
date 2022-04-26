@@ -11,7 +11,11 @@
         ++$i;
       ?>
         <div onclick=" openShow();currentSlide(<?= $i; ?>)">
-          <img src="https://picsum.photos/600" alt="">
+          @foreach ($oeuvre->photos as $photo)
+
+
+          <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+          @endforeach
           <div class="cross">
             <a href="#"> <span></span>
               <span></span></a>
@@ -40,7 +44,7 @@
         @foreach ($oeuvres as $oeuvre)
         <li class="slide-1 fade">
           <div>
-            <img src="https://picsum.photos/799" alt="">
+            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
             <div>
               <h5>{{ $oeuvre->categorie->titre }}</h5>
               <h2>{{ $oeuvre->titre }}</h2>

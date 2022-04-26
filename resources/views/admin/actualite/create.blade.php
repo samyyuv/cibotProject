@@ -52,8 +52,9 @@
                     <div class="col-span-6 sm:col-span-3">
                       <label for="position" class="block text-lg font-medium text-gray-700">{{ __('Position') }}</label>
                       <select id="position" name="position" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#006f7e] focus:border-[#006f7e] sm:text-lg">
-                        @for ($i = 1; $i <= $totalActualites; $i++) <option>{{ $i }}</option>
+                        @for ($i = 1; $i <= $totalActualites + 1; $i++) <option>{{ $i }}</option>
                           @endfor
+
                       </select>
                     </div>
 

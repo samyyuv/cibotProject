@@ -5,14 +5,32 @@
       <p class="body-text intro">Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.</p>
     </div>
     <div class="slider-arts">
+
       @foreach ($oeuvres as $oeuvre)
+      @foreach ($oeuvre->photos as $photo)
+      @if ($loop->first)
       <div class="slide-2 card">
-        <img src="https://picsum.photos/350" alt="">
+        <div>
+          <a href="#">
+            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+
+            <div class="cross">
+              <span></span>
+              <span></span>
+            </div>
+          </a>
+        </div>
         <p>{{ $oeuvre->date->format('d M Y') }}</p>
-        <p>{{ $oeuvre->categorie->titre }}</p>
-        <h3><a href="">{{ $oeuvre->titre }}</a></h3>
+        <p><a href="{{ route('categories.show', $oeuvre->categorie->id) }}">
+            {{ $oeuvre->categorie->titre }}
+          </a></p>
+        <a href="#">
+          <h3>{{ $oeuvre->titre }}</h3>
+        </a>
         <p class="body-text">{{ Str::limit($oeuvre->description, 120) }}</p>
       </div>
+      @endif
+      @endforeach
       @endforeach
     </div>
   </div>
