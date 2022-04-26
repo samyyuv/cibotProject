@@ -30,7 +30,7 @@
     <div class="footer-content">
       <ul class="footer-content-items">
         <li class="foot-expand">
-          <a class="foot-expand-link foot-link-title" href="#">{{ __('Art objects') }}</a>
+          <a class="foot-expand-link foot-link-title" href="/oeuvres">{{ __('Art objects') }}</a>
           <i class="fas fa-chevron-right"></i>
           <ul class="footer-content-items foot-expand-content">
             @foreach ($categoriesMenu as $categorie)

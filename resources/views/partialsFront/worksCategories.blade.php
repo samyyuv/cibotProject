@@ -7,16 +7,29 @@
 
       <?php
       $i = 0;
-      foreach ($categorie->photos as $photo) {
-        ++$i;
+      foreach ($categorie->oeuvres as $oeuvre) {
+
       ?>
+        @foreach ($oeuvre->photos as $photo)
+        <?php
+
+        ++$i;
+        ?>
+        @if ($loop->first)
+
         <div onclick="openShow();currentSlide(<?= $i; ?>)">
-          <img src="https://picsum.photos/600" alt="">
-          <div class="cross">
-            <a href="#"> <span></span>
-              <span></span></a>
-          </div>
+          <a href="#">
+            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+
+            <div class="cross">
+              <span></span>
+              <span></span>
+            </div>
+          </a>
         </div>
+        @endif
+
+        @endforeach
       <?php
       }
       ?>
@@ -38,9 +51,10 @@
       </button>
       <ul>
         @foreach ($categorie->oeuvres as $oeuvre)
+        @foreach ($oeuvre->photos as $photo)
         <li class="slide-1 fade">
           <div>
-            <img src="https://picsum.photos/799" alt="">
+            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
             <div>
               <h5>{{ $oeuvre->categorie->titre }}</h5>
               <h2>{{ $oeuvre->titre }}</h2>
@@ -49,6 +63,7 @@
             </div>
           </div>
         </li>
+        @endforeach
         @endforeach
       </ul>
     </div>

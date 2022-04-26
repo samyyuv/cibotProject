@@ -10,7 +10,7 @@
 
         <a>{{ __('Voir sur map') }}</a>
       </div>
-      <img src="https://picsum.photos/680/590" alt="">
+      <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
     </div>
 
     <div class="news-other">
@@ -19,9 +19,12 @@
         @foreach ($actualites as $actualite)
         <div class="actualites-container-topic card">
           <div>
-            <img src="https://picsum.photos/680" alt="">
-            <div class="cross"> <a href="{{ route('actualites.show', $actualite) }}"> <span></span> <span></span></a>
-            </div>
+            <a href="{{ route('actualites.show', $actualite) }}">
+              <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+              <div class="cross">
+                <span></span> <span></span>
+              </div>
+            </a>
           </div>
           <p>{{ $actualite->created_at->format('d M Y') }}</p>
           <h3>{{ $actualite->titre }}</h3>

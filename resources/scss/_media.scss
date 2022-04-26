@@ -1,82 +1,100 @@
 @media only screen and (min-width: 576px) {
   body {
     .body-container {
-     max-width: 1800px;
-     overflow: hidden;
-     padding: 80px 0 100px 100px;
+      max-width: 1800px;
+      overflow: hidden;
+      padding: 80px 0 100px 100px;
     }
   }
 
   //footer burguer menu non visible for this size
-  .menu-footer{
+  .menu-footer {
     display: none;
   }
-  
+
 
   footer {
     //general padding
     padding: 2.6rem 100px;
+
     .logo {
-      max-width: 253px;
+      max-width: 80%;
     }
-    .container{
+
+    .container {
+
       //footer distribution
-      &-footer{
-        @include grid-column(2fr 4fr);  
+      &-footer {
+        @include grid-column(2fr 4fr);
         gap: 1.5rem;
       }
+
       //content column distribution
-      &-pags{
-        @include grid-column(repeat(4, 1fr));  
+      &-pags {
+        @include grid-column(repeat(4, 1fr));
         gap: 1.5rem;
+
         li {
           padding-top: .5rem;
         }
       }
     }
+
     //footer logo distribution
-    .footer{
+    .footer {
       &-content {
+
         //angle bracket
         i {
           display: none;
         }
-        .foot{
+
+        .foot {
           &-link {
             font-size: $font-s;
           }
+
           &-link-title {
             font-weight: 500;
           }
+
           &-back-link {
-          display: none;
+            display: none;
           }
         }
-        > ul{
-          @include grid-column(repeat(4, 1fr)); 
+
+        >ul {
+          @include grid-column(repeat(4, 1fr));
           gap: 2.5rem;
+
           ul.footer-content-items {
-            li:first-child{
+            li:first-child {
               padding-top: 1rem;
             }
-            li:not(:first-child){
-            padding-top: .7rem;
+
+            li:not(:first-child) {
+              padding-top: .7rem;
             }
           }
         }
-        ul.footer-content-items {        
+
+        ul.footer-content-items {
           line-height: 1;
-        }        
+        }
       }
+
       &-logo {
         @include flex-box(space-between, flex-start, nowrap);
-        flex-direction: column;  
+        flex-direction: column;
+
         div {
+
           //language
           p {
             font-size: $font-xs;
             padding-right: .5rem;
           }
+
           //facebook icon
           span i {
             font-size: 1.75rem;
@@ -85,18 +103,19 @@
       }
     }
   }
-  
-  .contactMe{
+
+  .contactMe {
     //margin to be all the way to the left
     margin: 8rem 0 -8rem -6rem;
   }
 
   //header burguer menu non visible for this size
-  .menu-icon{
+  .menu-icon {
     display: none;
   }
 
-  .header{
+  .header {
+
     //header menu general
     &-menu {
       top: 0;
@@ -104,125 +123,150 @@
       position: fixed;
       width: 100%;
       background-color: $white;
+
       i:not(:last-child) {
         display: none;
       }
     }
+
     //header menu distribution (logo & subjects)
     &-container {
       //gap: 3rem;        
       margin: 0 100px;
-      height:5.25rem;
-      @include flex-box(space-around, center, nowrap);   
+      height: 5.25rem;
+      @include flex-box(space-around, center, nowrap);
     }
   }
-  
+
   .nav {
+
     //logo menu
     &-top {
-      max-width: 253.5px;
-      width: 100%;
+
+      //max-width: 253.5px;
+      img {
+        max-width: 80%;
+      }
     }
+
     &-drill {
       //header menu content (subjects)
       width: 100%;
+
       //menu' subjects in columns
-      > ul {      
+      >ul {
         @include flex-box(space-around, center, nowrap);
         text-align: center;
-        > li {
+
+        >li {
           flex: 1 1 0px;
         }
       }
+
       a:hover {
         color: $teal;
       }
+
       //language menu distribution
       .menu-language {
         @include flex-box(center, center, nowrap);
         color: $gray1;
-        i{
-          font-size: $font-m;  
+
+        i {
+          font-size: $font-m;
           padding-right: 1.5rem;
         }
+
         div {
-          font-size: $font-xs;  
+          font-size: $font-xs;
           font-weight: $weight-400;
         }
-      }      
+      }
     }
-    
+
     &-link {
       display: block;
       @include navBtn($antracite);
     }
 
     //dropdown menu
-    &-container {  
+    &-container {
       padding: 0 100px 3.5rem;
-      @include flex-box(space-around, flex-start, nowrap); 
+      @include flex-box(space-around, flex-start, nowrap);
       position: fixed;
       top: 84px;
       left: 0;
-      width: 100%;         
-      background-color: $white;  
-      display: none; 
-      transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;    
+      width: 100%;
+      background-color: $white;
+      display: none;
+      transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+
       //same width between each column
-      > li {
+      >li {
         flex: 1 1 0px;
       }
+
       //same height start for the lists
-      .column{        
+      .column {
         display: grid;
         grid-template-rows: 4rem;
       }
     }
+
     //dropdown menu distribution
-    &-expand.active .nav-container{
+    &-expand.active .nav-container {
       display: flex;
       transform: translateY(0);
       pointer-events: auto;
       gap: 1.5rem;
     }
+
     //expandable button
-    &-expand {  
-      .img-menu{
+    &-expand {
+      .img-menu {
         max-width: 18.75rem;
+
         div p {
           padding-top: .5rem;
         }
       }
+
       //dropdown columns
       &-content {
+
         //back click
         .nav-back {
           display: none;
         }
+
         //column
         .nav-expand {
-          > a {
+          >a {
             padding-bottom: 1rem;
           }
         }
-      }          
+      }
+
       .nav-expand-content {
+
         //column title
         .nav-link {
           font-weight: 500;
-          line-height: 1rem;          
+          line-height: 1rem;
         }
+
         //column content
         .nav-expand-content {
           .nav-link {
             font-weight: 400;
             line-height: 1rem;
             padding-bottom: 1rem;
-            &:hover{
+
+            &:hover {
               color: $teal;
               font-weight: $weight-500;
             }
-          }				
+          }
         }
       }
     }
@@ -233,80 +277,92 @@
     left: 10%;
     top: 30%;
     margin-top: 10rem;
+
     //slider distribution
-      &-content {
-        @include grid-column(1fr 6fr);
-        gap: 2.6rem;
-        position: relative;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 180%;
-        pointer-events: none;
-        transition: 0s ease-in;
-        overflow: visible;
-      }
-      //section title
-      &-title {
-        .title{
-          padding-bottom: 1rem;
-        }
-      }
-      //columns art
-      &-arts {
-        @include grid-column(repeat(5, 1fr));
-        gap: 3.8rem;
-      }    
+    &-content {
+      @include grid-column(1fr 6fr);
+      gap: 2.6rem;
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 180%;
+      //pointer-events: none;
+      transition: 0s ease-in;
+      overflow: visible;
     }
 
+    //section title
+    &-title {
+      .title {
+        padding-bottom: 1rem;
+      }
+    }
+
+    //columns art
+    &-arts {
+      @include grid-column(repeat(5, 1fr));
+      gap: 3.8rem;
+    }
+  }
+
   //home page
-  .home{
-    @include grid-column(1fr 1fr); 
+  .home {
+    @include grid-column(1fr 1fr);
     justify-items: end;
     gap: 4.5rem;
     margin-top: 2rem;
+
     //welcome block
-    &-message{
+    &-message {
       @include flex-box(center, flex-start, nowrap);
       flex-direction: column;
-      h1{
+
+      h1 {
         font-family: $sortsmill-font;
         font-size: 6.25rem;
         line-height: .7;
         padding-bottom: 2rem;
       }
+
       p {
         font-weight: 300;
         font-size: $h3;
-        line-height: 1.6rem;      
+        line-height: 1.6rem;
       }
     }
+
     //img slider
     &-slider {
       width: 100%;
       height: 100%;
       margin: auto;
       position: relative;
-    //data of the img
-    &-details {
-      color: $white;
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      width: 100%;
+
+      //data of the img
+      &-details {
+        color: $white;
+        position: absolute;
+        bottom: 2.5rem;
+        left: 2.5rem;
+        width: 100%;
       }
     }
+
     //slides container
     &-slides {
       //width: 400%;
       display: flex;
+
       input {
         display: none;
       }
     }
+
     //slide
     &-slide {
       display: none;
+
       img {
         width: 100%;
       }
@@ -315,26 +371,30 @@
 
   //slider navigation's btns
   .navigation {
-    &-manual{
+    &-manual {
       position: absolute;
       display: flex;
       flex-direction: column;
       right: 1.5rem;
       top: 45%;
+
       .active {
         background-color: $white;
       }
-    } 
+    }
+
     &-manual-btn {
       transition: background-color 0.6s ease;
       border: 2px solid $white;
       padding: 5px;
       border-radius: 10px;
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         background: $white;
       }
-      &:not(:last-child){
+
+      &:not(:last-child) {
         margin-bottom: 1rem;
       }
     }
@@ -346,29 +406,39 @@
     margin: 8.3rem 6.25rem 0 0;
     @include grid-column(1fr 2fr);
     column-gap: 5.6rem;
+
     &-title {
       h4 {
         @include navBtn($teal);
       }
-      a{
+
+      a {
         display: none;
       }
     }
+
     &-img {
       grid-column: 2;
       grid-row: 1/4;
+      justify-self: end;
     }
+
     //section info
     &-presentation {
-      h4, a {
+
+      h4,
+      a {
         @include navBtn($teal);
       }
+
       h2 {
         padding-top: 1.68rem;
       }
+
       p:nth-child(2) {
         padding: .625rem 0;
       }
+
       p:nth-child(3) {
         padding-bottom: 2.68rem;
       }
@@ -378,15 +448,19 @@
   //artworks list
   .art {
     margin-right: 100px;
+
     h5 {
       padding: 2rem 0;
     }
+
     //artwork grid
     &-container {
       padding-top: 5.2rem;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+
       //bigger photo
-      div:nth-child(3){
+
+      div:nth-child(3) {
         grid-area: 1 / 3 / 3 / 5;
       }
     }
@@ -402,46 +476,58 @@
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     padding: 7rem 0;
+
     //close button
-    .close{
+    .close {
       top: 3rem;
       right: 1.5rem;
     }
+
     //artwork info container 
     &-container {
       margin: -5rem 0;
       padding-top: 2rem;
+
       ul {
         margin: 0 6rem;
       }
+
       //slide content
-      li > div {
+      li>div {
         @include grid-column(1fr 1fr);
         column-gap: 5rem;
         align-items: center;
-        h5, a {
+
+        h5,
+        a {
           @include navBtn($antracite);
         }
+
         h2 {
           line-height: 2.5rem;
           font-family: $sortsmill-font;
           font-size: 2.8rem;
           padding: 1rem 0;
         }
+
         p {
           padding-bottom: .8rem;
         }
+
         a {
           color: $teal;
         }
       }
+
       //btns prev and next
       &-button {
         top: 50%;
         transform: translateY(-50%);
+
         &:nth-child(1) {
           left: -25px;
         }
+
         &:nth-child(2) {
           right: -25px;
         }
@@ -452,37 +538,47 @@
   //actualités/news list
   .actualites {
     margin-right: 100px;
+
     h1 {
       padding-top: 3.56rem;
     }
+
     //switching buttons
     &-btn {
       padding: 3.56rem 0 7rem;
       @include flex-box(center, center, wrap);
       gap: 1rem 3.125rem;
+
       a {
         column-gap: 2.65rem;
         @include button($light-theme: true);
-        &:hover, &:active &:focus{
+
+        &:hover,
+        &:active &:focus {
           @include button($light-theme: false)
         }
       }
     }
+
     //content to show
-    div.show{
+    div.show {
       display: flex;
     }
+
     //content distribution
     &-container {
       @include flex-box(center, flex-start, wrap);
       gap: 5.18rem 3.5rem;
+
       //card info distribution
-        &-topic{
+      &-topic {
         width: calc(33.33% - 3.5rem);
-        p:nth-child(2){
+
+        p:nth-child(2) {
           color: $gray1;
           padding: 1.8rem 0 .56rem;
         }
+
         h3 {
           padding-bottom: .68rem;
         }
@@ -491,38 +587,47 @@
   }
 
   //actualites individuel
-  .news{
+  .news {
+
     //link to all news
-    &-article{
+    &-article {
       margin-right: 100px;
+
       a i {
         padding-top: 2.5rem;
       }
     }
+
     //news distribution
-    &-container{
+    &-container {
       margin: 6.5rem 0;
       @include grid-column(3fr 2fr);
       gap: 2rem;
+
       //subtitle
-      div p:first-child{
+      div p:first-child {
         display: none;
       }
+
       h2 {
         padding-bottom: 2rem;
       }
+
       p:nth-child(7) {
         padding-bottom: 1.5rem;
       }
     }
+
     //another news
-    &-other{
-      div.show{
+    &-other {
+      div.show {
         display: flex;
       }
-      h2{
+
+      h2 {
         padding-bottom: 2.5rem;
       }
+
       div {
         justify-content: space-between;
       }
@@ -530,104 +635,124 @@
   }
 
   //biographie
-  .biographie{
+  .biographie {
     margin: 2rem 100px 0 0;
+
     //menu buttons distribution and design
-    &-dropdown{
+    &-dropdown {
       @include flex-box(space-evenly, center, wrap);
       padding: 3.5rem 0 6.5rem;
       gap: 2rem 1.2rem;
       align-items: stretch;
+
       i {
         display: none;
       }
+
       .btn {
         text-align: center;
         line-height: 1;
         @include button($light-theme: true);
-        &:hover, &.active{
+
+        &:hover,
+        &.active {
           @include button($light-theme: false);
         }
       }
     }
+
     //container content distribution
-    &-presentation > div {
+    &-presentation>div {
       @include grid-column(2fr 4fr);
       column-gap: 5rem;
-      img{
+
+      img {
         grid-row: 1/8;
       }
+
       h2 {
         padding-bottom: 1rem;
-      }    
+      }
     }
+
     //presentation content
-    &-presentation.hello{
-      p:not(:first-child){
+    &-presentation.hello {
+      p:not(:first-child) {
         padding-top: 1rem;
       }
     }
-    &-presentation.awards ul{
-     li{
-        @include grid-column(13% auto);  
+
+    &-presentation.awards ul {
+      li {
+        @include grid-column(13% auto);
       }
     }
+
     //container content
     &-presentation.awards,
     &-presentation.permanence,
     &-presentation.monuments,
     &-presentation.personal,
     &-presentation.collectives,
-    &-presentation.evenements{
-      ul li{
+    &-presentation.evenements {
+      ul li {
         &:not(:first-child) {
           padding-top: .5rem;
         }
-      }      
+      }
+
       div div ul {
         h3 {
           padding-bottom: .5rem;
         }
+
         &:not(:first-child) {
           padding-bottom: 2rem;
         }
-      }    
+      }
     }
   }
 }
 
-@media only screen and (max-width:576px){
-//@media only screen and (max-width:785px){
+@media only screen and (max-width:576px) {
+
+  //@media only screen and (max-width:785px){
   body {
     .body-container {
       padding: 0 1rem 1rem;
-      section:first-child{
+
+      section:first-child {
         padding-top: 5rem;
       }
     }
   }
-  
-  .logo{
+
+  .logo {
     max-width: 195px;
-  }    
-  .contactMe{
-  margin: 0 -1rem -1rem;
+  }
+
+  .contactMe {
+    margin: 0 -1rem -1rem;
   }
 
   //footer
   footer {
     padding: 2rem 1rem;
+
     .container {
-      &-footer{
+      &-footer {
         .footer-logo {
           @include flex-box(space-between, center, nowrap);
         }
       }
     }
-    .container-pags, .d-none, .copyright{
+
+    .container-pags,
+    .d-none,
+    .copyright {
       display: none;
     }
-    
+
   }
 
   // header menu distribution
@@ -641,12 +766,14 @@
     background-color: $white;
     top: 0;
   }
+
   //opening menu
   .nav-is-toggled {
     .nav-drill {
       transform: translateX(0);
       padding-bottom: 4rem;
     }
+
     &::after {
       opacity: 1;
       visibility: visible;
@@ -660,9 +787,11 @@
       padding-bottom: 4rem;
       left: 0;
     }
-    .container-footer{
+
+    .container-footer {
       position: relative;
     }
+
     div.menu-foot {
       z-index: 200;
       position: fixed;
@@ -670,6 +799,7 @@
       right: 18px;
       background-color: white;
     }
+
     &::after {
       opacity: 1;
       visibility: visible;
@@ -677,7 +807,8 @@
   }
 
   //open menu
-  .nav-drill, .footer-content {
+  .nav-drill,
+  .footer-content {
     transform: translateX(100%);
     display: flex;
     position: fixed;
@@ -692,61 +823,79 @@
     transition: 0.45s;
     margin-top: 4.56rem;
   }
+
   //menu items
-  .nav-items, .footer-content-items {
+  .nav-items,
+  .footer-content-items {
     flex: 0 0 100%;
     @include flex-box(space-around, flex-start, nowrap);
     margin-bottom: 6rem;
     flex-direction: column;
     padding-left: 1rem;
+
     .menu-language {
       display: none;
     }
   }
+
   //bold title menu
-  .nav-link, .foot-link {
+  .nav-link,
+  .foot-link {
     font-weight: 500;
   }
-  
-  .nav-expand, .foot-expand {
+
+  .nav-expand,
+  .foot-expand {
     //expandable titles
     @include flex-box(flex-start, center, nowrap);
+
     i {
       color: $teal;
-    }    
+    }
+
     //third menu
     .nav-expand-content {
       background-color: $white;
       padding-bottom: 11.10rem;
+
       .nav-link {
         font-weight: 500;
       }
+
       .nav-expand-content {
         padding-bottom: 11.10rem;
+
         .nav-link {
           font-weight: 400;
-        }				
+        }
       }
     }
   }
+
   .foot-expand {
+
     //third menu
     .foot-expand-content {
       background-color: $white;
       padding-bottom: 11.10rem;
+
       .foot-link {
         font-weight: 500;
       }
+
       .foot-expand-content {
         padding-bottom: 11.10rem;
+
         .foot-link {
           font-weight: 400;
-        }				
+        }
       }
     }
   }
+
   //open second menu
-  .nav-expand-content, .foot-expand-content {
+  .nav-expand-content,
+  .foot-expand-content {
     position: absolute;
     top: 0;
     left: 0;
@@ -756,47 +905,53 @@
     transition: 0.3s;
     visibility: hidden;
     padding-bottom: 6.56rem;
+
     //title to go back
-    .nav-item > .nav-back-link {
+    .nav-item>.nav-back-link {
       color: $teal;
       font-weight: 600 !important;
       line-height: 1.25rem;
       padding-left: .5rem;
     }
-  }      
+  }
 
-  .nav-expand-link, .foot-expand-link {
+  .nav-expand-link,
+  .foot-expand-link {
     padding-right: 1.5rem;
-  }      
+  }
 
   .nav-expand.active {
+
     //to make visible the second menu
-    > .nav-expand-content {
+    >.nav-expand-content {
       transform: translateX(0);
       visibility: visible;
     }
   }
+
   .foot-expand.active {
+
     //to make visible the second menu
-    > .foot-expand-content {
+    >.foot-expand-content {
       transform: translateX(0);
       visibility: visible;
     }
   }
 
   .foot-expand-content {
+
     //title to go back
-    .foot-item > .foot-back-link {
+    .foot-item>.foot-back-link {
       color: $teal;
       font-weight: 600 !important;
       line-height: 1.25rem;
       padding-left: .5rem;
     }
-  }    
-  
+  }
+
   //footer in menu
   .menu {
-    &-footer{
+    &-footer {
       background-color: $antracite;
       color: $white;
       padding: 1rem;
@@ -806,26 +961,32 @@
       position: fixed;
       margin-bottom: 4.56rem;
     }
-    &-language{
-      @include flex-box(flex-start, center, nowrap); 
-      a span > i {
+
+    &-language {
+      @include flex-box(flex-start, center, nowrap);
+
+      a span>i {
         font-size: 1.75rem;
         padding-right: 0.75rem;
       }
+
       div {
         @include flex-box(flex-start, center, nowrap);
+
         p {
           padding-right: 0.5rem;
           font-size: 0.75rem;
         }
       }
     }
-    &-CR{
+
+    &-CR {
       font-size: .625rem;
       padding-top: 1rem;
       line-height: 0.75rem;
     }
   }
+
   //image in the menu non visible for this size
   .img-menu {
     display: none;
@@ -834,6 +995,7 @@
   //latestWorks Slider 
   .slider {
     margin: 4.75rem 0;
+
     //section title
     &-title {
       width: 50%;
@@ -841,15 +1003,18 @@
       text-align: center;
       padding: .5rem 0;
     }
+
     //intro text in the menu non visible for this size    
     .intro {
       display: none;
     }
+
     //slider distribution
     &-content {
       flex-direction: column;
       overflow: hidden;
     }
+
     //columns art    
     &-arts {
       display: block;
@@ -858,15 +1023,18 @@
       -webkit-overflow-scrolling: touch;
       -ms-overflow-style: -ms-autohiding-scrollbar;
     }
+
     //slider card
-    .slide-2{
+    .slide-2 {
       align-items: center;
       display: inline-flex;
       flex-direction: column;
       padding: 0 .3rem;
+
       img {
-         width:100%;
-        }
+        width: 100%;
+      }
+
       .body-text {
         white-space: normal;
         text-align: center;
@@ -876,27 +1044,30 @@
   }
 
   //home page
-  .home{
+  .home {
     display: flex;
     flex-direction: column-reverse;
+
     //image details non show
     &-slider-details {
       display: none;
     }
+
     //welcome block
-    &-message{
-      h1{
+    &-message {
+      h1 {
         font-family: $sortsmill-font;
         font-size: 3.125rem;
         line-height: 4.8rem;
         padding-bottom: .5rem;
       }
+
       p {
         font-weight: 400;
         font-size: .93rem;
-        line-height: 1.4rem;      
+        line-height: 1.4rem;
       }
-    }    
+    }
   }
 
   //home actualites
@@ -904,31 +1075,43 @@
     display: flex;
     flex-direction: column;
     margin: 3.2rem 0;
+
+    &-img {
+      margin: 0 auto;
+    }
+
     &-title {
-      @include flex-box(space-between, center, nowrap); 
+      @include flex-box(space-between, center, nowrap);
+
       h4 {
         font-weight: 600;
         color: $teal;
       }
-      a{
+
+      a {
         @include button($light-theme: true);
-        &:active{
+
+        &:active {
           @include button($light-theme: false);
         }
       }
     }
+
     //show other news
-    &-other div.show{
-        display: block;
+    &-other div.show {
+      display: block;
     }
+
     img {
       padding: 1rem 0 1.56rem;
     }
+
     p:nth-child(2) {
       padding: .875rem 0 .68rem;
     }
+
     //section info
-    &-presentation > a {
+    &-presentation>a {
       display: none;
     }
   }
@@ -941,17 +1124,19 @@
       margin: 0 auto;
       line-height: 2.1rem;
     }
+
     //artwork grid
     &-container {
       padding-top: 1.8rem;
       grid-template-columns: 1fr 1fr;
+
       //bigger photo
-      div:nth-child(3){
+      div:nth-child(3) {
         grid-area: 5 / 1 / 7 / 3;
       }
     }
   }
-  
+
   //artwork pop-up
   .slideshow {
     position: absolute;
@@ -960,33 +1145,40 @@
     width: 92%;
 
     //close button
-    > div:first-child{
+    >div:first-child {
       right: 1rem;
       top: 1rem;
     }
+
     //artwork info container 
     &-container {
       padding: 0 1rem;
       text-align: center;
-      li > div {
+
+      li>div {
         h5 {
           padding-top: 30px;
         }
+
         h2 {
           padding: 11px 0 14px;
         }
+
         a {
           display: none;
         }
       }
+
       //buttons prev and next at the bottom
       &-button {
         bottom: 0;
         border: solid 3px $white;
+
         &:nth-child(1) {
           left: 33%;
           bottom: -72px;
         }
+
         &:nth-child(2) {
           right: 33%;
           bottom: -72px;
@@ -997,39 +1189,47 @@
 
   //actualités/news list
   .actualites {
-    h1{
+    h1 {
       font-size: 3.125rem;
     }
+
     //menu buttons
     &-btn {
       padding: 1rem 0 2.6rem;
-      @include grid-column(1fr 1fr);  
+      @include grid-column(1fr 1fr);
       margin: 0 auto;
       gap: .5rem;
       font-size: .75rem;
       width: 80%;
+
       a.btn-act {
         @include flex-box(center, center, wrap);
       }
     }
+
     //show the cards in actualites individuel
-    div.show{
+    div.show {
       display: block;
     }
+
     //actualites container
     &-container {
+
       //actualité card
-      &-topic{
-        &:not(:last-child){
+      &-topic {
+        &:not(:last-child) {
           margin-bottom: 4rem;
         }
+
         //img centered
-        div img{
+        div img {
           margin: 0 auto;
         }
-        p:nth-child(2){
+
+        p:nth-child(2) {
           padding: 1.3rem 0 .75rem;
         }
+
         h3 {
           padding-bottom: .3rem;
         }
@@ -1038,163 +1238,197 @@
   }
 
   // actualités article individual
-  .news{
+  .news {
+
     //link to all news
-    &-article{
+    &-article {
       margin-bottom: 4.625rem;
       display: flex;
       flex-direction: column;
+
       a {
         text-align: center;
         @include navBtn($teal);
+
         i {
           padding-right: 1rem;
           color: $antracite;
         }
       }
+
       img {
         margin: 0 auto;
       }
     }
+
     //news distribution
-    &-container{
+    &-container {
       display: flex;
       flex-direction: column-reverse;
       margin-bottom: 4rem;
+
       //subtitle
-      div p:first-child{
+      div p:first-child {
         font-weight: $weight-600;
-        width: 50%;    
+        width: 50%;
       }
+
       h2 {
         padding: 0.5rem 0 1rem;
         font-size: 24px;
         line-height: 28.9px;
       }
-      p:nth-child(3){
+
+      p:nth-child(3) {
         padding-bottom: 1rem;
       }
-      a:last-child{
+
+      a:last-child {
         font-weight: 700;
         font-size: $font-s;
         color: $teal;
         padding-top: 1rem;
       }
+
       img {
         padding: 2rem 0 2.3rem;
 
       }
     }
+
     //another news
-    &-other{
-      h2{
+    &-other {
+      h2 {
         width: 50%;
         padding-bottom: 1.75rem;
       }
     }
   }
-    //biographie
-  .biographie{
+
+  //biographie
+  .biographie {
+
     //menu buttons dropdown
-    &-btn{
+    &-btn {
       text-align: center;
       position: relative;
       cursor: pointer;
       padding: 2.2rem 0 3.5rem;
       display: inline-block;
-      &:hover .biographie-dropdown{
+
+      &:hover .biographie-dropdown {
         display: block;
       }
     }
+
     //dropdown menu centered
-    &-dropdown, &-btn{
+    &-dropdown,
+    &-btn {
       left: 50%;
       transform: translateX(-50%);
     }
+
     //titles
     h2 {
       display: none;
     }
+
     #bio-drop:hover li {
-      @include flex-box(center, center, nowrap); 
+      @include flex-box(center, center, nowrap);
     }
+
     //menu dropdown
-    &-dropdown{
+    &-dropdown {
       border-radius: 1rem;
       position: absolute;
       background-color: $gray2;
       min-width: 17.5rem;
       z-index: 1;
       top: 20%;
+
       .btn {
-        @include flex-box(center, center, nowrap); 
+        @include flex-box(center, center, nowrap);
       }
+
       i {
         display: none;
         padding-left: 1rem;
       }
+
       .active {
         @include button($light-theme: false);
-        &:active{
+
+        &:active {
           background-color: $teal-hover;
         }
+
         i {
           display: block;
           padding-left: 1rem;
         }
       }
+
       li:not(.active) {
         display: none;
         color: $teal;
         padding: .8rem 1.5rem;
       }
     }
+
     //distribution of the content and images
     &-presentation.hello,
     &-presentation.permanence {
       div {
         display: flex;
         flex-direction: column;
-        img{
+
+        img {
           margin: 0 auto;
           order: 2;
           padding: .5rem 0;
-        }        
+        }
+
         //always last
-        p:last-child, div:last-child {        
+        p:last-child,
+        div:last-child {
           order: 99;
         }
       }
     }
-    &-presentation.awards ul{
-      li{
-         @include grid-column(18% auto);  
-       }
+
+    &-presentation.awards ul {
+      li {
+        @include grid-column(18% auto);
+      }
     }
+
     //container content
     &-presentation.awards,
     &-presentation.permanence,
     &-presentation.monuments,
     &-presentation.personal,
     &-presentation.collectives,
-    &-presentation.evenements{
-      img{
+    &-presentation.evenements {
+      img {
         padding-bottom: 1rem;
       }
-      ul li{
+
+      ul li {
         &:not(:first-child) {
           padding-top: .5rem;
         }
-      }      
+      }
+
       h3 {
         text-align: center;
         padding-bottom: .5rem;
       }
+
       div div ul {
         &:not(:first-child) {
           padding-bottom: 1rem;
         }
-      }    
+      }
     }
   }
 }
