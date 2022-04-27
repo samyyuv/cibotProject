@@ -22,29 +22,41 @@ class OeuvreUpdateAction
       'date' => $request->date,
       'active' => $active,
     ];
-
     $oeuvre->categorie()->associate(Categorie::find($request->categorie));
 
     $oeuvre->collection()->associate(Collection::find($request->collection));
 
 
-    if ($request->hasFile('photo')) {
-      $fileExName = $oeuvre->photo->photo;
+    if ($request->hasFile('photos')) {
+      $id = $oeuvre->id;
+      $fileExName = Photo::where('oeuvre_id', $id)->value('photo');
       Storage::delete($fileExName);
-      $clientFile = $request->photo;
-      $oeuvreTitle = Str::slug($request->titre);
-      $fileName = $oeuvreTitle . '.' . $clientFile->getClientOriginalExtension();
-      $clientFile->storeAs('oeuvres', $fileName);
-      Photo::where('photo', $fileExName)
-        ->update([
+      Photo::where('oeuvre_id', $id)->delete();
+
+      $i = 1;
+      //remove photo where oeuvre_id = oeuvre_id
+      foreach ($request->photos as $photo) {
+        $oeuvreTitle = Str::slug($request->titre);
+        $fileName = $oeuvreTitle . $i . '.' . $photo->getClientOriginalExtension();
+        $photo->storeAs('oeuvres', $fileName);
+        Photo::create([
           'photo' => "oeuvres/" . $fileName,
+          'oeuvre_id' => $oeuvre->id
         ]);
-      $id = Photo::where('photo', 'oeuvres/' . $fileName)->value('id');
-      $arrayUpdate = array_merge($arrayUpdate, [
-        'photo_id' => $id,
-      ]);
+        //insert photo
+        Photo::where('photo', $fileExName)
+          ->update([
+            'photo' => "oeuvres/" . $fileName,
+          ]);
+        $id = Photo::where('photo', 'oeuvres/' . $fileName)->value('id');
+        $arrayUpdate = array_merge($arrayUpdate, [
+          'photo_id' => $id,
+        ]);
+        $i++;
+      }
     };
 
     $oeuvre->update($arrayUpdate);
   }
 }
+// /!\ TODO /!\

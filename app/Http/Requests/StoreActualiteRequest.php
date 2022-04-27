@@ -24,9 +24,9 @@ class StoreActualiteRequest extends FormRequest
     public function rules()
     {
         if (request()->routeIs('admin.actualites.store')) {
-            $imageRule = 'mimes:jpeg,jpg,png,gif|required|max:10000';
+            $imageRule = 'mimes:jpeg,jpg,png,gif|required|max:20000';
         } elseif (request()->routeIs('admin.actualites.update')) {
-            $imageRule = 'mimes:jpeg,jpg,png,gif|sometimes|max:10000';
+            $imageRule = 'mimes:jpeg,jpg,png,gif|sometimes|max:20000';
         }
 
         return [

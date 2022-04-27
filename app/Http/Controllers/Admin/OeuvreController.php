@@ -69,7 +69,6 @@ class OeuvreController extends Controller
             $i++;
         }
 
-
         return redirect()->route('admin.oeuvres.index')->with('success', __('Your artwork has been created'));
     }
 

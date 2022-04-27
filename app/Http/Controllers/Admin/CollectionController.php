@@ -109,10 +109,9 @@ class CollectionController extends Controller
             $collectionTitle = Str::slug($request->titre);
             $fileName = $collectionTitle . '.' . $clientFile->getClientOriginalExtension();
             $clientFile->storeAs('collections', $fileName);
-            Photo::where('photo', $cuttedName)
-                ->update([
-                    'photo' => "collections/" . $fileName,
-                ]);
+            Photo::firstOrCreate([
+                'photo' => "collections/" . $fileName
+            ]);
         };
 
         return redirect()->route('admin.collections.index')->with('success', __("Your collection has been updated"));
