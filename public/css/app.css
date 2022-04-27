@@ -612,6 +612,34 @@ html body main.body-container {
   .art-container div:nth-child(3) {
     grid-area: 1/3/3/5;
   }
+  .arts-btn {
+    padding: 3.56rem 0 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 3.125rem;
+  }
+  .arts-btn a {
+    -moz-column-gap: 2.65rem;
+         column-gap: 2.65rem;
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #006f7e;
+    background-color: #F1F1F1;
+  }
+  .arts-btn a:hover, .arts-btn a:active .arts-btn a:focus {
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #006f7e;
+  }
 
   .slideshow {
     position: fixed;
@@ -1507,6 +1535,31 @@ footer {
   display: grid;
   gap: 1px;
 }
+.arts-btn {
+  padding-top: 2rem;
+  justify-content: center;
+}
+.arts-btn .active,
+.arts-btn .btn-act:hover {
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #006f7e;
+}
+.arts-btn a {
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  font-size: 1rem;
+  color: #006f7e;
+  background-color: #F1F1F1;
+}
+
 .slideshow {
   display: none;
   z-index: 999;

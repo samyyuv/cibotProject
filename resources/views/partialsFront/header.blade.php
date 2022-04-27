@@ -16,17 +16,17 @@
           </a>
           <i class="fas fa-chevron-right"></i>
           <ul class="nav-items nav-expand-content nav-container" data-dropdown-button>
-            @foreach ($categoriesMenu as $categorie)
+            @foreach ($collectionsMenu as $collection)
             <li class="nav-expand column">
-              <div><a class="nav-link nav-expand-link" href="{{ route('categories.show', $categorie) }}">
-                  {{ $categorie->titre }}
+              <div><a class="nav-link nav-expand-link" href="{{ route('collections.show', $collection) }}">
+                  {{ $collection->titre }}
                 </a></div>
               <i class="fas fa-chevron-right"></i>
               <ul class="nav-items nav-expand-content">
-                @foreach ($categorie->oeuvres as $oeuvre)
+                @foreach ($collection->oeuvres as $oeuvre)
                 <li>
                   <a class="nav-link" href="#">
-                    {{ $oeuvre->titre }}
+                    {{ $oeuvre->categorie->titre }}
                   </a>
                 </li>
                 @endforeach

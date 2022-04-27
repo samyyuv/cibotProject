@@ -167,7 +167,21 @@ footer {
     >div {
       @extend .listSquare;
     }
+  }
 
+  &s-btn {
+    padding-top: 2rem;
+    justify-content: center;
+
+    .active,
+    .btn-act:hover {
+      @include button($light-theme: false)
+    }
+
+    a {
+      text-align: center;
+      @include button($light-theme: true);
+    }
   }
 }
 

@@ -463,6 +463,22 @@
         grid-area: 1 / 3 / 3 / 5;
       }
     }
+
+    &s-btn {
+      padding: 3.56rem 0 7rem;
+      @include flex-box(center, center, wrap);
+      gap: 1rem 3.125rem;
+
+      a {
+        column-gap: 2.65rem;
+        @include button($light-theme: true);
+
+        &:hover,
+        &:active &:focus {
+          @include button($light-theme: false)
+        }
+      }
+    }
   }
 
   //artwork pop-up

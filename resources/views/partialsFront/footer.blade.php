@@ -33,10 +33,10 @@
           <a class="foot-expand-link foot-link-title link" href="/oeuvres">{{ __('Art objects') }}</a>
           <i class="fas fa-chevron-right"></i>
           <ul class="footer-content-items foot-expand-content">
-            @foreach ($categoriesMenu as $categorie)
+            @foreach ($collectionsMenu as $collection)
             <li>
-              <div><a class="foot-link link" href="{{ route('categories.show', $categorie) }}">
-                  {{ $categorie->titre }}
+              <div><a class="foot-link link" href="{{ route('collections.show', $collection) }}">
+                  {{ $collection->titre }}
                 </a></div>
             </li>
             @endforeach

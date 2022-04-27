@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
+use App\Models\Oeuvre;
+use App\Models\Categorie;
 use App\Models\Collection;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -25,10 +29,25 @@ class CollectionController extends Controller
      * @param  \App\Models\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function show(Collection $collection)
+    public function show($id)
     {
-        //$collection = Collection::find($id)->where('id', $id)->first();
+        $collection = Collection::find($id);
+        $oeuvres = Oeuvre::all();
+        $photos = Photo::all();
+        $hola = $collection->oeuvres;
+        $slugedNames = $this->sluging($hola);
+        //dd($slugedNames);
 
-        return view('public.collection.show', compact('collection'));
+        return view('partialsFront.worksCategories', compact('collection', 'oeuvres', 'photos', 'slugedNames'));
+    }
+
+    private function sluging($collection)
+    {
+        $i = 0;
+        foreach ($collection as $oeuvre) {
+            $hello[$oeuvre->id] = Str::slug($oeuvre->categorie->titre);
+            $i++;
+        }
+        return $hello;
     }
 }
