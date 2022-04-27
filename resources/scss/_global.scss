@@ -81,6 +81,10 @@ html body {
   font-weight: 500;
   line-height: 1rem;
   color: $color;
+
+  &:hover {
+    font-weight: 600;
+  }
 }
 
 .font-body {
@@ -387,4 +391,8 @@ html body {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

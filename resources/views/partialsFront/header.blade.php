@@ -40,7 +40,9 @@
               </div>
               <div>
                 <div>
-                  <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
+                  <a href="" class="link">
+                    <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
+                  </a>
                 </div>
               </div>
             </div>

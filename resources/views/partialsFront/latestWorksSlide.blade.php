@@ -21,11 +21,11 @@
           </a>
         </div>
         <p>{{ $oeuvre->date->format('d M Y') }}</p>
-        <p><a href="{{ route('categories.show', $oeuvre->categorie->id) }}">
+        <p><a class="link" href="{{ route('categories.show', $oeuvre->categorie->id) }}">
             {{ $oeuvre->categorie->titre }}
           </a></p>
         <a href="#">
-          <h3>{{ $oeuvre->titre }}</h3>
+          <h3><a href="" class="link">{{ $oeuvre->titre }}</a></h3>
         </a>
         <p class="body-text">{{ Str::limit($oeuvre->description, 120) }}</p>
       </div>

@@ -132,9 +132,6 @@ footer {
 }
 
 .news {
-  a {
-    @include navBtn($teal);
-  }
 
   p:nth-child(2) {
     color: $gray1;
@@ -278,7 +275,7 @@ footer {
 // Actualités/news article
 .news {
   &-article {
-    a {
+    >a {
       @include navBtn($teal);
 
       i {

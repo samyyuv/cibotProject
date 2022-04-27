@@ -20,7 +20,9 @@
           </a>
         </div>
         <p>{{ $actualite->created_at->format('d M Y') }}</p>
-        <h3>{{ $actualite->titre }}</h3>
+        <a href="{{ route('actualites.show', $actualite) }}" class="link">
+          <h3>{{ $actualite->titre }}</h3>
+        </a>
         <p class="body-text">{{ Str::limit($actualite->description, 200) }}</p>
       </div>
       @endforeach
@@ -39,7 +41,9 @@
           </a>
         </div>
         <p>{{ $actualite->created_at->format('d M Y') }}</p>
-        <h3>{{ $actualite->titre }}</h3>
+        <a href="{{ route('actualites.show', $actualite) }}" class="link">
+          <h3>{{ $actualite->titre }}</h3>
+        </a>
         <p class="body-text">{{ Str::limit($actualite->description, 200) }}</p>
       </div>
       @endforeach

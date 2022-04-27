@@ -22,7 +22,7 @@
         @if ($loop->first)
         <div class="home-slide slide fade">
           <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
-          <a href="#" class="home-slider-details">{{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
+          <a href="#" class="home-slider-details link">{{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
         </div>
         @endif
         @endforeach
@@ -39,14 +39,14 @@
 
   <section class="news">
     <div class="news-title">
-      <h4>{{ __('Events and exhibitions') }}</h4>
+      <h4> <a href=""> {{ __('Events and exhibitions') }} </a> </h4>
       <a class="news-btn" href="{{ route('actualites.index') }}">{{ __('All') }}</a>
     </div>
     <div class="news-img">
       <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
     </div>
     <div class="news-presentation card">
-      <h2>{{ $actualite->titre }}</h2>
+      <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre }} </a></h2>
       <p>{{ $actualite->created_at->format('d M Y') }}</p>
       <p class="body-text">{{ Str::limit($actualite->description, 150) }}</p>
       <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a>

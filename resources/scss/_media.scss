@@ -412,7 +412,7 @@
         @include navBtn($teal);
       }
 
-      a {
+      >a:not(:first-child) {
         display: none;
       }
     }
@@ -426,8 +426,7 @@
     //section info
     &-presentation {
 
-      h4,
-      a {
+      >a:not(:first-child) {
         @include navBtn($teal);
       }
 

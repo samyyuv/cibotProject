@@ -256,6 +256,10 @@ html body main.body-container {
   padding-bottom: 100%;
 }
 
+.link:hover {
+  text-decoration: underline;
+}
+
 @media only screen and (min-width: 576px) {
   body .body-container {
     max-width: 1800px;
@@ -394,6 +398,9 @@ html body main.body-container {
     font-weight: 500;
     line-height: 1rem;
     color: #232C2E;
+  }
+  .nav-link:hover {
+    font-weight: 600;
   }
   .nav-container {
     padding: 0 100px 3.5rem;
@@ -562,7 +569,10 @@ html body main.body-container {
     line-height: 1rem;
     color: #006f7e;
   }
-  .news-title a {
+  .news-title h4:hover {
+    font-weight: 600;
+  }
+  .news-title > a:not(:first-child) {
     display: none;
   }
   .news-img {
@@ -570,12 +580,14 @@ html body main.body-container {
     grid-row: 1/4;
     justify-self: end;
   }
-  .news-presentation h4,
-.news-presentation a {
+  .news-presentation > a:not(:first-child) {
     font-size: 1rem;
     font-weight: 500;
     line-height: 1rem;
     color: #006f7e;
+  }
+  .news-presentation > a:not(:first-child):hover {
+    font-weight: 600;
   }
   .news-presentation h2 {
     padding-top: 1.68rem;
@@ -633,6 +645,10 @@ html body main.body-container {
     font-weight: 500;
     line-height: 1rem;
     color: #232C2E;
+  }
+  .slideshow-container li > div h5:hover,
+.slideshow-container li > div a:hover {
+    font-weight: 600;
   }
   .slideshow-container li > div h2 {
     line-height: 2.5rem;
@@ -1246,6 +1262,9 @@ footer .copyright {
     line-height: 1rem;
     color: #006f7e;
   }
+  .news-article a:hover {
+    font-weight: 600;
+  }
   .news-article a i {
     padding-right: 1rem;
     color: #232C2E;
@@ -1463,12 +1482,6 @@ footer {
 .slider .slide-2 p:nth-child(3) {
   color: #929292;
 }
-.news a {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1rem;
-  color: #006f7e;
-}
 .news p:nth-child(2) {
   color: #929292;
 }
@@ -1486,6 +1499,9 @@ footer {
   line-height: 1rem;
   color: #232C2E;
   padding-bottom: 1rem;
+}
+.art h5:hover {
+  font-weight: 600;
 }
 .art-container {
   display: grid;
@@ -1533,6 +1549,9 @@ footer {
   font-weight: 500;
   line-height: 1rem;
   color: #232C2E;
+}
+.slideshow-container li > div h5:hover {
+  font-weight: 600;
 }
 .slideshow-container li > div h2 {
   font-family: "Sorts Mill Goudy", serif;
@@ -1602,13 +1621,16 @@ footer {
   margin: 0 auto;
 }
 
-.news-article a {
+.news-article > a {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1rem;
   color: #006f7e;
 }
-.news-article a i {
+.news-article > a:hover {
+  font-weight: 600;
+}
+.news-article > a i {
   padding-right: 1rem;
   color: #232C2E;
 }
@@ -1639,6 +1661,9 @@ footer {
   font-weight: 500;
   line-height: 1rem;
   color: #006f7e;
+}
+.biographie-presentation li a:hover {
+  font-weight: 600;
 }
 .biographie-presentation.awards ul li {
   align-items: baseline;
