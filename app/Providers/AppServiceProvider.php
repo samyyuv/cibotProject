@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use App\Models\Actualite;
 use App\Models\Oeuvre;
+use App\Models\Actualite;
 use App\Models\Categorie;
 use App\Models\Collection;
+use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,11 +33,22 @@ class AppServiceProvider extends ServiceProvider
             $collectionsMenu = Collection::all();
             $actualiteMenu = Actualite::inRandomOrder()->take(5)->get();
             $oeuvreMenu = Oeuvre::inRandomOrder()->first();
+            $slugedNames = $this->sluging($categoriesMenu);
 
             $view->with('actualiteMenu', $actualiteMenu);
             $view->with('categoriesMenu', $categoriesMenu);
             $view->with('collectionsMenu', $collectionsMenu);
             $view->with('oeuvreMenu', $oeuvreMenu);
+            $view->with('slugedNames', $slugedNames);
         });
+    }
+    private function sluging($categoriesMenu)
+    {
+        $i = 0;
+        foreach ($categoriesMenu as $categorie) {
+            $hello[$categorie->id] = Str::slug($categorie->titre);
+            $i++;
+        }
+        return $hello;
     }
 }

@@ -1,24 +1,23 @@
 <x-public-view>
   <section class="arts">
-    <div class="arts-btn" id="btn-arts">
-      <?php
-      $i = 0;
-      foreach ($collection->oeuvres as $oeuvre) {
-        //foreach ($slugedNames as $name) {
-      ?>
-        <a id="<?= $slugedNames[$oeuvre->id] ?>" class="btn active" onclick="selectBtnArts('<?= $slugedNames[$oeuvre->id] ?>')">{{ $oeuvre->categorie->titre }}</a>
-      <?php
-      }
-      //}
-      ?>
+    @foreach ($collection->oeuvres as $oeuvre)
+    <div class="art <?= $slugedNames[$oeuvre->categorie->id] ?>">
+      <h5>{{ $oeuvre->collection->titre }}</h5>
+      <h1>{{ $oeuvre->categorie->titre }}</h1>
     </div>
+    @endforeach
+
+    <div class="arts-btn" id="btn-arts">
+      @foreach ($collection->oeuvres as $oeuvre)
+      <a id="<?= $slugedNames[$oeuvre->categorie->id] ?>" class="btn-art" onclick="selectBtnArts('<?= $slugedNames[$oeuvre->categorie->id] ?>')">{{ $oeuvre->categorie->titre }}</a>
+      @endforeach
+    </div>
+
     <?php
     $i = 0;
     foreach ($collection->oeuvres as $oeuvre) {
     ?>
-      <div class="art <?= $slugedNames[$oeuvre->id] ?>">
-        <h5>{{ $oeuvre->collection->titre }}</h5>
-        <h1>{{ $oeuvre->categorie->titre }}</h1>
+      <div class="art <?= $slugedNames[$oeuvre->categorie->id] ?>">
 
         <div class="art-container">
 

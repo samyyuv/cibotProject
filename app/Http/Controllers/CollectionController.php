@@ -32,22 +32,11 @@ class CollectionController extends Controller
     public function show($id)
     {
         $collection = Collection::find($id);
+        $btns = $collection->oeuvres;
         $oeuvres = Oeuvre::all();
         $photos = Photo::all();
-        $hola = $collection->oeuvres;
-        $slugedNames = $this->sluging($hola);
         //dd($slugedNames);
 
-        return view('partialsFront.worksCategories', compact('collection', 'oeuvres', 'photos', 'slugedNames'));
-    }
-
-    private function sluging($collection)
-    {
-        $i = 0;
-        foreach ($collection as $oeuvre) {
-            $hello[$oeuvre->id] = Str::slug($oeuvre->categorie->titre);
-            $i++;
-        }
-        return $hello;
+        return view('partialsFront.worksCategories', compact('collection', 'btns', 'oeuvres', 'photos'));
     }
 }

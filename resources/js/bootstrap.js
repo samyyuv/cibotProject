@@ -31,6 +31,7 @@ require('./dropdown');
 require('./footerMenu');
 require('./sliderHome');
 require('./actualites-btn');
+require('./arts-btn');
 require('./biographie');
 require('./slider');
 require('./sliderArt');

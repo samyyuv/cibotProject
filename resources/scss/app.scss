@@ -143,7 +143,21 @@ footer {
 }
 
 //worksList
-.art {
+.arts {
+
+  .art {
+    display: none;
+
+    &-container {
+      display: grid;
+      gap: 1px;
+      @extend .cross-hover;
+
+      >div {
+        @extend .listSquare;
+      }
+    }
+  }
 
   h1,
   h5 {
@@ -159,17 +173,12 @@ footer {
     @extend .h1;
   }
 
-  &-container {
-    display: grid;
-    gap: 1px;
-    @extend .cross-hover;
 
-    >div {
-      @extend .listSquare;
-    }
+  div.show {
+    display: block;
   }
 
-  &s-btn {
+  &-btn {
     padding-top: 2rem;
     justify-content: center;
 

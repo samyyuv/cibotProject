@@ -42,7 +42,7 @@ html body main.body-container {
   line-height: 2.75rem;
 }
 
-.h1, .biographie h1, .actualites h1, .art h1 {
+.h1, .biographie h1, .actualites h1, .arts h1 {
   font-family: "Sorts Mill Goudy", serif;
   font-size: 4.6rem;
   line-height: 3.8rem;
@@ -121,10 +121,10 @@ html body main.body-container {
   top: 13px;
 }
 
-.cross, .cross-hover > div:hover div, .actualites-container-topic > div:hover div, .art-container > div:hover div, .slider-arts > div > div:hover div,
+.cross, .cross-hover > div:hover div, .actualites-container-topic > div:hover div, .arts .art-container > div:hover div, .slider-arts > div > div:hover div,
 .cross-hover div:active div,
 .actualites-container-topic div:active div,
-.art-container div:active div,
+.arts .art-container div:active div,
 .slider-arts > div div:active div {
   width: 20%;
   height: 20%;
@@ -134,61 +134,61 @@ html body main.body-container {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-.cross span, .cross-hover > div:hover div span, .actualites-container-topic > div:hover div span, .art-container > div:hover div span, .slider-arts > div > div:hover div span,
+.cross span, .cross-hover > div:hover div span, .actualites-container-topic > div:hover div span, .arts .art-container > div:hover div span, .slider-arts > div > div:hover div span,
 .cross-hover div:active div span,
 .actualites-container-topic div:active div span,
-.art-container div:active div span,
+.arts .art-container div:active div span,
 .slider-arts > div div:active div span {
   background-color: #fff;
   position: absolute;
   border-radius: 20px;
   display: block;
 }
-.cross span:nth-child(1), .cross-hover > div:hover div span:nth-child(1), .actualites-container-topic > div:hover div span:nth-child(1), .art-container > div:hover div span:nth-child(1), .slider-arts > div > div:hover div span:nth-child(1),
+.cross span:nth-child(1), .cross-hover > div:hover div span:nth-child(1), .actualites-container-topic > div:hover div span:nth-child(1), .arts .art-container > div:hover div span:nth-child(1), .slider-arts > div > div:hover div span:nth-child(1),
 .cross-hover div:active div span:nth-child(1),
 .actualites-container-topic div:active div span:nth-child(1),
-.art-container div:active div span:nth-child(1),
+.arts .art-container div:active div span:nth-child(1),
 .slider-arts > div div:active div span:nth-child(1) {
   width: 100%;
   height: 8%;
   top: 50%;
   transform: translateY(-50%);
 }
-.cross span:nth-child(2), .cross-hover > div:hover div span:nth-child(2), .actualites-container-topic > div:hover div span:nth-child(2), .art-container > div:hover div span:nth-child(2), .slider-arts > div > div:hover div span:nth-child(2),
+.cross span:nth-child(2), .cross-hover > div:hover div span:nth-child(2), .actualites-container-topic > div:hover div span:nth-child(2), .arts .art-container > div:hover div span:nth-child(2), .slider-arts > div > div:hover div span:nth-child(2),
 .cross-hover div:active div span:nth-child(2),
 .actualites-container-topic div:active div span:nth-child(2),
-.art-container div:active div span:nth-child(2),
+.arts .art-container div:active div span:nth-child(2),
 .slider-arts > div div:active div span:nth-child(2) {
   width: 8%;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
-.cross-hover > div .cross, .actualites-container-topic > div .cross, .art-container > div .cross, .slider-arts > div > div .cross, .cross-hover > div:hover div, .actualites-container-topic > div:hover div, .art-container > div:hover div, .slider-arts > div > div:hover div,
+.cross-hover > div .cross, .actualites-container-topic > div .cross, .arts .art-container > div .cross, .slider-arts > div > div .cross, .cross-hover > div:hover div, .actualites-container-topic > div:hover div, .arts .art-container > div:hover div, .slider-arts > div > div:hover div,
 .cross-hover > div div:active div,
 .actualites-container-topic > div div:active div,
-.art-container > div div:active div,
+.arts .art-container > div div:active div,
 .slider-arts > div > div div:active div {
   display: none;
 }
-.cross-hover > div:hover, .actualites-container-topic > div:hover, .art-container > div:hover, .slider-arts > div > div:hover,
+.cross-hover > div:hover, .actualites-container-topic > div:hover, .arts .art-container > div:hover, .slider-arts > div > div:hover,
 .cross-hover div:active,
 .actualites-container-topic div:active,
-.art-container div:active,
+.arts .art-container div:active,
 .slider-arts > div div:active {
   position: relative;
 }
-.cross-hover > div:hover img, .actualites-container-topic > div:hover img, .art-container > div:hover img, .slider-arts > div > div:hover img,
+.cross-hover > div:hover img, .actualites-container-topic > div:hover img, .arts .art-container > div:hover img, .slider-arts > div > div:hover img,
 .cross-hover div:active img,
 .actualites-container-topic div:active img,
-.art-container div:active img,
+.arts .art-container div:active img,
 .slider-arts > div div:active img {
   filter: brightness(30%);
 }
-.cross-hover > div:hover div, .actualites-container-topic > div:hover div, .art-container > div:hover div, .slider-arts > div > div:hover div,
+.cross-hover > div:hover div, .actualites-container-topic > div:hover div, .arts .art-container > div:hover div, .slider-arts > div > div:hover div,
 .cross-hover div:active div,
 .actualites-container-topic div:active div,
-.art-container div:active div,
+.arts .art-container div:active div,
 .slider-arts > div div:active div {
   display: block;
 }
@@ -239,10 +239,10 @@ html body main.body-container {
   position: absolute;
 }
 
-.listSquare, .art-container > div, .home > div.home-slider, .card > div {
+.listSquare, .arts .art-container > div, .home > div.home-slider, .card > div {
   position: relative;
 }
-.listSquare img, .art-container > div img, .home > div.home-slider img, .card > div img {
+.listSquare img, .arts .art-container > div img, .home > div.home-slider img, .card > div img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -250,7 +250,7 @@ html body main.body-container {
      object-fit: cover;
 }
 
-.listSquare::after, .art-container > div::after, .home > div.home-slider::after, .card > div::after {
+.listSquare::after, .arts .art-container > div::after, .home > div.home-slider::after, .card > div::after {
   content: "";
   display: block;
   padding-bottom: 100%;
@@ -599,26 +599,25 @@ html body main.body-container {
     padding-bottom: 2.68rem;
   }
 
-  .art {
+  .arts {
     margin-right: 100px;
   }
-  .art h5 {
+  .arts h5 {
     padding: 2rem 0;
   }
-  .art-container {
-    padding-top: 5.2rem;
+  .arts .art-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .art-container div:nth-child(3) {
+  .arts .art-container div:nth-child(3) {
     grid-area: 1/3/3/5;
   }
   .arts-btn {
-    padding: 3.56rem 0 7rem;
+    padding: 3.56rem 0 5rem;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem 3.125rem;
+    justify-content: center;
   }
   .arts-btn a {
     -moz-column-gap: 2.65rem;
@@ -1517,23 +1516,29 @@ footer {
   max-height: 20rem;
 }
 
-.art h1,
-.art h5 {
+.arts .art {
+  display: none;
+}
+.arts .art-container {
+  display: grid;
+  gap: 1px;
+}
+.arts h1,
+.arts h5 {
   text-align: center;
 }
-.art h5 {
+.arts h5 {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1rem;
   color: #232C2E;
   padding-bottom: 1rem;
 }
-.art h5:hover {
+.arts h5:hover {
   font-weight: 600;
 }
-.art-container {
-  display: grid;
-  gap: 1px;
+.arts div.show {
+  display: block;
 }
 .arts-btn {
   padding-top: 2rem;

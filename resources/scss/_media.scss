@@ -445,7 +445,7 @@
   }
 
   //artworks list
-  .art {
+  .arts {
     margin-right: 100px;
 
     h5 {
@@ -453,21 +453,21 @@
     }
 
     //artwork grid
-    &-container {
-      padding-top: 5.2rem;
+    .art-container {
       grid-template-columns: 1fr 1fr 1fr 1fr;
 
       //bigger photo
-
       div:nth-child(3) {
         grid-area: 1 / 3 / 3 / 5;
       }
     }
 
-    &s-btn {
-      padding: 3.56rem 0 7rem;
+    &-btn {
+      padding: 3.56rem 0 5rem;
       @include flex-box(center, center, wrap);
       gap: 1rem 3.125rem;
+      justify-content: center;
+
 
       a {
         column-gap: 2.65rem;
