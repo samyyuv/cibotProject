@@ -446,6 +446,10 @@
 
   //artworks list
   .arts {
+    ul.dropdown {
+      @include btn-dropdown(false);
+    }
+
     margin-right: 100px;
 
     h5 {
@@ -459,24 +463,6 @@
       //bigger photo
       div:nth-child(3) {
         grid-area: 1 / 3 / 3 / 5;
-      }
-    }
-
-    &-btn {
-      padding: 3.56rem 0 5rem;
-      @include flex-box(center, center, wrap);
-      gap: 1rem 3.125rem;
-      justify-content: center;
-
-
-      a {
-        column-gap: 2.65rem;
-        @include button($light-theme: true);
-
-        &:hover,
-        &:active &:focus {
-          @include button($light-theme: false)
-        }
       }
     }
   }
@@ -553,6 +539,8 @@
   //actualités/news list
   .actualites {
     margin-right: 100px;
+    @include btn-dropdown(false);
+
 
     h1 {
       padding-top: 3.56rem;
@@ -655,25 +643,7 @@
 
     //menu buttons distribution and design
     &-dropdown {
-      @include flex-box(space-evenly, center, wrap);
-      padding: 3.5rem 0 6.5rem;
-      gap: 2rem 1.2rem;
-      align-items: stretch;
-
-      i {
-        display: none;
-      }
-
-      .btn {
-        text-align: center;
-        line-height: 1;
-        @include button($light-theme: true);
-
-        &:hover,
-        &.active {
-          @include button($light-theme: false);
-        }
-      }
+      @include btn-dropdown(false);
     }
 
     //container content distribution
@@ -1132,7 +1102,17 @@
   }
 
   //artworks List
-  .art {
+  .arts {
+    @include btn-dropdown(true);
+
+    #btn-arts:hover li {
+      @include flex-box(center, center, nowrap);
+    }
+
+    .title-art {
+      display: none;
+    }
+
     h1 {
       font-size: 3.125rem;
       width: 50%;
@@ -1141,7 +1121,7 @@
     }
 
     //artwork grid
-    &-container {
+    .art-container {
       padding-top: 1.8rem;
       grid-template-columns: 1fr 1fr;
 
@@ -1204,22 +1184,14 @@
 
   //actualités/news list
   .actualites {
-    h1 {
-      font-size: 3.125rem;
+    @include btn-dropdown(true);
+
+    #btn-news:hover li {
+      @include flex-box(center, center, nowrap);
     }
 
-    //menu buttons
-    &-btn {
-      padding: 1rem 0 2.6rem;
-      @include grid-column(1fr 1fr);
-      margin: 0 auto;
-      gap: .5rem;
-      font-size: .75rem;
-      width: 80%;
-
-      a.btn-act {
-        @include flex-box(center, center, wrap);
-      }
+    h1 {
+      font-size: 3.125rem;
     }
 
     //show the cards in actualites individuel
@@ -1307,7 +1279,6 @@
 
       img {
         padding: 2rem 0 2.3rem;
-
       }
     }
 
@@ -1322,72 +1293,10 @@
 
   //biographie
   .biographie {
-
-    //menu buttons dropdown
-    &-btn {
-      text-align: center;
-      position: relative;
-      cursor: pointer;
-      padding: 2.2rem 0 3.5rem;
-      display: inline-block;
-
-      &:hover .biographie-dropdown {
-        display: block;
-      }
-    }
-
-    //dropdown menu centered
-    &-dropdown,
-    &-btn {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    //titles
-    h2 {
-      display: none;
-    }
+    @include btn-dropdown(true);
 
     #bio-drop:hover li {
       @include flex-box(center, center, nowrap);
-    }
-
-    //menu dropdown
-    &-dropdown {
-      border-radius: 1rem;
-      position: absolute;
-      background-color: $gray2;
-      min-width: 17.5rem;
-      z-index: 1;
-      top: 20%;
-
-      .btn {
-        @include flex-box(center, center, nowrap);
-      }
-
-      i {
-        display: none;
-        padding-left: 1rem;
-      }
-
-      .active {
-        @include button($light-theme: false);
-
-        &:active {
-          background-color: $teal-hover;
-        }
-
-        i {
-          display: block;
-          padding-left: 1rem;
-        }
-      }
-
-      li:not(.active) {
-        display: none;
-        color: $teal;
-        padding: .8rem 1.5rem;
-      }
     }
 
     //distribution of the content and images

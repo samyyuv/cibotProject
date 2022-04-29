@@ -2,8 +2,8 @@
   <section class="biographie">
     <h1>{{ __('biography') }}</h1>
 
-    <div class="biographie-btn">
-      <ul class="biographie-dropdown" id="bio-drop">
+    <div class="biographie-btn menu-btns">
+      <ul class="biographie-dropdown dropdown" id="bio-drop">
         <li id="hello" class="btn active" onclick="selectBtnBio('hello')"><a>{{ __('Presentation') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
         <li id="awards" class="btn" onclick="selectBtnBio('awards')"><a>{{ __('Awards') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
         <li id="monuments" class="btn" onclick="selectBtnBio('monuments')"><a>{{ __('Monuments') }}</a> <i class="fa-solid fa-chevron-down"></i></li>

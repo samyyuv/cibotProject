@@ -6,12 +6,21 @@ window.addEventListener("load", () => {
   var btnNews = document.getElementById("btn-arts");
   var btns = btnNews && btnNews.getElementsByClassName("btn-art");
   var container = document.getElementsByClassName("art");
+  var title = document.getElementsByClassName("title-art");
 
   if (activeLink) {
     if (container) {
       for (i = 0; i < container.length; i++) {
         remove(container[i], "show");
         if (container[i].className.split(" ").includes(activeLink)) add(container[i], "show");
+      }
+    }
+
+    if (title) {
+      console.log(activeLink)
+      for (var i = 0; i < title.length; i++) {
+        remove(title[i], "show")
+        if (title[i].id == activeLink) add(title[i], "show");
       }
     }
 
@@ -22,9 +31,10 @@ window.addEventListener("load", () => {
         if (btns[i].id == activeLink) add(btns[i], "active");
       }
     }
-  } else if (btns && container) {
+  } else if (btns && container && title) {
     add(btns[0], "active")
     add(container[0], "show")
+    add(title[0], "show")
   }
 })
 

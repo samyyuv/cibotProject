@@ -396,3 +396,87 @@ html body {
 .link:hover {
   text-decoration: underline;
 }
+
+@mixin btn-dropdown($mobile: true) {
+  @if $mobile {
+    .menu-btns {
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      padding: 2.2rem 0 3.5rem;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      &:hover ul.dropdown {
+        display: block;
+      }
+
+
+      //dropdown menu centered
+      .dropdown {
+        border-radius: 1rem;
+        position: absolute;
+        background-color: $gray2;
+        min-width: 17.5rem;
+        z-index: 100;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+
+        li:not(.active) {
+          display: none;
+          color: $teal;
+          padding: .8rem 1.5rem;
+        }
+
+        .btn {
+          @include flex-box(center, center, nowrap);
+        }
+
+        i {
+          display: none;
+          padding-left: 1rem;
+        }
+
+        .active {
+          @include button($light-theme: false);
+
+          &:active {
+            background-color: $teal-hover;
+          }
+
+          i {
+            display: block;
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  @else {
+    @include flex-box(space-evenly, center, wrap);
+    padding: 3.5rem 0 6.5rem;
+    gap: 2rem 1.2rem;
+    align-items: stretch;
+
+    i {
+      display: none;
+    }
+
+    .btn {
+      text-align: center;
+      line-height: 1;
+      @include button($light-theme: true);
+
+      &:hover,
+      &.active {
+        @include button($light-theme: false);
+      }
+    }
+  }
+
+}

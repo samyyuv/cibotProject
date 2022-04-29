@@ -2,12 +2,15 @@
   <section class="actualites">
     <h1>{{ __('news') }}</h1>
 
-    <div class="actualites-btn" id="btn-news">
-      <a id="all" class="btn-act active" onclick="selectBtnAct('all')">{{ __('All the events and exhibitions') }}</a>
-      <a id="latest" class="btn-act" onclick="selectBtnAct('latest')">{{ __('Latest news') }}</a>
-      <a id="expo" class="btn-act" onclick="selectBtnAct('expo')">{{ __('Expo events') }}</a>
-      <a id="inProgress" class="btn-act" onclick="selectBtnAct('inProgress')">{{ __('Artwork in progress') }}</a>
+    <div class="actualites-btn menu-btns">
+      <ul class="dropdown" id="btn-news">
+        <li id="all" class="btn-act btn active" onclick="selectBtnAct('all')"><a>{{ __('All the events and exhibitions') }}</a><i class="fa-solid fa-chevron-down"></i></li>
+        <li id="latest" class="btn-act btn" onclick="selectBtnAct('latest')"><a>{{ __('Latest news') }}</a><i class="fa-solid fa-chevron-down"></i></li>
+        <li id="expo" class="btn-act btn" onclick="selectBtnAct('expo')"><a>{{ __('Expo events') }}</a><i class="fa-solid fa-chevron-down"></i></li>
+        <li id="inProgress" class="btn-act btn" onclick="selectBtnAct('inProgress')"><a>{{ __('Artwork in progress') }}</a><i class="fa-solid fa-chevron-down"></i></li>
+      </ul>
     </div>
+
     <div class="actualites-container all show">
       @foreach ($actualites as $actualite)
       <div class="actualites-container-topic card">

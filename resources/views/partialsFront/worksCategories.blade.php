@@ -1,16 +1,20 @@
 <x-public-view>
   <section class="arts">
     @foreach ($collection->oeuvres as $oeuvre)
-    <div class="art <?= $slugedNames[$oeuvre->categorie->id] ?>">
+    <div class="title-art <?= $slugedNames[$oeuvre->categorie->id] ?>">
       <h5>{{ $oeuvre->collection->titre }}</h5>
       <h1>{{ $oeuvre->categorie->titre }}</h1>
     </div>
     @endforeach
 
-    <div class="arts-btn" id="btn-arts">
-      @foreach ($collection->oeuvres as $oeuvre)
-      <a id="<?= $slugedNames[$oeuvre->categorie->id] ?>" class="btn-art" onclick="selectBtnArts('<?= $slugedNames[$oeuvre->categorie->id] ?>')">{{ $oeuvre->categorie->titre }}</a>
-      @endforeach
+    <div class="arts-btn menu-btns" id="btn-arts">
+      <ul class="dropdown">
+        @foreach ($collection->oeuvres as $oeuvre)
+        <li id="<?= $slugedNames[$oeuvre->categorie->id] ?>" class="btn-art btn" onclick="selectBtnArts('<?= $slugedNames[$oeuvre->categorie->id] ?>')">
+          <a>{{ $oeuvre->categorie->titre }}</a> <i class="fa-solid fa-chevron-down"></i>
+        </li>
+        @endforeach
+      </ul>
     </div>
 
     <?php

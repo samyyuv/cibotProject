@@ -602,26 +602,21 @@ html body main.body-container {
   .arts {
     margin-right: 100px;
   }
-  .arts h5 {
-    padding: 2rem 0;
-  }
-  .arts .art-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  .arts .art-container div:nth-child(3) {
-    grid-area: 1/3/3/5;
-  }
-  .arts-btn {
-    padding: 3.56rem 0 5rem;
+  .arts ul.dropdown {
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem 3.125rem;
-    justify-content: center;
+    padding: 3.5rem 0 6.5rem;
+    gap: 2rem 1.2rem;
+    align-items: stretch;
   }
-  .arts-btn a {
-    -moz-column-gap: 2.65rem;
-         column-gap: 2.65rem;
+  .arts ul.dropdown i {
+    display: none;
+  }
+  .arts ul.dropdown .btn {
+    text-align: center;
+    line-height: 1;
     cursor: pointer;
     padding: 0.5rem 1.2rem;
     font-weight: 500;
@@ -630,7 +625,7 @@ html body main.body-container {
     color: #006f7e;
     background-color: #F1F1F1;
   }
-  .arts-btn a:hover, .arts-btn a:active .arts-btn a:focus {
+  .arts ul.dropdown .btn:hover, .arts ul.dropdown .btn.active {
     cursor: pointer;
     padding: 0.5rem 1.2rem;
     font-weight: 500;
@@ -638,6 +633,15 @@ html body main.body-container {
     font-size: 1rem;
     color: #fff;
     background-color: #006f7e;
+  }
+  .arts h5 {
+    padding: 2rem 0;
+  }
+  .arts .art-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .arts .art-container div:nth-child(3) {
+    grid-area: 1/3/3/5;
   }
 
   .slideshow {
@@ -702,6 +706,36 @@ html body main.body-container {
 
   .actualites {
     margin-right: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3.5rem 0 6.5rem;
+    gap: 2rem 1.2rem;
+    align-items: stretch;
+  }
+  .actualites i {
+    display: none;
+  }
+  .actualites .btn {
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #006f7e;
+    background-color: #F1F1F1;
+  }
+  .actualites .btn:hover, .actualites .btn.active {
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #006f7e;
   }
   .actualites h1 {
     padding-top: 3.56rem;
@@ -1193,17 +1227,80 @@ footer .copyright {
     display: none;
   }
 
-  .art h1 {
+  .arts .menu-btns {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    padding: 2.2rem 0 3.5rem;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .arts .menu-btns:hover ul.dropdown {
+    display: block;
+  }
+  .arts .menu-btns .dropdown {
+    border-radius: 1rem;
+    position: absolute;
+    background-color: #F1F1F1;
+    min-width: 17.5rem;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  .arts .menu-btns .dropdown li:not(.active) {
+    display: none;
+    color: #006f7e;
+    padding: 0.8rem 1.5rem;
+  }
+  .arts .menu-btns .dropdown .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .arts .menu-btns .dropdown i {
+    display: none;
+    padding-left: 1rem;
+  }
+  .arts .menu-btns .dropdown .active {
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #006f7e;
+  }
+  .arts .menu-btns .dropdown .active:active {
+    background-color: #005d69;
+  }
+  .arts .menu-btns .dropdown .active i {
+    display: block;
+    padding-left: 1rem;
+  }
+  .arts #btn-arts:hover li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .arts .title-art {
+    display: none;
+  }
+  .arts h1 {
     font-size: 3.125rem;
     width: 50%;
     margin: 0 auto;
     line-height: 2.1rem;
   }
-  .art-container {
+  .arts .art-container {
     padding-top: 1.8rem;
     grid-template-columns: 1fr 1fr;
   }
-  .art-container div:nth-child(3) {
+  .arts .art-container div:nth-child(3) {
     grid-area: 5/1/7/3;
   }
 
@@ -1243,23 +1340,68 @@ footer .copyright {
     bottom: -72px;
   }
 
-  .actualites h1 {
-    font-size: 3.125rem;
+  .actualites .menu-btns {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    padding: 2.2rem 0 3.5rem;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
-  .actualites-btn {
-    padding: 1rem 0 2.6rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 0 auto;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    width: 80%;
+  .actualites .menu-btns:hover ul.dropdown {
+    display: block;
   }
-  .actualites-btn a.btn-act {
+  .actualites .menu-btns .dropdown {
+    border-radius: 1rem;
+    position: absolute;
+    background-color: #F1F1F1;
+    min-width: 17.5rem;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  .actualites .menu-btns .dropdown li:not(.active) {
+    display: none;
+    color: #006f7e;
+    padding: 0.8rem 1.5rem;
+  }
+  .actualites .menu-btns .dropdown .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+  }
+  .actualites .menu-btns .dropdown i {
+    display: none;
+    padding-left: 1rem;
+  }
+  .actualites .menu-btns .dropdown .active {
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #006f7e;
+  }
+  .actualites .menu-btns .dropdown .active:active {
+    background-color: #005d69;
+  }
+  .actualites .menu-btns .dropdown .active i {
+    display: block;
+    padding-left: 1rem;
+  }
+  .actualites #btn-news:hover li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .actualites h1 {
+    font-size: 3.125rem;
   }
   .actualites div.show {
     display: block;
@@ -1330,48 +1472,45 @@ footer .copyright {
     padding-bottom: 1.75rem;
   }
 
-  .biographie-btn {
+  .biographie .menu-btns {
     text-align: center;
     position: relative;
     cursor: pointer;
     padding: 2.2rem 0 3.5rem;
     display: inline-block;
-  }
-  .biographie-btn:hover .biographie-dropdown {
-    display: block;
-  }
-  .biographie-dropdown, .biographie-btn {
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
   }
-  .biographie h2 {
-    display: none;
+  .biographie .menu-btns:hover ul.dropdown {
+    display: block;
   }
-  .biographie #bio-drop:hover li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-  .biographie-dropdown {
+  .biographie .menu-btns .dropdown {
     border-radius: 1rem;
     position: absolute;
     background-color: #F1F1F1;
     min-width: 17.5rem;
-    z-index: 1;
     top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
   }
-  .biographie-dropdown .btn {
+  .biographie .menu-btns .dropdown li:not(.active) {
+    display: none;
+    color: #006f7e;
+    padding: 0.8rem 1.5rem;
+  }
+  .biographie .menu-btns .dropdown .btn {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
   }
-  .biographie-dropdown i {
+  .biographie .menu-btns .dropdown i {
     display: none;
     padding-left: 1rem;
   }
-  .biographie-dropdown .active {
+  .biographie .menu-btns .dropdown .active {
     cursor: pointer;
     padding: 0.5rem 1.2rem;
     font-weight: 500;
@@ -1380,17 +1519,18 @@ footer .copyright {
     color: #fff;
     background-color: #006f7e;
   }
-  .biographie-dropdown .active:active {
+  .biographie .menu-btns .dropdown .active:active {
     background-color: #005d69;
   }
-  .biographie-dropdown .active i {
+  .biographie .menu-btns .dropdown .active i {
     display: block;
     padding-left: 1rem;
   }
-  .biographie-dropdown li:not(.active) {
-    display: none;
-    color: #006f7e;
-    padding: 0.8rem 1.5rem;
+  .biographie #bio-drop:hover li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
   }
   .biographie-presentation.hello div, .biographie-presentation.permanence div {
     display: flex;
@@ -1540,30 +1680,6 @@ footer {
 .arts div.show {
   display: block;
 }
-.arts-btn {
-  padding-top: 2rem;
-  justify-content: center;
-}
-.arts-btn .active,
-.arts-btn .btn-act:hover {
-  cursor: pointer;
-  padding: 0.5rem 1.2rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #006f7e;
-}
-.arts-btn a {
-  text-align: center;
-  cursor: pointer;
-  padding: 0.5rem 1.2rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  font-size: 1rem;
-  color: #006f7e;
-  background-color: #F1F1F1;
-}
 
 .slideshow {
   display: none;
@@ -1648,29 +1764,6 @@ footer {
 
 .actualites h1 {
   text-align: center;
-}
-.actualites-btn {
-  justify-content: center;
-}
-.actualites-btn .active,
-.actualites-btn .btn-act:hover {
-  cursor: pointer;
-  padding: 0.5rem 1.2rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #006f7e;
-}
-.actualites-btn a {
-  text-align: center;
-  cursor: pointer;
-  padding: 0.5rem 1.2rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  font-size: 1rem;
-  color: #006f7e;
-  background-color: #F1F1F1;
 }
 .actualites-container {
   display: none;
