@@ -101,7 +101,6 @@ footer {
 
 //latestWorksSlide
 .slider {
-  position: static;
 
   .title {
     @extend .h2-other;
@@ -129,6 +128,30 @@ footer {
     @extend .cross-hover;
   }
 
+  &-title {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: .5rem 0;
+  }
+
+  //intro text in the menu non visible for this size 
+  .intro {
+    display: none;
+  }
+
+  //slider distribution
+  &-content {
+    .slide-2 {
+      width: 100%;
+    }
+
+    .item {
+      position: relative;
+      @include flex-box(flex-start, flex-start, nowrap);
+      column-gap: 2rem;
+    }
+  }
 }
 
 .news {
@@ -137,16 +160,20 @@ footer {
     color: $gray1;
   }
 
-  &-img {
-    max-height: 20rem;
+  &-img>img {
+    max-height: 23rem;
   }
 }
 
 //worksList
 .arts {
+
+  .title-art,
   .art {
     display: none;
+  }
 
+  .art {
     &-container {
       display: grid;
       gap: 1px;
@@ -184,8 +211,9 @@ footer {
 .slideshow {
   display: none;
   z-index: 999;
+  top: 5%;
+
   left: 50%;
-  width: 80%;
   -moz-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -194,7 +222,7 @@ footer {
   //close button
   .close {
     z-index: 99;
-    position: absolute;
+    //position: absolute;
     @include close(30px, 30px);
   }
 
@@ -210,7 +238,8 @@ footer {
       }
     }
 
-    position: relative;
+    //position: relative;
+    //position: initial;
 
     &-button {
       cursor: pointer;
@@ -245,6 +274,31 @@ footer {
       object-position: center;
     }
   }
+
+  //little slide
+  &-2 {
+    &-container {
+
+      &-button {
+        cursor: pointer;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        background-color: $teal;
+        color: $white;
+        position: absolute;
+        z-index: 2;
+
+        &:hover {
+          background-color: $antracite;
+        }
+
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
 
 // Actualités/news list
@@ -263,6 +317,12 @@ footer {
       }
 
       @extend .cross-hover;
+    }
+
+    .card {
+      >div {
+        @extend .listSquare;
+      }
     }
   }
 }

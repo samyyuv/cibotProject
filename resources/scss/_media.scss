@@ -250,7 +250,7 @@
       .nav-expand-content {
 
         //column title
-        .nav-link {
+        >.nav-link {
           font-weight: 500;
           line-height: 1rem;
         }
@@ -260,7 +260,7 @@
           .nav-link {
             font-weight: 400;
             line-height: 1rem;
-            padding-bottom: 1rem;
+            padding-bottom: .7rem;
 
             &:hover {
               color: $teal;
@@ -274,22 +274,34 @@
 
   //latestWorks Slider 
   .slider {
-    left: 10%;
-    top: 30%;
     margin-top: 10rem;
+
+    &-wrap {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      overflow: scroll;
+
+      // Hide scrollbar for chrome
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      // Hide scrollbar for IE, Edge and Firefox
+      & {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
+
 
     //slider distribution
     &-content {
       @include grid-column(1fr 6fr);
       gap: 2.6rem;
       position: relative;
-      top: 0;
-      left: 0;
-      height: 100%;
+      left: -46px;
       width: 180%;
-      //pointer-events: none;
-      transition: 0s ease-in;
-      overflow: visible;
     }
 
     //section title
@@ -446,6 +458,8 @@
 
   //artworks list
   .arts {
+
+
     ul.dropdown {
       @include btn-dropdown(false);
     }
@@ -469,14 +483,17 @@
 
   //artwork pop-up
   .slideshow {
+    max-width: 1800px;
     position: fixed;
-    top: 15%;
-    padding-top: 100px;
-    width: 80%;
-    -moz-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding: 7rem 0;
+    width: 85vw;
+
+    //padding-top: 100px;
+    height: 85vh;
+    // -moz-transform: translateY(-50%);
+    // -webkit-transform: translateY(-50%);
+    // transform: translateY(-50%);
+    //padding: 7rem 100px 0 0;
+    align-items: center;
 
     //close button
     .close {
@@ -486,22 +503,26 @@
 
     //artwork info container 
     &-container {
-      margin: -5rem 0;
-      padding-top: 2rem;
+      // margin: -5rem 0;
+      // padding-top: 2rem;
+      align-items: center;
 
-      ul {
-        margin: 0 6rem;
+      >ul {
+        margin: 0 3rem;
       }
 
       //slide content
-      li>div {
-        @include grid-column(1fr 1fr);
-        column-gap: 5rem;
-        align-items: center;
+      .slide-1 {
+
+        >div {
+          @include grid-column(1fr 1fr);
+          column-gap: 2rem;
+        }
 
         h5,
         a {
           @include navBtn($antracite);
+          text-align: left;
         }
 
         h2 {
@@ -534,33 +555,53 @@
         }
       }
     }
+
+    //little slide
+    .texts {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-container {
+
+        &-button {
+          top: 54%;
+          transform: translateY(-50%);
+
+          &:nth-child(1) {
+            left: 2rem;
+          }
+
+          &:nth-child(2) {
+            right: 50%;
+          }
+        }
+
+        ul>li>div>img {
+          max-height: 70vh;
+        }
+      }
+    }
   }
 
   //actualités/news list
   .actualites {
     margin-right: 100px;
-    @include btn-dropdown(false);
+
+    //switching buttons
+    ul.dropdown {
+      @include btn-dropdown(false);
+    }
 
 
     h1 {
       padding-top: 3.56rem;
-    }
-
-    //switching buttons
-    &-btn {
-      padding: 3.56rem 0 7rem;
-      @include flex-box(center, center, wrap);
-      gap: 1rem 3.125rem;
-
-      a {
-        column-gap: 2.65rem;
-        @include button($light-theme: true);
-
-        &:hover,
-        &:active &:focus {
-          @include button($light-theme: false)
-        }
-      }
     }
 
     //content to show
@@ -713,7 +754,7 @@
   }
 
   .logo {
-    max-width: 195px;
+    max-width: 130px;
   }
 
   .contactMe {
@@ -757,6 +798,11 @@
     .nav-drill {
       transform: translateX(0);
       padding-bottom: 4rem;
+
+      ul.noshow,
+      i.noshow {
+        display: none;
+      }
     }
 
     &::after {
@@ -979,54 +1025,169 @@
 
   //latestWorks Slider 
   .slider {
-    margin: 4.75rem 0;
-
-    //section title
-    &-title {
-      width: 50%;
-      margin: 0 auto;
-      text-align: center;
-      padding: .5rem 0;
-    }
-
-    //intro text in the menu non visible for this size    
-    .intro {
-      display: none;
-    }
+    width: 92vw;
+    text-align: center;
 
     //slider distribution
     &-content {
+      display: flex;
       flex-direction: column;
-      overflow: hidden;
-    }
+      overflow: auto;
+      position: relative;
+      width: 500%;
 
-    //columns art    
-    &-arts {
-      display: block;
-      white-space: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-    }
+      .slider-arts {
+        overflow: hidden;
 
-    //slider card
-    .slide-2 {
-      align-items: center;
-      display: inline-flex;
-      flex-direction: column;
-      padding: 0 .3rem;
+        >div:first-child {
+          padding-left: 1rem;
+        }
 
-      img {
-        width: 100%;
+        >div:last-child {
+          padding-right: 1rem;
+        }
+
+        // Hide scrollbar for chrome
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        // Hide scrollbar for IE, Edge and Firefox
+        & {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .item {
+          position: relative;
+          @include flex-box(flex-start, flex-start, nowrap);
+          column-gap: 2rem;
+        }
       }
-
-      .body-text {
-        white-space: normal;
-        text-align: center;
-        padding: 0 2rem;
-      }
     }
+
+    //section title
+    // &-title {
+    //   width: 50%;
+    //   margin: 0 auto;
+    //   text-align: center;
+    //   padding: .5rem 0;
+    // }
+
+    // //intro text in the menu non visible for this size 
+    // .intro {
+    //   display: none;
+    // }
+
+    // position: absolute;
+    // top: 10%;
+    // left: 5%;
+    // width: 90%;
+    // cursor: grab;
+
+    // &-wrap {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   height: 100%;
+    //   width: 100%;
+    //   overflow: scroll;
+    // }
+
+    // &-content {
+    //   position: absolute;
+    //   //display: flex;
+    //   justify-content: space-around;
+    //   top: 0;
+    //   left: 0;
+    //   width: 3000px;
+    //   height: 100%;
+
+    //   .item {
+    //     position: relative;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     width: 250px;
+    //     height: 98%;
+    //     top: 1%;
+    //   }
+    // }
+
   }
+
+  // .slider {
+  //   margin: 4.75rem 0;
+
+  //   //section title
+  //   &-title {
+  //     width: 50%;
+  //     margin: 0 auto;
+  //     text-align: center;
+  //     padding: .5rem 0;
+  //   }
+
+  //   //intro text in the menu non visible for this size    
+  //   .intro {
+  //     display: none;
+  //   }
+
+  //   //slider distribution
+  //   &-content {
+  //     flex-direction: column;
+  //     overflow: hidden;
+  //   }
+
+  //   &-wrap {
+  //     overflow: hidden;
+  //     max-width: 83vw;
+  //   }
+
+  //   //columns art    
+  //   &-arts {
+  //     display: block;
+  //     white-space: nowrap;
+  //     overflow-x: auto;
+  //     -webkit-overflow-scrolling: touch;
+  //     -ms-overflow-style: -ms-autohiding-scrollbar;
+  //   }
+
+  //   //slider card
+  //   .slide-2 {
+  //     align-items: center;
+  //     display: inline-flex;
+  //     flex-direction: column;
+  //     padding: 0 .3rem;
+
+
+  //     >a>img {
+  //       position: absolute;
+  //       display: block;
+  //       height: 100%;
+  //       /* all images at least fill the height */
+  //       top: 50%;
+  //       /* top, left, transform trick to vertically and horizontally center image */
+  //       left: 50%;
+  //       transform: translate3d(-50%, -50%, 0);
+  //     }
+
+  //     .body-text {
+  //       white-space: normal;
+  //       text-align: center;
+  //       padding: 0 2rem;
+  //     }
+
+  //     >div {
+
+  //       position: relative;
+  //       width: 25%;
+  //       /* whatever width you want. I was implementing this in a 4 tile grid pattern. I used javascript to set height equal to width */
+  //       border: 2px solid #fff;
+  //       /* just to separate the images */
+  //       overflow: hidden;
+  //     }
+  //   }
+  // }
 
   //home page
   .home {
@@ -1109,16 +1270,16 @@
       @include flex-box(center, center, nowrap);
     }
 
-    .title-art {
+    .title-art>h1 {
       display: none;
     }
 
-    h1 {
-      font-size: 3.125rem;
-      width: 50%;
-      margin: 0 auto;
-      line-height: 2.1rem;
-    }
+    // h1 {
+    //   font-size: 3.125rem;
+    //   //width: 50%;
+    //   margin: 0 auto;
+    //   line-height: 2.1rem;
+    // }
 
     //artwork grid
     .art-container {
@@ -1135,9 +1296,8 @@
   //artwork pop-up
   .slideshow {
     position: absolute;
-    top: 70px;
     padding: 60px 0 50px;
-    width: 92%;
+    width: 92vw;
 
     //close button
     >div:first-child {
@@ -1171,14 +1331,27 @@
 
         &:nth-child(1) {
           left: 33%;
-          bottom: -72px;
+          bottom: -25px;
         }
 
         &:nth-child(2) {
           right: 33%;
-          bottom: -72px;
+          bottom: -25px;
         }
       }
+    }
+
+    &-2-container-button {
+      &:nth-child(1) {
+        left: 8px;
+        top: 33%;
+      }
+
+      &:nth-child(2) {
+        right: 8px;
+        top: 33%;
+      }
+
     }
   }
 

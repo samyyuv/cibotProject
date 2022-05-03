@@ -36,6 +36,9 @@ $weight-400: 400;
 html body {
   color: $antracite;
   font-family: $montserrat-font !important;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 
   main.body-container {
     margin: 0 auto;
@@ -79,7 +82,7 @@ html body {
 @mixin navBtn($color) {
   font-size: 1rem;
   font-weight: 500;
-  line-height: 1rem;
+  line-height: .8;
   color: $color;
 
   &:hover {
@@ -412,7 +415,6 @@ html body {
       &:hover ul.dropdown {
         display: block;
       }
-
 
       //dropdown menu centered
       .dropdown {
