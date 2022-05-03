@@ -1,48 +1,34 @@
-let slider = document.querySelector('.slider');
-let sliderContent = document.querySelector('.slider-content');
+const slider = document.querySelector('.slider-content');
 
-let pressed = false;
-let startx;
-let x;
+let sliderGrabbed = false;
 
 if (slider) {
   slider.addEventListener('mousedown', (e) => {
-    pressed = true;
-    startx = e.offsetX - sliderContent.offsetLeft;
+    sliderGrabbed = true;
     slider.style.cursor = 'grabbing';
-  });
+  })
 
-  // slider.addEventListener('mouseenter', () => {
-  //   slider.style.cursor = 'grab';
-  // });
-
-  slider.addEventListener('mouseup', () => {
+  slider.addEventListener('mouseup', (e) => {
+    sliderGrabbed = false;
     slider.style.cursor = 'grab';
-  });
+  })
 
-  window.addEventListener('mouseup', () => {
-    pressed = false;
-  });
+  slider.addEventListener('mouseleave', (e) => {
+    sliderGrabbed = false;
+  })
 
   slider.addEventListener('mousemove', (e) => {
-    if (!pressed) return;
-    e.preventDefault();
+    if (sliderGrabbed) {
+      slider.parentElement.scrollLeft -= e.movementX;
+    }
+  })
 
-    x = e.offsetX;
-
-    sliderContent.style.left = `${x - startx}px`;
-    checkBoundary()
-  });
+  // slider.addEventListener('wheel', (e) => {
+  //   e.preventDefault()
+  //   slider.parentElement.scrollLeft += e.deltaY;
+  // })
 }
 
-function checkBoundary() {
-  let outer = slider.getBoundingClientRect();
-  let inner = sliderContent.getBoundingClientRect();
-
-  if (parseInt(sliderContent.style.left) > 0) {
-    sliderContent.style.left = '0px';
-  } else if (inner.right < outer.right) {
-    sliderContent.style.left = `-${inner.width - outer.width}px`
-  }
+function getScrollPercentage() {
+  return ((slider.parentElement.scrollLeft / (slider.parentElement.scrollWidth - slider.parentElement.clientWidth)) * 100);
 }
-
