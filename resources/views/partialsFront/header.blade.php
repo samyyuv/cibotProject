@@ -21,8 +21,8 @@
               <div><a class="nav-link nav-expand-link" href="{{ route('collections.show', $collection) }}">
                   {{ $collection->titre }}
                 </a></div>
-              <i class="fas fa-chevron-right"></i>
-              <ul class="nav-items nav-expand-content">
+              <i class="fas fa-chevron-right noshow"></i>
+              <ul class="nav-items nav-expand-content noshow">
                 @foreach ($collection->oeuvres as $oeuvre)
                 <li>
                   <a class="nav-link" href="{{ route('collections.show', $collection) }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie->id] ?>')">

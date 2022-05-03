@@ -4,7 +4,7 @@
       <i class="fa-solid fa-arrow-left"></i>{{ __('All the events and exhibitions') }}</a>
     <div class="news-container">
       <div>
-        <p>{{ $actualite->sous_titre }} ??? sous-titre </p>
+        <p>{{ $actualite->sous_titre }} </p>
         <h2>{{ $actualite->titre }}</h2>
 
         <p class="body-text">{{ $actualite->description }}</p>
