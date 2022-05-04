@@ -11,7 +11,9 @@
         <li id="collectives" class="btn" onclick="selectBtnBio('collectives')"><a>{{ __('Collective exhibitions') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
         <li id="evenements" class="btn" onclick="selectBtnBio('evenements')"><a>{{ __('Events') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
         <li id="permanence" class="btn" onclick="selectBtnBio('permanence')"><a>{{ __('Galleries') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="video" class="btn" onclick="selectBtnBio('video')"><a>{{ __('Video') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
       </ul>
+
     </div>
 
     <div class="biographie-presentation hello show">
@@ -982,7 +984,19 @@
         @endif
       </div>
     </div>
-
+    <div class="biographie-presentation video">
+      <div>
+        <h2>{{ __('Videos') }}</h2>
+        <div>
+          <iframe src="https://player.vimeo.com/video/107467775" frameborder="0" title="Elisabeth Cibot - 50 sculptures &agrave; la Cour des Comptes Europ&eacute;enne" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="http://www.dailymotion.com/embed/video/x160vhx" frameborder="0" allowfullscreen></iframe>
+          <iframe src="http://www.dailymotion.com/embed/video/xyra9t" frameborder="0" allowfullscreen></iframe>
+          <iframe src="http://www.dailymotion.com/embed/video/x11k789" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/70107054" frameborder="0" title="LA VALNURESE" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/38087036" frameborder="0" title="La statue du Pape Jean-Paul II, sculpteur : Elisabeth Cibot" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
 
   </section>
   @include('partialsFront.latestWorksSlide')
