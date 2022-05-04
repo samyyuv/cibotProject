@@ -23,18 +23,18 @@
     ?>
       <div class="art <?= $slugedNames[$oeuvre->categorie->id] ?>">
 
+        <?php
+        ++$i;
+        ?>
+
         <div class="art-container">
-
           @foreach ($oeuvre->photos as $photo)
-          <?php
 
-          ++$i;
-          ?>
           @if ($loop->first)
 
-          <div onclick="openShow();currentSlide(<?= $i; ?>)">
+          <div onclick="openShow();currentSlide(<?= $i; ?>);setPhotoShow(<?= $oeuvre->id ?>)">
             <a href="#">
-              <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+              <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="">
 
               <div class="cross">
                 <span></span>
@@ -43,15 +43,15 @@
             </a>
           </div>
           @endif
-
           @endforeach
         </div>
       </div>
-      <div id="overlay"></div>
     <?php
     }
     ?>
-    {{-- artwork individuel --}}
+
+    <div id="overlay"></div>
+    {{--artwork individuel--}}
     <div class="slideshow" id="slideshow">
       <div class="close" onclick="closeShow()">
         <a href="#"> <span></span> <span></span></a>
@@ -64,21 +64,42 @@
           <i class="material-icons">chevron_right</i>
         </button>
         <ul>
-          @foreach ($collection->oeuvres as $oeuvre)
-          <li class="slide-1 fade">
-            <div>
-              @foreach ($oeuvre->photos as $photo)
-              <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
-              @endforeach
+          <div class="scrollme">
+            @foreach ($collection->oeuvres as $oeuvre)
+            <li id=<?= $oeuvre->id ?> class="slide-1 fade">
               <div>
-                <h5>{{ $oeuvre->categorie->titre }}</h5>
-                <h2>{{ $oeuvre->titre }}</h2>
-                <p>{{ $oeuvre->description }}</p>
-                <a href="">Voir la série "{{ $oeuvre->collection->titre }}"</a>
+                <div class="slideshow-2" id="slideshow-2">
+                  <div class="slideshow-2-container">
+                    <button href="" class="slideshow-2-container-button" onclick="plusSlides2(-1)">
+                      <i class="material-icons">chevron_left</i>
+                    </button>
+                    <button href="" class="slideshow-2-container-button" onclick="plusSlides2(1)">
+                      <i class="material-icons">chevron_right</i>
+                    </button>
+
+                    <ul>
+                      @foreach ($oeuvre->photos as $photo)
+                      <li class="slide2-<?= $oeuvre->id ?> fade">
+                        <div>
+                          <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                        </div>
+                      </li>
+                      @endforeach
+                    </ul>
+                  </div>
+                </div>
+                <div class="texts">
+                  <h5>{{ $oeuvre->categorie->titre }}</h5>
+                  <h2>{{ $oeuvre->titre }}</h2>
+                  <p>{{ $oeuvre->description }}</p>
+                  <a href="">Voir la série "{{ $oeuvre->collection->titre }}"</a>
+                </div>
               </div>
-            </div>
-          </li>
-          @endforeach
+            </li>
+            @endforeach
+
+          </div>
+
         </ul>
       </div>
     </div>

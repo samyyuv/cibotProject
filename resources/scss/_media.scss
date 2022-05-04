@@ -571,8 +571,8 @@
       &-container {
 
         &-button {
-          top: 54%;
           transform: translateY(-50%);
+          top: 50%;
 
           &:nth-child(1) {
             left: 2rem;
@@ -689,6 +689,7 @@
 
     //container content distribution
     &-presentation>div {
+
       @include grid-column(2fr 4fr);
       column-gap: 5rem;
 
@@ -700,6 +701,21 @@
         padding-bottom: 1rem;
       }
     }
+
+    &-presentation.video>div {
+      grid: none;
+
+      h2 {
+        text-align: center;
+      }
+
+      div {
+        @include grid-column(repeat(2, 1fr));
+        justify-items: center;
+        gap: 2rem;
+      }
+    }
+
 
     //presentation content
     &-presentation.hello {
@@ -1025,6 +1041,7 @@
 
   //latestWorks Slider 
   .slider {
+    overflow: scroll;
     width: 92vw;
     text-align: center;
 
