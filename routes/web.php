@@ -46,6 +46,7 @@ Route::resource('/collections', CollectionController::class);
 Route::resource('/oeuvres', OeuvreController::class);
 Route::resource('/photos', PhotoController::class);
 Route::resource('/', HomeController::class);
+Route::view('/contactez-nous', 'partialsFront.contactPage');
 
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguageController@switchLang']);

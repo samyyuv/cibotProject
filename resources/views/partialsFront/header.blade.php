@@ -54,22 +54,13 @@
         <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('News') }}</a></li>
         <li><a class="nav-link" href="/biographie">{{ __('Biography') }}</a></li>
         <li>
-          <a class="nav-link" href="/#contactMe">{{ __('Contact') }}</a>
+          <a class="nav-link" href="/contactez-nous">{{ __('Contact') }}</a>
         </li>
         <li>
           <div class="menu-language">
             <a href="https://www.facebook.com/elisabethcibotsculpteur">
               <span><i class="fab fa-facebook-square"></i></span>
             </a>
-            <div>
-              <p class="chosen-lang">{{ Config::get('languages')[App::getLocale()] }}</p>
-              <p>|</p>
-              @foreach (Config::get('languages') as $lang => $language)
-              @if ($lang != App::getLocale())
-              <p><a href="{{ route('lang.switch', $lang) }}">{{$language}}</a></p>
-              @endif
-              @endforeach
-            </div>
           </div>
         </li>
       </ul>

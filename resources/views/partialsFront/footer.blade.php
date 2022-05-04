@@ -64,10 +64,11 @@
             <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('collectives')">{{ __('Collective exhibitions') }}</a></li>
             <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('evenements')">{{ __('Events') }}</a></li>
             <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('permanence')">{{ __('Galleries') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('video')">{{ __('Videos') }}</a></li>
           </ul>
         </li>
         <li>
-          <a class="foot-link-title link" href="/#contactMe">{{ __('Contact') }}</a>
+          <a class="foot-link-title link" href="/contactez-nous">{{ __('Contact') }}</a>
         </li>
       </ul>
 
