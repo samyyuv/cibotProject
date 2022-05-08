@@ -23,16 +23,28 @@
                 </a></div>
               <i class="fas fa-chevron-right noshow"></i>
               <ul class="nav-items nav-expand-content noshow">
+
+
                 @foreach ($collection->oeuvres as $oeuvre)
+                <?php
+                $art[] = $oeuvre->categorie->titre;
+                $unique = array_unique($art);
+                ?>
+                @endforeach
+                @foreach ($unique as $categorieTitle)
                 <li>
                   <a class="nav-link" href="{{ route('collections.show', $collection) }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie->id] ?>')">
-                    {{ $oeuvre->categorie->titre }}
+                    {{ $categorieTitle }}
                   </a>
                 </li>
                 @endforeach
+                <?php
+                $art = [];
+                ?>
               </ul>
             </li>
             @endforeach
+
 
             <div class="img-menu">
               <div>
