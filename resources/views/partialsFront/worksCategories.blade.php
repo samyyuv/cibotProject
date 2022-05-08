@@ -1,7 +1,7 @@
 <x-public-view>
   <section class="arts">
     @foreach ($collection->oeuvres as $oeuvre)
-    <div class="title-art <?= $slugedNames[$oeuvre->categorie->id] ?>">
+    <div id="{{$slugedNames[$oeuvre->categorie->id]}}" class="title-art">
       <h5>{{ $oeuvre->collection->titre }}</h5>
       <h1>{{ $oeuvre->categorie->titre }}</h1>
     </div>
@@ -63,7 +63,7 @@
         <ul>
           <div class="scrollme">
             @foreach($oeuvres as $oeuvre)
-            <li id=<?= $oeuvre->id ?> class="slide-1-{{$key}} fade">
+            <li id=<?= $oeuvre->id ?> class="slide-1-{{$key}} cardSlide fade">
               <div>
                 <div class="slideshow-2" id="slideshow-2">
                   <div class="slideshow-2-container">

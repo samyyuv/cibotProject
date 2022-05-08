@@ -5,28 +5,31 @@ let categorieId;
 let oeuvreId;
 
 window.onload = function () {
-  let oeuvreIdx = sessionStorage.getItem("oeuvreIndex")
-  let photoIdx = sessionStorage.getItem("photoIndex")
-  sessionStorage.removeItem("oeuvreIndex")
-  sessionStorage.removeItem("photoIndex")
-  if (oeuvreIdx && photoIdx) {
-    console.log("onload")
-    console.log(oeuvreIdx)
-    slideIndex = oeuvreIdx;
-    slideIndex2 = photoIdx
+  let catgrId = sessionStorage.getItem("categorieId")
+  let oevrId = sessionStorage.getItem("oeuvreId")
+  sessionStorage.removeItem("categorieId")
+  sessionStorage.removeItem("oeuvreId")
+  if (catgrId && oevrId) {
+    var slides = document.getElementsByClassName("slide-1-" + catgrId);
+    var activeIdx;
+    for (i = 0; i < slides.length; i++) {
+      if (slides[i].id == oevrId) {
+        activeIdx = i;
+      }
+    };
+    slideIndex = activeIdx;
+    slideIndex2 = 0;
+    openShowLocal(catgrId, oevrId)
     slideArt(slideIndex);
-    openShowLocal()
   } else {
-    //slideIndex = 1;
-    slideIndex2 = 1;
+    slideIndex2 = 0;
     slideArt(slideIndex);
   }
 }
 
-window.activeArtLinkExtended = function (c, oeuvreIdx, photoIdx) {
-  sessionStorage.setItem("art-link", c);
-  sessionStorage.setItem("oeuvreIndex", oeuvreIdx);
-  sessionStorage.setItem("photoIndex", photoIdx);
+window.activeArtLinkExtended = function (catgrId, oevrId) {
+  sessionStorage.setItem("categorieId", catgrId);
+  sessionStorage.setItem("oeuvreId", oevrId);
 }
 
 function openShowLocal(catgrId, oevrId) {
@@ -77,8 +80,8 @@ window.setPhotoShow = function (id) {
   setPhotoShowLocal(id, 1)
 }
 
-function setPhotoShowLocal(oeuvreId) {
-  oeuvreId = oeuvreId;
+function setPhotoShowLocal(oevrId) {
+  oeuvreId = oevrId;
   slideArt2(slideIndex2);
 }
 
@@ -90,20 +93,17 @@ window.currentSlide2 = function (n) {
 }
 
 function slideArt2(n) {
-  //console.log("photo index")
-  //console.log(n)
-  //console.log(oeuvreId)  // undefined WHY ????
   var slides = document.getElementsByClassName("slide2-" + oeuvreId);
   if (slides && slides.length > 0) {
     var i;
-    if (n > slides.length) { slideIndex2 = 1 }
-    if (n < 1) { slideIndex2 = slides.length }
+    if (n > slides.length - 1) { slideIndex2 = 0 }
+    if (n < 0) { slideIndex2 = slides.length - 1 }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none"
       slides[i].style.opacity = "0";
     }
 
-    slides[slideIndex2 - 1].style.display = "block";
-    slides[slideIndex2 - 1].style.opacity = "1";
+    slides[slideIndex2].style.display = "block";
+    slides[slideIndex2].style.opacity = "1";
   }
 }

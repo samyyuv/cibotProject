@@ -17,7 +17,6 @@ window.addEventListener("load", () => {
     }
 
     if (title) {
-      console.log(activeLink)
       for (var i = 0; i < title.length; i++) {
         remove(title[i], "show")
         if (title[i].id == activeLink) add(title[i], "show");
@@ -25,16 +24,19 @@ window.addEventListener("load", () => {
     }
 
     if (btns) {
-      console.log(activeLink)
       for (var i = 0; i < btns.length; i++) {
         remove(btns[i], "active")
         if (btns[i].id == activeLink) add(btns[i], "active");
       }
     }
   } else if (btns && container && title) {
+    var activeCat = btns[0].id
     add(btns[0], "active")
-    add(container[0], "show")
     add(title[0], "show")
+    for (i = 0; i < container.length; i++) {
+      remove(container[i], "show");
+      if (container[i].className.split(" ").includes(activeCat)) add(container[i], "show");
+    }
   }
 })
 

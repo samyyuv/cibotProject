@@ -22,7 +22,8 @@
         @if ($loop->first)
         <div class="home-slide slide fade">
           <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
-          <a href="#" class="home-slider-details link">{{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
+          <a href="/collections/{{ $oeuvre->collection_id }}" class="home-slider-details link" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
+            {{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
         </div>
         @endif
         @endforeach

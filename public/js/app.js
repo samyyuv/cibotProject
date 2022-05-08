@@ -5571,8 +5571,6 @@ window.addEventListener("load", function () {
     }
 
     if (title) {
-      console.log(activeLink);
-
       for (var i = 0; i < title.length; i++) {
         remove(title[i], "show");
         if (title[i].id == activeLink) add(title[i], "show");
@@ -5580,17 +5578,20 @@ window.addEventListener("load", function () {
     }
 
     if (btns) {
-      console.log(activeLink);
-
       for (var i = 0; i < btns.length; i++) {
         remove(btns[i], "active");
         if (btns[i].id == activeLink) add(btns[i], "active");
       }
     }
   } else if (btns && container && title) {
+    var activeCat = btns[0].id;
     add(btns[0], "active");
-    add(container[0], "show");
     add(title[0], "show");
+
+    for (i = 0; i < container.length; i++) {
+      remove(container[i], "show");
+      if (container[i].className.split(" ").includes(activeCat)) add(container[i], "show");
+    }
   }
 });
 
@@ -5949,29 +5950,35 @@ var categorieId;
 var oeuvreId;
 
 window.onload = function () {
-  var oeuvreIdx = sessionStorage.getItem("oeuvreIndex");
-  var photoIdx = sessionStorage.getItem("photoIndex");
-  sessionStorage.removeItem("oeuvreIndex");
-  sessionStorage.removeItem("photoIndex");
+  var catgrId = sessionStorage.getItem("categorieId");
+  var oevrId = sessionStorage.getItem("oeuvreId");
+  sessionStorage.removeItem("categorieId");
+  sessionStorage.removeItem("oeuvreId");
 
-  if (oeuvreIdx && photoIdx) {
-    console.log("onload");
-    console.log(oeuvreIdx);
-    slideIndex = oeuvreIdx;
-    slideIndex2 = photoIdx;
+  if (catgrId && oevrId) {
+    var slides = document.getElementsByClassName("slide-1-" + catgrId);
+    var activeIdx;
+
+    for (i = 0; i < slides.length; i++) {
+      if (slides[i].id == oevrId) {
+        activeIdx = i;
+      }
+    }
+
+    ;
+    slideIndex = activeIdx;
+    slideIndex2 = 0;
+    openShowLocal(catgrId, oevrId);
     slideArt(slideIndex);
-    openShowLocal();
   } else {
-    //slideIndex = 1;
-    slideIndex2 = 1;
+    slideIndex2 = 0;
     slideArt(slideIndex);
   }
 };
 
-window.activeArtLinkExtended = function (c, oeuvreIdx, photoIdx) {
-  sessionStorage.setItem("art-link", c);
-  sessionStorage.setItem("oeuvreIndex", oeuvreIdx);
-  sessionStorage.setItem("photoIndex", photoIdx);
+window.activeArtLinkExtended = function (catgrId, oevrId) {
+  sessionStorage.setItem("categorieId", catgrId);
+  sessionStorage.setItem("oeuvreId", oevrId);
 };
 
 function openShowLocal(catgrId, oevrId) {
@@ -6030,8 +6037,8 @@ window.setPhotoShow = function (id) {
   setPhotoShowLocal(id, 1);
 };
 
-function setPhotoShowLocal(oeuvreId) {
-  oeuvreId = oeuvreId;
+function setPhotoShowLocal(oevrId) {
+  oeuvreId = oevrId;
   slideArt2(slideIndex2);
 }
 
@@ -6044,20 +6051,17 @@ window.currentSlide2 = function (n) {
 };
 
 function slideArt2(n) {
-  //console.log("photo index")
-  //console.log(n)
-  //console.log(oeuvreId)  // undefined WHY ????
   var slides = document.getElementsByClassName("slide2-" + oeuvreId);
 
   if (slides && slides.length > 0) {
     var i;
 
-    if (n > slides.length) {
-      slideIndex2 = 1;
+    if (n > slides.length - 1) {
+      slideIndex2 = 0;
     }
 
-    if (n < 1) {
-      slideIndex2 = slides.length;
+    if (n < 0) {
+      slideIndex2 = slides.length - 1;
     }
 
     for (i = 0; i < slides.length; i++) {
@@ -6065,8 +6069,8 @@ function slideArt2(n) {
       slides[i].style.opacity = "0";
     }
 
-    slides[slideIndex2 - 1].style.display = "block";
-    slides[slideIndex2 - 1].style.opacity = "1";
+    slides[slideIndex2].style.display = "block";
+    slides[slideIndex2].style.opacity = "1";
   }
 }
 
@@ -6109,7 +6113,6 @@ function showSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    console.log(slides);
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
   }

@@ -671,34 +671,34 @@ html body main.body-container {
   .slideshow-container > ul {
     margin: 0 3rem;
   }
-  .slideshow-container .slide-1 > div {
+  .slideshow-container .cardSlide > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     -moz-column-gap: 2rem;
          column-gap: 2rem;
   }
-  .slideshow-container .slide-1 h5,
-.slideshow-container .slide-1 a {
+  .slideshow-container .cardSlide h5,
+.slideshow-container .cardSlide a {
     font-size: 1rem;
     font-weight: 500;
     line-height: 0.8;
     color: #232C2E;
     text-align: left;
   }
-  .slideshow-container .slide-1 h5:hover,
-.slideshow-container .slide-1 a:hover {
+  .slideshow-container .cardSlide h5:hover,
+.slideshow-container .cardSlide a:hover {
     font-weight: 600;
   }
-  .slideshow-container .slide-1 h2 {
+  .slideshow-container .cardSlide h2 {
     line-height: 2.5rem;
     font-family: "Sorts Mill Goudy", serif;
     font-size: 2.8rem;
     padding: 1rem 0;
   }
-  .slideshow-container .slide-1 p {
+  .slideshow-container .cardSlide p {
     padding-bottom: 0.8rem;
   }
-  .slideshow-container .slide-1 a {
+  .slideshow-container .cardSlide a {
     color: #006f7e;
   }
   .slideshow-container-button {

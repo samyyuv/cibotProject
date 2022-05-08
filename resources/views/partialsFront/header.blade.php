@@ -30,7 +30,6 @@
                 $art[] = $oeuvre->categorie->titre;
                 $unique = array_unique($art);
                 ?>
-                @endforeach
                 @foreach ($unique as $categorieTitle)
                 <li>
                   <a class="nav-link" href="{{ route('collections.show', $collection) }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie->id] ?>')">
@@ -41,6 +40,8 @@
                 <?php
                 $art = [];
                 ?>
+                @endforeach
+
               </ul>
             </li>
             @endforeach
@@ -48,11 +49,15 @@
 
             <div class="img-menu">
               <div>
-                <img src="https://picsum.photos/600" alt="" />
+                @foreach ($oeuvreMenu->photos as $photo)
+                @if ($loop->first)
+                <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                @endif
+                @endforeach
               </div>
               <div>
                 <div>
-                  <a href="" class="link">
+                  <a class="link" href="{{ route('collections.show', $oeuvreMenu->collection->id) }}" onclick="activeArtLink('<?= $slugedNames[$oeuvreMenu->categorie->id] ?>')">
                     <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
                   </a>
                 </div>
