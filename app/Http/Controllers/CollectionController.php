@@ -32,11 +32,23 @@ class CollectionController extends Controller
     public function show($id)
     {
         $collection = Collection::find($id);
-        $btns = $collection->oeuvres;
-        $oeuvres = Oeuvre::all();
+        $arts = $collection->oeuvres;
+        $oeuvresByCategorie = Oeuvre::all()->groupBy("categorie_id");
         $photos = Photo::all();
-        //dd($slugedNames);
+        $categories = $this->categories($arts);
 
-        return view('partialsFront.worksCategories', compact('collection', 'btns', 'oeuvres', 'photos'));
+        return view(
+            'partialsFront.worksCategories',
+            compact('collection', 'categories', 'arts', 'photos', 'oeuvresByCategorie')
+        );
+    }
+
+    private function categories($arts)
+    {
+        foreach ($arts as $art) {
+            $x[] = array($art->categorie->titre, $art->categorie->id);
+        }
+        $unique = array_unique($x, SORT_REGULAR);
+        return $unique;
     }
 }

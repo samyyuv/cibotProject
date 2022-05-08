@@ -5942,7 +5942,133 @@ function getScrollPercentage() {
   \***********************************/
 /***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/samyyuv/documents/cibotProject/resources/js/sliderArt.js: Unexpected reserved word 'public'. (80:0)\n\n\u001b[0m \u001b[90m 78 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 79 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m \u001b[36mpublic\u001b[39m \u001b[33m/\u001b[39m css \u001b[33m/\u001b[39m app\u001b[33m.\u001b[39mcss   \u001b[36mpublic\u001b[39m \u001b[33m/\u001b[39m js \u001b[33m/\u001b[39m app\u001b[33m.\u001b[39mjs   resources \u001b[33m/\u001b[39m js \u001b[33m/\u001b[39m sliderArt\u001b[33m.\u001b[39mjs   resources \u001b[33m/\u001b[39m scss \u001b[33m/\u001b[39m _media\u001b[33m.\u001b[39mscss   resources \u001b[33m/\u001b[39m scss \u001b[33m/\u001b[39m app\u001b[33m.\u001b[39mscss\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Parser._raise (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:569:17)\n    at Parser.raiseWithData (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:562:17)\n    at Parser.raise (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:523:17)\n    at Parser.checkReservedWord (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:13047:12)\n    at Parser.parseIdentifierName (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:13001:12)\n    at Parser.parseIdentifier (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:12971:23)\n    at Parser.parseExprAtom (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:12070:27)\n    at Parser.parseExprSubscripts (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:11654:23)\n    at Parser.parseUpdate (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:11634:21)\n    at Parser.parseMaybeUnary (/home/samyyuv/documents/cibotProject/node_modules/@babel/parser/lib/index.js:11609:23)");
+var shows = document.querySelectorAll(".slideshow, #overlay");
+var slideIndex;
+var slideIndex2;
+var categorieId;
+var oeuvreId;
+
+window.onload = function () {
+  var oeuvreIdx = sessionStorage.getItem("oeuvreIndex");
+  var photoIdx = sessionStorage.getItem("photoIndex");
+  sessionStorage.removeItem("oeuvreIndex");
+  sessionStorage.removeItem("photoIndex");
+
+  if (oeuvreIdx && photoIdx) {
+    console.log("onload");
+    console.log(oeuvreIdx);
+    slideIndex = oeuvreIdx;
+    slideIndex2 = photoIdx;
+    slideArt(slideIndex);
+    openShowLocal();
+  } else {
+    //slideIndex = 1;
+    slideIndex2 = 1;
+    slideArt(slideIndex);
+  }
+};
+
+window.activeArtLinkExtended = function (c, oeuvreIdx, photoIdx) {
+  sessionStorage.setItem("art-link", c);
+  sessionStorage.setItem("oeuvreIndex", oeuvreIdx);
+  sessionStorage.setItem("photoIndex", photoIdx);
+};
+
+function openShowLocal(catgrId, oevrId) {
+  categorieId = catgrId;
+  oeuvreId = oevrId;
+  var active = document.getElementById("slideshow-" + categorieId);
+  active.style.display = "flex";
+}
+
+if (shows) {
+  window.openShow = function (catgrId, oevrId) {
+    openShowLocal(catgrId, oevrId);
+  };
+
+  window.closeShow = function () {
+    shows.forEach(function (i) {
+      i.style.display = "none";
+    });
+  };
+}
+
+window.plusSlides = function (n) {
+  slideArt(slideIndex += n);
+};
+
+window.currentSlide = function (n) {
+  slideArt(slideIndex = n);
+};
+
+function slideArt(n) {
+  var slides = document.getElementsByClassName("slide-1-" + categorieId);
+
+  if (slides && slides.length > 0) {
+    var i;
+
+    if (n > slides.length - 1) {
+      slideIndex = 0;
+    }
+
+    if (n < 0) {
+      slideIndex = slides.length - 1;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      slides[i].style.opacity = "0";
+    }
+
+    slides[slideIndex].style.display = "flex";
+    slides[slideIndex].style.opacity = "1";
+    setPhotoShowLocal(slides[slideIndex].id);
+  }
+}
+
+window.setPhotoShow = function (id) {
+  setPhotoShowLocal(id, 1);
+};
+
+function setPhotoShowLocal(oeuvreId) {
+  oeuvreId = oeuvreId;
+  slideArt2(slideIndex2);
+}
+
+window.plusSlides2 = function (n) {
+  slideArt2(slideIndex2 += n);
+};
+
+window.currentSlide2 = function (n) {
+  slideArt2(slideIndex2 = n);
+};
+
+function slideArt2(n) {
+  //console.log("photo index")
+  //console.log(n)
+  //console.log(oeuvreId)  // undefined WHY ????
+  var slides = document.getElementsByClassName("slide2-" + oeuvreId);
+
+  if (slides && slides.length > 0) {
+    var i;
+
+    if (n > slides.length) {
+      slideIndex2 = 1;
+    }
+
+    if (n < 1) {
+      slideIndex2 = slides.length;
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      slides[i].style.opacity = "0";
+    }
+
+    slides[slideIndex2 - 1].style.display = "block";
+    slides[slideIndex2 - 1].style.opacity = "1";
+  }
+}
 
 /***/ }),
 

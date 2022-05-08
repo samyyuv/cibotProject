@@ -9,50 +9,47 @@
 
     <div class="arts-btn menu-btns" id="btn-arts">
       <ul class="dropdown">
-        @foreach ($collection->oeuvres as $oeuvre)
-        <li id="<?= $slugedNames[$oeuvre->categorie->id] ?>" class="btn-art btn" onclick="selectBtnArts('<?= $slugedNames[$oeuvre->categorie->id] ?>')">
-          <a>{{ $oeuvre->categorie->titre }}</a> <i class="fa-solid fa-chevron-down"></i>
+        @foreach ($categories as $cat)
+        <li id="<?= $slugedNames[$cat[1]] ?>" class="btn-art btn" onclick="selectBtnArts('<?= $slugedNames[$cat[1]] ?>')">
+          <a>{{ $cat[0] }}</a> <i class="fa-solid fa-chevron-down"></i>
         </li>
         @endforeach
       </ul>
     </div>
 
-    <?php
-    $i = 0;
-    foreach ($collection->oeuvres as $oeuvre) {
-    ?>
-      <div class="art <?= $slugedNames[$oeuvre->categorie->id] ?>">
 
-        <?php
-        ++$i;
-        ?>
+    @foreach ($oeuvresByCategorie as $key => $oeuvres)
+    <div class="art <?= $slugedNames[$key] ?>">
 
-        <div class="art-container">
+      <div class="art-container">
+        @foreach($oeuvres as $oeuvre)
+
+
+        <div onclick="openShow({{$key}}, {{ $oeuvre->id }});currentSlide({{ $loop->index }});setPhotoShow(<?= $oeuvre->id ?>)">
           @foreach ($oeuvre->photos as $photo)
-
           @if ($loop->first)
+          <a href="#">
+            <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="">
 
-          <div onclick="openShow();currentSlide(<?= $i; ?>);setPhotoShow(<?= $oeuvre->id ?>)">
-            <a href="#">
-              <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="">
-
-              <div class="cross">
-                <span></span>
-                <span></span>
-              </div>
-            </a>
-          </div>
+            <div class="cross">
+              <span></span>
+              <span></span>
+            </div>
+          </a>
           @endif
           @endforeach
         </div>
+
+        @endforeach
       </div>
-    <?php
-    }
-    ?>
+    </div>
+    @endforeach
+    </div>
 
     <div id="overlay"></div>
     {{--artwork individuel--}}
-    <div class="slideshow" id="slideshow">
+    @foreach ($oeuvresByCategorie as $key => $oeuvres)
+    <div id="slideshow-{{$key}}" class="slideshow <?= $slugedNames[$key] ?>" id="slideshow">
       <div class="close" onclick="closeShow()">
         <a href="#"> <span></span> <span></span></a>
       </div>
@@ -65,8 +62,8 @@
         </button>
         <ul>
           <div class="scrollme">
-            @foreach ($collection->oeuvres as $oeuvre)
-            <li id=<?= $oeuvre->id ?> class="slide-1 fade">
+            @foreach($oeuvres as $oeuvre)
+            <li id=<?= $oeuvre->id ?> class="slide-1-{{$key}} fade">
               <div>
                 <div class="slideshow-2" id="slideshow-2">
                   <div class="slideshow-2-container">
@@ -76,10 +73,9 @@
                     <button href="" class="slideshow-2-container-button" onclick="plusSlides2(1)">
                       <i class="material-icons">chevron_right</i>
                     </button>
-
                     <ul>
                       @foreach ($oeuvre->photos as $photo)
-                      <li class="slide2-<?= $oeuvre->id ?> fade">
+                      <li class="slide2-{{$oeuvre->id}} fade">
                         <div>
                           <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
                         </div>
@@ -97,12 +93,11 @@
               </div>
             </li>
             @endforeach
-
           </div>
-
         </ul>
       </div>
     </div>
+    @endforeach
 
   </section>
 </x-public-view>
