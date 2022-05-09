@@ -27,21 +27,20 @@
 
                 @foreach ($collection->oeuvres as $oeuvre)
                 <?php
-                $art[] = $oeuvre->categorie->titre;
-                $unique = array_unique($art);
+                $art[] = array($oeuvre->categorie->titre, $oeuvre->categorie->id);
+                $unique = array_unique($art, SORT_REGULAR);
                 ?>
+                @endforeach
                 @foreach ($unique as $categorieTitle)
                 <li>
-                  <a class="nav-link" href="{{ route('collections.show', $collection) }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie->id] ?>')">
-                    {{ $categorieTitle }}
+                  <a class="nav-link" href="{{ route('collections.show', $collection) }}" onclick="activeArtLink('<?= $slugedNames[$categorieTitle[1]] ?>')">
+                    {{ $categorieTitle[0] }}
                   </a>
                 </li>
-                @endforeach
                 <?php
                 $art = [];
                 ?>
                 @endforeach
-
               </ul>
             </li>
             @endforeach

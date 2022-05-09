@@ -12,9 +12,9 @@ $border: #9292925e;
 
 //Typography
 $montserrat-font: 'Montserrat',
-sans-serif;
+  sans-serif;
 $sortsmill-font: 'Sorts Mill Goudy',
-serif;
+  serif;
 $icon-font: 'Material Icons';
 $icon-arrow-right: 'chevron_right';
 $icon-arrow-left: 'chevron_left';
@@ -35,7 +35,7 @@ $weight-400: 400;
 
 html body {
   color: $antracite;
-  font-family: $montserrat-font !important;
+  font-family: $montserrat-font  !important;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -84,10 +84,6 @@ html body {
   font-weight: 500;
   line-height: .8;
   color: $color;
-
-  &:hover {
-    font-weight: 600;
-  }
 }
 
 .font-body {
@@ -399,6 +395,11 @@ html body {
 .link:hover {
   text-decoration: underline;
 }
+
+.strongLink:hover {
+  font-weight: 600;
+}
+
 
 @mixin btn-dropdown($mobile: true) {
   @if $mobile {

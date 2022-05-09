@@ -263,6 +263,10 @@ html body main.body-container {
   text-decoration: underline;
 }
 
+.strongLink:hover {
+  font-weight: 600;
+}
+
 @media only screen and (min-width: 576px) {
   body .body-container {
     max-width: 1800px;
@@ -402,9 +406,6 @@ html body main.body-container {
     line-height: 0.8;
     color: #232C2E;
   }
-  .nav-link:hover {
-    font-weight: 600;
-  }
   .nav-container {
     padding: 0 100px 3.5rem;
     display: flex;
@@ -455,7 +456,6 @@ html body main.body-container {
   }
   .nav-expand .nav-expand-content .nav-expand-content .nav-link:hover {
     color: #006f7e;
-    font-weight: 500;
   }
 
   .slider {
@@ -573,14 +573,14 @@ html body main.body-container {
     -moz-column-gap: 5.6rem;
          column-gap: 5.6rem;
   }
-  .news-title h4 {
+  .news h4 {
     font-size: 1rem;
     font-weight: 500;
     line-height: 0.8;
     color: #006f7e;
   }
-  .news-title h4:hover {
-    font-weight: 600;
+  .news h4:hover {
+    color: #232C2E;
   }
   .news-title > a:not(:first-child) {
     display: none;
@@ -589,15 +589,6 @@ html body main.body-container {
     grid-column: 2;
     grid-row: 1/4;
     justify-self: end;
-  }
-  .news-presentation > a:not(:first-child) {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 0.8;
-    color: #006f7e;
-  }
-  .news-presentation > a:not(:first-child):hover {
-    font-weight: 600;
   }
   .news-presentation h2 {
     padding-top: 1.68rem;
@@ -684,10 +675,6 @@ html body main.body-container {
     line-height: 0.8;
     color: #232C2E;
     text-align: left;
-  }
-  .slideshow-container .cardSlide h5:hover,
-.slideshow-container .cardSlide a:hover {
-    font-weight: 600;
   }
   .slideshow-container .cardSlide h2 {
     line-height: 2.5rem;
@@ -1453,9 +1440,6 @@ footer .copyright {
     line-height: 0.8;
     color: #006f7e;
   }
-  .news-article a:hover {
-    font-weight: 600;
-  }
   .news-article a i {
     padding-right: 1rem;
     color: #232C2E;
@@ -1719,9 +1703,6 @@ footer {
   color: #232C2E;
   padding-bottom: 1rem;
 }
-.arts h5:hover {
-  font-weight: 600;
-}
 .arts div.show {
   display: block;
 }
@@ -1765,9 +1746,6 @@ footer {
   font-weight: 500;
   line-height: 0.8;
   color: #232C2E;
-}
-.slideshow-container li > div h5:hover {
-  font-weight: 600;
 }
 .slideshow-container li > div h2 {
   font-family: "Sorts Mill Goudy", serif;
@@ -1835,9 +1813,6 @@ footer {
   line-height: 0.8;
   color: #006f7e;
 }
-.news-article > a:hover {
-  font-weight: 600;
-}
 .news-article > a i {
   padding-right: 1rem;
   color: #232C2E;
@@ -1869,9 +1844,6 @@ footer {
   font-weight: 500;
   line-height: 0.8;
   color: #006f7e;
-}
-.biographie-presentation li a:hover {
-  font-weight: 600;
 }
 .biographie-presentation.awards ul li {
   align-items: baseline;

@@ -50,7 +50,7 @@
       <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre }} </a></h2>
       <p>{{ $actualite->created_at->format('d M Y') }}</p>
       <p class="body-text">{{ Str::limit($actualite->description, 150) }}</p>
-      <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a>
+      <h4> <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a></h4>
     </div>
   </section>
 

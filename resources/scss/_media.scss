@@ -264,7 +264,7 @@
 
             &:hover {
               color: $teal;
-              font-weight: $weight-500;
+              // font-weight: $weight-500;
             }
           }
         }
@@ -419,10 +419,16 @@
     @include grid-column(1fr 2fr);
     column-gap: 5.6rem;
 
-    &-title {
-      h4 {
-        @include navBtn($teal);
+    h4 {
+      @include navBtn($teal);
+
+      &:hover {
+        color: $antracite;
       }
+    }
+
+    &-title {
+
 
       >a:not(:first-child) {
         display: none;
@@ -437,11 +443,6 @@
 
     //section info
     &-presentation {
-
-      >a:not(:first-child) {
-        @include navBtn($teal);
-      }
-
       h2 {
         padding-top: 1.68rem;
       }
