@@ -4,9 +4,15 @@
 .nav {
   &-expand {
     &-content {
-      .img-menu p {
-        @extend .font-mentions;
-        color: $gray1;
+      .img-menu {
+        p {
+          @extend .font-mentions;
+          color: $gray1;
+        }
+
+        >div:first-child {
+          @extend .listSquare;
+        }
       }
     }
   }

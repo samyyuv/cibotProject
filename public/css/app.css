@@ -242,10 +242,10 @@ html body main.body-container {
   position: absolute;
 }
 
-.listSquare, .actualites-container .card > div, .arts .art-container > div, .home > div.home-slider, .card > div {
+.listSquare, .actualites-container .card > div, .arts .art-container > div, .home > div.home-slider, .nav-expand-content .img-menu > div:first-child, .card > div {
   position: relative;
 }
-.listSquare img, .actualites-container .card > div img, .arts .art-container > div img, .home > div.home-slider img, .card > div img {
+.listSquare img, .actualites-container .card > div img, .arts .art-container > div img, .home > div.home-slider img, .nav-expand-content .img-menu > div:first-child img, .card > div img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -253,7 +253,7 @@ html body main.body-container {
      object-fit: cover;
 }
 
-.listSquare::after, .actualites-container .card > div::after, .arts .art-container > div::after, .home > div.home-slider::after, .card > div::after {
+.listSquare::after, .actualites-container .card > div::after, .arts .art-container > div::after, .home > div.home-slider::after, .nav-expand-content .img-menu > div:first-child::after, .card > div::after {
   content: "";
   display: block;
   padding-bottom: 100%;
@@ -1573,7 +1573,6 @@ footer .copyright {
 .nav-expand-content .img-menu p {
   color: #929292;
 }
-
 .menu-footer {
   padding: 1rem;
   width: 100%;
