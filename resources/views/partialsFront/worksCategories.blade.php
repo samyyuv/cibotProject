@@ -67,12 +67,14 @@
               <div>
                 <div class="slideshow-2" id="slideshow-2">
                   <div class="slideshow-2-container">
+                    @if (count($oeuvre->photos) > 1)
                     <button href="" class="slideshow-2-container-button" onclick="plusSlides2(-1)">
                       <i class="material-icons">chevron_left</i>
                     </button>
                     <button href="" class="slideshow-2-container-button" onclick="plusSlides2(1)">
                       <i class="material-icons">chevron_right</i>
                     </button>
+                    @endif
                     <ul>
                       @foreach ($oeuvre->photos as $photo)
                       <li class="slide2-{{$oeuvre->id}} fade">
