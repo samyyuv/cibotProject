@@ -47,9 +47,12 @@ class OeuvreController extends Controller
      */
     public function store(StoreOeuvreRequest $request)
     {
+        $id = $request->categorie;
+        $categorieName = Categorie::find($id)->titre;
         $active = $request->active ? 1 : 0;
 
         $oeuvre = Oeuvre::create([
+            'id' => $request->id,
             'titre' => $request->titre,
             'sous_titre' => $request->sous_titre,
             'description' => $request->description,
@@ -60,10 +63,11 @@ class OeuvreController extends Controller
         $i = 1;
         foreach ($request->photos as $photo) {
             $ouvreTitle = Str::slug($request->titre);
+            $categorie = Str::slug($categorieName);
             $fileName = $ouvreTitle . $i . '.' . $photo->getClientOriginalExtension();
-            $photo->storeAs('oeuvres', $fileName);
+            $photo->storeAs('oeuvres/' . $categorie, $fileName);
             Photo::create([
-                'photo' => "oeuvres/" . $fileName,
+                'photo' => "oeuvres/" . $categorie . "/" . $fileName,
                 'oeuvre_id' => $oeuvre->id,
             ]);
             $i++;
