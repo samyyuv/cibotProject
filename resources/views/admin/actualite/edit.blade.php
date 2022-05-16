@@ -33,7 +33,7 @@
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
                         <label for="titre" class="block text-lg font-medium text-gray-700">
-                          {{ __('Title') }}
+                          {{ __('Title') }} FR
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                           <input type="text" name="titre" id="titre" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $actualite->titre }}">
@@ -43,10 +43,30 @@
 
                     <div>
                       <label for="description" class="block text-lg font-medium text-gray-700">
-                        {{ __('Description') }}
+                        {{ __('Description') }} FR
                       </label>
                       <div class="mt-1">
                         <textarea id="description" name="description" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#006f7e] focus:border-[#006f7e] mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="{{__('Description of the news')}}">{{ $actualite->description }}</textarea>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-6">
+                      <div class="col-span-3 sm:col-span-2">
+                        <label for="titre_en" class="block text-lg font-medium text-gray-700">
+                          {{ __('Title') }} EN
+                        </label>
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                          <input type="text" name="titre_en" id="titre_en" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $actualite->titre_en }}">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label for="description_en" class="block text-lg font-medium text-gray-700">
+                        {{ __('Description') }} EN
+                      </label>
+                      <div class="mt-1">
+                        <textarea id="description_en" name="description_en" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#006f7e] focus:border-[#006f7e] mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="{{__('Description of the news')}}">{{ $actualite->description_en }}</textarea>
                       </div>
                     </div>
 

@@ -17,8 +17,8 @@ class ActualiteController extends Controller
      */
     public function index()
     {
-        $actualites = Actualite::orderBy('position', 'asc')->get();
-        $lastestActualites = Actualite::latest()->take(5)->get();
+        $actualites = Actualite::where('active', 1)->orderBy('position', 'asc')->get();
+        $lastestActualites = Actualite::where('active', 1)->orderBy('created_at', 'desc')->take(15)->get();
         return view('partialsFront.newsList', compact('actualites', 'lastestActualites'));
     }
 

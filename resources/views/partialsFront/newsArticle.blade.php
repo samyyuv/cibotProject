@@ -1,13 +1,18 @@
 <x-public-view>
   <section class="news-article">
-    <a href="{{ route('actualites.index') }}">
+    <a href="{{ route('actualites.index') }}" class="link">
       <i class="fa-solid fa-arrow-left"></i>{{ __('All the events and exhibitions') }}</a>
     <div class="news-container">
       <div>
-        <p>{{ $actualite->sous_titre }} </p>
+        @if ('en' == App::getLocale() && $actualite->titre_en != null)
+        <h2>{{ $actualite->titre_en }}</h2>
+        <p class="body-text">{!! $actualite->description_en !!}</p>
+        @else
         <h2>{{ $actualite->titre }}</h2>
+        <p class="body-text">{!! $actualite->description !!}</p>
 
-        <p class="body-text">{{ $actualite->description }}</p>
+        @endif
+
       </div>
       <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
     </div>
@@ -25,11 +30,19 @@
               </div>
             </a>
           </div>
+          @if ('en' == App::getLocale())
+          <p>{{ $actualite->created_at->format('M d Y') }}</p>
+          @else
           <p>{{ $actualite->created_at->format('d M Y') }}</p>
+          @endif
+          @if ('en' == App::getLocale() && $actualite->titre_en != null)
           <a href="{{ route('actualites.show', $actualite) }}" class="link">
             <h3>{{ $actualite->titre }}</h3>
           </a>
-          <p class="body-text">{{ Str::limit($actualite->description, 200) }}</p>
+          @else
+          <p class="body-text">{!! Str::limit($actualite->description, 149) !!}</p>
+          @endif
+
         </div>
         @endforeach
       </div>

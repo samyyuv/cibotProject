@@ -62,6 +62,8 @@ class ActualiteController extends Controller
         Actualite::create([
             'titre' => $request->titre,
             'description' => $request->description,
+            'titre_en' => $request->titre_en,
+            'description_en' => $request->description_en,
             'titl_seo' => $request->titl_seo,
             'description_seo' => $request->description_seo,
             'position' => $newPos,
@@ -153,6 +155,8 @@ class ActualiteController extends Controller
             'description_seo' => $request->description_seo,
             'position' => $newPos,
             'active' => $active,
+            'titre_en' => $request->titre_en,
+            'description_en' => $request->description_en,
         ]);
 
         return redirect()->route('admin.actualites.index')->with('success', __('Your news has been updated'));

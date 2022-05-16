@@ -53,7 +53,7 @@
             <article class="max-w-prose mx-auto py-8">
               <h1 class="text-xl font-bold mb-3">{{ $actualite->titre }}</h1>
 
-              <p class="mt-6 text-justify text-base">{{ $actualite->description }}</p>
+              <p class="mt-6 text-justify text-base">{!! $actualite->description !!}</p>
             </article>
           </main>
       </div>

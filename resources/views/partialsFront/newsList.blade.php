@@ -6,8 +6,6 @@
       <ul class="dropdown" id="btn-news">
         <li id="all" class="btn-act btn active" onclick="selectBtnAct('all')"><a>{{ __('All the events and exhibitions') }}</a><i class="fa-solid fa-chevron-down"></i></li>
         <li id="latest" class="btn-act btn" onclick="selectBtnAct('latest')"><a>{{ __('Latest news') }}</a><i class="fa-solid fa-chevron-down"></i></li>
-        <li id="expo" class="btn-act btn" onclick="selectBtnAct('expo')"><a>{{ __('Expo events') }}</a><i class="fa-solid fa-chevron-down"></i></li>
-        <li id="inProgress" class="btn-act btn" onclick="selectBtnAct('inProgress')"><a>{{ __('Artwork in progress') }}</a><i class="fa-solid fa-chevron-down"></i></li>
       </ul>
     </div>
 
@@ -22,11 +20,23 @@
             </div>
           </a>
         </div>
-        <p>{{ $actualite->created_at->format('d M Y') }}</p>
+        @if ('en' == App::getLocale())
+        <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('M d Y') }}</p>
+        @else
+        <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('d M Y') }}</p>
+        @endif
+
+        @if ('en' == App::getLocale() && $actualite->titre_en != null)
+        <a href="{{ route('actualites.show', $actualite) }}" class="link">
+          <h3>{{ $actualite->titre_en }}</h3>
+        </a>
+        <p class="body-text">{!! Str::limit($actualite->description_en, 149) !!}</p>
+        @else
         <a href="{{ route('actualites.show', $actualite) }}" class="link">
           <h3>{{ $actualite->titre }}</h3>
         </a>
-        <p class="body-text">{{ Str::limit($actualite->description, 200) }}</p>
+        <p class="body-text">{!! Str::limit($actualite->description, 149) !!}</p>
+        @endif
       </div>
       @endforeach
     </div>
@@ -43,11 +53,23 @@
             </div>
           </a>
         </div>
-        <p>{{ $actualite->created_at->format('d M Y') }}</p>
+        @if ('en' == App::getLocale())
+        <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('M d Y') }}</p>
+        @else
+        <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('d M Y') }}</p>
+        @endif
+
+        @if ('en' == App::getLocale() && $actualite->titre_en != null)
+        <a href="{{ route('actualites.show', $actualite) }}" class="link">
+          <h3>{{ $actualite->titre_en }}</h3>
+        </a>
+        <p class="body-text">{!! Str::limit($actualite->description_en, 149) !!}</p>
+        @else
         <a href="{{ route('actualites.show', $actualite) }}" class="link">
           <h3>{{ $actualite->titre }}</h3>
         </a>
-        <p class="body-text">{{ Str::limit($actualite->description, 200) }}</p>
+        <p class="body-text">{!! Str::limit($actualite->description, 149) !!}</p>
+        @endif
       </div>
       @endforeach
     </div>

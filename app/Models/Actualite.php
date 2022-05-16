@@ -11,7 +11,7 @@ class Actualite extends Model
 {
     use HasFactory, Sortable;
 
-    protected $fillable = ['titre', 'description', 'active', 'titl_seo', 'description_seo', 'photo', 'position'];
+    protected $fillable = ['titre', 'description', 'active', 'titl_seo', 'description_seo', 'titre_en', 'description_en', 'photo', 'position'];
     public $sortable = ['created_at', 'titre', 'active', 'position'];
 
     public function getTitreAttribute($attribute)
