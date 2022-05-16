@@ -56,7 +56,7 @@
               </div>
               <div>
                 <div>
-                  <a class="link" href="{{ route('collections.show', $oeuvreMenu->collection->id) }}" onclick="activeArtLink('<?= $slugedNames[$oeuvreMenu->categorie->id] ?>')">
+                  <a class="link" href="/collections/{{ $oeuvreMenu->collection_id }}" onclick="activeArtLinkExtended('{{ $oeuvreMenu->categorie->id }}', '{{ $oeuvreMenu->id }}')">
                     <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
                   </a>
                 </div>

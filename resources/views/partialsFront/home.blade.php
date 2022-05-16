@@ -11,7 +11,6 @@
       <p>"Art sustains the way we question the world and the meaning of life;
         it unveils the sense of the self, and as such it enables us to open ourselves
         to the other. On this path, while searching, I keep on building."</p>
-
       @endif
 
     </div>
@@ -33,7 +32,6 @@
           <span onclick="actualSlide(1)" class="navigation-manual-btn"></span>
           <span onclick="actualSlide(2)" class="navigation-manual-btn"></span>
           <span onclick="actualSlide(3)" class="navigation-manual-btn"></span>
-
         </div>
       </div>
   </section>
@@ -47,9 +45,15 @@
       <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
     </div>
     <div class="news-presentation card">
+      @if ('en' == App::getLocale() && $actualite->titre_en != null)
+      <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre_en }} </a></h2>
+      <p>{{ $actualite->created_at->format('M d Y') }}</p>
+      <p class="body-text">{!! Str::limit($actualite->description_en, 149) !!}</p>
+      @else
       <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre }} </a></h2>
       <p>{{ $actualite->created_at->format('d M Y') }}</p>
-      <p class="body-text">{{ Str::limit($actualite->description, 150) }}</p>
+      <p class="body-text">{!! Str::limit($actualite->description, 149) !!}</p>
+      @endif
       <h4> <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a></h4>
     </div>
   </section>
