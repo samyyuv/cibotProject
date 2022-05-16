@@ -35,8 +35,9 @@ class CollectionController extends Controller
         $arts = $collection->oeuvres;
         $oeuvresByCategorie = Oeuvre::all()->groupBy("categorie_id");
         $photos = Photo::all();
-        $categories = $this->categories($arts);
-
+        $categoriesQuery = $this->categories($arts);
+        $categoriesId = $this->categorieQuery($categoriesQuery);
+        $categories = Categorie::whereIn('id', $categoriesId)->get();
         return view(
             'partialsFront.worksCategories',
             compact('collection', 'categories', 'arts', 'photos', 'oeuvresByCategorie')
@@ -50,5 +51,13 @@ class CollectionController extends Controller
         }
         $unique = array_unique($x, SORT_REGULAR);
         return $unique;
+    }
+
+    private function categorieQuery($categories)
+    {
+        foreach ($categories as $cat) {
+            $x[] = $cat[1];
+        }
+        return $x;
     }
 }

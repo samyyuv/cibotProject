@@ -5563,7 +5563,7 @@ window.addEventListener("load", function () {
   var title = document.getElementsByClassName("title-art");
 
   if (activeLink) {
-    if (container) {
+    if (activeLink) {
       for (i = 0; i < container.length; i++) {
         remove(container[i], "show");
         if (container[i].className.split(" ").includes(activeLink)) add(container[i], "show");
@@ -5598,6 +5598,7 @@ window.addEventListener("load", function () {
 window.selectBtnArts = function (c) {
   var container, i;
   container = document.getElementsByClassName("art");
+  var title = document.getElementsByClassName("title-art");
 
   if (container) {
     for (i = 0; i < container.length; i++) {
@@ -5606,6 +5607,13 @@ window.selectBtnArts = function (c) {
       if (container[i].className.split(" ").includes(c)) {
         add(container[i], "show");
       }
+    }
+  }
+
+  if (title) {
+    for (i = 0; i < title.length; i++) {
+      remove(title[i], "show");
+      if (title[i].id == c) add(title[i], "show");
     }
   }
 };
@@ -5944,6 +5952,7 @@ function getScrollPercentage() {
 /***/ (() => {
 
 var shows = document.querySelectorAll(".slideshow, #overlay");
+var overlay = document.getElementById("overlay");
 var slideIndex;
 var slideIndex2;
 var categorieId;
@@ -5990,6 +5999,7 @@ function openShowLocal(catgrId, oevrId) {
 
 if (shows) {
   window.openShow = function (catgrId, oevrId) {
+    overlay.style.display = "block";
     openShowLocal(catgrId, oevrId);
   };
 
@@ -6027,7 +6037,7 @@ function slideArt(n) {
       slides[i].style.opacity = "0";
     }
 
-    slides[slideIndex].style.display = "flex";
+    slides[slideIndex].style.display = "block";
     slides[slideIndex].style.opacity = "1";
     setPhotoShowLocal(slides[slideIndex].id);
   }

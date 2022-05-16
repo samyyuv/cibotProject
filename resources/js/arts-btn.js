@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
   var title = document.getElementsByClassName("title-art");
 
   if (activeLink) {
-    if (container) {
+    if (activeLink) {
       for (i = 0; i < container.length; i++) {
         remove(container[i], "show");
         if (container[i].className.split(" ").includes(activeLink)) add(container[i], "show");
@@ -43,12 +43,21 @@ window.addEventListener("load", () => {
 window.selectBtnArts = function (c) {
   var container, i;
   container = document.getElementsByClassName("art");
+  var title = document.getElementsByClassName("title-art");
+
   if (container) {
     for (i = 0; i < container.length; i++) {
       remove(container[i], "show");
       if (container[i].className.split(" ").includes(c)) {
         add(container[i], "show");
       }
+    }
+  }
+  if (title) {
+    for (i = 0; i < title.length; i++) {
+      remove(title[i], "show");
+      if (title[i].id == c) add(title[i], "show");
+
     }
   }
 }

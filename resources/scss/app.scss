@@ -325,10 +325,12 @@ footer {
         margin: 0 auto;
       }
 
+
       @extend .cross-hover;
     }
 
     .card {
+
       >div {
         @extend .listSquare;
       }
@@ -350,6 +352,17 @@ footer {
   }
 
   &-container {
+    p.body-text {
+      a {
+        font-weight: 500;
+        color: $teal;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
     h2 {
       @extend .h2-other;
     }

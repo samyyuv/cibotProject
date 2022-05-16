@@ -21,7 +21,7 @@ html body main.body-container {
   line-height: 1.6rem;
 }
 
-.font-mentions, .nav-expand-content .img-menu p, .card p {
+.font-mentions, .nav-expand-content .img-menu p, .card > p {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1rem;
@@ -601,6 +601,7 @@ html body main.body-container {
   }
 
   .arts {
+    width: 76vw;
     margin-right: 100px;
   }
   .arts ul.dropdown {
@@ -657,7 +658,7 @@ html body main.body-container {
     right: 1.5rem;
   }
   .slideshow-container {
-    align-items: center;
+    width: 100%;
   }
   .slideshow-container > ul {
     margin: 0 3rem;
@@ -707,6 +708,9 @@ html body main.body-container {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .slideshow-2-container {
+    text-align: -webkit-center;
   }
   .slideshow-2-container-button {
     transform: translateY(-50%);
@@ -1815,6 +1819,13 @@ footer {
 .news-article > a i {
   padding-right: 1rem;
   color: #232C2E;
+}
+.news-container p.body-text a {
+  font-weight: 500;
+  color: #006f7e;
+}
+.news-container p.body-text a:hover {
+  text-decoration: underline;
 }
 .news-other div {
   justify-content: space-between;

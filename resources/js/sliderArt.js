@@ -1,4 +1,5 @@
 let shows = document.querySelectorAll(".slideshow, #overlay");
+let overlay = document.getElementById("overlay");
 let slideIndex;
 let slideIndex2;
 let categorieId;
@@ -42,7 +43,8 @@ function openShowLocal(catgrId, oevrId) {
 if (shows) {
 
   window.openShow = function (catgrId, oevrId) {
-    openShowLocal(catgrId, oevrId)
+    overlay.style.display = "block";
+    openShowLocal(catgrId, oevrId);
   }
 
   window.closeShow = function () {
@@ -70,7 +72,7 @@ function slideArt(n) {
       slides[i].style.opacity = "0";
     }
 
-    slides[slideIndex].style.display = "flex";
+    slides[slideIndex].style.display = "block";
     slides[slideIndex].style.opacity = "1";
     setPhotoShowLocal(slides[slideIndex].id)
   }
