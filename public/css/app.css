@@ -267,6 +267,10 @@ html body main.body-container {
   font-weight: 600;
 }
 
+.right {
+  text-align: right;
+}
+
 @media only screen and (min-width: 576px) {
   body .body-container {
     max-width: 1800px;
@@ -1762,17 +1766,16 @@ footer {
 }
 .slideshow-container-button {
   cursor: pointer;
+  color: #fff;
+  z-index: 2;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  font-size: 1rem;
-  background-color: #232C2E;
-  color: #fff;
+  background-color: #006f7e;
   position: absolute;
-  z-index: 2;
 }
 .slideshow-container-button:hover {
-  background-color: #006f7e;
+  background-color: #232C2E;
 }
 .slideshow-container-button i {
   font-size: 2rem;
@@ -1792,16 +1795,16 @@ footer {
 }
 .slideshow-2-container-button {
   cursor: pointer;
+  color: #fff;
+  z-index: 2;
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-  background-color: #006f7e;
-  color: #fff;
+  background-color: #232C2E;
   position: absolute;
-  z-index: 2;
 }
 .slideshow-2-container-button:hover {
-  background-color: #232C2E;
+  background-color: #006f7e;
 }
 .slideshow-2-container-button i {
   font-size: 1rem;
@@ -1863,6 +1866,35 @@ footer {
 }
 .biographie-presentation.awards ul li {
   align-items: baseline;
+}
+.biographie-presentation.criticsBtn .critics {
+  display: none;
+}
+.biographie-presentation.criticsBtn .show {
+  display: block;
+}
+.biographie-presentation.criticsBtn h3,
+.biographie-presentation.criticsBtn p {
+  padding-bottom: 1rem;
+}
+.biographie-presentation.criticsBtn .arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.biographie-presentation.criticsBtn .arrow > div {
+  cursor: pointer;
+  color: #fff;
+  z-index: 2;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: #006f7e;
+  text-align: center;
+}
+.biographie-presentation.criticsBtn .arrow > div:hover {
+  background-color: #232C2E;
 }
 /*
 ! tailwindcss v3.0.13 | MIT License | https://tailwindcss.com
