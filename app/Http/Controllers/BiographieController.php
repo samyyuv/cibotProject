@@ -13,12 +13,14 @@ class BiographieController extends Controller
     {
         $categories = Categorie::all();
         $collections = Collection::all();
-        $oeuvres = Oeuvre::where('active', 1)->latest()->take(5)->get();;
+        $oeuvres = Oeuvre::where('active', 1)->latest()->take(5)->get();
+        $oeuvresImg = Oeuvre::where('active', 1)->inRandomOrder()->limit(8)->get();
 
         return view('partialsFront.biographie', compact(
             'categories',
             'collections',
-            'oeuvres'
+            'oeuvres',
+            'oeuvresImg'
         ));
     }
 }

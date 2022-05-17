@@ -18,7 +18,7 @@
 
     <div class="biographie-presentation hello show">
       <div>
-        <img src="https://picsum.photos/406/341" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[0]->photos[0]->photo) }}" alt="image">
         <h2>{{ __('Presentation') }}</h2>
         @if ('fr' == App::getLocale())
         <p>Née en 1960 dans une famille d’artistes collectionnant les bronzes de la Renaissance italienne,
@@ -54,7 +54,7 @@
 
     <div class="biographie-presentation awards">
       <div>
-        <img src="https://picsum.photos/406/340" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[1]->photos[0]->photo) }}" alt="image">
         <div>
           <h2>{{ __('Awards') }}</h2>
           @if ('fr' == App::getLocale())
@@ -98,7 +98,7 @@
 
     <div class="biographie-presentation monuments">
       <div>
-        <img src="https://picsum.photos/405/341" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[2]->photos[0]->photo) }}" alt="image">
         <div>
           <h2>{{ __('Monuments') }}</h2>
           @if ('fr' == App::getLocale())
@@ -259,7 +259,7 @@
 
     <div class="biographie-presentation personal">
       <div>
-        <img src="https://picsum.photos/406/342" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[3]->photos[0]->photo) }}" alt="image">
         <div>
           <h2>{{ __('Solo exhibitions') }}</h2>
           @if ('fr' == App::getLocale())
@@ -610,7 +610,7 @@
 
     <div class="biographie-presentation collectives">
       <div>
-        <img src="https://picsum.photos/406/339" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[4]->photos[0]->photo) }}" alt="image">
         <div>
           <h2>{{ __('Collective exhibitions') }} </h2>
           @if ('fr' == App::getLocale())
@@ -864,7 +864,7 @@
 
     <div class="biographie-presentation evenements">
       <div>
-        <img src="https://picsum.photos/405/340" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[5]->photos[0]->photo) }}" alt="image">
         <div>
           <h2>{{ __('Events') }}</h2>
           @if ('fr' == App::getLocale())
@@ -927,7 +927,7 @@
 
     <div class="biographie-presentation permanence">
       <div>
-        <img src="https://picsum.photos/406/341" alt="">
+        <img src="{{ asset('/storage/' . $oeuvresImg[6]->photos[0]->photo) }}" alt="image">
         <h2>{{ __('Galleries') }}</h2>
         @if ('fr' == App::getLocale())
         <ul>

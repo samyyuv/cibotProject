@@ -16,6 +16,11 @@
     </div>
     <div class="home-slider">
       <div class="home-slides">
+        <div class="home-slide slide fade">
+          <img src="{{ asset('/storage/' . $tellina->photos[0]->photo) }}" alt="">
+          <a href="/collections/{{ $tellina->collection_id }}" class="home-slider-details link" onclick="activeArtLinkExtended('{{ $tellina->categorie->id }}', '{{ $tellina->id }}')">
+            {{ $tellina->titre }} - {{ $tellina->date->format('Y') }} - {{ $tellina->collection->titre }} →</a>
+        </div>
         @foreach ($oeuvresWelcome as $oeuvre)
         @foreach ($oeuvre->photos as $photo)
         @if ($loop->first)

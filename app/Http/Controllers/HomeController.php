@@ -21,15 +21,17 @@ class HomeController extends Controller
         $categories = Categorie::all();
         $collections = Collection::all();
         $oeuvres = Oeuvre::where('active', 1)->orderBy('date', 'desc')->take(5)->get();
-        $oeuvresWelcome = Oeuvre::where('active', 1)->inRandomOrder()->limit(3)->get();
-        $actualite = Actualite::where('active', 1)->first();
+        $tellina = Oeuvre::where('id', 217)->first();
+        $oeuvresWelcome = Oeuvre::where('active', 1)->inRandomOrder()->limit(2)->get();
+        $actualite = Actualite::where('active', 1)->orderBy('position', 'asc')->first();
 
         return view('partialsFront.home', compact(
             'categories',
             'collections',
             'actualite',
             'oeuvres',
-            'oeuvresWelcome'
+            'oeuvresWelcome',
+            'tellina'
         ));
     }
 
