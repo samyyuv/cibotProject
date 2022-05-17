@@ -35,7 +35,7 @@ class StoreActualiteRequest extends FormRequest
             'titre_seo' => 'nullable',
             'description_seo' => 'nullable',
             'active' => 'nullable',
-            'photo' => $imageRule,
+            'photo.*.photo' => $imageRule,
         ];
     }
 }

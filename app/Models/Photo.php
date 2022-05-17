@@ -19,6 +19,8 @@ class Photo extends Model
         self::creating(function ($photo) {
             if (request()->oeuvre && !request()->routeIs('oeuvres.*'))
                 $photo->oeuvre()->associate(Oeuvre::find(request()->oeuvre));
+            // elseif (request()->actualite && !request()->routeIs('actualites.*'))
+            // $photo->actualite()->associate(Actualite::find(request()->actualite))
         });
     }
 
@@ -27,13 +29,18 @@ class Photo extends Model
         return $this->belongsTo(Oeuvre::class);
     }
 
-    public function collections()
+    public function collection()
     {
         return $this->belongsTo(Oeuvre::class);
     }
 
-    public function categories()
+    public function categorie()
     {
         return $this->belongsTo(Categorie::class);
+    }
+
+    public function actualite()
+    {
+        return $this->belongsTo(Oeuvre::class);
     }
 }

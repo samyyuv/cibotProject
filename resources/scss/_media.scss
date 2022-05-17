@@ -654,6 +654,16 @@
       p:nth-child(7) {
         padding-bottom: 1.5rem;
       }
+
+      .img-container {
+        padding-top: 3rem;
+
+        //photo container
+        >div {
+          padding-bottom: 1.5rem;
+        }
+
+      }
     }
 
     //another news

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Photo;
 use App\Models\Actualite;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ class ActualiteController extends Controller
             ]);
         };
 
-        Actualite::create([
+        $actualite = Actualite::create([
             'titre' => $request->titre,
             'description' => $request->description,
             'titre_en' => $request->titre_en,
@@ -70,6 +71,19 @@ class ActualiteController extends Controller
             'active' => $active,
             'photo' => "actualites/" . $fileName,
         ]);
+
+        //extra photos
+        $i = 1;
+        foreach ($request->extraPhotos as $photo) {
+            $actualiteTitle = Str::slug($request->titre);
+            $fileName = $actualiteTitle . $i . '.' . $photo->getClientOriginalExtension();
+            $photo->storeAs('actualites/extra', $fileName);
+            Photo::create([
+                'photo' => "actualites/extra/" . $fileName,
+                'actualite_id' => $actualite->id,
+            ]);
+            $i++;
+        }
 
         return redirect()->route('admin.actualites.index')->with('success', __('Your news has been created'));
     }

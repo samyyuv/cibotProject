@@ -12,8 +12,16 @@
         <p class="body-text">{!! $actualite->description !!}</p>
 
         @endif
-
+        {{--extra photos--}}
+        <div class="img-container">
+          @foreach ($actualite->photos as $photo)
+          <div class="">
+            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+          </div>
+          @endforeach
+        </div>
       </div>
+      {{--main photos--}}
       <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
     </div>
 

@@ -18,4 +18,8 @@ class Actualite extends Model
     {
         return Str::ucfirst($attribute);
     }
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
 }

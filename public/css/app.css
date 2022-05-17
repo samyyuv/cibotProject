@@ -806,6 +806,12 @@ html body main.body-container {
   .news-container p:nth-child(7) {
     padding-bottom: 1.5rem;
   }
+  .news-container .img-container {
+    padding-top: 3rem;
+  }
+  .news-container .img-container > div {
+    padding-bottom: 1.5rem;
+  }
   .news-other div.show {
     display: flex;
   }
@@ -2937,11 +2943,11 @@ select {
 .gap-4 {
   gap: 1rem;
 }
-.gap-5 {
-  gap: 1.25rem;
-}
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;

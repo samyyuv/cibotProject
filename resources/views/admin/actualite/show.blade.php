@@ -54,6 +54,13 @@
               <h1 class="text-xl font-bold mb-3">{{ $actualite->titre }}</h1>
 
               <p class="mt-6 text-justify text-base">{!! $actualite->description !!}</p>
+              <div class="container grid grid-cols-3 gap-2 mx-auto">
+                @foreach ($actualite->photos as $photo)
+                <div class="w-full rounded">
+                  <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                </div>
+                @endforeach
+              </div>
             </article>
           </main>
       </div>
