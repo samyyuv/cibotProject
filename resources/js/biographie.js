@@ -34,6 +34,18 @@ window.selectBtnBio = function (c) {
   }
 }
 
+window.selectCritic = function (c) {
+  var critic, i
+  critic = document.getElementsByClassName("critics");
+
+  if (critic) {
+    for (i = 0; i < critic.length; i++) {
+      remove(critic[i], "show");
+      if (critic[i].className.indexOf(c) > 1) add(critic[i], "show");
+    }
+  }
+}
+
 window.activeBioLink = function (c) {
   sessionStorage.setItem("biographie-link", c);
 }

@@ -251,19 +251,8 @@ footer {
     //position: initial;
 
     &-button {
-      cursor: pointer;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      font-size: $font-m;
-      background-color: $antracite;
-      color: $white;
+      @include circularBtns(3rem, 3rem, $light-theme: false);
       position: absolute;
-      z-index: 2;
-
-      &:hover {
-        background-color: $teal;
-      }
 
       i {
         font-size: 2rem;
@@ -289,18 +278,8 @@ footer {
     &-container {
 
       &-button {
-        cursor: pointer;
-        width: 1.2rem;
-        height: 1.2rem;
-        border-radius: 50%;
-        background-color: $teal;
-        color: $white;
+        @include circularBtns(1.2rem, 1.2rem, $light-theme: true);
         position: absolute;
-        z-index: 2;
-
-        &:hover {
-          background-color: $antracite;
-        }
 
         i {
           font-size: 1rem;
@@ -424,6 +403,31 @@ footer {
   &-presentation.awards ul {
     li {
       align-items: baseline;
+    }
+  }
+
+  &-presentation.criticsBtn {
+    .critics {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+
+    h3,
+    p {
+      padding-bottom: 1rem;
+    }
+
+    .arrow {
+      @include flex-box(space-between, flex-start, nowrap);
+
+      >div {
+
+        @include circularBtns(1.5rem, 1.5rem, $light-theme: false);
+        text-align: center;
+      }
     }
   }
 }

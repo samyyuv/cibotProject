@@ -400,6 +400,10 @@ html body {
   font-weight: 600;
 }
 
+.right {
+  text-align: right;
+}
+
 
 @mixin btn-dropdown($mobile: true) {
   @if $mobile {
@@ -482,4 +486,30 @@ html body {
     }
   }
 
+}
+
+//left/right buttons
+@mixin circularBtns($width, $height, $light-theme: true) {
+  cursor: pointer;
+  color: $white;
+  z-index: 2;
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+
+  @if $light-theme {
+    background-color: $antracite;
+
+    &:hover {
+      background-color: $teal;
+    }
+  }
+
+  @else {
+    background-color: $teal;
+
+    &:hover {
+      background-color: $antracite;
+    }
+  }
 }
