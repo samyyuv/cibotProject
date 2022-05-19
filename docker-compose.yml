@@ -20,7 +20,7 @@ services:
       - "8080:80"
     volumes:
       - ./:/var/www/html
-    user: ${CURRENT_UID}
+    user: '1000:1000'
 
   composer:
     restart: 'no'
