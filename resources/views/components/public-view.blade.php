@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="Elisabeth Cibot est une artiste contemporaine et historienne française. Elle a créé des installations, des sculptures, des peintures et des dessins.">
 
-    <title>Elisabeth Cibot</title>
+    <title>Elisabeth Cibot - Sculptrice</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('/storage/admin/faviconEC.png') }}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
@@ -18,6 +22,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://kit.fontawesome.com/5fc9c8ed9e.js" crossorigin="anonymous"></script>
+
+    <meta name="keywords" content="Elisabeth Cibot art, art contemporaine, Sculptures, Les Belles, Les Elfes, Camille.S rencontre avec Camille Claudel">
 
 </head>
 

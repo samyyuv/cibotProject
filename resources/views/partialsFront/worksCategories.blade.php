@@ -71,7 +71,7 @@
                 <ul>
                   @foreach ($oeuvre->photos as $photo)
                   <li class="slide2-{{$oeuvre->id}} fade">
-                    <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                    <img class="slideshow-img" src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
                   </li>
                   @endforeach
                 </ul>
