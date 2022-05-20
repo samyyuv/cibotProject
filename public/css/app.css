@@ -726,8 +726,8 @@ html body main.body-container {
   .slideshow-2-container-button:nth-child(2) {
     right: 50%;
   }
-  .slideshow-2-container ul > li > div > img {
-    max-height: 70vh;
+  .slideshow-2-container .slideshow-img {
+    max-height: 80vh;
   }
 
   .actualites {
