@@ -8,7 +8,7 @@
       <div class="slider-arts item">
         @foreach ($oeuvres as $oeuvre)
         @foreach ($oeuvre->photos as $photo)
-        @if ($loop->first)
+        @if ($photo->position === 0)
         <div class="slide-2 card">
           <div>
             <a href="/collections/{{ $oeuvre->collection_id }}" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">

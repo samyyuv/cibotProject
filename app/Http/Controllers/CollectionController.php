@@ -34,14 +34,19 @@ class CollectionController extends Controller
         $collection = Collection::find($id);
         $arts = $collection->oeuvres;
         $oeuvresByCategorie = Oeuvre::all()->groupBy("categorie_id");
-        $photos = Photo::all();
         $categoriesQuery = $this->categories($arts);
         $categoriesId = $this->categorieQuery($categoriesQuery);
         $categories = Categorie::whereIn('id', $categoriesId)->get();
+
         return view(
             'partialsFront.worksCategories',
-            compact('collection', 'categories', 'arts', 'photos', 'oeuvresByCategorie')
+            compact('collection', 'categories', 'arts', 'oeuvresByCategorie')
         );
+    }
+
+    public static function getPhotosByOeuvreSortedByPosition($oeuvreId)
+    {
+        return Photo::where('oeuvre_id', $oeuvreId)->orderBy('position')->get();
     }
 
     private function categories($arts)
@@ -59,5 +64,14 @@ class CollectionController extends Controller
             $x[] = $cat[1];
         }
         return $x;
+    }
+    private function oeuvres($categories)
+    {
+        foreach ($categories as $cat) {
+            foreach ($cat->oeuvres as $oeuvre) {
+                $artwork[] = $oeuvre->id;
+            }
+        }
+        return $artwork;
     }
 }

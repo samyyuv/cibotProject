@@ -7,8 +7,10 @@ use App\Models\Oeuvre;
 use App\Models\Categorie;
 use App\Models\Collection;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreOeuvreRequest;
+use Illuminate\Support\Facades\Validator;
 
 class OeuvreUpdateAction
 {
@@ -55,6 +57,35 @@ class OeuvreUpdateAction
         $i++;
       }
     };
+
+    // get ids and positions of photos in oeuvres 
+    $photosId = Photo::where('oeuvre_id', $oeuvre->id)->pluck('id')->toArray();
+
+    foreach ($photosId as $key => $photo) {
+      $x = "position" . "-" . $photo;
+      $id2b = $request->$x;
+      $allIds[] = $request->$x;
+
+      if (count($allIds) === count(array_unique($allIds))) {
+        Photo::where('id', $photo)
+          ->update([
+            'position' => $id2b,
+          ]);
+      }
+    }
+
+    //check positions don't repeat
+    foreach ($photosId as $key => $photo) {
+      $x = "position" . "-" . $photo;
+      $y[] = $request->$x;
+      unset($y[$key]);
+      $request->validate([
+        $x => [
+          'required',
+          Rule::notIn($y),
+        ],
+      ]);
+    }
 
     $oeuvre->update($arrayUpdate);
   }
