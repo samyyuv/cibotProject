@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\BiographieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Categorie;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,10 +42,7 @@ Route::resource('/biographie', BiographieController::class);
 
 
 Route::resource('/actualites', ActualiteController::class);
-Route::resource('/categories', CategorieController::class);
-Route::resource('/collections', CollectionController::class);
-Route::resource('/oeuvres', OeuvreController::class);
-Route::resource('/photos', PhotoController::class);
+Route::get('/collections/{collection}/categories/{category}', [CollectionController::class, 'showCategory']);
 Route::resource('/', HomeController::class);
 Route::view('/contactez-nous', 'partialsFront.contactPage');
 

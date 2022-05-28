@@ -15,7 +15,7 @@
             <h1 class="text-2xl font-semibold whitespace-nowrap">{{ __('Edit') }} "{{ $oeuvre->titre }}"</h1>
           </div>
 
-          <div class="mt-6 px-6">
+          <div class="mt-6 px-6 edit">
             <div class="my-5">
               @foreach ($errors->all() as $error)
               <span class="block text-red-500"> {{ $error }} </span>
@@ -30,6 +30,8 @@
               <div class="my-5 md:mt-0 md:col-span-2">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                   <div class="px-4 my-5 bg-white space-y-6 sm:p-6">
+
+                    <x-success class="mb-6" />
 
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
@@ -67,7 +69,7 @@
                         {{ __('Date de creation') }}
                       </label>
                       <div class="mt-1">
-                        <input type="date" name="date" id="date" value="{{ $oeuvre->created_at->format('Y-m-d') }}" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300">
+                        <input type="date" name="date" id="date" value="{{ $oeuvre->date->format('Y-m-d') }}" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300">
                       </div>
                     </div>
 
@@ -95,8 +97,22 @@
                       </label>
                       <div class="container grid grid-cols-3 gap-2 mx-auto">
                         @foreach ($oeuvre->photos as $photo)
-                        <div class="w-full rounded">
+                        <div class="w-full rounded flex flex-col items-end">
+                          <label>
+                            <input id="checkInput" type="checkbox" name="delete-{{$photo->id}}" value="delete-{{$photo->id}}">
+                            <div class="bg-red-500 px-2 py-2 rounded hover:bg-red-800 trash"><i class="fas fa-trash-alt"></i></div>
+                          </label>
                           <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                          <label for="categorie" class="block text-lg font-medium text-gray-700">{{ __('Select the order for your photos') }}</label>
+                          <select name="position-{{$photo->id}}" id="position" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#006f7e] focus:border-[#006f7e] sm:text-lg">
+                            @for($i = 1; $i <= count($oeuvre->photos); $i++)
+                              @if ($i === $photo->position +1)
+                              <option selected value="{{$i-1}}">{{$i}}</option>
+                              @else
+                              <option value="{{$i-1}}">{{$i}}</option>
+                              @endif
+                              @endfor
+                          </select>
                         </div>
                         @endforeach
                       </div>

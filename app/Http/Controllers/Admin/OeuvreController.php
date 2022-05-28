@@ -61,7 +61,7 @@ class OeuvreController extends Controller
         ]);
 
         $i = 1;
-        foreach ($request->photos as $photo) {
+        foreach ($request->photos as $key => $photo) {
             $ouvreTitle = Str::slug($request->titre);
             $categorie = Str::slug($categorieName);
             $fileName = $ouvreTitle . $i . '.' . $photo->getClientOriginalExtension();
@@ -69,6 +69,7 @@ class OeuvreController extends Controller
             Photo::create([
                 'photo' => "oeuvres/" . $categorie . "/" . $fileName,
                 'oeuvre_id' => $oeuvre->id,
+                'position' => $key
             ]);
             $i++;
         }

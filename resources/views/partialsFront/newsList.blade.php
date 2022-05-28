@@ -1,6 +1,6 @@
 <x-public-view>
   <section class="actualites">
-    <h1>{{ __('news') }}</h1>
+    <h1>{{ __('News') }}</h1>
 
     <div class="actualites-btn menu-btns">
       <ul class="dropdown" id="btn-news">

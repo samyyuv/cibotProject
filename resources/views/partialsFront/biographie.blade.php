@@ -1,6 +1,6 @@
 <x-public-view>
   <section class="biographie">
-    <h1>{{ __('biography') }}</h1>
+    <h1>{{ __('Biography') }}</h1>
 
     <div class="biographie-btn menu-btns">
       <ul class="biographie-dropdown dropdown" id="bio-drop">
@@ -12,7 +12,7 @@
         <li id="evenements" class="btn" onclick="selectBtnBio('evenements')"><a>{{ __('Events') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
         <li id="permanence" class="btn" onclick="selectBtnBio('permanence')"><a>{{ __('Galleries') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
         <li id="criticsBtn" class="btn" onclick="selectBtnBio('criticsBtn')"><a>{{ __('Critics') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
-        <li id="video" class="btn" onclick="selectBtnBio('video')"><a>{{ __('Video') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
+        <li id="video" class="btn" onclick="selectBtnBio('video')"><a>{{ __('Videos') }}</a> <i class="fa-solid fa-chevron-down"></i></li>
       </ul>
 
     </div>

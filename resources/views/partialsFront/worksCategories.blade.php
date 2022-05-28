@@ -10,8 +10,8 @@
     <div class="arts-btn menu-btns" id="btn-arts">
       <ul class="dropdown">
         @foreach ($categories as $cat)
-        <li id="{{$slugedNames[$cat->id]}}" class="btn-art btn" onclick="selectBtnArts('{{$slugedNames[$cat->id]}}')">
-          <a>{{ $cat->titre }}</a> <i class="fa-solid fa-chevron-down"></i>
+        <li>
+          <a id="{{$slugedNames[$cat->id]}}" class="btn-art btn" href="{{ url("/collections/{$collection->id}/categories/{$cat->id}") }}" onclick="activeArtLink('{{$slugedNames[$cat->id]}}')">{{ $cat->titre }}</a><i class="fa-solid fa-chevron-down"></i>
         </li>
         @endforeach
       </ul>
@@ -24,7 +24,7 @@
         @foreach($cat->oeuvres as $oeuvre)
         <div onclick="openShow({{$cat->id}}, {{ $oeuvre->id }});currentSlide({{ $loop->index }});setPhotoShow(<?= $oeuvre->id ?>)">
           @foreach ($oeuvre->photos as $photo)
-          @if ($loop->first)
+          @if ($photo->position === 0)
           <a href="#">
             <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="">
             <div class="cross">
@@ -69,7 +69,10 @@
                 </button>
                 @endif
                 <ul>
-                  @foreach ($oeuvre->photos as $photo)
+
+                  <?php $sortedPhoto = App\Http\Controllers\CollectionController::getPhotosByOeuvreSortedByPosition($oeuvre->id) ?>
+
+                  @foreach ($sortedPhoto as $photo)
                   <li class="slide2-{{$oeuvre->id}} fade">
                     <img class="slideshow-img" src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
                   </li>
@@ -80,7 +83,7 @@
                 <h5>{{ $oeuvre->categorie->titre }}</h5>
                 <h2>{{ $oeuvre->titre }}</h2>
                 <p>{!! $oeuvre->description !!}</p>
-                <a href="">Voir la série "{{ $oeuvre->collection->titre }}"</a>
+                <a class="link" href="">Voir la série "{{ $oeuvre->collection->titre }}"</a>
               </div>
             </div>
           </li>
