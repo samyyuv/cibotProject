@@ -35,7 +35,7 @@
           <ul class="footer-content-items foot-expand-content">
             @foreach ($collectionsMenu as $collection)
             <li>
-              <div><a class="foot-link link" href="{{ route('collections.show', $collection) }}">
+              <div> <a class="foot-link link" href="{{ url("/collections/{$collection->id}/categories/1") }}">
                   {{ $collection->titre }}
                 </a></div>
             </li>

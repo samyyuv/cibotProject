@@ -12,18 +12,6 @@ use Illuminate\Http\Request;
 class CollectionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $collections = Collection::all();
-
-        return view('public.collection.index', compact('collections'));
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Collection  $collection
@@ -32,21 +20,35 @@ class CollectionController extends Controller
     public function show($id)
     {
         $collection = Collection::find($id);
-        $arts = $collection->oeuvres;
         $oeuvresByCategorie = Oeuvre::all()->groupBy("categorie_id");
-        $categoriesQuery = $this->categories($arts);
-        $categoriesId = $this->categorieQuery($categoriesQuery);
+        $categoriesQuery = $this->categories($collection->oeuvres);
+        $categoriesId = array_map(fn ($el) => $el[1], $categoriesQuery);
         $categories = Categorie::whereIn('id', $categoriesId)->get();
+        //dd($collection);
 
         return view(
             'partialsFront.worksCategories',
-            compact('collection', 'categories', 'arts', 'oeuvresByCategorie')
+            compact('collection', 'categories', 'oeuvresByCategorie')
         );
     }
 
     public static function getPhotosByOeuvreSortedByPosition($oeuvreId)
     {
         return Photo::where('oeuvre_id', $oeuvreId)->orderBy('position')->get();
+    }
+
+    public function showCategory($collectionId, $categoryId)
+    {
+        $collection = Collection::find($collectionId);
+        $oeuvres = Oeuvre::where("categorie_id", "=", $categoryId)->get();
+        $categoriesQuery = $this->categories($collection->oeuvres);
+        $categoriesId = array_map(fn ($el) => $el[1], $categoriesQuery);
+        $categories = Categorie::whereIn('id', $categoriesId)->get();
+
+        return view(
+            'partialsFront.worksCategories',
+            compact('collection', 'categories', 'oeuvres')
+        );
     }
 
     private function categories($arts)
@@ -56,22 +58,5 @@ class CollectionController extends Controller
         }
         $unique = array_unique($x, SORT_REGULAR);
         return $unique;
-    }
-
-    private function categorieQuery($categories)
-    {
-        foreach ($categories as $cat) {
-            $x[] = $cat[1];
-        }
-        return $x;
-    }
-    private function oeuvres($categories)
-    {
-        foreach ($categories as $cat) {
-            foreach ($cat->oeuvres as $oeuvre) {
-                $artwork[] = $oeuvre->id;
-            }
-        }
-        return $artwork;
     }
 }

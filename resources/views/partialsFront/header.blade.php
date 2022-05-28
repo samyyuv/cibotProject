@@ -18,7 +18,7 @@
           <ul class="nav-items nav-expand-content nav-container" data-dropdown-button>
             @foreach ($collectionsMenu as $collection)
             <li class="nav-expand column">
-              <div><a class="nav-link nav-expand-link" href="{{ route('collections.show', $collection) }}">
+              <div><a class="nav-link nav-expand-link" href="{{ url("/collections/{$collection->id}/categories/1") }}">
                   {{ $collection->titre }}
                 </a></div>
               <i class="fas fa-chevron-right noshow"></i>
@@ -33,7 +33,7 @@
                 @endforeach
                 @foreach ($unique as $categorieTitle)
                 <li>
-                  <a class="nav-link" href="{{ route('collections.show', $collection) }}" onclick="activeArtLink('<?= $slugedNames[$categorieTitle[1]] ?>')">
+                  <a class="nav-link" href="{{ url("/collections/{$collection->id}/categories/{$categorieTitle[1]}") }}" onclick="activeArtLink('<?= $slugedNames[$categorieTitle[1]] ?>')">
                     {{ $categorieTitle[0] }}
                   </a>
                 </li>
@@ -56,7 +56,7 @@
               </div>
               <div>
                 <div>
-                  <a class="link" href="/collections/{{ $oeuvreMenu->collection_id }}" onclick="activeArtLinkExtended('{{ $oeuvreMenu->categorie->id }}', '{{ $oeuvreMenu->id }}')">
+                  <a class="link" href="/collections/{{ $oeuvreMenu->collection_id }}/categories/{{ $oeuvreMenu->categorie_id }}" onclick="activeArtLink('<?= $slugedNames[$oeuvreMenu->categorie_id] ?>');activeArtLinkExtended('{{ $oeuvreMenu->categorie->id }}', '{{ $oeuvreMenu->id }}')">
                     <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
                   </a>
                 </div>
