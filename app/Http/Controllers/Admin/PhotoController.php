@@ -118,7 +118,6 @@ class PhotoController extends Controller
     {
         $photo = Photo::find($id);
         $photo->delete();
-
-        return redirect()->route('dashboard')->with('success', __('Your photo has been deleted'));
+        return back()->with('success', __('Your photo has been deleted'));
     }
 }

@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Validator;
 
 class OeuvreUpdateAction
 {
-  public function handle(StoreOeuvreRequest $request, Oeuvre $oeuvre): void
+  public function handle(StoreOeuvreRequest $request, Oeuvre $oeuvre)
   {
+    //dd($request);
     $active = $request->active ? 1 : 0;
     $arrayUpdate = [
       'titre' => $request->titre,
@@ -65,12 +66,18 @@ class OeuvreUpdateAction
       $x = "position" . "-" . $photo;
       $id2b = $request->$x;
       $allIds[] = $request->$x;
+      $delete = "delete" . "-" . $photo;
 
       if (count($allIds) === count(array_unique($allIds))) {
         Photo::where('id', $photo)
           ->update([
             'position' => $id2b,
           ]);
+      }
+
+      if ($request->$delete == $delete) {
+        Photo::where('id', $photo)
+          ->delete();
       }
     }
 
@@ -86,6 +93,8 @@ class OeuvreUpdateAction
         ],
       ]);
     }
+
+    //delete photos 
 
     $oeuvre->update($arrayUpdate);
   }

@@ -431,3 +431,19 @@ footer {
     }
   }
 }
+
+div.delete1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.edit {
+  input[type=checkbox]:checked#checkInput+.trash {
+    background: #991B1E;
+  }
+
+  #checkInput {
+    display: none;
+  }
+}
