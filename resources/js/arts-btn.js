@@ -1,22 +1,25 @@
 window.addEventListener("load", () => {
-  var activeLink = sessionStorage.getItem("art-link");
-  sessionStorage.removeItem("art-link");
+  let url = window.location.pathname;
+  var categorieId = getCategorieId(url)
 
   var btnNews = document.getElementById("btn-arts");
   var btns = btnNews && btnNews.getElementsByClassName("btn-art");
 
-  if (activeLink) {
+  if (categorieId) {
     if (btns) {
       for (var i = 0; i < btns.length; i++) {
         remove(btns[i], "active")
-        if (btns[i].id == activeLink) add(btns[i], "active");
+        if (btns[i].id == "categorie-" + categorieId) add(btns[i], "active");
       }
     }
   }
 })
 
-window.activeArtLink = function (c) {
-  sessionStorage.setItem("art-link", c);
+function getCategorieId(url) {
+  var parameters = url.split("/")
+  var categorieIndex = parameters.indexOf('categories')
+  var categorieId = parameters[categorieIndex + 1]
+  return categorieId
 }
 
 // Show filtered pags

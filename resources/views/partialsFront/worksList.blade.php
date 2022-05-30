@@ -12,8 +12,8 @@
     <div class="arts-btn menu-btns" id="btn-arts">
       <ul class="dropdown">
         @foreach ($categorieByCollection as $categorieBtn)
-        <li id="{{$slugedNames[$categorieBtn[1]]}}" class="btn-art btn">
-          <a href="{{ url("/collections/{$collection->id}/categories/{$categorieBtn[1]}" ) }}" onclick="activeArtLink('{{$slugedNames[$categorieBtn[1]]}}')">
+        <li id="categorie-{{$categorieBtn[1]}}" class="btn-art btn">
+          <a href="{{ url("/collections/{$collection->id}/categories/{$categorieBtn[1]}" ) }}">
             {{ $categorieBtn[0] }}
           </a><i class="fa-solid fa-chevron-down"></i>
         </li>

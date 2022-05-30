@@ -21,7 +21,7 @@
               <div>
                 @foreach ($collection->oeuvres as $oeuvre)
                 @if ($loop->first)
-                <a class="nav-link nav-expand-link" href="{{ url("/collections/{$collection->id}/categories/{$oeuvre->categorie_id}") }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie_id] ?>')">
+                <a class="nav-link nav-expand-link" href="{{ url("/collections/{$collection->id}/categories/{$oeuvre->categorie_id}") }}">
                   {{ $collection->titre }}
                 </a>
                 @endif
@@ -41,7 +41,7 @@
                 @endforeach
                 @foreach ($unique as $categorieTitle)
                 <li>
-                  <a class="nav-link" href="{{ url("/collections/{$collection->id}/categories/{$categorieTitle[1]}") }}" onclick="activeArtLink('<?= $slugedNames[$categorieTitle[1]] ?>')">
+                  <a class="nav-link" href="{{ url("/collections/{$collection->id}/categories/{$categorieTitle[1]}") }}">
                     {{ $categorieTitle[0] }}
                   </a>
                 </li>
@@ -64,7 +64,7 @@
               </div>
               <div>
                 <div>
-                  <a class="link" href="/collections/{{ $oeuvreMenu->collection_id }}/categories/{{ $oeuvreMenu->categorie_id }}" onclick="activeArtLink('<?= $slugedNames[$oeuvreMenu->categorie_id] ?>');activeArtLinkExtended('{{ $oeuvreMenu->categorie->id }}', '{{ $oeuvreMenu->id }}')">
+                  <a class="link" href="/collections/{{ $oeuvreMenu->collection_id }}/categories/{{ $oeuvreMenu->categorie_id }}" onclick="activeArtLinkExtended('{{ $oeuvreMenu->categorie->id }}', '{{ $oeuvreMenu->id }}')">
                     <p>{{ $oeuvreMenu->titre }} - {{ $oeuvreMenu->date->format('Y') }} - {{ $oeuvreMenu->categorie->titre }}</p>
                   </a>
                 </div>

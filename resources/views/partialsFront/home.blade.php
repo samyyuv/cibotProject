@@ -18,7 +18,7 @@
       <div class="home-slides">
         <div class="home-slide slide fade">
           <img src="{{ asset('/storage/' . $tellina->photos[0]->photo) }}" alt="">
-          <a href="/collections/{{ $tellina->collection_id }}/categories/{{ $tellina->categorie_id }}" class="home-slider-details link" onclick="activeArtLink('<?= $slugedNames[$tellina->categorie_id] ?>');activeArtLinkExtended('{{ $tellina->categorie->id }}', '{{ $tellina->id }}' )">
+          <a href="/collections/{{ $tellina->collection_id }}/categories/{{ $tellina->categorie_id }}" class="home-slider-details link" onclick="activeArtLinkExtended('{{ $tellina->categorie->id }}', '{{ $tellina->id }}' )">
             {{ $tellina->titre }} - {{ $tellina->date->format('Y') }} - {{ $tellina->collection->titre }} →</a>
         </div>
         @foreach ($oeuvresWelcome as $oeuvre)
@@ -26,7 +26,7 @@
         @if ($loop->first)
         <div class="home-slide slide fade">
           <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
-          <a href="/collections/{{ $oeuvre->collection_id }}/categories/{{ $oeuvre->categorie_id }}" class="home-slider-details link" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie->id] ?>');activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
+          <a href="/collections/{{ $oeuvre->collection_id }}/categories/{{ $oeuvre->categorie_id }}" class="home-slider-details link" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
             {{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
         </div>
         @endif
