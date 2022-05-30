@@ -10,7 +10,7 @@
     <title>Elisabeth Cibot - Sculptrice</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('/storage/admin/faviconEC.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/storage/admin/faviconEC1.png') }}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">

@@ -8,7 +8,7 @@
 
     <title>Elisabeth Cibot</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('/storage/admin/faviconEC.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/storage/admin/faviconEC1.png') }}">
 
     <!-- Fonts -->
 
