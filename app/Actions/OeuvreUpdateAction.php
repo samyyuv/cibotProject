@@ -16,7 +16,6 @@ class OeuvreUpdateAction
 {
   public function handle(StoreOeuvreRequest $request, Oeuvre $oeuvre)
   {
-    //dd($request);
     $active = $request->active ? 1 : 0;
     $arrayUpdate = [
       'titre' => $request->titre,

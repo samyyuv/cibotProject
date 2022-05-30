@@ -49,7 +49,7 @@ html body main.body-container {
   font-family: "Sorts Mill Goudy", serif;
   font-size: 4.6rem;
   line-height: 3.8rem;
-  color: #006f7e;
+  color: #92d6d6;
 }
 
 .menu-icon {
@@ -386,7 +386,7 @@ html body main.body-container {
     flex: 1 1 0px;
   }
   .nav-drill a:hover {
-    color: #006f7e;
+    color: #92d6d6;
   }
   .nav-drill .menu-language {
     display: flex;
@@ -459,7 +459,7 @@ html body main.body-container {
     padding-bottom: 0.7rem;
   }
   .nav-expand .nav-expand-content .nav-expand-content .nav-link:hover {
-    color: #006f7e;
+    color: #92d6d6;
   }
 
   .slider {
@@ -581,7 +581,7 @@ html body main.body-container {
     font-size: 1rem;
     font-weight: 500;
     line-height: 0.8;
-    color: #006f7e;
+    color: #92d6d6;
   }
   .news h4:hover {
     color: #232C2E;
@@ -605,7 +605,6 @@ html body main.body-container {
   }
 
   .arts {
-    width: 76vw;
     margin-right: 100px;
   }
   .arts ul.dropdown {
@@ -624,21 +623,27 @@ html body main.body-container {
     text-align: center;
     line-height: 1;
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
-    color: #006f7e;
+    color: #92d6d6;
     background-color: #F1F1F1;
+  }
+  .arts ul.dropdown .btn a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .arts ul.dropdown .btn:hover, .arts ul.dropdown .btn.active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .arts ul.dropdown .btn:hover a, .arts ul.dropdown .btn.active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .arts h5 {
     padding: 2rem 0;
@@ -691,7 +696,7 @@ html body main.body-container {
     padding-bottom: 0.8rem;
   }
   .slideshow-container .cardSlide a {
-    color: #006f7e;
+    color: #92d6d6;
   }
   .slideshow-container-button {
     top: 50%;
@@ -749,21 +754,27 @@ html body main.body-container {
     text-align: center;
     line-height: 1;
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
-    color: #006f7e;
+    color: #92d6d6;
     background-color: #F1F1F1;
+  }
+  .actualites ul.dropdown .btn a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .actualites ul.dropdown .btn:hover, .actualites ul.dropdown .btn.active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .actualites ul.dropdown .btn:hover a, .actualites ul.dropdown .btn.active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .actualites h1 {
     padding-top: 3.56rem;
@@ -845,21 +856,27 @@ html body main.body-container {
     text-align: center;
     line-height: 1;
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
-    color: #006f7e;
+    color: #92d6d6;
     background-color: #F1F1F1;
+  }
+  .biographie-dropdown .btn a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .biographie-dropdown .btn:hover, .biographie-dropdown .btn.active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .biographie-dropdown .btn:hover a, .biographie-dropdown .btn.active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .biographie-presentation > div {
     display: grid;
@@ -1028,7 +1045,7 @@ footer .copyright {
   }
   .nav-expand i,
 .foot-expand i {
-    color: #006f7e;
+    color: #92d6d6;
   }
   .nav-expand .nav-expand-content,
 .foot-expand .nav-expand-content {
@@ -1076,7 +1093,7 @@ footer .copyright {
   }
   .nav-expand-content .nav-item > .nav-back-link,
 .foot-expand-content .nav-item > .nav-back-link {
-    color: #006f7e;
+    color: #92d6d6;
     font-weight: 600 !important;
     line-height: 1.25rem;
     padding-left: 0.5rem;
@@ -1098,7 +1115,7 @@ footer .copyright {
   }
 
   .foot-expand-content .foot-item > .foot-back-link {
-    color: #006f7e;
+    color: #92d6d6;
     font-weight: 600 !important;
     line-height: 1.25rem;
     padding-left: 0.5rem;
@@ -1188,6 +1205,9 @@ footer .copyright {
   .home-slider-details {
     display: none;
   }
+  .home-message {
+    text-align: center;
+  }
   .home-message h1 {
     font-family: "Sorts Mill Goudy", serif;
     font-size: 3.125rem;
@@ -1216,25 +1236,31 @@ footer .copyright {
   }
   .news-title h4 {
     font-weight: 600;
-    color: #006f7e;
+    color: #92d6d6;
   }
   .news-title a {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
-    color: #006f7e;
+    color: #92d6d6;
     background-color: #F1F1F1;
+  }
+  .news-title a a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .news-title a:active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .news-title a:active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .news-other div.show {
     display: block;
@@ -1274,7 +1300,7 @@ footer .copyright {
   }
   .arts .menu-btns .dropdown li:not(.active) {
     display: none;
-    color: #006f7e;
+    color: #92d6d6;
     padding: 0.8rem 1.5rem;
   }
   .arts .menu-btns .dropdown .btn {
@@ -1289,15 +1315,18 @@ footer .copyright {
   }
   .arts .menu-btns .dropdown .active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .arts .menu-btns .dropdown .active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .arts .menu-btns .dropdown .active:active {
-    background-color: #005d69;
+    background-color: #08a398;
   }
   .arts .menu-btns .dropdown .active i {
     display: block;
@@ -1388,7 +1417,7 @@ footer .copyright {
   }
   .actualites .menu-btns .dropdown li:not(.active) {
     display: none;
-    color: #006f7e;
+    color: #92d6d6;
     padding: 0.8rem 1.5rem;
   }
   .actualites .menu-btns .dropdown .btn {
@@ -1403,15 +1432,18 @@ footer .copyright {
   }
   .actualites .menu-btns .dropdown .active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .actualites .menu-btns .dropdown .active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .actualites .menu-btns .dropdown .active:active {
-    background-color: #005d69;
+    background-color: #08a398;
   }
   .actualites .menu-btns .dropdown .active i {
     display: block;
@@ -1452,7 +1484,7 @@ footer .copyright {
     font-size: 1rem;
     font-weight: 500;
     line-height: 0.8;
-    color: #006f7e;
+    color: #92d6d6;
   }
   .news-article a i {
     padding-right: 1rem;
@@ -1481,7 +1513,7 @@ footer .copyright {
   .news-container a:last-child {
     font-weight: 700;
     font-size: 0.875rem;
-    color: #006f7e;
+    color: #92d6d6;
     padding-top: 1rem;
   }
   .news-container img {
@@ -1517,7 +1549,7 @@ footer .copyright {
   }
   .biographie .menu-btns .dropdown li:not(.active) {
     display: none;
-    color: #006f7e;
+    color: #92d6d6;
     padding: 0.8rem 1.5rem;
   }
   .biographie .menu-btns .dropdown .btn {
@@ -1532,15 +1564,18 @@ footer .copyright {
   }
   .biographie .menu-btns .dropdown .active {
     cursor: pointer;
-    padding: 0.5rem 1.2rem;
     font-weight: 500;
     border-radius: 9999px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006f7e;
+    background-color: #92d6d6;
+  }
+  .biographie .menu-btns .dropdown .active a {
+    padding: 0.5rem 1.2rem;
+    display: inline-block;
   }
   .biographie .menu-btns .dropdown .active:active {
-    background-color: #005d69;
+    background-color: #08a398;
   }
   .biographie .menu-btns .dropdown .active i {
     display: block;
@@ -1643,20 +1678,24 @@ footer {
   border: 1px solid #9292925e;
 }
 .contactTitle {
-  color: #006f7e;
+  color: #92d6d6;
 }
 
 #contactButton {
   cursor: pointer;
-  padding: 0.5rem 1.2rem;
   font-weight: 500;
   border-radius: 9999px;
   font-size: 1rem;
   color: #fff;
-  background-color: #006f7e;
+  background-color: #92d6d6;
+  padding: 0.5rem 1.2rem;
+}
+#contactButton a {
+  padding: 0.5rem 1.2rem;
+  display: inline-block;
 }
 #contactButton:hover {
-  background-color: #005d69;
+  background-color: #08a398;
 }
 
 .slider .slide-2 p:nth-child(2) {
@@ -1697,9 +1736,8 @@ footer {
   max-height: 23rem;
 }
 
-.arts .title-art,
-.arts .art {
-  display: none;
+.arts {
+  width: 76vw;
 }
 .arts .art-container {
   display: grid;
@@ -1736,7 +1774,7 @@ footer {
   cursor: pointer;
 }
 .slideshow .close:hover span, .slideshow .close:focus span {
-  background-color: #006f7e;
+  background-color: #92d6d6;
 }
 .slideshow .close span {
   background-color: #232C2E;
@@ -1771,7 +1809,7 @@ footer {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #006f7e;
+  background-color: #92d6d6;
   position: absolute;
 }
 .slideshow-container-button:hover {
@@ -1804,7 +1842,7 @@ footer {
   position: absolute;
 }
 .slideshow-2-container-button:hover {
-  background-color: #006f7e;
+  background-color: #92d6d6;
 }
 .slideshow-2-container-button i {
   font-size: 1rem;
@@ -1823,7 +1861,7 @@ footer {
   font-size: 1rem;
   font-weight: 500;
   line-height: 0.8;
-  color: #006f7e;
+  color: #92d6d6;
 }
 .news-article > a i {
   padding-right: 1rem;
@@ -1831,7 +1869,7 @@ footer {
 }
 .news-container p.body-text a {
   font-weight: 500;
-  color: #006f7e;
+  color: #92d6d6;
 }
 .news-container p.body-text a:hover {
   text-decoration: underline;
@@ -1851,7 +1889,7 @@ footer {
 }
 .biographie-presentation span.year,
 .biographie-presentation h3 {
-  color: #006f7e;
+  color: #92d6d6;
   font-weight: 500;
   font-size: 1.25rem;
 }
@@ -1862,7 +1900,7 @@ footer {
   font-size: 1rem;
   font-weight: 500;
   line-height: 0.8;
-  color: #006f7e;
+  color: #92d6d6;
 }
 .biographie-presentation.awards ul li {
   align-items: baseline;
@@ -1890,7 +1928,7 @@ footer {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background-color: #006f7e;
+  background-color: #92d6d6;
   text-align: center;
 }
 .biographie-presentation.criticsBtn .arrow > div:hover {

@@ -22,7 +22,7 @@ class HomeController extends Controller
         $collections = Collection::all();
         $oeuvres = Oeuvre::where('active', 1)->orderBy('date', 'desc')->take(5)->get();
         $tellina = Oeuvre::where('id', 217)->first();
-        $oeuvresWelcome = Oeuvre::where('active', 1)->inRandomOrder()->limit(2)->get();
+        $oeuvresWelcome = Oeuvre::where('id', '!=', 217)->where('active', 1)->inRandomOrder()->limit(2)->get();
         $actualite = Actualite::where('active', 1)->orderBy('position', 'asc')->first();
 
         return view('partialsFront.home', compact(

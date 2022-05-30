@@ -41,7 +41,6 @@ function openShowLocal(catgrId, oevrId) {
 }
 
 if (shows) {
-
   window.openShow = function (catgrId, oevrId) {
     overlay.style.display = "block";
     openShowLocal(catgrId, oevrId);
@@ -71,6 +70,7 @@ function slideArt(n) {
       slides[i].style.display = "none"
       slides[i].style.opacity = "0";
     }
+    overlay.style.display = "block";
 
     slides[slideIndex].style.display = "block";
     slides[slideIndex].style.opacity = "1";

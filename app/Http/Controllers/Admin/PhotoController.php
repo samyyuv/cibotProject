@@ -44,7 +44,6 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        dd($request->photo);
         $clientFile = $request->photo;
         $ouvreTitle = Str::slug($request->titre);
         $fileName = $ouvreTitle . '.' . $clientFile->getClientOriginalExtension();

@@ -102,6 +102,7 @@ footer {
 
 #contactButton {
   @include button($light-theme: false);
+  padding: .5rem 1.2rem;
 
   &:hover {
     background-color: $teal-hover;
@@ -176,11 +177,7 @@ footer {
 
 //worksList
 .arts {
-
-  .title-art,
-  .art {
-    display: none;
-  }
+  width: 76vw;
 
   .art {
     &-container {
@@ -212,8 +209,6 @@ footer {
   div.show {
     display: block;
   }
-
-
 }
 
 //art individuel

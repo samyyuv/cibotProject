@@ -459,8 +459,6 @@
 
   //artworks list
   .arts {
-    width: 76vw;
-
     ul.dropdown {
       @include btn-dropdown(false);
     }
@@ -1222,6 +1220,8 @@
 
     //welcome block
     &-message {
+      text-align: center;
+
       h1 {
         font-family: $sortsmill-font;
         font-size: 3.125rem;

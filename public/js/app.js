@@ -5554,69 +5554,20 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 /***/ (() => {
 
 window.addEventListener("load", function () {
-  var container, i;
   var activeLink = sessionStorage.getItem("art-link");
   sessionStorage.removeItem("art-link");
   var btnNews = document.getElementById("btn-arts");
   var btns = btnNews && btnNews.getElementsByClassName("btn-art");
-  var container = document.getElementsByClassName("art");
-  var title = document.getElementsByClassName("title-art");
 
   if (activeLink) {
-    if (activeLink) {
-      for (i = 0; i < container.length; i++) {
-        remove(container[i], "show");
-        if (container[i].className.split(" ").includes(activeLink)) add(container[i], "show");
-      }
-    }
-
-    if (title) {
-      for (var i = 0; i < title.length; i++) {
-        remove(title[i], "show");
-        if (title[i].id == activeLink) add(title[i], "show");
-      }
-    }
-
     if (btns) {
       for (var i = 0; i < btns.length; i++) {
         remove(btns[i], "active");
         if (btns[i].id == activeLink) add(btns[i], "active");
       }
     }
-  } else if (btns && container && title) {
-    var activeCat = btns[0].id;
-    add(btns[0], "active");
-    add(title[0], "show");
-
-    for (i = 0; i < container.length; i++) {
-      remove(container[i], "show");
-      if (container[i].className.split(" ").includes(activeCat)) add(container[i], "show");
-    }
   }
 });
-
-window.selectBtnArts = function (c) {
-  var container, i;
-  container = document.getElementsByClassName("art");
-  var title = document.getElementsByClassName("title-art");
-
-  if (container) {
-    for (i = 0; i < container.length; i++) {
-      remove(container[i], "show");
-
-      if (container[i].className.split(" ").includes(c)) {
-        add(container[i], "show");
-      }
-    }
-  }
-
-  if (title) {
-    for (i = 0; i < title.length; i++) {
-      remove(title[i], "show");
-      if (title[i].id == c) add(title[i], "show");
-    }
-  }
-};
 
 window.activeArtLink = function (c) {
   sessionStorage.setItem("art-link", c);
@@ -6049,6 +6000,7 @@ function slideArt(n) {
       slides[i].style.opacity = "0";
     }
 
+    overlay.style.display = "block";
     slides[slideIndex].style.display = "block";
     slides[slideIndex].style.opacity = "1";
     setPhotoShowLocal(slides[slideIndex].id);
