@@ -38,7 +38,15 @@ use App\Models\Categorie;
 //     ->name('message.create');
 
 
-Route::get('/biographie', [BiographieController::class, 'index']);
+Route::get('/biographie/presentation', [BiographieController::class, 'index']);
+Route::get('/biographie/distinctions', [BiographieController::class, 'awards']);
+Route::get('/biographie/realisations-monumentales', [BiographieController::class, 'monuments']);
+Route::get('/biographie/expositions-personnelles', [BiographieController::class, 'personal']);
+Route::get('/biographie/expositions-collectives', [BiographieController::class, 'collectives']);
+Route::get('/biographie/evenements', [BiographieController::class, 'evenements']);
+Route::get('/biographie/en-permanence', [BiographieController::class, 'permanence']);
+Route::get('/biographie/critiques', [BiographieController::class, 'critics']);
+Route::get('/biographie/documents-video', [BiographieController::class, 'video']);
 
 
 Route::resource('/actualites', ActualiteController::class);

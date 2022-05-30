@@ -38,7 +38,7 @@
               <div>
                 @foreach ($collection->oeuvres as $oeuvre)
                 @if ($loop->first)
-                <a class="foot-link link" href="{{ url("/collections/{$collection->id}/categories/{$oeuvre->categorie_id}") }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie_id] ?>')">
+                <a class="foot-link link" href="{{ url("/collections/{$collection->id}/categories/{$oeuvre->categorie_id}") }}">
                   {{ $collection->titre }}
                 </a>
                 @endif
@@ -61,14 +61,15 @@
           <a class="foot-expand-link foot-link-title link" href="#">{{ __('Biography') }}</a>
           <i class="fas fa-chevron-right"></i>
           <ul id="btn-foot" class="footer-content-items foot-expand-content">
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('hello')">{{ __('Presentation') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('awards')">{{ __('Awards') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('monuments')">{{ __('Monuments') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('personal')">{{ __('Solo exhibitions') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('collectives')">{{ __('Collective exhibitions') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('evenements')">{{ __('Events') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('permanence')">{{ __('Galleries') }}</a></li>
-            <li><a class="foot-link foot-bio link" href="/biographie" onclick="activeBioLink('video')">{{ __('Videos') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/presentation') }}">{{ __('Presentation') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/distinctions') }}">{{ __('Awards') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/realisations-monumentales') }}">{{ __('Monuments') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/expositions-personnelles') }}">{{ __('Solo exhibitions') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/expositions-collectives') }}">{{ __('Collective exhibitions') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/evenements') }}">{{ __('Events') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/en-permanence') }}">{{ __('Galleries') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/critiques') }}">{{ __('Critics') }}</a></li>
+            <li><a class="foot-link foot-bio link" href="{{ url('/biographie/documents-video') }}">{{ __('Videos') }}</a></li>
           </ul>
         </li>
         <li>

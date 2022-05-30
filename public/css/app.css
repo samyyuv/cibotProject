@@ -1884,9 +1884,6 @@ footer {
 .biographie h1 {
   text-align: center;
 }
-.biographie-presentation {
-  display: none;
-}
 .biographie-presentation span.year,
 .biographie-presentation h3 {
   color: #92d6d6;
@@ -1915,13 +1912,12 @@ footer {
 .biographie-presentation.criticsBtn p {
   padding-bottom: 1rem;
 }
-.biographie-presentation.criticsBtn .arrow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+.biographie-presentation.criticsBtn .arrow-container {
+  display: grid;
+  grid-template-columns: 1fr 0fr;
+  gap: 0.5rem;
 }
-.biographie-presentation.criticsBtn .arrow > div {
+.biographie-presentation.criticsBtn .arrow-container > .arrow {
   cursor: pointer;
   color: #fff;
   z-index: 2;
@@ -1931,7 +1927,7 @@ footer {
   background-color: #92d6d6;
   text-align: center;
 }
-.biographie-presentation.criticsBtn .arrow > div:hover {
+.biographie-presentation.criticsBtn .arrow-container > .arrow:hover {
   background-color: #232C2E;
 }
 

@@ -365,7 +365,6 @@ footer {
   }
 
   &-presentation {
-    display: none;
 
     span.year,
     h3 {
@@ -415,10 +414,11 @@ footer {
       padding-bottom: 1rem;
     }
 
-    .arrow {
-      @include flex-box(space-between, flex-start, nowrap);
+    .arrow-container {
+      @include grid-column(1fr 0fr);
+      gap: .5rem;
 
-      >div {
+      >.arrow {
 
         @include circularBtns(1.5rem, 1.5rem, $light-theme: false);
         text-align: center;

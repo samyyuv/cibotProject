@@ -1,38 +1,24 @@
 window.addEventListener("load", () => {
-  var bioPresentation, i;
-  var activeLink = sessionStorage.getItem("biographie-link");
-  sessionStorage.removeItem("biographie-link");
+  let url = window.location.pathname;
+  var bioTitleId = getBioTitleId(url)
 
-  if (activeLink) {
-    bioPresentation = document.getElementsByClassName("biographie-presentation");
-    if (bioPresentation) {
-      for (i = 0; i < bioPresentation.length; i++) {
-        remove(bioPresentation[i], "show");
-        if (bioPresentation[i].className.indexOf(activeLink) > 1) add(bioPresentation[i], "show");
-      }
-    }
-
-    var btnBio = document.getElementById("bio-drop");
-    var buttons = btnBio && btnBio.getElementsByClassName("btn");
-    if (buttons) {
-      for (var i = 0; i < buttons.length; i++) {
-        remove(buttons[i], "active");
-        if (buttons[i].id == activeLink) add(buttons[i], "active");
-      }
+  var btnBio = document.getElementById("bio-drop");
+  var buttons = btnBio && btnBio.getElementsByClassName("btn");
+  if (bioTitleId) {
+    for (var i = 0; i < buttons.length; i++) {
+      remove(buttons[i], "active");
+      if (buttons[i].id == bioTitleId) add(buttons[i], "active");
     }
   }
 })
 
-window.selectBtnBio = function (c) {
-  var bioPresentation, i
-  bioPresentation = document.getElementsByClassName("biographie-presentation");
-  if (bioPresentation) {
-    for (i = 0; i < bioPresentation.length; i++) {
-      remove(bioPresentation[i], "show");
-      if (bioPresentation[i].className.indexOf(c) > 1) add(bioPresentation[i], "show");
-    }
-  }
+function getBioTitleId(url) {
+  var parameters = url.split("/")
+  var categorieIndex = parameters.indexOf('biographie')
+  var categorieId = parameters[categorieIndex + 1]
+  return categorieId
 }
+
 
 window.selectCritic = function (c) {
   var critic, i
@@ -44,10 +30,6 @@ window.selectCritic = function (c) {
       if (critic[i].className.indexOf(c) > 1) add(critic[i], "show");
     }
   }
-}
-
-window.activeBioLink = function (c) {
-  sessionStorage.setItem("biographie-link", c);
 }
 
 // Show filtered pags

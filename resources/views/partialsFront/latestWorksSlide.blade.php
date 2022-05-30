@@ -11,7 +11,7 @@
         @if ($photo->position === 0)
         <div class="slide-2 card">
           <div>
-            <a href="collections/{{ $oeuvre->collection_id }}/categories/{{ $oeuvre->categorie_id }}/" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
+            <a href="/collections/{{ $oeuvre->collection_id }}/categories/{{ $oeuvre->categorie_id }}/" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
               <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
               <div class="cross">
                 <span></span>
@@ -24,7 +24,7 @@
           @else
           <p>{{ $oeuvre->date->locale('fr_FR')->isoFormat('ll') }}</p>
           @endif
-          <p><a class="link" href="collections/{{ $oeuvre->collection->id }}/categories/{{ $oeuvre->categorie->id }}/">
+          <p><a class="link" href="/collections/{{ $oeuvre->collection->id }}/categories/{{ $oeuvre->categorie->id }}/">
               {{ $oeuvre->categorie->titre }}
             </a></p>
           <h3>

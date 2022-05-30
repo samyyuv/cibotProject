@@ -75,7 +75,7 @@
         </li>
 
         <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('News') }}</a></li>
-        <li><a class="nav-link" href="/biographie">{{ __('Biography') }}</a></li>
+        <li><a class="nav-link" href="/biographie/presentation">{{ __('Biography') }}</a></li>
         <li>
           <a class="nav-link" href="/contactez-nous">{{ __('Contact') }}</a>
         </li>
