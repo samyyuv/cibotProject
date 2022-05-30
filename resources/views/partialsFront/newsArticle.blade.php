@@ -41,7 +41,7 @@
           @if ('en' == App::getLocale())
           <p>{{ $actualite->created_at->format('M d Y') }}</p>
           @else
-          <p>{{ $actualite->created_at->format('d M Y') }}</p>
+          <p>{{ $actualite->created_at->locale('fr_FR')->isoFormat('ll') }}</p>
           @endif
           @if ('en' == App::getLocale() && $actualite->titre_en != null)
           <a href="{{ route('actualites.show', $actualite) }}" class="link">

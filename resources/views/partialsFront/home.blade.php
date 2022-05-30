@@ -1,7 +1,7 @@
 <x-public-view>
   <section class="home">
     <div class="home-message">
-      <h1>{{ __('Welcome') }}</h1>
+      {{--<h1>{{ __('Welcome') }}</h1>--}}
       @if ('fr' == App::getLocale())
       <p>« L'art est un support à notre questionnement sur le monde et sur le sens
         de la vie, un chemin de connaissance de soi qui rend capable de s'ouvrir aux
@@ -41,29 +41,29 @@
       </div>
   </section>
 
-  <section class="news">
+  {{-- <section class="news">
     <div class="news-title">
       <h4> <a href=""> {{ __('Events and exhibitions') }} </a> </h4>
-      <a class="news-btn" href="{{ route('actualites.index') }}">{{ __('All') }}</a>
-    </div>
-    <div class="news-img">
-      <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
-    </div>
-    <div class="news-presentation card">
-      @if ('en' == App::getLocale() && $actualite->titre_en != null)
-      <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre_en }} </a></h2>
-      <p>{{ $actualite->created_at->format('M d Y') }}</p>
-      <p class="body-text">{!! Str::limit($actualite->description_en, 149) !!}</p>
-      @else
-      <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre }} </a></h2>
-      <p>{{ $actualite->created_at->format('d M Y') }}</p>
-      <p class="body-text">{!! Str::limit($actualite->description, 149) !!}</p>
-      @endif
-      <h4> <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a></h4>
-    </div>
+  <a class="news-btn" href="{{ route('actualites.index') }}">{{ __('All') }}</a>
+  </div>
+  <div class="news-img">
+    <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+  </div>
+  <div class="news-presentation card">
+    @if ('en' == App::getLocale() && $actualite->titre_en != null)
+    <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre_en }} </a></h2>
+    <p>{{ $actualite->created_at->format('M d Y') }}</p>
+    <p class="body-text">{!! Str::limit($actualite->description_en, 149) !!}</p>
+    @else
+    <h2><a href="{{ route('actualites.show', $actualite) }}" class="link"> {{ $actualite->titre }} </a></h2>
+    <p>{{ $actualite->created_at->format('d M Y') }}</p>
+    <p class="body-text">{!! Str::limit($actualite->description, 149) !!}</p>
+    @endif
+    <h4> <a href="{{ route('actualites.index') }}">{{ __('All the events and exhibitions') }}</a></h4>
+  </div>
   </section>
 
-  @include('partialsFront.latestWorksSlide')
+  @include('partialsFront.latestWorksSlide')--}}
   @include('contactMe')
 
 

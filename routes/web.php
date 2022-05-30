@@ -38,11 +38,12 @@ use App\Models\Categorie;
 //     ->name('message.create');
 
 
-Route::resource('/biographie', BiographieController::class);
+Route::get('/biographie', [BiographieController::class, 'index']);
 
 
 Route::resource('/actualites', ActualiteController::class);
-Route::get('/collections/{collection}/categories/{category}', [CollectionController::class, 'showCategory']);
+Route::get('/collections/{collection}/categories/{categorie}', [CategorieController::class, 'show']);
+
 Route::resource('/', HomeController::class);
 Route::view('/contactez-nous', 'partialsFront.contactPage');
 

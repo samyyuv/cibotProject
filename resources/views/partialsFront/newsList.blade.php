@@ -23,7 +23,7 @@
         @if ('en' == App::getLocale())
         <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('M d Y') }}</p>
         @else
-        <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('d M Y') }}</p>
+        <p>{{ Carbon\Carbon::parse($actualite->created_at)->locale('fr_FR')->isoFormat('ll') }}</p>
         @endif
 
         @if ('en' == App::getLocale() && $actualite->titre_en != null)
@@ -56,7 +56,7 @@
         @if ('en' == App::getLocale())
         <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('M d Y') }}</p>
         @else
-        <p>{{ Carbon\Carbon::parse($actualite->created_at)->format('d M Y') }}</p>
+        <p>{{ Carbon\Carbon::parse($actualite->created_at)->locale('fr_FR')->isoFormat('ll') }}</p>
         @endif
 
         @if ('en' == App::getLocale() && $actualite->titre_en != null)

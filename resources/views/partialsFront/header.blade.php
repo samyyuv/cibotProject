@@ -1,7 +1,7 @@
 <header class="header-menu">
   <div class="header-container">
     <div class="nav-top">
-      <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" /></a>
+      <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo1.png') }}" alt="" /></a>
       <div class="menu-icon menu-nav" id="ham">
         <span></span>
         <span></span>
@@ -18,11 +18,19 @@
           <ul class="nav-items nav-expand-content nav-container" data-dropdown-button>
             @foreach ($collectionsMenu as $collection)
             <li class="nav-expand column">
-              <div><a class="nav-link nav-expand-link" href="{{ url("/collections/{$collection->id}/categories/1") }}">
+              <div>
+                @foreach ($collection->oeuvres as $oeuvre)
+                @if ($loop->first)
+                <a class="nav-link nav-expand-link" href="{{ url("/collections/{$collection->id}/categories/{$oeuvre->categorie_id}") }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie_id] ?>')">
                   {{ $collection->titre }}
-                </a></div>
+                </a>
+                @endif
+                @endforeach
+              </div>
               <i class="fas fa-chevron-right noshow"></i>
               <ul class="nav-items nav-expand-content noshow">
+
+
 
 
                 @foreach ($collection->oeuvres as $oeuvre)
@@ -66,7 +74,6 @@
           </ul>
         </li>
 
-
         <li><a class="nav-link" href="{{ route('actualites.index') }}">{{ __('News') }}</a></li>
         <li><a class="nav-link" href="/biographie">{{ __('Biography') }}</a></li>
         <li>
@@ -74,7 +81,7 @@
         </li>
         <li>
           <div class="menu-language">
-            <a href="https://www.facebook.com/elisabethcibotsculpteur">
+            <a target="_blank" href="https://www.facebook.com/elisabethcibotsculpteur">
               <span><i class="fab fa-facebook-square"></i></span>
             </a>
           </div>

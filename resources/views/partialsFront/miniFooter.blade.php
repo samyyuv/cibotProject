@@ -1,6 +1,6 @@
 <div class="menu-footer">
   <div class="menu-language">
-    <a href="https://www.facebook.com/elisabethcibotsculpteur">
+    <a target="_blank" href="https://www.facebook.com/elisabethcibotsculpteur">
       <span><i class="fab fa-facebook-square"></i></span>
     </a>
   </div>

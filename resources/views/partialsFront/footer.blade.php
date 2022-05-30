@@ -3,11 +3,11 @@
     <div class="footer-logo">
       <div class="logo">
         <a href="">
-          <img class="logo" src="{{ asset('/storage/admin/logo.png') }}" alt="" />
+          <img class="logo" src="{{ asset('/storage/admin/logo1.png') }}" alt="" />
         </a>
       </div>
       <div class="d-none">
-        <a href="https://www.facebook.com/elisabethcibotsculpteur">
+        <a target="_blank" href="https://www.facebook.com/elisabethcibotsculpteur">
           </span><i class="fab fa-facebook-square"></i></span>
         </a>
         <div class="flex">
@@ -35,9 +35,15 @@
           <ul class="footer-content-items foot-expand-content">
             @foreach ($collectionsMenu as $collection)
             <li>
-              <div> <a class="foot-link link" href="{{ url("/collections/{$collection->id}/categories/1") }}">
+              <div>
+                @foreach ($collection->oeuvres as $oeuvre)
+                @if ($loop->first)
+                <a class="foot-link link" href="{{ url("/collections/{$collection->id}/categories/{$oeuvre->categorie_id}") }}" onclick="activeArtLink('<?= $slugedNames[$oeuvre->categorie_id] ?>')">
                   {{ $collection->titre }}
-                </a></div>
+                </a>
+                @endif
+                @endforeach
+              </div>
             </li>
             @endforeach
           </ul>

@@ -10,8 +10,10 @@
     <div class="arts-btn menu-btns" id="btn-arts">
       <ul class="dropdown">
         @foreach ($categories as $cat)
-        <li>
-          <a id="{{$slugedNames[$cat->id]}}" class="btn-art btn" href="{{ url("/collections/{$collection->id}/categories/{$cat->id}") }}" onclick="activeArtLink('{{$slugedNames[$cat->id]}}')">{{ $cat->titre }}</a><i class="fa-solid fa-chevron-down"></i>
+        <li id="{{$slugedNames[$cat->id]}}" class="btn-art btn">
+          <a href="{{ url("/collections/{$collection->id}/categories/{$cat->id}") }}" onclick="activeArtLink('{{$slugedNames[$cat->id]}}')">
+            {{ $cat->titre }}
+          </a><i class="fa-solid fa-chevron-down"></i>
         </li>
         @endforeach
       </ul>
