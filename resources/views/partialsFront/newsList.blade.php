@@ -4,19 +4,20 @@
 
     <div class="actualites-btn menu-btns">
       <ul class="dropdown" id="btn-news">
-        <li id="all" class="btn-act btn active" onclick="selectBtnAct('all')"><a>{{ __('All the events and exhibitions') }}</a><i class="fa-solid fa-chevron-down"></i></li>
-        <li id="latest" class="btn-act btn" onclick="selectBtnAct('latest')"><a>{{ __('Latest news') }}</a><i class="fa-solid fa-chevron-down"></i></li>
+        <li id="latest" class="btn-act btn active" onclick="selectBtnAct('latest')"><a>{{ __('Latest news') }}</a><i class="fa-solid fa-chevron-down"></i></li>
+        <li id="all" class="btn-act btn" onclick="selectBtnAct('all')"><a>{{ __('All the events and exhibitions') }}</a><i class="fa-solid fa-chevron-down"></i></li>
       </ul>
     </div>
 
-    <div class="actualites-container all show">
-      @foreach ($actualites as $actualite)
+    <div class="actualites-container latest show">
+      @foreach ($lastestActualites as $actualite)
       <div class="actualites-container-topic card">
         <div>
           <a href="{{ route('actualites.show', $actualite) }}">
             <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
             <div class="cross">
-              <span></span> <span></span>
+              <span></span>
+              <span></span>
             </div>
           </a>
         </div>
@@ -41,15 +42,14 @@
       @endforeach
     </div>
 
-    <div class="actualites-container latest">
-      @foreach ($lastestActualites as $actualite)
+    <div class="actualites-container all">
+      @foreach ($actualites as $actualite)
       <div class="actualites-container-topic card">
         <div>
           <a href="{{ route('actualites.show', $actualite) }}">
             <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
             <div class="cross">
-              <span></span>
-              <span></span>
+              <span></span> <span></span>
             </div>
           </a>
         </div>

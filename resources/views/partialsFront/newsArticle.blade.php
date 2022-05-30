@@ -56,5 +56,5 @@
       </div>
     </div>
   </section>
-  @include('partialsFront.latestWorksSlide')
+  {{--@include('partialsFront.latestWorksSlide')--}}
 </x-public-view>
