@@ -104,14 +104,15 @@ class CollectionController extends Controller
             $id = $collection->id;
             $fileExName = Photo::where('collection_id', $id)->value('photo');
             $cuttedName = substr(strstr($fileExName, '/'), 1);
-            Storage::delete($cuttedName);
+            Storage::disk('public')->delete('collections/' . $cuttedName);
             $clientFile = $request->photo;
             $collectionTitle = Str::slug($request->titre);
             $fileName = $collectionTitle . '.' . $clientFile->getClientOriginalExtension();
             $clientFile->storeAs('collections', $fileName);
-            Photo::firstOrCreate([
-                'photo' => "collections/" . $fileName
-            ]);
+            Photo::where('photo', 'collections/' . $cuttedName)
+                ->update([
+                    'photo' => "collections/" . $fileName,
+                ]);
         };
 
         return redirect()->route('admin.collections.index')->with('success', __("Your collection has been updated"));
@@ -126,6 +127,11 @@ class CollectionController extends Controller
     public function destroy($id)
     {
         $collection = Collection::find($id);
+
+        //Deleting photos
+        $photoName = Photo::where('collection_id', $collection->id)->first();
+        Storage::disk('public')->delete($photoName->photo);
+
         $collection->delete();
 
         return redirect()->route('admin.collections.index')->with('success', __("Your collection has been deleted"));

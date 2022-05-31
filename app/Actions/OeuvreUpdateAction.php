@@ -66,17 +66,17 @@ class OeuvreUpdateAction
       $id2b = $request->$x;
       $allIds[] = $request->$x;
       $delete = "delete" . "-" . $photo;
+      $photoName = Photo::find($photo);
 
       if (count($allIds) === count(array_unique($allIds))) {
-        Photo::where('id', $photo)
-          ->update([
-            'position' => $id2b,
-          ]);
+        Photo::where('id', $photo)->update([
+          'position' => $id2b,
+        ]);
       }
 
       if ($request->$delete == $delete) {
-        Photo::where('id', $photo)
-          ->delete();
+        Photo::where('id', $photo)->delete();
+        Storage::disk('public')->delete($photoName->photo);
       }
     }
 

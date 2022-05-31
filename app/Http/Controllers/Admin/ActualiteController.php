@@ -123,7 +123,7 @@ class ActualiteController extends Controller
     public function update(StoreActualiteRequest $request, Actualite $actualite)
     {
         if ($request->hasFile('photo')) {
-            Storage::delete('actualites/' . $actualite->photo);
+            Storage::disk('public')->delete($actualite->photo);
             $clientFile = $request->photo;
             $postTitle = Str::slug($request->titre);
             $fileName = $postTitle . '.' . $clientFile->getClientOriginalExtension();
@@ -132,6 +132,18 @@ class ActualiteController extends Controller
                 'photo' => "actualites/" . $fileName,
             ]);
         };
+
+        // get ids and positions of photos in oeuvres 
+        $photosId = Photo::where('actualite_id', $actualite->id)->pluck('id')->toArray();
+
+        foreach ($photosId as $id) {
+            $delete = "delete" . "-" . $id;
+            $photoName = Photo::find($id);
+            if ($request->$delete == $delete) {
+                Photo::where('id', $id)->delete();
+                Storage::disk('public')->delete($photoName->photo);
+            }
+        }
 
         $active = $request->active ? 1 : 0;
 
@@ -185,6 +197,13 @@ class ActualiteController extends Controller
     public function destroy($id)
     {
         $actualite = Actualite::find($id);
+
+        //Deleting photos
+        Storage::disk('public')->delete($actualite->photo);
+        $photosName = Photo::where('actualite_id', $actualite->id)->pluck('photo')->toArray();
+        foreach ($photosName as $name) {
+            Storage::disk('public')->delete($name);
+        }
 
         //Repositioning others after delete
         $toDelete = Actualite::select('position')->where('id', $id)->first();

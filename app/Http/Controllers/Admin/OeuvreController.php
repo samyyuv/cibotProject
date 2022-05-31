@@ -126,6 +126,13 @@ class OeuvreController extends Controller
     public function destroy($id)
     {
         $oeuvre = Oeuvre::find($id);
+
+        //Deleting photos
+        $photosName = Photo::where('oeuvre_id', $oeuvre->id)->pluck('photo')->toArray();
+        foreach ($photosName as $name) {
+            Storage::disk('public')->delete($name);
+        }
+
         $oeuvre->delete();
 
         return redirect()->route('admin.oeuvres.index')->with('success', __('Your artwork has been deleted'));

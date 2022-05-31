@@ -98,7 +98,6 @@ class CategorieController extends Controller
      */
     public function update(StoreCategorieRequest $request, $id)
     {
-
         $categorie = Categorie::find($id);
 
         $categorie->update([
@@ -111,12 +110,12 @@ class CategorieController extends Controller
             $id = $categorie->id;
             $fileExName = Photo::where('categorie_id', $id)->value('photo');
             $cuttedName = substr(strstr($fileExName, '/'), 1);
-            Storage::delete($cuttedName);
+            Storage::disk('public')->delete('categories/' . $cuttedName);
             $clientFile = $request->photo;
             $categorieTitle = Str::slug($request->titre);
             $fileName = $categorieTitle . '.' . $clientFile->getClientOriginalExtension();
             $clientFile->storeAs('categories', $fileName);
-            Photo::where('photo', $cuttedName)
+            Photo::where('photo', 'categories/' . $cuttedName)
                 ->update([
                     'photo' => "categories/" . $fileName,
                 ]);
@@ -134,6 +133,11 @@ class CategorieController extends Controller
     public function destroy($id)
     {
         $categorie = Categorie::find($id);
+
+        //Deleting photos
+        $photoName = Photo::where('categorie_id', $categorie->id)->first();
+        Storage::disk('public')->delete($photoName->photo);
+
         $categorie->delete();
 
         return redirect()->route('admin.categories.index')->with('success', __('Your category has been deleted'));
