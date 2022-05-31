@@ -25,9 +25,9 @@
             <form action="{{ route('admin.actualites.store') }}" method="post" enctype="multipart/form-data">
               @csrf
 
-              <div class="mt-5 md:mt-0 md:col-span-2">
+              <div class="mt-5 mb-8 md:mt-0 md:col-span-2">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
-                  <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <div class="mb-5 px-4 py-5 bg-white space-y-6 sm:p-6">
 
                     <div class="grid grid-cols-3 gap-6">
                       <div class="col-span-3 sm:col-span-2">
@@ -93,7 +93,11 @@
                             </label>
                             <p class="pl-1">{{ __('or drag and drop') }}</p>
                           </div>
-                          <img id="blah" src="#" alt="" />
+                          <div class="col-md-12">
+                            <div class="mt-1 text-center grid grid-cols-4 gap-4">
+                              <img id="blah" src="#" alt="" />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -166,6 +170,8 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
   <script type="text/javascript">
     photo.onchange = evt => {
       const [file] = photo.files
@@ -173,5 +179,24 @@
         blah.src = URL.createObjectURL(file)
       }
     }
+
+    $(function() {
+      // Multiple images preview with JavaScript
+      var previewImages = function(input, imgPreviewPlaceholder) {
+        if (input.files) {
+          var filesAmount = input.files.length;
+          for (i = 0; i < filesAmount; i++) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+              $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+            }
+            reader.readAsDataURL(input.files[i]);
+          }
+        }
+      };
+      $('#extraPhotos').on('change', function() {
+        previewImages(this, 'div.preview-image');
+      });
+    });
   </script>
 </x-app-layout>
