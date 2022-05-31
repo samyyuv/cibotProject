@@ -36,7 +36,7 @@
                           {{ __('Title') }}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="titre" id="titre" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $categorie->titre }}">
+                          <input type="text" name="titre" id="titre" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $categorie->titre }}">
                         </div>
                       </div>
                     </div>
@@ -47,7 +47,7 @@
                           {{ __('Subtitle') }}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="sous_titre" id="sous_titre" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $categorie->sous_titre }}">
+                          <input type="text" name="sous_titre" id="sous_titre" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $categorie->sous_titre }}">
                         </div>
                       </div>
                     </div>
@@ -57,7 +57,7 @@
                         {{ __('Description') }}
                       </label>
                       <div class="mt-1">
-                        <textarea id="description" name="description" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#006f7e] focus:border-[#006f7e] mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="{{__('Category description')}}">{{ $categorie->description }}</textarea>
+                        <textarea id="description" name="description" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#92d6d6] focus:border-[#92d6d6] mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="{{__('Category description')}}">{{ $categorie->description }}</textarea>
                       </div>
                     </div>
 
@@ -75,7 +75,7 @@
                               <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <div class="flex text-lg text-gray-600">
-                              <label for="photo" class="relative cursor-pointer bg-white rounded-md font-medium text-[#006f7e] hover:text-[#006f7e] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#006f7e]">
+                              <label for="photo" class="relative cursor-pointer bg-white rounded-md font-medium text-[#92d6d6] hover:text-[#92d6d6] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#92d6d6]">
                                 <span>{{ __('Replace the main photo') }}</span>
                                 <input id="photo" name="photo" type="file" class="sr-only">
                               </label>
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006f7e]">
+                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#92d6d6] hover:bg-[#08a398] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#92d6d6]">
                         {{ __('EDIT A CATEGORY') }}
                       </button>
                     </div>

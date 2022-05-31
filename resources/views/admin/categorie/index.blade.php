@@ -20,7 +20,7 @@
           <!-- Table see -->
           <div class="flex justify-between mt-4">
             <h3 class="mt-6 text-xl">{{__('Categories')}}</h3>
-            <a href="{{ route('admin.categories.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-[#006f7e] text-[#006f7e] text-lg rounded-lg hover:bg-[#006f7e] hover:text-gray-100 focus:border-4 focus:border-[#005d69]">
+            <a href="{{ route('admin.categories.create') }}" class="p-2 pl-5 pr-5 bg-transparent border-2 border-[#92d6d6] text-[#92d6d6] text-lg rounded-lg hover:bg-[#92d6d6] hover:text-gray-100 focus:border-4 focus:border-[#08a398]">
               {{__('Create a new category')}} </a>
           </div>
           <div class="flex flex-col mt-6">

@@ -39,7 +39,7 @@
                           {{ __('Title') }}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="titre" id="titre" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $oeuvre->titre }}">
+                          <input type="text" name="titre" id="titre" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $oeuvre->titre }}">
                         </div>
                       </div>
                     </div>
@@ -50,7 +50,7 @@
                           {{ __('Subtitle') }}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="sous_titre" id="sous_titre" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $oeuvre->sous_titre }}">
+                          <input type="text" name="sous_titre" id="sous_titre" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $oeuvre->sous_titre }}">
                         </div>
                       </div>
                     </div>
@@ -60,7 +60,7 @@
                         {{ __('Description') }}
                       </label>
                       <div class="mt-1">
-                        <textarea id="description" name="description" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#006f7e] focus:border-[#006f7e] mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="{{__('Description of the artwork')}}">{{ $oeuvre->description }}</textarea>
+                        <textarea id="description" name="description" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#92d6d6] focus:border-[#92d6d6] mt-1 block w-full sm:text-lg border border-gray-300 rounded-md" placeholder="{{__('Description of the artwork')}}">{{ $oeuvre->description }}</textarea>
                       </div>
                     </div>
 
@@ -69,13 +69,13 @@
                         {{ __('Date de creation') }}
                       </label>
                       <div class="mt-1">
-                        <input type="date" name="date" id="date" value="{{ $oeuvre->date->format('Y-m-d') }}" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300">
+                        <input type="date" name="date" id="date" value="{{ $oeuvre->date->format('Y-m-d') }}" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300">
                       </div>
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                       <label for="collection" class="block text-lg font-medium text-gray-700">{{ __('Collection') }}</label>
-                      <select id="collection" name="collection" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#006f7e] focus:border-[#006f7e] sm:text-lg">
+                      <select id="collection" name="collection" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#92d6d6] focus:border-[#92d6d6] sm:text-lg">
                         @foreach ($collections as $collection)
                         <option value="{{ $collection->id }}" {{ $oeuvre->collection_id === $collection->id ? 'selected' : '' }}>{{ $collection->titre }}</option>
                         @endforeach
@@ -84,7 +84,7 @@
 
                     <div class="col-span-6 sm:col-span-3">
                       <label for="categorie" class="block text-lg font-medium text-gray-700">{{ __('Categorie') }}</label>
-                      <select id="categorie" name="categorie" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#006f7e] focus:border-[#006f7e] sm:text-lg">
+                      <select id="categorie" name="categorie" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#92d6d6] focus:border-[#92d6d6] sm:text-lg">
                         @foreach ($categories as $categorie)
                         <option value="{{ $categorie->id }}" {{ $oeuvre->categorie_id === $categorie->id ? 'selected' : '' }}>{{ $categorie->titre }}</option>
                         @endforeach
@@ -104,7 +104,7 @@
                           </label>
                           <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
                           <label for="categorie" class="block text-lg font-medium text-gray-700">{{ __('Select the order for your photos') }}</label>
-                          <select name="position-{{$photo->id}}" id="position" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#006f7e] focus:border-[#006f7e] sm:text-lg">
+                          <select name="position-{{$photo->id}}" id="position" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#92d6d6] focus:border-[#92d6d6] sm:text-lg">
                             @for($i = 1; $i <= count($oeuvre->photos); $i++)
                               @if ($i === $photo->position +1)
                               <option selected value="{{$i-1}}">{{$i}}</option>
@@ -124,7 +124,7 @@
                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                           </svg>
                           <div class="flex text-lg text-gray-600">
-                            <label for="photos" class="relative cursor-pointer bg-white rounded-md font-medium text-[#006f7e] hover:text-[#006f7e] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#006f7e]">
+                            <label for="photos" class="relative cursor-pointer bg-white rounded-md font-medium text-[#92d6d6] hover:text-[#92d6d6] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#92d6d6]">
                               <span>{{ __('Upload a photo') }}</span>
                     <input multiple id="photos" name="photos[]" type="file" class="sr-only">
                     </label>
@@ -141,7 +141,7 @@
 
               <div class="flex items-start">
                 <div class="flex items-center h-5">
-                  <input id="active" name="active" type="checkbox" class="focus:ring-[#006f7e] h-4 w-4 text-[#006f7e] border-gray-300 rounded" {{$oeuvre->active ? 'checked' : '' }}>
+                  <input id="active" name="active" type="checkbox" class="focus:ring-[#92d6d6] h-4 w-4 text-[#92d6d6] border-gray-300 rounded" {{$oeuvre->active ? 'checked' : '' }}>
                 </div>
                 <div class="ml-3 text-lg">
                   <label for="active" class="font-medium text-gray-700">{{__('If checked, the artwork will be visible to everyone')}}.</label>
@@ -149,7 +149,7 @@
               </div>
 
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006f7e]">
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#92d6d6] hover:bg-[#08a398] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#92d6d6]">
                   {{ __('EDIT AN ART OBJECT') }}
                 </button>
               </div>

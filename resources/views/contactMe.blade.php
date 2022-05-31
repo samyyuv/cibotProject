@@ -24,22 +24,22 @@
                 <div class="grid grid-cols-6 gap-6 pb-8">
                   <div class="col-span-6 sm:col-span-3">
                     <label for="prenom" class="block text-sm font-semibold">{{ __('Last name') }} *</label>
-                    <input type="text" name="prenom" id="prenom" autocomplete="given-name" class="mt-1 focus:ring-[#006f7e] focus:border-[#006f7e] block w-full shadow-sm sm:text-sm border-transparent">
+                    <input type="text" name="prenom" id="prenom" autocomplete="given-name" class="mt-1 focus:ring-[#92d6d6] focus:border-[#92d6d6] block w-full shadow-sm sm:text-sm border-transparent">
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
                     <label for="nom" class="block text-sm font-semibold">{{ __('First name') }} *</label>
-                    <input type="text" name="nom" id="nom" autocomplete="family-name" class="mt-1 focus:ring-[#006f7e] focus:border-[#006f7e] block w-full shadow-sm sm:text-sm border-transparent">
+                    <input type="text" name="nom" id="nom" autocomplete="family-name" class="mt-1 focus:ring-[#92d6d6] focus:border-[#92d6d6] block w-full shadow-sm sm:text-sm border-transparent">
                   </div>
 
                   <div class="col-span-6  sm:col-span-3">
                     <label for="sujet" class="block text-sm font-semibold">{{ __('Subject') }}</label>
-                    <input type="text" name="sujet" id="sujet" class="mt-1 focus:ring-[#006f7e] focus:border-[#006f7e] block w-full shadow-sm sm:text-sm border-transparent">
+                    <input type="text" name="sujet" id="sujet" class="mt-1 focus:ring-[#92d6d6] focus:border-[#92d6d6] block w-full shadow-sm sm:text-sm border-transparent">
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
                     <label for="email" class="block text-sm font-semibold">{{ __('E-mail') }} *</label>
-                    <input type="email" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-[#006f7e] focus:border-[#006f7e] block w-full shadow-sm sm:text-sm border-transparent">
+                    <input type="email" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-[#92d6d6] focus:border-[#92d6d6] block w-full shadow-sm sm:text-sm border-transparent">
                   </div>
 
                   <div class="col-span-6">
@@ -47,7 +47,7 @@
                       {{ __('Message') }}
                     </label>
                     <div class="mt-1">
-                      <textarea id="message" name="message" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#006f7e] focus:border-[#006f7e] mt-1 block w-full sm:text-sm border border-transparent" placeholder="{{__('Here goes your message')}}"></textarea>
+                      <textarea id="message" name="message" rows="3" class="px-1.5 py-1.5 shadow-sm focus:ring-[#92d6d6] focus:border-[#92d6d6] mt-1 block w-full sm:text-sm border border-transparent" placeholder="{{__('Here goes your message')}}"></textarea>
                     </div>
                     <p class="pt-2 text-xs">{{ __('Mandatory information') }}* </p>
                   </div>

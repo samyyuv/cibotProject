@@ -41,7 +41,7 @@
                             {{ __('Name') }}
                           </label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ Auth::user()->name }}">
+                            <input type="text" name="name" id="name" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ Auth::user()->name }}">
                           </div>
                         </div>
                       </div>
@@ -51,7 +51,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="email" class="block text-lg font-medium text-gray-700">{{ __('Email')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ Auth::user()->email }}">
+                            <input type="email" name="email" id="email" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ Auth::user()->email }}">
                           </div>
                         </div>
                       </div>
@@ -61,7 +61,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="current_password" class="block text-lg font-medium text-gray-700">{{ __('Current Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="current_password" id="current_password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Current Password')}}">
+                            <input type="password" name="current_password" id="current_password" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Current Password')}}">
                           </div>
                         </div>
                       </div>
@@ -71,7 +71,7 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="password" class="block text-lg font-medium text-gray-700">{{ __('New Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="password" id="password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="{{ __('New Password')}}">
+                            <input type="password" name="password" id="password" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="{{ __('New Password')}}">
                           </div>
                         </div>
                       </div>
@@ -81,14 +81,14 @@
                         <div class="col-span-3 sm:col-span-2">
                           <label for="password_confirmation" class="block text-lg font-medium text-gray-700">{{ __('Confirm Password')}}</label>
                           <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Confirm Password')}}">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Confirm Password')}}">
                           </div>
                         </div>
                       </div>
 
                     </div>
                     <div class="px-4 py-3 text-right sm:px-6">
-                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2">
+                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#92d6d6] hover:bg-[#08a398] focus:bg-[#08a398] focus:outline-none focus:ring-2 focus:ring-offset-2">
                         {{ __('CHANGE MY PASSWORD')}}
                       </button>
                     </div>

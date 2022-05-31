@@ -16,11 +16,11 @@
       <!-- Mot de passe -->
       <div class="mt-4">
         <label class="block text-gray-700"> {{ __('Password') }}</label>
-        <input type="password" name="password" id="password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#006f7e]
+        <input type="password" name="password" id="password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#92d6d6]
                 focus:bg-white focus:outline-none" required autocomplete="current-password">
       </div>
 
-      <button type="submit" class="w-full block bg-[#006f7e] hover:bg-[#005d69] focus:bg-[#005d69] text-white font-semibold rounded-lg
+      <button type="submit" class="w-full block bg-[#92d6d6] hover:bg-[#08a398] focus:bg-[#08a398] text-white font-semibold rounded-lg
               px-4 py-3 mt-6"> {{ __('Confirm') }}</button>
     </form>
 

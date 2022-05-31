@@ -44,7 +44,7 @@
           </svg>
         </span>
         <form action="{{ route('admin.dashboard.rechercher') }}" method="GET">
-          <input type="text" name="search" placeholder="{{__('Search')}}" class="focus:ring-[#006f7e] focus:border-[#006f7e] px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+          <input type="text" name="search" placeholder="{{__('Search')}}" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
         </form>
 
       </div>
@@ -166,7 +166,7 @@
 
         <!-- avatar button -->
         <div class="relative" x-data="{ isOpen: false }">
-          <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring text-4xl text-[#006f7e]">
+          <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring text-4xl text-[#92d6d6]">
             <i class="fas fa-users-cog"></i> </button>
           <!-- green dot -->
           <div class=" absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping">

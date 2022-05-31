@@ -35,7 +35,7 @@
                           {{__('Name')}}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Name')}}">
+                          <input type="text" name="name" id="name" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Name')}}">
                         </div>
                       </div>
                     </div>
@@ -45,7 +45,7 @@
                       <div class="col-span-3 sm:col-span-2">
                         <label for="email" class="block text-lg font-medium text-gray-700">{{__('Email Address')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Email Address')}}">
+                          <input type="email" name="email" id="email" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" placeholder="{{__('Email Address')}}">
                         </div>
                       </div>
                     </div>
@@ -55,7 +55,7 @@
                       <div class="col-span-3 sm:col-span-2">
                         <label for="password" class="block text-lg font-medium text-gray-700">{{__('Password')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="password" name="password" id="password" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="{{ __('Current Password')}}">
+                          <input type="password" name="password" id="password" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required autocomplete="new-password" placeholder="{{ __('Current Password')}}">
                         </div>
                       </div>
                     </div>
@@ -65,7 +65,7 @@
                       <div class="col-span-3 sm:col-span-2">
                         <label for="password_confirmation" class="block text-lg font-medium text-gray-700">{{__('Confirm Password')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Confirm Password')}}">
+                          <input type="password" name="password_confirmation" id="password_confirmation" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" required placeholder="{{ __('Confirm Password')}}">
                         </div>
                       </div>
                     </div>
@@ -73,7 +73,7 @@
                     <!-- Role -->
                     <div class="flex items-start">
                       <div class="flex items-center h-5">
-                        <input id="admin" name="admin" type="checkbox" class="focus:ring-[#006f7e] h-4 w-4 text-[#006f7e] border-gray-300 rounded">
+                        <input id="admin" name="admin" type="checkbox" class="focus:ring-[#92d6d6] h-4 w-4 text-[#92d6d6] border-gray-300 rounded">
                       </div>
                       <div class="ml-3 text-lg">
                         <label for="admin" class="font-medium text-gray-700">{{__('If checked, the user will become admin')}}.</label>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006f7e]">
+                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#92d6d6] hover:bg-[#08a398] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#92d6d6]">
                         {{__('CREATE AN USER')}}
                       </button>
                     </div>

@@ -20,22 +20,22 @@
           <!-- Email Address -->
           <div class="mt-4">
             <label class="block text-gray-700" for="email">{{ __('Email') }}</label>
-            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#005d69] focus:bg-white focus:outline-none" required autofocus>
+            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#08a398] focus:bg-white focus:outline-none" required autofocus>
           </div>
 
           <!-- Mot de passe -->
           <div class="mt-4">
             <label class="block text-gray-700">{{ __('Password') }}</label>
-            <input type="password" name="password" id="password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#005d69] focus:bg-white focus:outline-none" required>
+            <input type="password" name="password" id="password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#08a398] focus:bg-white focus:outline-none" required>
           </div>
 
           <!-- Confirmer mot de passe -->
           <div class="mt-4">
             <label class="block text-gray-700">{{ __('Confirm Password') }}</label>
-            <input type="password_confirmation" name="password_confirmation" id="password_confirmation" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#005d69] focus:bg-white focus:outline-none" required>
+            <input type="password_confirmation" name="password_confirmation" id="password_confirmation" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#08a398] focus:bg-white focus:outline-none" required>
           </div>
 
-          <button type="submit" class="w-full block bg-[#006f7e] hover:bg-[#005d69] focus:bg-[#005d69] text-white font-semibold rounded-lg
+          <button type="submit" class="w-full block bg-[#92d6d6] hover:bg-[#08a398] focus:bg-[#08a398] text-white font-semibold rounded-lg
               px-4 py-3 mt-6"> {{ __('Reset Password') }}
           </button>
         </form>

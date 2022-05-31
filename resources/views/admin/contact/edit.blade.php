@@ -37,7 +37,7 @@
                           {{__('Name')}}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="name" id="name" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $contact->name }}">
+                          <input type="text" name="name" id="name" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $contact->name }}">
                         </div>
                       </div>
                     </div>
@@ -47,7 +47,7 @@
                       <div class="col-span-3 sm:col-span-2">
                         <label for="email" class="block text-lg font-medium text-gray-700">{{__('Email Address')}}</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="email" name="email" id="email" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $contact->email }}">
+                          <input type="email" name="email" id="email" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $contact->email }}">
                         </div>
                       </div>
                     </div>
@@ -59,13 +59,13 @@
                           {{__('Telephone')}}
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                          <input type="text" name="telephone" id="telephone" class="focus:ring-[#006f7e] focus:border-[#006f7e] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $contact->telephone }}">
+                          <input type="text" name="telephone" id="telephone" class="focus:ring-[#92d6d6] focus:border-[#92d6d6] flex-1 block w-full rounded-md sm:text-lg border-gray-300" value="{{ $contact->telephone }}">
                         </div>
                       </div>
                     </div>
                     <div class="flex items-start">
                       <div class="flex items-center h-5">
-                        <input id="active" name="active" type="checkbox" class="focus:ring-[#006f7e] h-4 w-4 text-[#006f7e] border-gray-300 rounded" {{$contact->active ? 'checked' : '' }}>
+                        <input id="active" name="active" type="checkbox" class="focus:ring-[#92d6d6] h-4 w-4 text-[#92d6d6] border-gray-300 rounded" {{$contact->active ? 'checked' : '' }}>
                       </div>
                       <div class="ml-3 text-lg">
                         <label for="active" class="font-medium text-gray-700">{{__('If checked, the contact information will be visible to everyone')}}.</label>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#006f7e] hover:bg-[#005d69] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#006f7e]">
+                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#92d6d6] hover:bg-[#08a398] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#92d6d6]">
                         {{ __('EDIT CONTACT INFO') }}
                       </button>
                     </div>

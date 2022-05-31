@@ -8,7 +8,7 @@
       <div class="w-full h-100">
 
 
-        <h1 class="text-xl md:text-2xl text-[#006f7e] font-bold leading-tight mt-12">{{ __('Forgot your password?') }}</h1>
+        <h1 class="text-xl md:text-2xl text-[#92d6d6] font-bold leading-tight mt-12">{{ __('Forgot your password?') }}</h1>
 
         <div class="mb-4 text-sm text-gray-600">
           {{ __('No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -24,10 +24,10 @@
 
           <div>
             <label class="block text-gray-700" for="email">{{ __('Email') }}</label>
-            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#005d69] focus:bg-white focus:outline-none" autofocus required>
+            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-[#08a398] focus:bg-white focus:outline-none" autofocus required>
           </div>
 
-          <button type="submit" class="w-full block bg-[#006f7e] hover:bg-[#005d69] focus:bg-[#005d69] text-white font-semibold rounded-lg
+          <button type="submit" class="w-full block bg-[#92d6d6] hover:bg-[#08a398] focus:bg-[#08a398] text-white font-semibold rounded-lg
               px-4 py-3 mt-6"> {{ __('Email Password Reset Link') }}</button>
         </form>
 
