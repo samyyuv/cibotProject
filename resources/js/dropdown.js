@@ -17,11 +17,13 @@ document.addEventListener("click", e => {
 
 //mobile header menu
 const iconNav = document.querySelectorAll('.menu-nav');
-iconNav.forEach(icon => {
-  icon.addEventListener('click', (event) => {
-    icon.classList.toggle("open");
+if (iconNav) {
+  iconNav.forEach(icon => {
+    icon.addEventListener('click', (event) => {
+      icon.classList.toggle("open");
+    });
   });
-});
+}
 
 const navExpand = [].slice.call(document.querySelectorAll('.nav-expand'))
 const backLink = `<li class="nav-item nav-expand nav-back">
@@ -30,14 +32,17 @@ const backLink = `<li class="nav-item nav-expand nav-back">
   Back
 	</a>
 </li>`
-
-navExpand.forEach(item => {
-  item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink)
-  item.querySelector('.nav-link').addEventListener('click', () => item.classList.add('active'))
-  item.querySelector('.nav-back-link').addEventListener('click', () => item.classList.remove('active'))
-})
+if (navExpand) {
+  navExpand.forEach(item => {
+    item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink)
+    item.querySelector('.nav-link').addEventListener('click', () => item.classList.add('active'))
+    item.querySelector('.nav-back-link').addEventListener('click', () => item.classList.remove('active'))
+  })
+}
 
 const ham = document.getElementById('ham')
-ham.addEventListener('click', function () {
-  document.body.classList.toggle('nav-is-toggled')
-})
+if (ham) {
+  ham.addEventListener('click', function () {
+    document.body.classList.toggle('nav-is-toggled')
+  })
+}

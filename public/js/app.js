@@ -5774,26 +5774,37 @@ document.addEventListener("click", function (e) {
 }); //mobile header menu
 
 var iconNav = document.querySelectorAll('.menu-nav');
-iconNav.forEach(function (icon) {
-  icon.addEventListener('click', function (event) {
-    icon.classList.toggle("open");
+
+if (iconNav) {
+  iconNav.forEach(function (icon) {
+    icon.addEventListener('click', function (event) {
+      icon.classList.toggle("open");
+    });
   });
-});
+}
+
 var navExpand = [].slice.call(document.querySelectorAll('.nav-expand'));
 var backLink = "<li class=\"nav-item nav-expand nav-back\">\n<i class=\"fas fa-chevron-left\"></i>\t\n<a class=\"nav-link nav-back-link\" href=\"javascript:;\">\n  Back\n\t</a>\n</li>";
-navExpand.forEach(function (item) {
-  item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink);
-  item.querySelector('.nav-link').addEventListener('click', function () {
-    return item.classList.add('active');
+
+if (navExpand) {
+  navExpand.forEach(function (item) {
+    item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink);
+    item.querySelector('.nav-link').addEventListener('click', function () {
+      return item.classList.add('active');
+    });
+    item.querySelector('.nav-back-link').addEventListener('click', function () {
+      return item.classList.remove('active');
+    });
   });
-  item.querySelector('.nav-back-link').addEventListener('click', function () {
-    return item.classList.remove('active');
-  });
-});
+}
+
 var ham = document.getElementById('ham');
-ham.addEventListener('click', function () {
-  document.body.classList.toggle('nav-is-toggled');
-});
+
+if (ham) {
+  ham.addEventListener('click', function () {
+    document.body.classList.toggle('nav-is-toggled');
+  });
+}
 
 /***/ }),
 
@@ -5812,9 +5823,13 @@ iconFoot.forEach(function (icon) {
 });
 var footExpand = [].slice.call(document.querySelectorAll('.foot-expand'));
 var hamon = document.getElementById('hamon');
-hamon.addEventListener('click', function () {
-  document.body.classList.toggle('footer-is-toggled');
-});
+
+if (hamon) {
+  hamon.addEventListener('click', function () {
+    document.body.classList.toggle('footer-is-toggled');
+  });
+}
+
 var backLinkFoot = "<li class=\"foot-item foot-expand foot-back\">\n    <i class=\"fas fa-chevron-left\"></i>\n    <a class=\"foot-link foot-back-link\" href=\"javascript:;\">\n      Back\n    </a>\n  </li>";
 
 if (footExpand) {
@@ -5827,28 +5842,7 @@ if (footExpand) {
       return item.classList.remove('active');
     });
   });
-} // //mobile footer menu
-// const iconsFoot = document.querySelectorAll('.menu-foot');
-// iconsFoot.forEach(icon => {
-//   icon.addEventListener('click', (event) => {
-//     icon.classList.toggle("open");
-//   });
-// });
-// const hamon = document.getElementById('hamon')
-// hamon.addEventListener('click', function () {
-//   document.body.classList.toggle('footer-is-toggled')
-// })
-// const footExpand = [].slice.call(document.querySelectorAll('.foot-expand'))
-// const backLink = `<li class="foot-item">
-// 	<a class="foot-link foot-back-link" href="javascript:;">
-// 		Back
-// 	</a>
-// </li>`
-// footExpand.forEach(item => {
-//   item.querySelector('.foot-expand-content').insertAdjacentHTML('afterbegin', backLink)
-//   item.querySelector('.foot-link').addEventListener('click', () => item.classList.add('active'))
-//   item.querySelector('.foot-back-link').addEventListener('click', () => item.classList.remove('active'))
-// })
+}
 
 /***/ }),
 
