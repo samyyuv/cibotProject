@@ -17,7 +17,7 @@
     <div class="home-slider">
       <div class="home-slides">
         <div class="home-slide slide fade">
-          <img src="{{ asset('/storage/' . $tellina->photos[0]->photo) }}" alt="">
+          <img src="{{ asset('/storage/' . $tellina->photos[0]->photo) }}" alt="{{ $tellina->titre }}">
           <a href="/collections/{{ $tellina->collection_id }}/categories/{{ $tellina->categorie_id }}" class="home-slider-details link" onclick="activeArtLinkExtended('{{ $tellina->categorie->id }}', '{{ $tellina->id }}' )">
             {{ $tellina->titre }} - {{ $tellina->date->format('Y') }} - {{ $tellina->collection->titre }} →</a>
         </div>
@@ -25,7 +25,7 @@
         @foreach ($oeuvre->photos as $photo)
         @if ($loop->first)
         <div class="home-slide slide fade">
-          <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+          <img src="{{ asset('/storage/' . $photo->photo) }}" alt="{{ $oeuvre->titre }}">
           <a href="/collections/{{ $oeuvre->collection_id }}/categories/{{ $oeuvre->categorie_id }}" class="home-slider-details link" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
             {{ $oeuvre->titre }} - {{ $oeuvre->date->format('Y') }} - {{ $oeuvre->collection->titre }} →</a>
         </div>
@@ -47,7 +47,7 @@
   <a class="news-btn" href="{{ route('actualites.index') }}">{{ __('All') }}</a>
   </div>
   <div class="news-img">
-    <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+    <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="{{ $actualite->titre }}">
   </div>
   <div class="news-presentation card">
     @if ('en' == App::getLocale() && $actualite->titre_en != null)

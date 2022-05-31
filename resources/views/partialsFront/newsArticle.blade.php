@@ -16,13 +16,13 @@
         <div class="img-container">
           @foreach ($actualite->photos as $photo)
           <div class="">
-            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+            <img src="{{ asset('/storage/' . $photo->photo) }}" alt="{{ $actualite->titre }}">
           </div>
           @endforeach
         </div>
       </div>
       {{--main photos--}}
-      <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+      <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="{{ $actualite->titre }}">
     </div>
 
     <div class="news-other">
@@ -32,7 +32,7 @@
         <div class="actualites-container-topic card">
           <div>
             <a href="{{ route('actualites.show', $actualite) }}">
-              <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+              <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="{{ $actualite->titre }}">
               <div class="cross">
                 <span></span> <span></span>
               </div>

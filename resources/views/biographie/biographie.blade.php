@@ -3,7 +3,7 @@
 
   <div class="biographie-presentation hello">
     <div>
-      <img src="{{ asset('/storage/' . $oeuvresImg[0]->photos[0]->photo) }}" alt="image">
+      <img src="{{ asset('/storage/' . $oeuvresImg[0]->photos[0]->photo) }}" alt="{{$oeuvresImg[0]->titre}}">
       <h2>{{ __('Presentation') }}</h2>
       @if ('fr' == App::getLocale())
       <p>Née en 1960 dans une famille d’artistes collectionnant les bronzes de la Renaissance italienne,

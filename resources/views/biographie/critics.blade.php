@@ -3,7 +3,7 @@
 
   <div class="biographie-presentation criticsBtn">
     <div>
-      <img src="{{ asset('/storage/' . $oeuvresImg[7]->photos[0]->photo) }}" alt="image">
+      <img src="{{ asset('/storage/' . $oeuvresImg[7]->photos[0]->photo) }}" alt="{{$oeuvresImg[7]->titre}}">
       <div>
         <h2>{{ __('Critics') }}</h2>
         @if ('fr' == App::getLocale())
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="critics victor">
-            <img src="{{ asset('/storage/admin/victorBarker.jpg') }}" alt="" />
+            <img src="{{ asset('/storage/admin/victorBarker.jpg') }}" alt="Critique de Victor Barker" />
           </div>
         </div>
         <div>
@@ -199,7 +199,7 @@
               </div>
             </div>
             <div class="critics victor">
-              <img src="{{ asset('/storage/admin/victorBarker.jpg') }}" alt="" />
+              <img src="{{ asset('/storage/admin/victorBarker.jpg') }}" alt="Victor Barker's critic" />
             </div>
           </div>
           <div>

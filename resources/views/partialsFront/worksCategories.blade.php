@@ -28,7 +28,7 @@
           @foreach ($oeuvre->photos as $photo)
           @if ($photo->position === 0)
           <a href="#">
-            <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+            <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="{{$oeuvre->titre}}">
             <div class="cross">
               <span></span>
               <span></span>
@@ -76,7 +76,7 @@
 
                   @foreach ($sortedPhoto as $photo)
                   <li class="slide2-{{$oeuvre->id}} fade">
-                    <img class="slideshow-img" src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                    <img class="slideshow-img" src="{{ asset('/storage/' . $photo->photo) }}" alt="{{$oeuvre->titre}}">
                   </li>
                   @endforeach
                 </ul>

@@ -2,7 +2,7 @@
   @include('biographie.menuBiographie')
   <div class="biographie-presentation monuments">
     <div>
-      <img src="{{ asset('/storage/' . $oeuvresImg[2]->photos[0]->photo) }}" alt="image">
+      <img src="{{ asset('/storage/' . $oeuvresImg[2]->photos[0]->photo) }}" alt="{{$oeuvresImg[2]->titre}}">
       <div>
         <h2>{{ __('Monuments') }}</h2>
         @if ('fr' == App::getLocale())

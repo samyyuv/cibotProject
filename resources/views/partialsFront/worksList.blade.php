@@ -29,7 +29,7 @@
         @if ($photo->position === 0)
         <div onclick="openShow({{$oeuvre->categorie_id}}, {{ $oeuvre->id }});currentSlide({{ $key }});setPhotoShow(<?= $oeuvre->id ?>)">
           <a href="#">
-            <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+            <img id="<?= $photo->oeuvre_id; ?>" src="{{ asset('/storage/' . $photo->photo) }}" alt="{{$oeuvre->titre}}">
             <div class="cross">
               <span></span>
               <span></span>
@@ -72,7 +72,7 @@
                   <?php $sortedPhoto = App\Http\Controllers\CollectionController::getPhotosByOeuvreSortedByPosition($oeuvre->id) ?>
                   @foreach ($sortedPhoto as $photo)
                   <li class="slide2-{{$oeuvre->id}} fade">
-                    <img class="slideshow-img" src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                    <img class="slideshow-img" src="{{ asset('/storage/' . $photo->photo) }}" alt="{{$oeuvre->titre}}">
                   </li>
                   @endforeach
                 </ul>

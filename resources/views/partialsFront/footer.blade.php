@@ -3,7 +3,7 @@
     <div class="footer-logo">
       <div class="logo">
         <a href="">
-          <img class="logo" src="{{ asset('/storage/admin/logo1.png') }}" alt="" />
+          <img class="logo" src="{{ asset('/storage/admin/logo1.png') }}" alt="Logo d'Elisabeth Cibots" />
         </a>
       </div>
       <div class="d-none">

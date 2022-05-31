@@ -1,7 +1,7 @@
 <header class="header-menu">
   <div class="header-container">
     <div class="nav-top">
-      <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo1.png') }}" alt="" /></a>
+      <a href="/"><img class="logo" src="{{ asset('/storage/admin/logo1.png') }}" alt="Logo d'Elisabeth Cibots" /></a>
       <div class="menu-icon menu-nav" id="ham">
         <span></span>
         <span></span>
@@ -58,7 +58,7 @@
               <div>
                 @foreach ($oeuvreMenu->photos as $photo)
                 @if ($loop->first)
-                <img src="{{ asset('/storage/' . $photo->photo) }}" alt="image">
+                <img src="{{ asset('/storage/' . $photo->photo) }}" alt="{{ $oeuvreMenu->titre }}">
                 @endif
                 @endforeach
               </div>

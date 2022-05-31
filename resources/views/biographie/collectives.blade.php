@@ -3,7 +3,7 @@
 
   <div class="biographie-presentation collectives">
     <div>
-      <img src="{{ asset('/storage/' . $oeuvresImg[4]->photos[0]->photo) }}" alt="image">
+      <img src="{{ asset('/storage/' . $oeuvresImg[4]->photos[0]->photo) }}" alt="{{$oeuvresImg[4]->titre}}">
       <div>
         <h2>{{ __('Collective exhibitions') }} </h2>
         @if ('fr' == App::getLocale())

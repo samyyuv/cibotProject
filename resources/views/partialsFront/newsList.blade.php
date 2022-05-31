@@ -14,7 +14,7 @@
       <div class="actualites-container-topic card">
         <div>
           <a href="{{ route('actualites.show', $actualite) }}">
-            <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+            <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="{{ $actualite->titre }}">
             <div class="cross">
               <span></span>
               <span></span>
@@ -47,7 +47,7 @@
       <div class="actualites-container-topic card">
         <div>
           <a href="{{ route('actualites.show', $actualite) }}">
-            <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="">
+            <img src="{{ asset('/storage/' . $actualite->photo) }}" alt="{{ $actualite->titre }}">
             <div class="cross">
               <span></span> <span></span>
             </div>

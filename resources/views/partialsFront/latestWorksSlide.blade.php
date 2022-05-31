@@ -12,7 +12,7 @@
         <div class="slide-2 card">
           <div>
             <a href="/collections/{{ $oeuvre->collection_id }}/categories/{{ $oeuvre->categorie_id }}/" onclick="activeArtLinkExtended('{{ $oeuvre->categorie->id }}', '{{ $oeuvre->id }}')">
-              <img src="{{ asset('/storage/' . $photo->photo) }}" alt="">
+              <img src="{{ asset('/storage/' . $photo->photo) }}" alt="{{ $oeuvre->categorie->titre }}">
               <div class="cross">
                 <span></span>
                 <span></span>
