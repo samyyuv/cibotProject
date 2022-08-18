@@ -5,7 +5,7 @@
 
 ## Installer ArtProject 👩‍💻
 
-Après installer Docker dans ubuntu environment, ecrir dans la ligne de commande:
+After installing Docker in ubuntu environment, write in the command line:
 ```
 git clone https://github.com/samyyuv/artProject.git
 cd quizzical
@@ -16,13 +16,12 @@ docker exec -it <*LARAVELAPP CONTAINER'S ID*> bash
 exit
 ```
 
-Pour avoir la bas de données ramplis:
+To have the database populated:
 ```
 cat backup.sql | docker exec -i <*MYSQL CONTAINER’S ID*> /usr/bin/mysql -u root --password= cibot
 ```
 
-Le projet est prêt pour le voir ü
-
+The project is ready to see it ✅
 
 ## Screenshots 📸
 #### Site web
