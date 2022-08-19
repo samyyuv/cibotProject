@@ -8,7 +8,7 @@
 After installing Docker in ubuntu environment, write in the command line:
 ```
 git clone https://github.com/samyyuv/artProject.git
-cd quizzical
+cd artProject
 docker-compose build
 docker-compose up -d
 docker ps 
