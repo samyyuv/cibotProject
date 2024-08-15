@@ -44,11 +44,12 @@ class AppServiceProvider extends ServiceProvider
     }
     private function sluging($categoriesMenu)
     {
-        $i = 0;
+        $slugs = [];
+
         foreach ($categoriesMenu as $categorie) {
-            $hello[$categorie->id] = Str::slug($categorie->titre);
-            $i++;
+            $slugs[$categorie->id] = Str::slug($categorie->titre);
         }
-        return $hello;
+
+        return $slugs;
     }
 }
