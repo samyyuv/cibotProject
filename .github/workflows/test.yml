@@ -13,36 +13,33 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      db:
+      mysql:
         image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testdb
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
         ports:
-          - "3306:3306"
-        environment:
-          MYSQL_DATABASE: "cibot"
-          MYSQL_ALLOW_EMPTY_PASSWORD: 1
-          MYSQL_PASSWORD: ""
+          - 3306:3306
         volumes:
           - mysql-data:/var/lib/mysql
-      app:
-        build:
-          context: .
-          dockerfile: .docker/Dockerfile
-        image: 'laravelapp'
-        ports:
-          - "8080:80"
-        volumes:
-          - ./:/var/www/html
-        user: '1000:1000'
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
 
-      composer:
-        restart: 'no'
-        image: composer:2
-        command: install
-        volumes:
-          - .:/app
-
-    volumes:
-      mysql-data: null
+    app:
+      build:
+        context: .
+        dockerfile: .docker/Dockerfile
+      image: 'laravelapp'
+      ports:
+        - "8080:80"
+      volumes:
+        - ./:/var/www/html
+      user: '1000:1000'
 
     steps:
       - name: Checkout code
