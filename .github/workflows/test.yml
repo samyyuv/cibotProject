@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - testing-for-exam
-      
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0' # Remplacez par la version de PHP utilisée dans votre projet
+          php-version: '8.3'
           extensions: mbstring, xml, ctype, json, bcmath, tokenizer, zip, mysqli, pdo_mysql
           coverage: none
 
