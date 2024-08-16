@@ -12,6 +12,40 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    version: '3.7'
+    services:
+      db:
+        image: mysql:5.7
+        restart: always
+        ports:
+          - "3306:3306"
+        environment:
+          MYSQL_DATABASE: "cibot"
+          MYSQL_ALLOW_EMPTY_PASSWORD: 1
+          MYSQL_PASSWORD: ""
+        volumes:
+          - mysql-data:/var/lib/mysql
+      app:
+        build:
+          context: .
+          dockerfile: .docker/Dockerfile
+        image: 'laravelapp'
+        ports:
+          - "8080:80"
+        volumes:
+          - ./:/var/www/html
+        user: '1000:1000'
+
+      composer:
+        restart: 'no'
+        image: composer:2
+        command: install
+        volumes:
+          - .:/app
+
+    volumes:
+      mysql-data: null
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,10 +61,19 @@ jobs:
         run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
 
       - name: Create .env file
-        run: cp .env.example .env
+        run: |
+          cp .env.example .env
+          sed -i 's/DB_HOST=127.0.0.1/DB_HOST=mysql/' .env
+          sed -i 's/REDIS_HOST=127.0.0.1/REDIS_HOST=redis/' .env
+          sed -i 's/DB_DATABASE=laravel/DB_DATABASE=testdb/' .env
+          sed -i 's/DB_USERNAME=root/DB_USERNAME=user/' .env
+          sed -i 's/DB_PASSWORD=/DB_PASSWORD=password/' .env
 
       - name: Generate application key
         run: php artisan key:generate
+
+      - name: Run migrations
+        run: php artisan migrate --force
 
       - name: Run tests
         run: php artisan test
