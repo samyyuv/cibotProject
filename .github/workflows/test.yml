@@ -3,11 +3,11 @@ name: Run Tests
 on:
   push:
     branches:
-      - '**' # Cette ligne permet de déclencher le workflow sur toutes les branches
+      - testing-for-exam
   pull_request:
     branches:
-      - '**' # Cette ligne permet de déclencher le workflow pour tous les pull requests sur toutes les branches
-
+      - testing-for-exam
+      
 jobs:
   test:
     runs-on: ubuntu-latest
