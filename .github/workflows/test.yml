@@ -22,24 +22,11 @@ jobs:
           MYSQL_PASSWORD: password
         ports:
           - 3306:3306
-        volumes:
-          - mysql-data:/var/lib/mysql
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
-
-    app:
-      build:
-        context: .
-        dockerfile: .docker/Dockerfile
-      image: 'laravelapp'
-      ports:
-        - "8080:80"
-      volumes:
-        - ./:/var/www/html
-      user: '1000:1000'
 
     steps:
       - name: Checkout code
