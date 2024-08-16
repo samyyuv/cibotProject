@@ -1,0 +1,86 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - testing-for-exam
+  pull_request:
+    branches:
+      - testing-for-exam
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        ports:
+          - 3307:3306
+        env:
+          MYSQL_DATABASE: cibot
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_PASSWORD: ""
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Build and start containers
+        run: docker-compose -f docker-compose.yml up -d
+
+      - name: Get MySQL Port
+        run: |
+          MYSQL_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "3306/tcp") 0).HostPort}}' $(docker-compose ps -q db))
+          echo "MYSQL_PORT=$MYSQL_PORT" >> $GITHUB_ENV
+
+      - name: Set correct permissions
+        run: |
+          docker-compose exec app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+          docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+      - name: Set up environment file
+        run: |
+          cp .env.example .env
+          sed -i 's/DB_HOST=127.0.0.1/DB_HOST=db/' .env
+          sed -i 's/DB_PORT=3306/DB_PORT=3307/' .env  # Adjust port if necessary
+          sed -i 's/DB_DATABASE=homestead/DB_DATABASE=cibot/' .env
+          sed -i 's/DB_USERNAME=homestead/DB_USERNAME=root/' .env
+          sed -i 's/DB_PASSWORD=secret/DB_PASSWORD=/' .env
+
+      - name: Wait for MySQL to be ready
+        run: |
+          until docker exec $(docker-compose ps -q db) mysqladmin ping --silent; do
+            echo 'Waiting for MySQL...'
+            sleep 5
+          done
+
+      - name: Run migrations and tests
+        run: |
+          docker-compose exec app php artisan migrate --force
+          docker-compose exec app php artisan test
+
+      - name: Stop containers
+        if: always()
+        run: docker-compose down

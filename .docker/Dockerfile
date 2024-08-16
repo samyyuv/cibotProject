@@ -2,7 +2,7 @@ FROM composer:2 as composer
 COPY . /app
 RUN composer install --ignore-platform-reqs --no-scripts
 
-FROM php:7.4.1-apache
+FROM php:8.3-apache
 USER root
 WORKDIR /var/www/html
 
